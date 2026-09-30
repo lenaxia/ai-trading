@@ -1,0 +1,62 @@
+---
+# yaml-language-server: $schema=https://json.schemastore.io/github-workflow.json
+name: CI
+
+on:
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  checks:
+    name: Python checks
+    runs-on: gokore-runner
+    container: python:3.12-slim
+    timeout-minutes: 10
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      # Everything here is offline: compile-check every *.py in the repo,
+      # then import the entry modules (all top-level logic sits behind
+      # __main__ guards, so importing touches no network and runs nothing).
+      # marketdata.py has no --help mode; the import smoke below is its
+      # no-network equivalent.
+      - name: Compile-check all Python files
+        run: |
+          find . -name '*.py' -print | tee /tmp/pyfiles.txt
+          xargs -r python3 -m py_compile < /tmp/pyfiles.txt
+          find . -name __pycache__ -type d -exec rm -rf {} +
+
+      - name: Import smoke (no network)
+        run: |
+          python3 - <<'PYEOF'
+          import sys
+          sys.path.insert(0, '.')
+          sys.path.insert(0, './forward')
+          import broker, marketdata, trade, control, daily_run, dd_screen, forward
+          print('ai-trading imports OK')
+          PYEOF
+
+      # Broker fill math sanity: 5 bps/side cost, avg-entry weighting,
+      # insufficient-cash rejection. Keeps PRs honest without any network.
+      - name: Broker fill math test
+        run: |
+          python3 - <<'PYEOF'
+          import broker
+          b = {"cash": 10000.0, "positions": {}, "fills": []}
+          f1 = broker.execute(b, "buy", "TEST", 10, 100.0, "seed buy")
+          assert abs(b["cash"] - (10000.0 - 1000.0 - 0.5)) < 1e-9, b["cash"]
+          assert b["positions"]["TEST"] == {"qty": 10, "entry": 100.0}
+          f2 = broker.execute(b, "buy", "TEST", 10, 110.0, "add")
+          assert b["positions"]["TEST"]["entry"] == 105.0, b["positions"]
+          f3 = broker.execute(b, "sell", "TEST", 5, 120.0, "trim")
+          # 8999.5 after buy1, -1100-0.55 after buy2, +600-0.30 after sell
+          assert abs(b["cash"] - 8498.65) < 1e-9, b["cash"]
+          try:
+              broker.execute(b, "buy", "TEST", 999999, 100.0, "too big")
+              raise SystemExit("insufficient cash not rejected")
+          except ValueError:
+              pass
+          print("broker math OK:", f1["cost"], f2["cost"], f3["cost"])
+          PYEOF

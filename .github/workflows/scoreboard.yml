@@ -1,0 +1,39 @@
+---
+# yaml-language-server: $schema=https://json.schemastore.io/github-workflow.json
+name: Scoreboard
+
+on:
+  schedule:
+    - cron: '30 21 * * 1-5' # 21:30 UTC weekdays, after the US close (per forward/NOTES.md)
+  workflow_dispatch:
+
+permissions:
+  contents: write # GITHUB_TOKEN pushes the state commit
+
+jobs:
+  scoreboard:
+    name: Forward tracker + control mark
+    runs-on: gokore-runner
+    container: python:3.12-slim
+    timeout-minutes: 30
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      # forward.py: refetch daily OHLC, replay all out-of-sample variants,
+      # atomically overwrite forward/forward_state.json, print comparison.
+      # control.py: mark the CONTROL buy-and-hold clone to market
+      # (control_state.json; idempotent per UTC day, self-skips weekends).
+      - name: Run forward tracker then control mark
+        run: |
+          python3 forward/forward.py
+          python3 control.py
+
+      - name: Commit state
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          git config user.name ai-trading-bot
+          git config user.email ai-trading-bot@users.noreply.github.com
+          git add state/ control_state.json forward/
+          git diff --cached --quiet || git commit -m "[bot] scoreboard run"
+          git push

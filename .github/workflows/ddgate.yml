@@ -1,0 +1,49 @@
+---
+# yaml-language-server: $schema=https://json.schemastore.io/github-workflow.json
+name: DD Gate
+
+# DISABLED BY DESIGN — workflow_dispatch only.
+#
+# dd_screen.py wraps TradingAgents and needs the TA venv
+# (integration/vendor/TradingAgents — NOT vendored in this repo) plus an
+# OPENAI_API_KEY secret (+ OPENAI_API_BASE if not using the default). Until
+# both land, the DD gate runs workspace-side and daily_run.py simply sees no
+# state/dd_verdicts.json (missing file = no vetoes, never blocks).
+#
+# To enable: vendor the TA venv (or container image), add the secret, then
+# uncomment the schedule below.
+on:
+  workflow_dispatch:
+  # schedule:
+  #   - cron: '45 13 * * 1-5' # 13:45 UTC weekdays, just after the US open
+
+permissions:
+  contents: write
+
+jobs:
+  ddgate:
+    name: TradingAgents DD screen
+    runs-on: gokore-runner
+    container: python:3.12-slim
+    timeout-minutes: 90
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      - name: Explain disabled state
+        run: |
+          echo "dd_screen.py requires the TradingAgents venv and OPENAI_API_KEY."
+          echo "It remains workspace-side for now — see README 'Enabling the DD gate'."
+          echo "When enabled, this job runs: python3 dd_screen.py (writes state/dd_verdicts.json)."
+
+      # - name: Run dd_screen.py
+      #   run: python3 dd_screen.py
+      #
+      # - name: Commit state
+      #   run: |
+      #     git config --global --add safe.directory "$GITHUB_WORKSPACE"
+      #     git config user.name ai-trading-bot
+      #     git config user.email ai-trading-bot@users.noreply.github.com
+      #     git add state/
+      #     git diff --cached --quiet || git commit -m "[bot] ddgate run"
+      #     git push
