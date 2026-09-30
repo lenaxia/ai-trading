@@ -1,0 +1,4758 @@
+{
+ "meta": {
+  "generated_utc": "2026-09-29T04:43:30Z",
+  "engine": "daily close-to-close; signal from data<=t-1, execution at t close",
+  "cost_bps_per_side": 5,
+  "splits": {
+   "train": [
+    "2023-09-29",
+    "2025-06-30"
+   ],
+   "validation": [
+    "2025-07-01",
+    "2026-09-28"
+   ]
+  },
+  "universe_traded": [
+   "NVDA",
+   "AAPL",
+   "MSFT",
+   "TSLA",
+   "AMZN",
+   "META",
+   "GOOGL",
+   "AMD",
+   "JPM",
+   "XOM",
+   "LLY",
+   "AVGO"
+  ],
+  "benchmarks": [
+   "SPY",
+   "QQQ"
+  ],
+  "rows": 751,
+  "train_days": 438,
+  "val_days": 313,
+  "date_range": [
+   "2023-09-29",
+   "2026-09-28"
+  ],
+  "variants": 137,
+  "true_trials": 137,
+  "dev_discarded": 0,
+  "rank_metric": "validation sharpe"
+ },
+ "variants": [
+  {
+   "id": "mom_n10_k1_rel_c1",
+   "family": "xs-momentum",
+   "params": {
+    "n": 10,
+    "k": 1,
+    "abs_filter": false,
+    "cadence": 1
+   },
+   "description": "XS momentum: top-1 by 10d return, no filter, rebalance every 1d",
+   "train": {
+    "days": 438,
+    "total_return": 0.4334979683724445,
+    "cagr": 0.23021744912846986,
+    "max_drawdown": -0.3619645919580641,
+    "sharpe": 0.6879957872042679,
+    "win_rate": 0.5666666666666667,
+    "round_trips": 150,
+    "avg_exposure": 0.9726027397260274,
+    "trades_per_year": 86.87671232876713
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 3.302541110962676,
+    "cagr": 2.2375725704334672,
+    "max_drawdown": -0.3068088823088285,
+    "sharpe": 2.613832993190139,
+    "win_rate": 0.5494505494505495,
+    "round_trips": 91,
+    "avg_exposure": 1.0,
+    "trades_per_year": 73.26517571884983
+   },
+   "rank_val_sharpe": 1,
+   "val_bench_spread": {
+    "SPY": 2.0491368964360857,
+    "QQQ": 1.9755431824895284,
+    "avg_exposure": 1.0,
+    "variant_cagr": 2.2375725704334672
+   },
+   "val_dsr": 0.906
+  },
+  {
+   "id": "mom_n10_k1_abs_c1",
+   "family": "xs-momentum",
+   "params": {
+    "n": 10,
+    "k": 1,
+    "abs_filter": true,
+    "cadence": 1
+   },
+   "description": "XS momentum: top-1 by 10d return, abs filter (cash if ret<=0), rebalance every 1d",
+   "train": {
+    "days": 438,
+    "total_return": 0.3117984694553717,
+    "cagr": 0.16899851472235672,
+    "max_drawdown": -0.39687002028814056,
+    "sharpe": 0.5757605808295347,
+    "win_rate": 0.547945205479452,
+    "round_trips": 146,
+    "avg_exposure": 0.9497716894977168,
+    "trades_per_year": 84.57534246575342
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 3.302541110962676,
+    "cagr": 2.2375725704334672,
+    "max_drawdown": -0.3068088823088285,
+    "sharpe": 2.613832993190139,
+    "win_rate": 0.5494505494505495,
+    "round_trips": 91,
+    "avg_exposure": 1.0,
+    "trades_per_year": 73.26517571884983
+   },
+   "rank_val_sharpe": 2,
+   "val_bench_spread": {
+    "SPY": 2.0491368964360857,
+    "QQQ": 1.9755431824895284,
+    "avg_exposure": 1.0,
+    "variant_cagr": 2.2375725704334672
+   },
+   "val_dsr": 0.906
+  },
+  {
+   "id": "two_sleeve",
+   "family": "two-sleeve-combo",
+   "params": {
+    "a": {
+     "n": 63,
+     "k": 3,
+     "vol_n": 20,
+     "name_cap": 0.15,
+     "flatten_rank": 0.8,
+     "cadence": 5
+    },
+    "b": {
+     "n": 3,
+     "tp": 4.0,
+     "sl": -5.0,
+     "max_sessions": 5,
+     "gate": "SPY vol20 rank <= 60d median, +/-1 pctile hysteresis"
+    },
+    "split": 0.5
+   },
+   "description": "50/50 combo: vol-targeted momentum (top3 63d, 1/vol20, 15% cap, SPY vol-rank>80th flatten) + vol-gated 3-5d reversal (+4/-5/5 sessions)",
+   "train": {
+    "days": 438,
+    "total_return": 0.03382048565102669,
+    "cagr": 0.01932082915033906,
+    "max_drawdown": -0.24348693980263336,
+    "sharpe": 0.19958558430060902,
+    "win_rate": 0.5147058823529411,
+    "round_trips": 68,
+    "avg_exposure": 0.37211792181244524,
+    "trades_per_year": 40.84931506849315
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.6760804239211033,
+    "cagr": 0.5155924673303867,
+    "max_drawdown": -0.12022718644255148,
+    "sharpe": 2.294249682937681,
+    "win_rate": 0.5,
+    "round_trips": 56,
+    "avg_exposure": 0.5649100333346738,
+    "trades_per_year": 45.891373801916934
+   },
+   "rank_val_sharpe": 3,
+   "val_bench_spread": {
+    "SPY": 0.439051895840999,
+    "QQQ": 0.40429766791808275,
+    "avg_exposure": 0.5649100333346738,
+    "variant_cagr": 0.5155924673303867
+   },
+   "val_dsr": 0.8197
+  },
+  {
+   "id": "don_p2_s5",
+   "family": "donchian",
+   "params": {
+    "p": 2,
+    "stop": 5,
+    "window": 63
+   },
+   "description": "Donchian: buy within 2% of 63d high, -5% stop",
+   "train": {
+    "days": 438,
+    "total_return": 0.5317702772929473,
+    "cagr": 0.2780556494877071,
+    "max_drawdown": -0.2512271455385683,
+    "sharpe": 1.2193038587805327,
+    "win_rate": 0.3333333333333333,
+    "round_trips": 6,
+    "avg_exposure": 0.7540892331417827,
+    "trades_per_year": 9.780821917808218
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.5330545672563327,
+    "cagr": 0.4105699511132761,
+    "max_drawdown": -0.11560195966667042,
+    "sharpe": 1.9679909125354198,
+    "win_rate": 0.0,
+    "round_trips": 2,
+    "avg_exposure": 0.9676874478432969,
+    "trades_per_year": 2.415335463258786
+   },
+   "rank_val_sharpe": 4,
+   "val_bench_spread": {
+    "SPY": 0.22860451742525,
+    "QQQ": 0.1571555537641276,
+    "avg_exposure": 0.9676874478432969,
+    "variant_cagr": 0.4105699511132761
+   },
+   "val_dsr": 0.6893
+  },
+  {
+   "id": "don_p5_s8",
+   "family": "donchian",
+   "params": {
+    "p": 5,
+    "stop": 8,
+    "window": 63
+   },
+   "description": "Donchian: buy within 5% of 63d high, -8% stop",
+   "train": {
+    "days": 438,
+    "total_return": 0.5559908843082135,
+    "cagr": 0.28964390112380944,
+    "max_drawdown": -0.24608844537747399,
+    "sharpe": 1.2450547897461302,
+    "win_rate": 0.0,
+    "round_trips": 6,
+    "avg_exposure": 0.7899348045363205,
+    "trades_per_year": 10.356164383561644
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.6116023124003496,
+    "cagr": 0.46847234031357354,
+    "max_drawdown": -0.12800055226209428,
+    "sharpe": 1.9433905003152991,
+    "win_rate": null,
+    "round_trips": 0,
+    "avg_exposure": 0.9999999999999997,
+    "trades_per_year": 0.0
+   },
+   "rank_val_sharpe": 5,
+   "val_bench_spread": {
+    "SPY": 0.28003666631619195,
+    "QQQ": 0.20644295236963472,
+    "avg_exposure": 0.9999999999999997,
+    "variant_cagr": 0.46847234031357354
+   },
+   "val_dsr": 0.6805
+  },
+  {
+   "id": "don_p10_s8",
+   "family": "donchian",
+   "params": {
+    "p": 10,
+    "stop": 8,
+    "window": 63
+   },
+   "description": "Donchian: buy within 10% of 63d high, -8% stop",
+   "train": {
+    "days": 438,
+    "total_return": 0.6478092249664693,
+    "cagr": 0.3328944752891889,
+    "max_drawdown": -0.22021281997327657,
+    "sharpe": 1.3947761713430415,
+    "win_rate": 0.0,
+    "round_trips": 5,
+    "avg_exposure": 0.8152991413009233,
+    "trades_per_year": 9.780821917808218
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.621670530915237,
+    "cagr": 0.47585398125899814,
+    "max_drawdown": -0.12920942127077562,
+    "sharpe": 1.9398568617936018,
+    "win_rate": null,
+    "round_trips": 0,
+    "avg_exposure": 0.9999999999999999,
+    "trades_per_year": 0.0
+   },
+   "rank_val_sharpe": 6,
+   "val_bench_spread": {
+    "SPY": 0.28741830726161655,
+    "QQQ": 0.21382459331505932,
+    "avg_exposure": 0.9999999999999999,
+    "variant_cagr": 0.47585398125899814
+   },
+   "val_dsr": 0.6792
+  },
+  {
+   "id": "don_p5_s5",
+   "family": "donchian",
+   "params": {
+    "p": 5,
+    "stop": 5,
+    "window": 63
+   },
+   "description": "Donchian: buy within 5% of 63d high, -5% stop",
+   "train": {
+    "days": 438,
+    "total_return": 0.5227293556031565,
+    "cagr": 0.273710139828089,
+    "max_drawdown": -0.2462357686045492,
+    "sharpe": 1.2120111556763118,
+    "win_rate": 0.16666666666666666,
+    "round_trips": 12,
+    "avg_exposure": 0.7676030405698543,
+    "trades_per_year": 13.232876712328768
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.5172988194879791,
+    "cagr": 0.39888656470698924,
+    "max_drawdown": -0.11560195966667042,
+    "sharpe": 1.9295860701069398,
+    "win_rate": 0.0,
+    "round_trips": 2,
+    "avg_exposure": 0.9754700652472018,
+    "trades_per_year": 2.415335463258786
+   },
+   "rank_val_sharpe": 7,
+   "val_bench_spread": {
+    "SPY": 0.2136303933748902,
+    "QQQ": 0.13738565334170327,
+    "avg_exposure": 0.9754700652472018,
+    "variant_cagr": 0.39888656470698924
+   },
+   "val_dsr": 0.6735
+  },
+  {
+   "id": "don_p2_s8",
+   "family": "donchian",
+   "params": {
+    "p": 2,
+    "stop": 8,
+    "window": 63
+   },
+   "description": "Donchian: buy within 2% of 63d high, -8% stop",
+   "train": {
+    "days": 438,
+    "total_return": 0.552391022043349,
+    "cagr": 0.2879264333489069,
+    "max_drawdown": -0.25363872231375495,
+    "sharpe": 1.2378622385601237,
+    "win_rate": 0.25,
+    "round_trips": 4,
+    "avg_exposure": 0.7661976840267858,
+    "trades_per_year": 8.63013698630137
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.5915353678324939,
+    "cagr": 0.4537331171585397,
+    "max_drawdown": -0.12574622699029936,
+    "sharpe": 1.9290548524063278,
+    "win_rate": null,
+    "round_trips": 0,
+    "avg_exposure": 0.9990138717276285,
+    "trades_per_year": 0.805111821086262
+   },
+   "rank_val_sharpe": 8,
+   "val_bench_spread": {
+    "SPY": 0.2656223653712695,
+    "QQQ": 0.19173301761813866,
+    "avg_exposure": 0.9990138717276285,
+    "variant_cagr": 0.4537331171585397
+   },
+   "val_dsr": 0.6746
+  },
+  {
+   "id": "rand_k3_seed42",
+   "family": "random-control",
+   "params": {
+    "k": 3,
+    "cadence": 5,
+    "seed": 42
+   },
+   "description": "Random control: 3 random names weekly (seed 42)",
+   "train": {
+    "days": 438,
+    "total_return": 1.052126887853364,
+    "cagr": 0.5122526019446256,
+    "max_drawdown": -0.3334252649357924,
+    "sharpe": 1.523729114860061,
+    "win_rate": 0.5544554455445545,
+    "round_trips": 202,
+    "avg_exposure": 0.9954337899543378,
+    "trades_per_year": 117.94520547945206
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.6967800790516068,
+    "cagr": 0.5306441998836147,
+    "max_drawdown": -0.0908415776248993,
+    "sharpe": 1.8956860886663827,
+    "win_rate": 0.5725190839694656,
+    "round_trips": 131,
+    "avg_exposure": 1.0,
+    "trades_per_year": 105.46964856230032
+   },
+   "rank_val_sharpe": 9,
+   "val_bench_spread": {
+    "SPY": 0.3422085258862331,
+    "QQQ": 0.26861481193967585,
+    "avg_exposure": 1.0,
+    "variant_cagr": 0.5306441998836147
+   },
+   "val_dsr": 0.6627
+  },
+  {
+   "id": "don_p10_s5",
+   "family": "donchian",
+   "params": {
+    "p": 10,
+    "stop": 5,
+    "window": 63
+   },
+   "description": "Donchian: buy within 10% of 63d high, -5% stop",
+   "train": {
+    "days": 438,
+    "total_return": 0.5518831003103717,
+    "cagr": 0.2876839715433044,
+    "max_drawdown": -0.2460884453774742,
+    "sharpe": 1.2381830580158624,
+    "win_rate": 0.07692307692307693,
+    "round_trips": 13,
+    "avg_exposure": 0.7997887283587033,
+    "trades_per_year": 14.383561643835616
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.510270363481238,
+    "cagr": 0.39366712525208647,
+    "max_drawdown": -0.1209554085167649,
+    "sharpe": 1.8863208306897818,
+    "win_rate": 0.0,
+    "round_trips": 2,
+    "avg_exposure": 0.9769242286128649,
+    "trades_per_year": 1.610223642172524
+   },
+   "rank_val_sharpe": 10,
+   "val_bench_spread": {
+    "SPY": 0.2076349602838934,
+    "QQQ": 0.1316864613843527,
+    "avg_exposure": 0.9769242286128649,
+    "variant_cagr": 0.39366712525208647
+   },
+   "val_dsr": 0.6563
+  },
+  {
+   "id": "mom_n63_k3_rel_c5",
+   "family": "xs-momentum",
+   "params": {
+    "n": 63,
+    "k": 3,
+    "abs_filter": false,
+    "cadence": 5
+   },
+   "description": "XS momentum: top-3 by 63d return, no filter, rebalance every 5d",
+   "train": {
+    "days": 438,
+    "total_return": 0.46902740816710553,
+    "cagr": 0.2476690262929051,
+    "max_drawdown": -0.3206730428547492,
+    "sharpe": 0.8519258809197848,
+    "win_rate": 0.5833333333333334,
+    "round_trips": 48,
+    "avg_exposure": 0.8515981735159817,
+    "trades_per_year": 29.34246575342466
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.8862453535922727,
+    "cagr": 0.6668148268458409,
+    "max_drawdown": -0.13066089755023946,
+    "sharpe": 1.8463158857345845,
+    "win_rate": 0.5277777777777778,
+    "round_trips": 36,
+    "avg_exposure": 1.0,
+    "trades_per_year": 28.98402555910543
+   },
+   "rank_val_sharpe": 11
+  },
+  {
+   "id": "mrev_n5_x2p5_y5_z5",
+   "family": "mean-reversion",
+   "params": {
+    "n": 5,
+    "x": 2.5,
+    "y": 5.0,
+    "z": 5.0
+   },
+   "description": "Mean reversion: buy worst 5d performer if ret<=-2.5%, exit +5.0%/-5.0%",
+   "train": {
+    "days": 438,
+    "total_return": -0.29037600200391955,
+    "cagr": -0.17910000817111005,
+    "max_drawdown": -0.546487240000912,
+    "sharpe": -0.2928159745720001,
+    "win_rate": 0.4523809523809524,
+    "round_trips": 42,
+    "avg_exposure": 0.8561643835616438,
+    "trades_per_year": 24.73972602739726
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.9487087061362118,
+    "cagr": 0.7111129368665643,
+    "max_drawdown": -0.11743788459758764,
+    "sharpe": 1.8252212214832326,
+    "win_rate": 0.7727272727272727,
+    "round_trips": 22,
+    "avg_exposure": 0.9137380191693291,
+    "trades_per_year": 17.712460063897762
+   },
+   "rank_val_sharpe": 12
+  },
+  {
+   "id": "mom_n5_k5_rel_c21",
+   "family": "xs-momentum",
+   "params": {
+    "n": 5,
+    "k": 5,
+    "abs_filter": false,
+    "cadence": 21
+   },
+   "description": "XS momentum: top-5 by 5d return, no filter, rebalance every 21d",
+   "train": {
+    "days": 438,
+    "total_return": 0.8383917866681039,
+    "cagr": 0.41952305953603686,
+    "max_drawdown": -0.26576553746094145,
+    "sharpe": 1.2650481857722724,
+    "win_rate": 0.711864406779661,
+    "round_trips": 59,
+    "avg_exposure": 0.9840182648401827,
+    "trades_per_year": 36.821917808219176
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.6602938482348035,
+    "cagr": 0.504088923842682,
+    "max_drawdown": -0.17939398323772104,
+    "sharpe": 1.8234799933847614,
+    "win_rate": 0.5869565217391305,
+    "round_trips": 46,
+    "avg_exposure": 1.0,
+    "trades_per_year": 37.03514376996805
+   },
+   "rank_val_sharpe": 13
+  },
+  {
+   "id": "mom_n5_k5_abs_c21",
+   "family": "xs-momentum",
+   "params": {
+    "n": 5,
+    "k": 5,
+    "abs_filter": true,
+    "cadence": 21
+   },
+   "description": "XS momentum: top-5 by 5d return, abs filter (cash if ret<=0), rebalance every 21d",
+   "train": {
+    "days": 438,
+    "total_return": 0.75588724018422,
+    "cagr": 0.38251321053881804,
+    "max_drawdown": -0.27564801876165534,
+    "sharpe": 1.3223882175786432,
+    "win_rate": 0.6842105263157895,
+    "round_trips": 57,
+    "avg_exposure": 0.8793786462721787,
+    "trades_per_year": 35.67123287671233
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.6226034970265664,
+    "cagr": 0.4765375441794486,
+    "max_drawdown": -0.1626083531487088,
+    "sharpe": 1.8030567300439788,
+    "win_rate": 0.627906976744186,
+    "round_trips": 43,
+    "avg_exposure": 0.9345079781486754,
+    "trades_per_year": 34.61980830670927
+   },
+   "rank_val_sharpe": 14
+  },
+  {
+   "id": "mom_n63_k3_abs_c5",
+   "family": "xs-momentum",
+   "params": {
+    "n": 63,
+    "k": 3,
+    "abs_filter": true,
+    "cadence": 5
+   },
+   "description": "XS momentum: top-3 by 63d return, abs filter (cash if ret<=0), rebalance every 5d",
+   "train": {
+    "days": 438,
+    "total_return": 0.332464679069699,
+    "cagr": 0.17955914236186854,
+    "max_drawdown": -0.36086692995362724,
+    "sharpe": 0.6875413531056659,
+    "win_rate": 0.5306122448979592,
+    "round_trips": 49,
+    "avg_exposure": 0.794372519056912,
+    "trades_per_year": 29.91780821917808
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.843763496229297,
+    "cagr": 0.6365241080024702,
+    "max_drawdown": -0.13066089755023946,
+    "sharpe": 1.7941742331417634,
+    "win_rate": 0.5294117647058824,
+    "round_trips": 34,
+    "avg_exposure": 0.9733529535614092,
+    "trades_per_year": 27.373801916932905
+   },
+   "rank_val_sharpe": 15
+  },
+  {
+   "id": "dual_k3_c5",
+   "family": "dual-momentum",
+   "params": {
+    "n": 63,
+    "k": 3,
+    "cadence": 5
+   },
+   "description": "Dual momentum: top-3 by 63d return among positive, else cash, 5d cadence",
+   "train": {
+    "days": 438,
+    "total_return": 0.332464679069699,
+    "cagr": 0.17955914236186854,
+    "max_drawdown": -0.36086692995362724,
+    "sharpe": 0.6875413531056659,
+    "win_rate": 0.5306122448979592,
+    "round_trips": 49,
+    "avg_exposure": 0.794372519056912,
+    "trades_per_year": 29.91780821917808
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.843763496229297,
+    "cagr": 0.6365241080024702,
+    "max_drawdown": -0.13066089755023946,
+    "sharpe": 1.7941742331417634,
+    "win_rate": 0.5294117647058824,
+    "round_trips": 34,
+    "avg_exposure": 0.9733529535614092,
+    "trades_per_year": 27.373801916932905
+   },
+   "rank_val_sharpe": 16
+  },
+  {
+   "id": "mom_n63_k3_abs_c1",
+   "family": "xs-momentum",
+   "params": {
+    "n": 63,
+    "k": 3,
+    "abs_filter": true,
+    "cadence": 1
+   },
+   "description": "XS momentum: top-3 by 63d return, abs filter (cash if ret<=0), rebalance every 1d",
+   "train": {
+    "days": 438,
+    "total_return": 0.28539375590489313,
+    "cagr": 0.15540208800473576,
+    "max_drawdown": -0.34207325337016303,
+    "sharpe": 0.6205801316058281,
+    "win_rate": 0.48623853211009177,
+    "round_trips": 109,
+    "avg_exposure": 0.7969126975569927,
+    "trades_per_year": 64.43835616438356
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.8283313746815877,
+    "cagr": 0.6254870256247087,
+    "max_drawdown": -0.142263298852637,
+    "sharpe": 1.7785403224335572,
+    "win_rate": 0.44594594594594594,
+    "round_trips": 74,
+    "avg_exposure": 0.9701484544704009,
+    "trades_per_year": 59.57827476038339
+   },
+   "rank_val_sharpe": 17
+  },
+  {
+   "id": "mom_n63_k3_rel_c1",
+   "family": "xs-momentum",
+   "params": {
+    "n": 63,
+    "k": 3,
+    "abs_filter": false,
+    "cadence": 1
+   },
+   "description": "XS momentum: top-3 by 63d return, no filter, rebalance every 1d",
+   "train": {
+    "days": 438,
+    "total_return": 0.4664507036433334,
+    "cagr": 0.246409456044417,
+    "max_drawdown": -0.3360160538089194,
+    "sharpe": 0.8476626908414567,
+    "win_rate": 0.5087719298245614,
+    "round_trips": 114,
+    "avg_exposure": 0.8515981735159817,
+    "trades_per_year": 67.31506849315069
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.8138085845086607,
+    "cagr": 0.6150837057987786,
+    "max_drawdown": -0.142263298852637,
+    "sharpe": 1.7420555716039732,
+    "win_rate": 0.4444444444444444,
+    "round_trips": 72,
+    "avg_exposure": 1.0,
+    "trades_per_year": 57.96805111821086
+   },
+   "rank_val_sharpe": 18
+  },
+  {
+   "id": "rand_k3_seed43",
+   "family": "random-control",
+   "params": {
+    "k": 3,
+    "cadence": 5,
+    "seed": 43
+   },
+   "description": "Random control: 3 random names weekly (seed 43)",
+   "train": {
+    "days": 438,
+    "total_return": 0.8939654659314462,
+    "cagr": 0.4440556250540679,
+    "max_drawdown": -0.360885527064453,
+    "sharpe": 1.3420356899138033,
+    "win_rate": 0.5494505494505495,
+    "round_trips": 182,
+    "avg_exposure": 0.9954337899543378,
+    "trades_per_year": 106.43835616438356
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.6165139321189343,
+    "cagr": 0.4720744753384474,
+    "max_drawdown": -0.126118162480919,
+    "sharpe": 1.722511439781754,
+    "win_rate": 0.6164383561643836,
+    "round_trips": 146,
+    "avg_exposure": 0.9999999999999999,
+    "trades_per_year": 117.54632587859425
+   },
+   "rank_val_sharpe": 19
+  },
+  {
+   "id": "rand_k3_seed44",
+   "family": "random-control",
+   "params": {
+    "k": 3,
+    "cadence": 5,
+    "seed": 44
+   },
+   "description": "Random control: 3 random names weekly (seed 44)",
+   "train": {
+    "days": 438,
+    "total_return": 0.6112851825931598,
+    "cagr": 0.3158157700879274,
+    "max_drawdown": -0.287290487001019,
+    "sharpe": 1.1004263821301572,
+    "win_rate": 0.5577889447236181,
+    "round_trips": 199,
+    "avg_exposure": 0.9954337899543378,
+    "trades_per_year": 116.21917808219177
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.6644728534607447,
+    "cagr": 0.50713619601896,
+    "max_drawdown": -0.12904274227592571,
+    "sharpe": 1.675988965784732,
+    "win_rate": 0.5882352941176471,
+    "round_trips": 136,
+    "avg_exposure": 1.0,
+    "trades_per_year": 109.49520766773162
+   },
+   "rank_val_sharpe": 20
+  },
+  {
+   "id": "mom_n63_k5_rel_c5",
+   "family": "xs-momentum",
+   "params": {
+    "n": 63,
+    "k": 5,
+    "abs_filter": false,
+    "cadence": 5
+   },
+   "description": "XS momentum: top-5 by 63d return, no filter, rebalance every 5d",
+   "train": {
+    "days": 438,
+    "total_return": 0.5009970113399613,
+    "cagr": 0.2632194526599869,
+    "max_drawdown": -0.3018301180348536,
+    "sharpe": 0.9574920118554071,
+    "win_rate": 0.4918032786885246,
+    "round_trips": 61,
+    "avg_exposure": 0.8515981735159818,
+    "trades_per_year": 37.97260273972603
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.5889630928824037,
+    "cagr": 0.45184116383420925,
+    "max_drawdown": -0.14617541840511417,
+    "sharpe": 1.6733687240374364,
+    "win_rate": 0.5263157894736842,
+    "round_trips": 57,
+    "avg_exposure": 1.0,
+    "trades_per_year": 45.891373801916934
+   },
+   "rank_val_sharpe": 21
+  },
+  {
+   "id": "sma_20_100",
+   "family": "sma-crossover",
+   "params": {
+    "fast": 20,
+    "slow": 100
+   },
+   "description": "Per-asset SMA crossover 20/100: sleeve in name while fast>slow",
+   "train": {
+    "days": 438,
+    "total_return": 0.2127724969977567,
+    "cagr": 0.11738236227808208,
+    "max_drawdown": -0.1460820666889091,
+    "sharpe": 0.8528550539674395,
+    "win_rate": 0.44,
+    "round_trips": 25,
+    "avg_exposure": 0.49832705841225894,
+    "trades_per_year": 19.561643835616437
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.32346454616138254,
+    "cagr": 0.2531181516378036,
+    "max_drawdown": -0.07046881018985385,
+    "sharpe": 1.6667701631180993,
+    "win_rate": 0.5357142857142857,
+    "round_trips": 28,
+    "avg_exposure": 0.7141623143824809,
+    "trades_per_year": 21.738019169329075
+   },
+   "rank_val_sharpe": 22
+  },
+  {
+   "id": "mom_n63_k5_abs_c5",
+   "family": "xs-momentum",
+   "params": {
+    "n": 63,
+    "k": 5,
+    "abs_filter": true,
+    "cadence": 5
+   },
+   "description": "XS momentum: top-5 by 63d return, abs filter (cash if ret<=0), rebalance every 5d",
+   "train": {
+    "days": 438,
+    "total_return": 0.2940881755866527,
+    "cagr": 0.15989204116924993,
+    "max_drawdown": -0.298327388061009,
+    "sharpe": 0.6861498323896278,
+    "win_rate": 0.43548387096774194,
+    "round_trips": 62,
+    "avg_exposure": 0.7714850566802045,
+    "trades_per_year": 38.54794520547945
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.5441483161060179,
+    "cagr": 0.41878227520998657,
+    "max_drawdown": -0.12528037760336075,
+    "sharpe": 1.6135656497847304,
+    "win_rate": 0.5185185185185185,
+    "round_trips": 54,
+    "avg_exposure": 0.9489288924386564,
+    "trades_per_year": 43.47603833865815
+   },
+   "rank_val_sharpe": 23
+  },
+  {
+   "id": "base_ew12",
+   "family": "baseline",
+   "params": {
+    "assets": "EW-12"
+   },
+   "description": "Equal-weight buy & hold of the 12 non-benchmark names",
+   "train": {
+    "days": 438,
+    "total_return": 0.8326854966799468,
+    "cagr": 0.41698634730212225,
+    "max_drawdown": -0.26916940841910597,
+    "sharpe": 1.4246572769423738,
+    "win_rate": null,
+    "round_trips": 0,
+    "avg_exposure": 0.9954337899543385,
+    "trades_per_year": 6.904109589041096
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.4938828677005309,
+    "cagr": 0.3814790788497293,
+    "max_drawdown": -0.15482951215274143,
+    "sharpe": 1.5909789097164453,
+    "win_rate": null,
+    "round_trips": 0,
+    "avg_exposure": 1.0000000000000009,
+    "trades_per_year": 0.0
+   },
+   "rank_val_sharpe": 24
+  },
+  {
+   "id": "sma_50_200",
+   "family": "sma-crossover",
+   "params": {
+    "fast": 50,
+    "slow": 200
+   },
+   "description": "Per-asset SMA crossover 50/200: sleeve in name while fast>slow",
+   "train": {
+    "days": 438,
+    "total_return": 0.06284220502873228,
+    "cagr": 0.03568722633861032,
+    "max_drawdown": -0.19636644804971026,
+    "sharpe": 0.3028932552493659,
+    "win_rate": 0.23076923076923078,
+    "round_trips": 13,
+    "avg_exposure": 0.37179267780591957,
+    "trades_per_year": 10.356164383561644
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.3175655670044204,
+    "cagr": 0.24861929974494812,
+    "max_drawdown": -0.09188006941461813,
+    "sharpe": 1.5875494565805657,
+    "win_rate": 0.42857142857142855,
+    "round_trips": 7,
+    "avg_exposure": 0.7823577341651672,
+    "trades_per_year": 9.661341853035143
+   },
+   "rank_val_sharpe": 25
+  },
+  {
+   "id": "mom_n126_k5_rel_c21",
+   "family": "xs-momentum",
+   "params": {
+    "n": 126,
+    "k": 5,
+    "abs_filter": false,
+    "cadence": 21
+   },
+   "description": "XS momentum: top-5 by 126d return, no filter, rebalance every 21d",
+   "train": {
+    "days": 438,
+    "total_return": 0.2237739206153384,
+    "cagr": 0.12320291303357278,
+    "max_drawdown": -0.32351048573975405,
+    "sharpe": 0.5558848443537212,
+    "win_rate": 0.5333333333333333,
+    "round_trips": 15,
+    "avg_exposure": 0.7077625570776256,
+    "trades_per_year": 11.506849315068493
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.5593407423435555,
+    "cagr": 0.430010087357624,
+    "max_drawdown": -0.14626619507244953,
+    "sharpe": 1.5750459824115863,
+    "win_rate": 0.5882352941176471,
+    "round_trips": 17,
+    "avg_exposure": 1.0,
+    "trades_per_year": 13.686900958466452
+   },
+   "rank_val_sharpe": 26
+  },
+  {
+   "id": "mom_n10_k1_rel_c5",
+   "family": "xs-momentum",
+   "params": {
+    "n": 10,
+    "k": 1,
+    "abs_filter": false,
+    "cadence": 5
+   },
+   "description": "XS momentum: top-1 by 10d return, no filter, rebalance every 5d",
+   "train": {
+    "days": 438,
+    "total_return": 0.4401083795880294,
+    "cagr": 0.2334781818250926,
+    "max_drawdown": -0.3594574815637671,
+    "sharpe": 0.6987365373235512,
+    "win_rate": 0.48333333333333334,
+    "round_trips": 60,
+    "avg_exposure": 0.9726027397260274,
+    "trades_per_year": 35.0958904109589
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 1.3806846870026956,
+    "cagr": 1.0104215709543274,
+    "max_drawdown": -0.3225188680073974,
+    "sharpe": 1.573412851548187,
+    "win_rate": 0.5,
+    "round_trips": 38,
+    "avg_exposure": 1.0,
+    "trades_per_year": 30.594249201277954
+   },
+   "rank_val_sharpe": 27
+  },
+  {
+   "id": "mom_n10_k1_abs_c5",
+   "family": "xs-momentum",
+   "params": {
+    "n": 10,
+    "k": 1,
+    "abs_filter": true,
+    "cadence": 5
+   },
+   "description": "XS momentum: top-1 by 10d return, abs filter (cash if ret<=0), rebalance every 5d",
+   "train": {
+    "days": 438,
+    "total_return": 0.3250617101543958,
+    "cagr": 0.1757842050263425,
+    "max_drawdown": -0.4106288270133378,
+    "sharpe": 0.5914113588142921,
+    "win_rate": 0.4745762711864407,
+    "round_trips": 59,
+    "avg_exposure": 0.9611872146118722,
+    "trades_per_year": 34.52054794520548
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 1.3806846870026956,
+    "cagr": 1.0104215709543274,
+    "max_drawdown": -0.3225188680073974,
+    "sharpe": 1.573412851548187,
+    "win_rate": 0.5,
+    "round_trips": 38,
+    "avg_exposure": 1.0,
+    "trades_per_year": 30.594249201277954
+   },
+   "rank_val_sharpe": 28
+  },
+  {
+   "id": "mom_n63_k5_rel_c21",
+   "family": "xs-momentum",
+   "params": {
+    "n": 63,
+    "k": 5,
+    "abs_filter": false,
+    "cadence": 21
+   },
+   "description": "XS momentum: top-5 by 63d return, no filter, rebalance every 21d",
+   "train": {
+    "days": 438,
+    "total_return": 0.3842478528710991,
+    "cagr": 0.20571962436675117,
+    "max_drawdown": -0.3615369584863586,
+    "sharpe": 0.7903669779769181,
+    "win_rate": 0.48148148148148145,
+    "round_trips": 27,
+    "avg_exposure": 0.8515981735159818,
+    "trades_per_year": 18.410958904109588
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.5603208093042631,
+    "cagr": 0.4307336621594222,
+    "max_drawdown": -0.14369239861792016,
+    "sharpe": 1.559789451236136,
+    "win_rate": 0.5909090909090909,
+    "round_trips": 22,
+    "avg_exposure": 1.0,
+    "trades_per_year": 17.712460063897762
+   },
+   "rank_val_sharpe": 29
+  },
+  {
+   "id": "mom_n63_k3_rel_c21",
+   "family": "xs-momentum",
+   "params": {
+    "n": 63,
+    "k": 3,
+    "abs_filter": false,
+    "cadence": 21
+   },
+   "description": "XS momentum: top-3 by 63d return, no filter, rebalance every 21d",
+   "train": {
+    "days": 438,
+    "total_return": 0.3782611872476802,
+    "cagr": 0.2027167072246241,
+    "max_drawdown": -0.4176063403214114,
+    "sharpe": 0.7265048751376082,
+    "win_rate": 0.6521739130434783,
+    "round_trips": 23,
+    "avg_exposure": 0.8515981735159818,
+    "trades_per_year": 14.95890410958904
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.7054829761689625,
+    "cagr": 0.5369617991578719,
+    "max_drawdown": -0.16338269496587143,
+    "sharpe": 1.556054293231279,
+    "win_rate": 0.6470588235294118,
+    "round_trips": 17,
+    "avg_exposure": 0.9999999999999999,
+    "trades_per_year": 13.686900958466452
+   },
+   "rank_val_sharpe": 30
+  },
+  {
+   "id": "mom_n21_k5_abs_c1",
+   "family": "xs-momentum",
+   "params": {
+    "n": 21,
+    "k": 5,
+    "abs_filter": true,
+    "cadence": 1
+   },
+   "description": "XS momentum: top-5 by 21d return, abs filter (cash if ret<=0), rebalance every 1d",
+   "train": {
+    "days": 438,
+    "total_return": 0.6166172307721545,
+    "cagr": 0.31831921701985855,
+    "max_drawdown": -0.24803125890437383,
+    "sharpe": 1.303783605084545,
+    "win_rate": 0.5256410256410257,
+    "round_trips": 234,
+    "avg_exposure": 0.8469234021736003,
+    "trades_per_year": 137.50684931506848
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.48604471483690226,
+    "cagr": 0.37564032523328517,
+    "max_drawdown": -0.1389788647234237,
+    "sharpe": 1.5447799810436058,
+    "win_rate": 0.49748743718592964,
+    "round_trips": 199,
+    "avg_exposure": 0.9291534877284637,
+    "trades_per_year": 160.21725239616612
+   },
+   "rank_val_sharpe": 31
+  },
+  {
+   "id": "mom_n126_k5_rel_c5",
+   "family": "xs-momentum",
+   "params": {
+    "n": 126,
+    "k": 5,
+    "abs_filter": false,
+    "cadence": 5
+   },
+   "description": "XS momentum: top-5 by 126d return, no filter, rebalance every 5d",
+   "train": {
+    "days": 438,
+    "total_return": 0.2827288063770568,
+    "cagr": 0.15402328027795265,
+    "max_drawdown": -0.3344975066486897,
+    "sharpe": 0.6512231598092824,
+    "win_rate": 0.47619047619047616,
+    "round_trips": 42,
+    "avg_exposure": 0.7077625570776256,
+    "trades_per_year": 27.041095890410958
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.536821904265883,
+    "cagr": 0.41336007690131304,
+    "max_drawdown": -0.15293826035494584,
+    "sharpe": 1.5415863952293263,
+    "win_rate": 0.4634146341463415,
+    "round_trips": 41,
+    "avg_exposure": 1.0,
+    "trades_per_year": 33.00958466453674
+   },
+   "rank_val_sharpe": 32
+  },
+  {
+   "id": "mom_n126_k5_abs_c5",
+   "family": "xs-momentum",
+   "params": {
+    "n": 126,
+    "k": 5,
+    "abs_filter": true,
+    "cadence": 5
+   },
+   "description": "XS momentum: top-5 by 126d return, abs filter (cash if ret<=0), rebalance every 5d",
+   "train": {
+    "days": 438,
+    "total_return": 0.2915796789175851,
+    "cagr": 0.1585979271708018,
+    "max_drawdown": -0.3344975066486897,
+    "sharpe": 0.679012979239625,
+    "win_rate": 0.47619047619047616,
+    "round_trips": 42,
+    "avg_exposure": 0.6828328574834904,
+    "trades_per_year": 27.041095890410958
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.5275453346496011,
+    "cagr": 0.4064873532969331,
+    "max_drawdown": -0.1488586756238378,
+    "sharpe": 1.5258600067940944,
+    "win_rate": 0.4634146341463415,
+    "round_trips": 41,
+    "avg_exposure": 0.9936054529999645,
+    "trades_per_year": 33.00958466453674
+   },
+   "rank_val_sharpe": 33
+  },
+  {
+   "id": "mom_n63_k5_abs_c1",
+   "family": "xs-momentum",
+   "params": {
+    "n": 63,
+    "k": 5,
+    "abs_filter": true,
+    "cadence": 1
+   },
+   "description": "XS momentum: top-5 by 63d return, abs filter (cash if ret<=0), rebalance every 1d",
+   "train": {
+    "days": 438,
+    "total_return": 0.34348965847619084,
+    "cagr": 0.18516455471444604,
+    "max_drawdown": -0.24652519220369817,
+    "sharpe": 0.7821730840249039,
+    "win_rate": 0.5,
+    "round_trips": 132,
+    "avg_exposure": 0.7703212911025581,
+    "trades_per_year": 78.82191780821918
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.4881294661490161,
+    "cagr": 0.377193871313499,
+    "max_drawdown": -0.11850649122381474,
+    "sharpe": 1.5041345796348837,
+    "win_rate": 0.4247787610619469,
+    "round_trips": 113,
+    "avg_exposure": 0.9444339143823334,
+    "trades_per_year": 90.9776357827476
+   },
+   "rank_val_sharpe": 34
+  },
+  {
+   "id": "mom_n126_k5_abs_c21",
+   "family": "xs-momentum",
+   "params": {
+    "n": 126,
+    "k": 5,
+    "abs_filter": true,
+    "cadence": 21
+   },
+   "description": "XS momentum: top-5 by 126d return, abs filter (cash if ret<=0), rebalance every 21d",
+   "train": {
+    "days": 438,
+    "total_return": 0.16917848815138825,
+    "cagr": 0.09409420091776832,
+    "max_drawdown": -0.320161045140014,
+    "sharpe": 0.47831033238941345,
+    "win_rate": 0.4666666666666667,
+    "round_trips": 15,
+    "avg_exposure": 0.6801691883079222,
+    "trades_per_year": 11.506849315068493
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.5145879714669372,
+    "cagr": 0.3968740066890155,
+    "max_drawdown": -0.14626619507244953,
+    "sharpe": 1.4958901829960143,
+    "win_rate": 0.5294117647058824,
+    "round_trips": 17,
+    "avg_exposure": 0.9875113676437266,
+    "trades_per_year": 13.686900958466452
+   },
+   "rank_val_sharpe": 35
+  },
+  {
+   "id": "mrevvol_n1_k1p5_y10_z5",
+   "family": "mean-reversion-vol",
+   "params": {
+    "n": 1,
+    "k": 1.5,
+    "y": 10.0,
+    "z": 5.0
+   },
+   "description": "Vol-scaled reversion: buy worst 1d performer if ret<=-k*sigma20*sqrt(n), k=1.5, exit +10.0%/-5.0%",
+   "train": {
+    "days": 438,
+    "total_return": 2.0363602587493217,
+    "cagr": 0.8946035038684721,
+    "max_drawdown": -0.17700383883815618,
+    "sharpe": 2.1110606153450995,
+    "win_rate": 0.7222222222222222,
+    "round_trips": 18,
+    "avg_exposure": 0.7853881278538812,
+    "trades_per_year": 10.931506849315069
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.6550961748331479,
+    "cagr": 0.500296766279497,
+    "max_drawdown": -0.3342749080245988,
+    "sharpe": 1.4684358394259238,
+    "win_rate": 0.6,
+    "round_trips": 15,
+    "avg_exposure": 0.8785942492012779,
+    "trades_per_year": 12.07667731629393
+   },
+   "rank_val_sharpe": 36
+  },
+  {
+   "id": "base_spy",
+   "family": "baseline",
+   "params": {
+    "asset": "SPY"
+   },
+   "description": "SPY buy & hold (benchmark)",
+   "train": {
+    "days": 438,
+    "total_return": 0.4451827804225654,
+    "cagr": 0.23597693288437926,
+    "max_drawdown": -0.1899890417012109,
+    "sharpe": 1.3192690592203233,
+    "win_rate": null,
+    "round_trips": 0,
+    "avg_exposure": 0.9954337899543378,
+    "trades_per_year": 0.5753424657534246
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.23915192156615017,
+    "cagr": 0.1884356739973816,
+    "max_drawdown": -0.09133132023941937,
+    "sharpe": 1.4676143024472812,
+    "win_rate": null,
+    "round_trips": 0,
+    "avg_exposure": 1.0,
+    "trades_per_year": 0.0
+   },
+   "rank_val_sharpe": 37
+  },
+  {
+   "id": "mom_n63_k3_abs_c21",
+   "family": "xs-momentum",
+   "params": {
+    "n": 63,
+    "k": 3,
+    "abs_filter": true,
+    "cadence": 21
+   },
+   "description": "XS momentum: top-3 by 63d return, abs filter (cash if ret<=0), rebalance every 21d",
+   "train": {
+    "days": 438,
+    "total_return": 0.20807861863420074,
+    "cagr": 0.11489213983226332,
+    "max_drawdown": -0.42661711768322963,
+    "sharpe": 0.4985547359913227,
+    "win_rate": 0.6363636363636364,
+    "round_trips": 22,
+    "avg_exposure": 0.820130437320231,
+    "trades_per_year": 14.383561643835616
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.6300299436649996,
+    "cagr": 0.4819760046142927,
+    "max_drawdown": -0.14000692991497365,
+    "sharpe": 1.4648555565969423,
+    "win_rate": 0.625,
+    "round_trips": 16,
+    "avg_exposure": 0.9571920007906402,
+    "trades_per_year": 12.881789137380192
+   },
+   "rank_val_sharpe": 38
+  },
+  {
+   "id": "dual_k3_c21",
+   "family": "dual-momentum",
+   "params": {
+    "n": 63,
+    "k": 3,
+    "cadence": 21
+   },
+   "description": "Dual momentum: top-3 by 63d return among positive, else cash, 21d cadence",
+   "train": {
+    "days": 438,
+    "total_return": 0.20807861863420074,
+    "cagr": 0.11489213983226332,
+    "max_drawdown": -0.42661711768322963,
+    "sharpe": 0.4985547359913227,
+    "win_rate": 0.6363636363636364,
+    "round_trips": 22,
+    "avg_exposure": 0.820130437320231,
+    "trades_per_year": 14.383561643835616
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.6300299436649996,
+    "cagr": 0.4819760046142927,
+    "max_drawdown": -0.14000692991497365,
+    "sharpe": 1.4648555565969423,
+    "win_rate": 0.625,
+    "round_trips": 16,
+    "avg_exposure": 0.9571920007906402,
+    "trades_per_year": 12.881789137380192
+   },
+   "rank_val_sharpe": 39
+  },
+  {
+   "id": "mom_n10_k3_rel_c5",
+   "family": "xs-momentum",
+   "params": {
+    "n": 10,
+    "k": 3,
+    "abs_filter": false,
+    "cadence": 5
+   },
+   "description": "XS momentum: top-3 by 10d return, no filter, rebalance every 5d",
+   "train": {
+    "days": 438,
+    "total_return": 0.4723480902190551,
+    "cagr": 0.24929089221678402,
+    "max_drawdown": -0.31203748619778526,
+    "sharpe": 0.8982429230107718,
+    "win_rate": 0.46923076923076923,
+    "round_trips": 130,
+    "avg_exposure": 0.9726027397260274,
+    "trades_per_year": 76.52054794520548
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.595511663112317,
+    "cagr": 0.45665658002678255,
+    "max_drawdown": -0.1709800668077951,
+    "sharpe": 1.4629792986929742,
+    "win_rate": 0.4725274725274725,
+    "round_trips": 91,
+    "avg_exposure": 1.0,
+    "trades_per_year": 73.26517571884983
+   },
+   "rank_val_sharpe": 40
+  },
+  {
+   "id": "mom_n21_k3_rel_c21",
+   "family": "xs-momentum",
+   "params": {
+    "n": 21,
+    "k": 3,
+    "abs_filter": false,
+    "cadence": 21
+   },
+   "description": "XS momentum: top-3 by 21d return, no filter, rebalance every 21d",
+   "train": {
+    "days": 438,
+    "total_return": 1.0483058582354894,
+    "cagr": 0.5106319163138018,
+    "max_drawdown": -0.35854194952956153,
+    "sharpe": 1.4232249087780722,
+    "win_rate": 0.6590909090909091,
+    "round_trips": 44,
+    "avg_exposure": 0.9474885844748857,
+    "trades_per_year": 27.041095890410958
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.5453792291474289,
+    "cagr": 0.419692768171539,
+    "max_drawdown": -0.11218945729687702,
+    "sharpe": 1.4593490772530633,
+    "win_rate": 0.5454545454545454,
+    "round_trips": 33,
+    "avg_exposure": 1.0,
+    "trades_per_year": 26.568690095846645
+   },
+   "rank_val_sharpe": 41
+  },
+  {
+   "id": "mom_n21_k3_abs_c21",
+   "family": "xs-momentum",
+   "params": {
+    "n": 21,
+    "k": 3,
+    "abs_filter": true,
+    "cadence": 21
+   },
+   "description": "XS momentum: top-3 by 21d return, abs filter (cash if ret<=0), rebalance every 21d",
+   "train": {
+    "days": 438,
+    "total_return": 0.7629579110546434,
+    "cagr": 0.38571349764522833,
+    "max_drawdown": -0.34048846848112446,
+    "sharpe": 1.2278712179242577,
+    "win_rate": 0.6428571428571429,
+    "round_trips": 42,
+    "avg_exposure": 0.8836643085178029,
+    "trades_per_year": 25.89041095890411
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.5453792291474289,
+    "cagr": 0.419692768171539,
+    "max_drawdown": -0.11218945729687702,
+    "sharpe": 1.4593490772530633,
+    "win_rate": 0.5454545454545454,
+    "round_trips": 33,
+    "avg_exposure": 1.0,
+    "trades_per_year": 26.568690095846645
+   },
+   "rank_val_sharpe": 42
+  },
+  {
+   "id": "mom_n63_k5_rel_c1",
+   "family": "xs-momentum",
+   "params": {
+    "n": 63,
+    "k": 5,
+    "abs_filter": false,
+    "cadence": 1
+   },
+   "description": "XS momentum: top-5 by 63d return, no filter, rebalance every 1d",
+   "train": {
+    "days": 438,
+    "total_return": 0.5171266355822108,
+    "cagr": 0.27101169845742024,
+    "max_drawdown": -0.27331428134730684,
+    "sharpe": 0.9885857230072612,
+    "win_rate": 0.5323741007194245,
+    "round_trips": 139,
+    "avg_exposure": 0.8515981735159818,
+    "trades_per_year": 82.84931506849315
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.4810667098479706,
+    "cagr": 0.37192902165063013,
+    "max_drawdown": -0.1643631683113409,
+    "sharpe": 1.4489689756877342,
+    "win_rate": 0.4424778761061947,
+    "round_trips": 113,
+    "avg_exposure": 1.0,
+    "trades_per_year": 90.9776357827476
+   },
+   "rank_val_sharpe": 43
+  },
+  {
+   "id": "mom_n126_k3_rel_c21",
+   "family": "xs-momentum",
+   "params": {
+    "n": 126,
+    "k": 3,
+    "abs_filter": false,
+    "cadence": 21
+   },
+   "description": "XS momentum: top-3 by 126d return, no filter, rebalance every 21d",
+   "train": {
+    "days": 438,
+    "total_return": 0.33295043812385416,
+    "cagr": 0.17980652985373102,
+    "max_drawdown": -0.37086779259848623,
+    "sharpe": 0.6519684777245692,
+    "win_rate": 0.6,
+    "round_trips": 15,
+    "avg_exposure": 0.7077625570776255,
+    "trades_per_year": 10.356164383561644
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.6306314357672906,
+    "cagr": 0.4824162715873739,
+    "max_drawdown": -0.21707051646724596,
+    "sharpe": 1.4055292613270927,
+    "win_rate": 0.5384615384615384,
+    "round_trips": 13,
+    "avg_exposure": 0.9999999999999999,
+    "trades_per_year": 10.466453674121405
+   },
+   "rank_val_sharpe": 44
+  },
+  {
+   "id": "mom_n126_k3_abs_c21",
+   "family": "xs-momentum",
+   "params": {
+    "n": 126,
+    "k": 3,
+    "abs_filter": true,
+    "cadence": 21
+   },
+   "description": "XS momentum: top-3 by 126d return, abs filter (cash if ret<=0), rebalance every 21d",
+   "train": {
+    "days": 438,
+    "total_return": 0.3014048323385008,
+    "cagr": 0.16366057596476957,
+    "max_drawdown": -0.3703396218566468,
+    "sharpe": 0.6236474467512632,
+    "win_rate": 0.5714285714285714,
+    "round_trips": 14,
+    "avg_exposure": 0.6928290045176334,
+    "trades_per_year": 9.780821917808218
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.6306314357672906,
+    "cagr": 0.4824162715873739,
+    "max_drawdown": -0.21707051646724596,
+    "sharpe": 1.4055292613270927,
+    "win_rate": 0.5384615384615384,
+    "round_trips": 13,
+    "avg_exposure": 0.9999999999999999,
+    "trades_per_year": 10.466453674121405
+   },
+   "rank_val_sharpe": 45
+  },
+  {
+   "id": "mom_n21_k5_rel_c1",
+   "family": "xs-momentum",
+   "params": {
+    "n": 21,
+    "k": 5,
+    "abs_filter": false,
+    "cadence": 1
+   },
+   "description": "XS momentum: top-5 by 21d return, no filter, rebalance every 1d",
+   "train": {
+    "days": 438,
+    "total_return": 0.612735956017787,
+    "cagr": 0.3164972698302675,
+    "max_drawdown": -0.3067063542580545,
+    "sharpe": 1.1359268803388174,
+    "win_rate": 0.5330739299610895,
+    "round_trips": 257,
+    "avg_exposure": 0.9474885844748858,
+    "trades_per_year": 150.73972602739727
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.4459688044999828,
+    "cagr": 0.34569253299473557,
+    "max_drawdown": -0.18238187764109048,
+    "sharpe": 1.4051789117104727,
+    "win_rate": 0.49528301886792453,
+    "round_trips": 212,
+    "avg_exposure": 1.0,
+    "trades_per_year": 170.68370607028754
+   },
+   "rank_val_sharpe": 46
+  },
+  {
+   "id": "mom_n63_k5_abs_c21",
+   "family": "xs-momentum",
+   "params": {
+    "n": 63,
+    "k": 5,
+    "abs_filter": true,
+    "cadence": 21
+   },
+   "description": "XS momentum: top-5 by 63d return, abs filter (cash if ret<=0), rebalance every 21d",
+   "train": {
+    "days": 438,
+    "total_return": 0.1876317725212302,
+    "cagr": 0.1039962936659029,
+    "max_drawdown": -0.3671471042547877,
+    "sharpe": 0.4958653747399262,
+    "win_rate": 0.48148148148148145,
+    "round_trips": 27,
+    "avg_exposure": 0.7946132071265837,
+    "trades_per_year": 18.410958904109588
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.43162730223646606,
+    "cagr": 0.33493633058123207,
+    "max_drawdown": -0.11353061101020623,
+    "sharpe": 1.3357495734589422,
+    "win_rate": 0.5714285714285714,
+    "round_trips": 21,
+    "avg_exposure": 0.9216834348440323,
+    "trades_per_year": 16.9073482428115
+   },
+   "rank_val_sharpe": 47
+  },
+  {
+   "id": "mrev_n1_x2p5_y10_z5",
+   "family": "mean-reversion",
+   "params": {
+    "n": 1,
+    "x": 2.5,
+    "y": 10.0,
+    "z": 5.0
+   },
+   "description": "Mean reversion: buy worst 1d performer if ret<=-2.5%, exit +10.0%/-5.0%",
+   "train": {
+    "days": 438,
+    "total_return": -0.03899915041139013,
+    "cagr": -0.022627191921050116,
+    "max_drawdown": -0.5323015257028552,
+    "sharpe": 0.1399097555989197,
+    "win_rate": 0.43333333333333335,
+    "round_trips": 30,
+    "avg_exposure": 0.8812785388127854,
+    "trades_per_year": 17.835616438356166
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.7099798240910582,
+    "cagr": 0.5402236838708732,
+    "max_drawdown": -0.39964641249212807,
+    "sharpe": 1.3291592153876661,
+    "win_rate": 0.5909090909090909,
+    "round_trips": 22,
+    "avg_exposure": 0.8817891373801917,
+    "trades_per_year": 17.712460063897762
+   },
+   "rank_val_sharpe": 48
+  },
+  {
+   "id": "mom_n10_k3_abs_c5",
+   "family": "xs-momentum",
+   "params": {
+    "n": 10,
+    "k": 3,
+    "abs_filter": true,
+    "cadence": 5
+   },
+   "description": "XS momentum: top-3 by 10d return, abs filter (cash if ret<=0), rebalance every 5d",
+   "train": {
+    "days": 438,
+    "total_return": 0.3828488720370451,
+    "cagr": 0.20501838886458756,
+    "max_drawdown": -0.34351264092816536,
+    "sharpe": 0.7978730491007862,
+    "win_rate": 0.4409448818897638,
+    "round_trips": 127,
+    "avg_exposure": 0.9119352037819153,
+    "trades_per_year": 74.7945205479452
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.5175115598348012,
+    "cagr": 0.39904447539001087,
+    "max_drawdown": -0.17098006680779532,
+    "sharpe": 1.3248370774877347,
+    "win_rate": 0.46153846153846156,
+    "round_trips": 91,
+    "avg_exposure": 0.9732842685632916,
+    "trades_per_year": 73.26517571884983
+   },
+   "rank_val_sharpe": 49
+  },
+  {
+   "id": "mom_n21_k5_rel_c5",
+   "family": "xs-momentum",
+   "params": {
+    "n": 21,
+    "k": 5,
+    "abs_filter": false,
+    "cadence": 5
+   },
+   "description": "XS momentum: top-5 by 21d return, no filter, rebalance every 5d",
+   "train": {
+    "days": 438,
+    "total_return": 0.6605808018778563,
+    "cagr": 0.3388284694387129,
+    "max_drawdown": -0.31363220879216114,
+    "sharpe": 1.1605289782543093,
+    "win_rate": 0.48333333333333334,
+    "round_trips": 120,
+    "avg_exposure": 0.9474885844748859,
+    "trades_per_year": 71.91780821917808
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.3965960388892269,
+    "cagr": 0.3085738001780671,
+    "max_drawdown": -0.2010929370951643,
+    "sharpe": 1.3233335641954864,
+    "win_rate": 0.41935483870967744,
+    "round_trips": 93,
+    "avg_exposure": 1.0,
+    "trades_per_year": 74.87539936102236
+   },
+   "rank_val_sharpe": 50
+  },
+  {
+   "id": "mom_n5_k3_rel_c21",
+   "family": "xs-momentum",
+   "params": {
+    "n": 5,
+    "k": 3,
+    "abs_filter": false,
+    "cadence": 21
+   },
+   "description": "XS momentum: top-3 by 5d return, no filter, rebalance every 21d",
+   "train": {
+    "days": 438,
+    "total_return": 1.0542338275167147,
+    "cagr": 0.5131457100244667,
+    "max_drawdown": -0.3179237995134777,
+    "sharpe": 1.2891119724833937,
+    "win_rate": 0.6511627906976745,
+    "round_trips": 43,
+    "avg_exposure": 0.9840182648401826,
+    "trades_per_year": 26.465753424657535
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.565619164782426,
+    "cagr": 0.43464385933438776,
+    "max_drawdown": -0.20302173498441467,
+    "sharpe": 1.2905990066725104,
+    "win_rate": 0.5428571428571428,
+    "round_trips": 35,
+    "avg_exposure": 1.0,
+    "trades_per_year": 28.17891373801917
+   },
+   "rank_val_sharpe": 51
+  },
+  {
+   "id": "mom_n5_k3_abs_c21",
+   "family": "xs-momentum",
+   "params": {
+    "n": 5,
+    "k": 3,
+    "abs_filter": true,
+    "cadence": 21
+   },
+   "description": "XS momentum: top-3 by 5d return, abs filter (cash if ret<=0), rebalance every 21d",
+   "train": {
+    "days": 438,
+    "total_return": 0.9631259632008333,
+    "cagr": 0.4741630474950085,
+    "max_drawdown": -0.3048507239954159,
+    "sharpe": 1.2911638214120091,
+    "win_rate": 0.65,
+    "round_trips": 40,
+    "avg_exposure": 0.9209105551519493,
+    "trades_per_year": 24.73972602739726
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.525401349928841,
+    "cagr": 0.4048977855610636,
+    "max_drawdown": -0.21336920516346036,
+    "sharpe": 1.2412351800717216,
+    "win_rate": 0.5588235294117647,
+    "round_trips": 34,
+    "avg_exposure": 0.9571071145598287,
+    "trades_per_year": 27.373801916932905
+   },
+   "rank_val_sharpe": 52
+  },
+  {
+   "id": "mom_n126_k5_rel_c1",
+   "family": "xs-momentum",
+   "params": {
+    "n": 126,
+    "k": 5,
+    "abs_filter": false,
+    "cadence": 1
+   },
+   "description": "XS momentum: top-5 by 126d return, no filter, rebalance every 1d",
+   "train": {
+    "days": 438,
+    "total_return": 0.2673686263291879,
+    "cagr": 0.14605230276423953,
+    "max_drawdown": -0.3272468027169896,
+    "sharpe": 0.6122308253935916,
+    "win_rate": 0.46464646464646464,
+    "round_trips": 99,
+    "avg_exposure": 0.7077625570776256,
+    "trades_per_year": 59.83561643835616
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.40035162668704305,
+    "cagr": 0.31140615620344314,
+    "max_drawdown": -0.188536700343512,
+    "sharpe": 1.2362614583383473,
+    "win_rate": 0.47959183673469385,
+    "round_trips": 98,
+    "avg_exposure": 1.0,
+    "trades_per_year": 78.90095846645367
+   },
+   "rank_val_sharpe": 53
+  },
+  {
+   "id": "mom_n21_k1_rel_c21",
+   "family": "xs-momentum",
+   "params": {
+    "n": 21,
+    "k": 1,
+    "abs_filter": false,
+    "cadence": 21
+   },
+   "description": "XS momentum: top-1 by 21d return, no filter, rebalance every 21d",
+   "train": {
+    "days": 438,
+    "total_return": 1.1227067960185684,
+    "cagr": 0.5419621187765031,
+    "max_drawdown": -0.4786373126562099,
+    "sharpe": 1.1317610193540963,
+    "win_rate": 0.5625,
+    "round_trips": 16,
+    "avg_exposure": 0.9474885844748858,
+    "trades_per_year": 9.780821917808218
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.8572515578570599,
+    "cagr": 0.6461560562522315,
+    "max_drawdown": -0.3761549018706729,
+    "sharpe": 1.2111135051794744,
+    "win_rate": 0.6153846153846154,
+    "round_trips": 13,
+    "avg_exposure": 1.0,
+    "trades_per_year": 10.466453674121405
+   },
+   "rank_val_sharpe": 54
+  },
+  {
+   "id": "mom_n21_k1_abs_c21",
+   "family": "xs-momentum",
+   "params": {
+    "n": 21,
+    "k": 1,
+    "abs_filter": true,
+    "cadence": 21
+   },
+   "description": "XS momentum: top-1 by 21d return, abs filter (cash if ret<=0), rebalance every 21d",
+   "train": {
+    "days": 438,
+    "total_return": 1.1227067960185684,
+    "cagr": 0.5419621187765031,
+    "max_drawdown": -0.4786373126562099,
+    "sharpe": 1.1317610193540963,
+    "win_rate": 0.5625,
+    "round_trips": 16,
+    "avg_exposure": 0.9474885844748858,
+    "trades_per_year": 9.780821917808218
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.8572515578570599,
+    "cagr": 0.6461560562522315,
+    "max_drawdown": -0.3761549018706729,
+    "sharpe": 1.2111135051794744,
+    "win_rate": 0.6153846153846154,
+    "round_trips": 13,
+    "avg_exposure": 1.0,
+    "trades_per_year": 10.466453674121405
+   },
+   "rank_val_sharpe": 55
+  },
+  {
+   "id": "mom_n126_k5_abs_c1",
+   "family": "xs-momentum",
+   "params": {
+    "n": 126,
+    "k": 5,
+    "abs_filter": true,
+    "cadence": 1
+   },
+   "description": "XS momentum: top-5 by 126d return, abs filter (cash if ret<=0), rebalance every 1d",
+   "train": {
+    "days": 438,
+    "total_return": 0.19661950119531024,
+    "cagr": 0.1087954652969867,
+    "max_drawdown": -0.3225162547978896,
+    "sharpe": 0.5287536649012863,
+    "win_rate": 0.47474747474747475,
+    "round_trips": 99,
+    "avg_exposure": 0.6836418903195757,
+    "trades_per_year": 59.83561643835616
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.38619431020381034,
+    "cagr": 0.3007213506245554,
+    "max_drawdown": -0.1885367003435119,
+    "sharpe": 1.204775516388928,
+    "win_rate": 0.47474747474747475,
+    "round_trips": 99,
+    "avg_exposure": 0.9968144976553168,
+    "trades_per_year": 79.70607028753993
+   },
+   "rank_val_sharpe": 56
+  },
+  {
+   "id": "mom_n63_k1_rel_c5",
+   "family": "xs-momentum",
+   "params": {
+    "n": 63,
+    "k": 1,
+    "abs_filter": false,
+    "cadence": 5
+   },
+   "description": "XS momentum: top-1 by 63d return, no filter, rebalance every 5d",
+   "train": {
+    "days": 438,
+    "total_return": 1.0008192628675485,
+    "cagr": 0.4903822610515669,
+    "max_drawdown": -0.5493671783106577,
+    "sharpe": 1.0588019043972758,
+    "win_rate": 0.5238095238095238,
+    "round_trips": 21,
+    "avg_exposure": 0.8515981735159818,
+    "trades_per_year": 12.657534246575342
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.8287937241257306,
+    "cagr": 0.6258179619480928,
+    "max_drawdown": -0.2605394674468776,
+    "sharpe": 1.179047893052133,
+    "win_rate": 0.4583333333333333,
+    "round_trips": 24,
+    "avg_exposure": 1.0,
+    "trades_per_year": 19.322683706070286
+   },
+   "rank_val_sharpe": 57
+  },
+  {
+   "id": "mom_n63_k1_abs_c5",
+   "family": "xs-momentum",
+   "params": {
+    "n": 63,
+    "k": 1,
+    "abs_filter": true,
+    "cadence": 5
+   },
+   "description": "XS momentum: top-1 by 63d return, abs filter (cash if ret<=0), rebalance every 5d",
+   "train": {
+    "days": 438,
+    "total_return": 0.9588471982135847,
+    "cagr": 0.47231359421840935,
+    "max_drawdown": -0.5493671783106577,
+    "sharpe": 1.0345218079654206,
+    "win_rate": 0.5238095238095238,
+    "round_trips": 21,
+    "avg_exposure": 0.8401826484018264,
+    "trades_per_year": 12.657534246575342
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.8287937241257306,
+    "cagr": 0.6258179619480928,
+    "max_drawdown": -0.2605394674468776,
+    "sharpe": 1.179047893052133,
+    "win_rate": 0.4583333333333333,
+    "round_trips": 24,
+    "avg_exposure": 1.0,
+    "trades_per_year": 19.322683706070286
+   },
+   "rank_val_sharpe": 58
+  },
+  {
+   "id": "dual_k1_c5",
+   "family": "dual-momentum",
+   "params": {
+    "n": 63,
+    "k": 1,
+    "cadence": 5
+   },
+   "description": "Dual momentum: top-1 by 63d return among positive, else cash, 5d cadence",
+   "train": {
+    "days": 438,
+    "total_return": 0.9588471982135847,
+    "cagr": 0.47231359421840935,
+    "max_drawdown": -0.5493671783106577,
+    "sharpe": 1.0345218079654206,
+    "win_rate": 0.5238095238095238,
+    "round_trips": 21,
+    "avg_exposure": 0.8401826484018264,
+    "trades_per_year": 12.657534246575342
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.8287937241257306,
+    "cagr": 0.6258179619480928,
+    "max_drawdown": -0.2605394674468776,
+    "sharpe": 1.179047893052133,
+    "win_rate": 0.4583333333333333,
+    "round_trips": 24,
+    "avg_exposure": 1.0,
+    "trades_per_year": 19.322683706070286
+   },
+   "rank_val_sharpe": 59
+  },
+  {
+   "id": "mom_n21_k5_abs_c5",
+   "family": "xs-momentum",
+   "params": {
+    "n": 21,
+    "k": 5,
+    "abs_filter": true,
+    "cadence": 5
+   },
+   "description": "XS momentum: top-5 by 21d return, abs filter (cash if ret<=0), rebalance every 5d",
+   "train": {
+    "days": 438,
+    "total_return": 0.6280235521168125,
+    "cagr": 0.3236628481614652,
+    "max_drawdown": -0.2826557325590724,
+    "sharpe": 1.3187558885884811,
+    "win_rate": 0.4727272727272727,
+    "round_trips": 110,
+    "avg_exposure": 0.8399201957773672,
+    "trades_per_year": 66.16438356164383
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.32744218835570527,
+    "cagr": 0.2561494910757389,
+    "max_drawdown": -0.1804774003770201,
+    "sharpe": 1.1599795888932614,
+    "win_rate": 0.38461538461538464,
+    "round_trips": 91,
+    "avg_exposure": 0.9423343245063575,
+    "trades_per_year": 73.26517571884983
+   },
+   "rank_val_sharpe": 60
+  },
+  {
+   "id": "mom_n21_k1_rel_c1",
+   "family": "xs-momentum",
+   "params": {
+    "n": 21,
+    "k": 1,
+    "abs_filter": false,
+    "cadence": 1
+   },
+   "description": "XS momentum: top-1 by 21d return, no filter, rebalance every 1d",
+   "train": {
+    "days": 438,
+    "total_return": 2.963709730981779,
+    "cagr": 1.2085812916867131,
+    "max_drawdown": -0.2917798591137528,
+    "sharpe": 2.104256759927011,
+    "win_rate": 0.6043956043956044,
+    "round_trips": 91,
+    "avg_exposure": 0.9474885844748858,
+    "trades_per_year": 52.93150684931507
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.8123509932039996,
+    "cagr": 0.6140386738390002,
+    "max_drawdown": -0.42114146137614117,
+    "sharpe": 1.159167452320262,
+    "win_rate": 0.4461538461538462,
+    "round_trips": 65,
+    "avg_exposure": 1.0,
+    "trades_per_year": 52.332268370607025
+   },
+   "rank_val_sharpe": 61
+  },
+  {
+   "id": "mom_n21_k1_abs_c1",
+   "family": "xs-momentum",
+   "params": {
+    "n": 21,
+    "k": 1,
+    "abs_filter": true,
+    "cadence": 1
+   },
+   "description": "XS momentum: top-1 by 21d return, abs filter (cash if ret<=0), rebalance every 1d",
+   "train": {
+    "days": 438,
+    "total_return": 2.8452119196501275,
+    "cagr": 1.1703485028165095,
+    "max_drawdown": -0.29082839359991497,
+    "sharpe": 2.0908245271672894,
+    "win_rate": 0.6,
+    "round_trips": 90,
+    "avg_exposure": 0.9292237442922374,
+    "trades_per_year": 52.35616438356164
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.8123509932039996,
+    "cagr": 0.6140386738390002,
+    "max_drawdown": -0.42114146137614117,
+    "sharpe": 1.159167452320262,
+    "win_rate": 0.4461538461538462,
+    "round_trips": 65,
+    "avg_exposure": 1.0,
+    "trades_per_year": 52.332268370607025
+   },
+   "rank_val_sharpe": 62
+  },
+  {
+   "id": "mom_n21_k5_abs_c21",
+   "family": "xs-momentum",
+   "params": {
+    "n": 21,
+    "k": 5,
+    "abs_filter": true,
+    "cadence": 21
+   },
+   "description": "XS momentum: top-5 by 21d return, abs filter (cash if ret<=0), rebalance every 21d",
+   "train": {
+    "days": 438,
+    "total_return": 0.8160478874313541,
+    "cagr": 0.40957093973560466,
+    "max_drawdown": -0.24622027202519714,
+    "sharpe": 1.4981492653866757,
+    "win_rate": 0.6111111111111112,
+    "round_trips": 54,
+    "avg_exposure": 0.8417463239912517,
+    "trades_per_year": 33.945205479452056
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.33819425977539996,
+    "cagr": 0.2643347465720123,
+    "max_drawdown": -0.12818790034130945,
+    "sharpe": 1.1515165077457934,
+    "win_rate": 0.4791666666666667,
+    "round_trips": 48,
+    "avg_exposure": 0.9729864755128462,
+    "trades_per_year": 38.64536741214057
+   },
+   "rank_val_sharpe": 63
+  },
+  {
+   "id": "rand_k3_seed45",
+   "family": "random-control",
+   "params": {
+    "k": 3,
+    "cadence": 5,
+    "seed": 45
+   },
+   "description": "Random control: 3 random names weekly (seed 45)",
+   "train": {
+    "days": 438,
+    "total_return": 1.3233457279925642,
+    "cagr": 0.6242049869400836,
+    "max_drawdown": -0.23511289863208407,
+    "sharpe": 1.913837453974517,
+    "win_rate": 0.5728643216080402,
+    "round_trips": 199,
+    "avg_exposure": 0.9954337899543378,
+    "trades_per_year": 116.21917808219177
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.4091310377590234,
+    "cagr": 0.31802156925854397,
+    "max_drawdown": -0.26403277744056664,
+    "sharpe": 1.147807803448451,
+    "win_rate": 0.5379310344827586,
+    "round_trips": 145,
+    "avg_exposure": 0.9999999999999999,
+    "trades_per_year": 116.74121405750799
+   },
+   "rank_val_sharpe": 64
+  },
+  {
+   "id": "mrevvol_n5_k2p5_y5_z5",
+   "family": "mean-reversion-vol",
+   "params": {
+    "n": 5,
+    "k": 2.5,
+    "y": 5.0,
+    "z": 5.0
+   },
+   "description": "Vol-scaled reversion: buy worst 5d performer if ret<=-k*sigma20*sqrt(n), k=2.5, exit +5.0%/-5.0%",
+   "train": {
+    "days": 438,
+    "total_return": -0.04019755425487015,
+    "cagr": -0.023328616774770383,
+    "max_drawdown": -0.09824930996050663,
+    "sharpe": -0.20513290353589664,
+    "win_rate": 0.3333333333333333,
+    "round_trips": 3,
+    "avg_exposure": 0.0273972602739726,
+    "trades_per_year": 1.726027397260274
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.18844917551359863,
+    "cagr": 0.14912633702955502,
+    "max_drawdown": -0.08952227012403136,
+    "sharpe": 1.1250418883116877,
+    "win_rate": 1.0,
+    "round_trips": 2,
+    "avg_exposure": 0.18849840255591055,
+    "trades_per_year": 1.610223642172524
+   },
+   "rank_val_sharpe": 65
+  },
+  {
+   "id": "mom_n10_k3_abs_c1",
+   "family": "xs-momentum",
+   "params": {
+    "n": 10,
+    "k": 3,
+    "abs_filter": true,
+    "cadence": 1
+   },
+   "description": "XS momentum: top-3 by 10d return, abs filter (cash if ret<=0), rebalance every 1d",
+   "train": {
+    "days": 438,
+    "total_return": 0.48952853349330927,
+    "cagr": 0.2576573661071824,
+    "max_drawdown": -0.34043184582043307,
+    "sharpe": 0.952394866848407,
+    "win_rate": 0.5159010600706714,
+    "round_trips": 283,
+    "avg_exposure": 0.9025612927480573,
+    "trades_per_year": 164.54794520547944
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.41077302121315395,
+    "cagr": 0.319257934605117,
+    "max_drawdown": -0.22871800683667598,
+    "sharpe": 1.1159259171571474,
+    "win_rate": 0.5111111111111111,
+    "round_trips": 225,
+    "avg_exposure": 0.9839398017488615,
+    "trades_per_year": 181.15015974440894
+   },
+   "rank_val_sharpe": 66
+  },
+  {
+   "id": "sma_10_50",
+   "family": "sma-crossover",
+   "params": {
+    "fast": 10,
+    "slow": 50
+   },
+   "description": "Per-asset SMA crossover 10/50: sleeve in name while fast>slow",
+   "train": {
+    "days": 438,
+    "total_return": 0.378189470163693,
+    "cagr": 0.20268070032988672,
+    "max_drawdown": -0.15991154555556397,
+    "sharpe": 1.3998823380263339,
+    "win_rate": 0.43103448275862066,
+    "round_trips": 58,
+    "avg_exposure": 0.5523756686904792,
+    "trades_per_year": 39.6986301369863
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.17789475740037308,
+    "cagr": 0.14090287546859726,
+    "max_drawdown": -0.08212692929936516,
+    "sharpe": 1.1143562844706065,
+    "win_rate": 0.44,
+    "round_trips": 50,
+    "avg_exposure": 0.6090372897112201,
+    "trades_per_year": 37.840255591054316
+   },
+   "rank_val_sharpe": 67
+  },
+  {
+   "id": "mom_n21_k3_rel_c1",
+   "family": "xs-momentum",
+   "params": {
+    "n": 21,
+    "k": 3,
+    "abs_filter": false,
+    "cadence": 1
+   },
+   "description": "XS momentum: top-3 by 21d return, no filter, rebalance every 1d",
+   "train": {
+    "days": 438,
+    "total_return": 0.7515116897884353,
+    "cagr": 0.380530032119186,
+    "max_drawdown": -0.30148097933062934,
+    "sharpe": 1.1809036180453263,
+    "win_rate": 0.5613207547169812,
+    "round_trips": 212,
+    "avg_exposure": 0.9474885844748858,
+    "trades_per_year": 123.6986301369863
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.4166151797482367,
+    "cagr": 0.3236546374475999,
+    "max_drawdown": -0.2739185527331244,
+    "sharpe": 1.1078345606215378,
+    "win_rate": 0.49693251533742333,
+    "round_trips": 163,
+    "avg_exposure": 1.0,
+    "trades_per_year": 131.2332268370607
+   },
+   "rank_val_sharpe": 68
+  },
+  {
+   "id": "mom_n10_k3_rel_c1",
+   "family": "xs-momentum",
+   "params": {
+    "n": 10,
+    "k": 3,
+    "abs_filter": false,
+    "cadence": 1
+   },
+   "description": "XS momentum: top-3 by 10d return, no filter, rebalance every 1d",
+   "train": {
+    "days": 438,
+    "total_return": 0.48660021178467505,
+    "cagr": 0.25623425061568295,
+    "max_drawdown": -0.34737607877926535,
+    "sharpe": 0.9168322604323329,
+    "win_rate": 0.521594684385382,
+    "round_trips": 301,
+    "avg_exposure": 0.9726027397260274,
+    "trades_per_year": 174.9041095890411
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.4044555239230696,
+    "cagr": 0.31449950507539914,
+    "max_drawdown": -0.26363496184173874,
+    "sharpe": 1.098162199340656,
+    "win_rate": 0.5022421524663677,
+    "round_trips": 223,
+    "avg_exposure": 1.0,
+    "trades_per_year": 179.53993610223642
+   },
+   "rank_val_sharpe": 69
+  },
+  {
+   "id": "mom_n126_k3_rel_c1",
+   "family": "xs-momentum",
+   "params": {
+    "n": 126,
+    "k": 3,
+    "abs_filter": false,
+    "cadence": 1
+   },
+   "description": "XS momentum: top-3 by 126d return, no filter, rebalance every 1d",
+   "train": {
+    "days": 438,
+    "total_return": 0.2852438244012869,
+    "cagr": 0.15532454778180926,
+    "max_drawdown": -0.3874249543503341,
+    "sharpe": 0.5960717941077032,
+    "win_rate": 0.5510204081632653,
+    "round_trips": 98,
+    "avg_exposure": 0.7077625570776256,
+    "trades_per_year": 58.10958904109589
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.44400848745025456,
+    "cagr": 0.3442235159338556,
+    "max_drawdown": -0.2372509877346457,
+    "sharpe": 1.0968575713116115,
+    "win_rate": 0.42105263157894735,
+    "round_trips": 95,
+    "avg_exposure": 1.0,
+    "trades_per_year": 76.48562300319489
+   },
+   "rank_val_sharpe": 70
+  },
+  {
+   "id": "mom_n126_k3_abs_c1",
+   "family": "xs-momentum",
+   "params": {
+    "n": 126,
+    "k": 3,
+    "abs_filter": true,
+    "cadence": 1
+   },
+   "description": "XS momentum: top-3 by 126d return, abs filter (cash if ret<=0), rebalance every 1d",
+   "train": {
+    "days": 438,
+    "total_return": 0.20792737183566667,
+    "cagr": 0.11481183127538186,
+    "max_drawdown": -0.3794491070866085,
+    "sharpe": 0.5040108783207962,
+    "win_rate": 0.5463917525773195,
+    "round_trips": 97,
+    "avg_exposure": 0.6956531321591347,
+    "trades_per_year": 57.534246575342465
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.44400848745025456,
+    "cagr": 0.3442235159338556,
+    "max_drawdown": -0.2372509877346457,
+    "sharpe": 1.0968575713116115,
+    "win_rate": 0.42105263157894735,
+    "round_trips": 95,
+    "avg_exposure": 1.0,
+    "trades_per_year": 76.48562300319489
+   },
+   "rank_val_sharpe": 71
+  },
+  {
+   "id": "mom_n21_k3_abs_c1",
+   "family": "xs-momentum",
+   "params": {
+    "n": 21,
+    "k": 3,
+    "abs_filter": true,
+    "cadence": 1
+   },
+   "description": "XS momentum: top-3 by 21d return, abs filter (cash if ret<=0), rebalance every 1d",
+   "train": {
+    "days": 438,
+    "total_return": 0.5727479709890271,
+    "cagr": 0.2976164748890169,
+    "max_drawdown": -0.30825438720066645,
+    "sharpe": 1.0465878364832852,
+    "win_rate": 0.5432692307692307,
+    "round_trips": 208,
+    "avg_exposure": 0.8842340103329837,
+    "trades_per_year": 121.3972602739726
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.4068452073565261,
+    "cagr": 0.3162999384241372,
+    "max_drawdown": -0.24915763175058026,
+    "sharpe": 1.0945234231951226,
+    "win_rate": 0.5,
+    "round_trips": 160,
+    "avg_exposure": 0.9787123350371553,
+    "trades_per_year": 128.81789137380193
+   },
+   "rank_val_sharpe": 72
+  },
+  {
+   "id": "mrev_n5_x5_y10_z5",
+   "family": "mean-reversion",
+   "params": {
+    "n": 5,
+    "x": 5.0,
+    "y": 10.0,
+    "z": 5.0
+   },
+   "description": "Mean reversion: buy worst 5d performer if ret<=-5.0%, exit +10.0%/-5.0%",
+   "train": {
+    "days": 438,
+    "total_return": -0.2510937144984584,
+    "cagr": -0.15325470101722594,
+    "max_drawdown": -0.5744075333715384,
+    "sharpe": -0.21933859111594298,
+    "win_rate": 0.375,
+    "round_trips": 32,
+    "avg_exposure": 0.7968036529680366,
+    "trades_per_year": 18.986301369863014
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.6068709820385096,
+    "cagr": 0.46500040412757904,
+    "max_drawdown": -0.23091888807498084,
+    "sharpe": 1.093238967254243,
+    "win_rate": 0.5,
+    "round_trips": 14,
+    "avg_exposure": 0.9201277955271565,
+    "trades_per_year": 11.271565495207668
+   },
+   "rank_val_sharpe": 73
+  },
+  {
+   "id": "mom_n10_k3_rel_c21",
+   "family": "xs-momentum",
+   "params": {
+    "n": 10,
+    "k": 3,
+    "abs_filter": false,
+    "cadence": 21
+   },
+   "description": "XS momentum: top-3 by 10d return, no filter, rebalance every 21d",
+   "train": {
+    "days": 438,
+    "total_return": 0.9622291537120296,
+    "cagr": 0.4737755524875049,
+    "max_drawdown": -0.28225550677425626,
+    "sharpe": 1.343168914657056,
+    "win_rate": 0.5,
+    "round_trips": 46,
+    "avg_exposure": 0.9726027397260273,
+    "trades_per_year": 28.191780821917806
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.42484521373564776,
+    "cagr": 0.32984242312911194,
+    "max_drawdown": -0.18428791238585762,
+    "sharpe": 1.0811275480753115,
+    "win_rate": 0.4666666666666667,
+    "round_trips": 30,
+    "avg_exposure": 1.0,
+    "trades_per_year": 24.15335463258786
+   },
+   "rank_val_sharpe": 74
+  },
+  {
+   "id": "mom_n10_k3_abs_c21",
+   "family": "xs-momentum",
+   "params": {
+    "n": 10,
+    "k": 3,
+    "abs_filter": true,
+    "cadence": 21
+   },
+   "description": "XS momentum: top-3 by 10d return, abs filter (cash if ret<=0), rebalance every 21d",
+   "train": {
+    "days": 438,
+    "total_return": 0.9622291537120296,
+    "cagr": 0.4737755524875049,
+    "max_drawdown": -0.28225550677425626,
+    "sharpe": 1.343168914657056,
+    "win_rate": 0.5,
+    "round_trips": 46,
+    "avg_exposure": 0.9726027397260273,
+    "trades_per_year": 28.191780821917806
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.42484521373564776,
+    "cagr": 0.32984242312911194,
+    "max_drawdown": -0.18428791238585762,
+    "sharpe": 1.0811275480753115,
+    "win_rate": 0.4666666666666667,
+    "round_trips": 30,
+    "avg_exposure": 1.0,
+    "trades_per_year": 24.15335463258786
+   },
+   "rank_val_sharpe": 75
+  },
+  {
+   "id": "mom_n5_k5_abs_c5",
+   "family": "xs-momentum",
+   "params": {
+    "n": 5,
+    "k": 5,
+    "abs_filter": true,
+    "cadence": 5
+   },
+   "description": "XS momentum: top-5 by 5d return, abs filter (cash if ret<=0), rebalance every 5d",
+   "train": {
+    "days": 438,
+    "total_return": 0.8553349234985848,
+    "cagr": 0.4270354411274708,
+    "max_drawdown": -0.2412947869180342,
+    "sharpe": 1.6162145462853803,
+    "win_rate": 0.48484848484848486,
+    "round_trips": 231,
+    "avg_exposure": 0.8331758541140553,
+    "trades_per_year": 135.78082191780823
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.29383651459430515,
+    "cagr": 0.23048246846084752,
+    "max_drawdown": -0.17925394833379515,
+    "sharpe": 1.0159806363851405,
+    "win_rate": 0.43956043956043955,
+    "round_trips": 182,
+    "avg_exposure": 0.9105151890371239,
+    "trades_per_year": 146.53035143769966
+   },
+   "rank_val_sharpe": 76
+  },
+  {
+   "id": "mom_n5_k5_rel_c5",
+   "family": "xs-momentum",
+   "params": {
+    "n": 5,
+    "k": 5,
+    "abs_filter": false,
+    "cadence": 5
+   },
+   "description": "XS momentum: top-5 by 5d return, no filter, rebalance every 5d",
+   "train": {
+    "days": 438,
+    "total_return": 0.9036964319236622,
+    "cagr": 0.4483196660000359,
+    "max_drawdown": -0.267597808616861,
+    "sharpe": 1.4422193135755605,
+    "win_rate": 0.4940239043824701,
+    "round_trips": 251,
+    "avg_exposure": 0.9840182648401827,
+    "trades_per_year": 147.2876712328767
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.3023207098827956,
+    "cagr": 0.23697458063677068,
+    "max_drawdown": -0.1897222446853254,
+    "sharpe": 1.0135736949829237,
+    "win_rate": 0.4381443298969072,
+    "round_trips": 194,
+    "avg_exposure": 1.0,
+    "trades_per_year": 156.19169329073483
+   },
+   "rank_val_sharpe": 77
+  },
+  {
+   "id": "mom_n5_k1_rel_c5",
+   "family": "xs-momentum",
+   "params": {
+    "n": 5,
+    "k": 1,
+    "abs_filter": false,
+    "cadence": 5
+   },
+   "description": "XS momentum: top-1 by 5d return, no filter, rebalance every 5d",
+   "train": {
+    "days": 438,
+    "total_return": 1.231982730450969,
+    "cagr": 0.5871451338984572,
+    "max_drawdown": -0.27960055202809286,
+    "sharpe": 1.3324268544471656,
+    "win_rate": 0.55,
+    "round_trips": 80,
+    "avg_exposure": 0.9840182648401826,
+    "trades_per_year": 46.602739726027394
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.6020619964353062,
+    "cagr": 0.4614694408458839,
+    "max_drawdown": -0.37551487951420714,
+    "sharpe": 0.997927704138724,
+    "win_rate": 0.5660377358490566,
+    "round_trips": 53,
+    "avg_exposure": 1.0,
+    "trades_per_year": 42.670926517571885
+   },
+   "rank_val_sharpe": 78
+  },
+  {
+   "id": "mom_n5_k1_abs_c5",
+   "family": "xs-momentum",
+   "params": {
+    "n": 5,
+    "k": 1,
+    "abs_filter": true,
+    "cadence": 5
+   },
+   "description": "XS momentum: top-1 by 5d return, abs filter (cash if ret<=0), rebalance every 5d",
+   "train": {
+    "days": 438,
+    "total_return": 1.190963406995647,
+    "cagr": 0.5702971853197827,
+    "max_drawdown": -0.330887794010019,
+    "sharpe": 1.329454267821433,
+    "win_rate": 0.5512820512820513,
+    "round_trips": 78,
+    "avg_exposure": 0.9611872146118722,
+    "trades_per_year": 45.45205479452055
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.6020619964353062,
+    "cagr": 0.4614694408458839,
+    "max_drawdown": -0.37551487951420714,
+    "sharpe": 0.997927704138724,
+    "win_rate": 0.5660377358490566,
+    "round_trips": 53,
+    "avg_exposure": 1.0,
+    "trades_per_year": 42.670926517571885
+   },
+   "rank_val_sharpe": 79
+  },
+  {
+   "id": "mrev_n5_x5_y5_z5",
+   "family": "mean-reversion",
+   "params": {
+    "n": 5,
+    "x": 5.0,
+    "y": 5.0,
+    "z": 5.0
+   },
+   "description": "Mean reversion: buy worst 5d performer if ret<=-5.0%, exit +5.0%/-5.0%",
+   "train": {
+    "days": 438,
+    "total_return": -0.20997851524200017,
+    "cagr": -0.12681289493258863,
+    "max_drawdown": -0.5847806820589099,
+    "sharpe": -0.0780517447686655,
+    "win_rate": 0.4444444444444444,
+    "round_trips": 45,
+    "avg_exposure": 0.7009132420091324,
+    "trades_per_year": 26.465753424657535
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.43504308184410756,
+    "cagr": 0.33750008096036455,
+    "max_drawdown": -0.18722427777827555,
+    "sharpe": 0.9770749346295456,
+    "win_rate": 0.6666666666666666,
+    "round_trips": 27,
+    "avg_exposure": 0.8019169329073482,
+    "trades_per_year": 21.738019169329075
+   },
+   "rank_val_sharpe": 80
+  },
+  {
+   "id": "mom_n21_k5_rel_c21",
+   "family": "xs-momentum",
+   "params": {
+    "n": 21,
+    "k": 5,
+    "abs_filter": false,
+    "cadence": 21
+   },
+   "description": "XS momentum: top-5 by 21d return, no filter, rebalance every 21d",
+   "train": {
+    "days": 438,
+    "total_return": 1.0668160528383996,
+    "cagr": 0.5184710976685873,
+    "max_drawdown": -0.26891502361478514,
+    "sharpe": 1.587313408220544,
+    "win_rate": 0.6206896551724138,
+    "round_trips": 58,
+    "avg_exposure": 0.9474885844748859,
+    "trades_per_year": 36.24657534246575
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.2781303736208669,
+    "cagr": 0.2184421592794512,
+    "max_drawdown": -0.16970846539133744,
+    "sharpe": 0.973837030860872,
+    "win_rate": 0.46,
+    "round_trips": 50,
+    "avg_exposure": 1.0,
+    "trades_per_year": 40.2555910543131
+   },
+   "rank_val_sharpe": 81
+  },
+  {
+   "id": "mom_n126_k3_rel_c5",
+   "family": "xs-momentum",
+   "params": {
+    "n": 126,
+    "k": 3,
+    "abs_filter": false,
+    "cadence": 5
+   },
+   "description": "XS momentum: top-3 by 126d return, no filter, rebalance every 5d",
+   "train": {
+    "days": 438,
+    "total_return": 0.47020838893003125,
+    "cagr": 0.24824601144679925,
+    "max_drawdown": -0.36287080817962525,
+    "sharpe": 0.8167661164678145,
+    "win_rate": 0.5263157894736842,
+    "round_trips": 38,
+    "avg_exposure": 0.7077625570776255,
+    "trades_per_year": 23.589041095890412
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.3560969271901382,
+    "cagr": 0.27793519813553025,
+    "max_drawdown": -0.20481371792507608,
+    "sharpe": 0.9651802382453287,
+    "win_rate": 0.38235294117647056,
+    "round_trips": 34,
+    "avg_exposure": 0.9999999999999999,
+    "trades_per_year": 27.373801916932905
+   },
+   "rank_val_sharpe": 82
+  },
+  {
+   "id": "mom_n126_k3_abs_c5",
+   "family": "xs-momentum",
+   "params": {
+    "n": 126,
+    "k": 3,
+    "abs_filter": true,
+    "cadence": 5
+   },
+   "description": "XS momentum: top-3 by 126d return, abs filter (cash if ret<=0), rebalance every 5d",
+   "train": {
+    "days": 438,
+    "total_return": 0.5143050939391796,
+    "cagr": 0.26965115560668873,
+    "max_drawdown": -0.36287080817962525,
+    "sharpe": 0.8761497193139943,
+    "win_rate": 0.5526315789473685,
+    "round_trips": 38,
+    "avg_exposure": 0.6926835557378808,
+    "trades_per_year": 23.589041095890412
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.3560969271901382,
+    "cagr": 0.27793519813553025,
+    "max_drawdown": -0.20481371792507608,
+    "sharpe": 0.9651802382453287,
+    "win_rate": 0.38235294117647056,
+    "round_trips": 34,
+    "avg_exposure": 0.9999999999999999,
+    "trades_per_year": 27.373801916932905
+   },
+   "rank_val_sharpe": 83
+  },
+  {
+   "id": "volmom_top3_c5",
+   "family": "vol-target-momentum",
+   "params": {
+    "n": 21,
+    "k": 3,
+    "vol_n": 20,
+    "cadence": 5
+   },
+   "description": "Top-3 by 21d return, inverse-20d-stdev weights, gross<=100%",
+   "train": {
+    "days": 438,
+    "total_return": 0.7743182196091227,
+    "cagr": 0.39084394523929955,
+    "max_drawdown": -0.23892574036819736,
+    "sharpe": 1.3448648088990922,
+    "win_rate": 0.5567010309278351,
+    "round_trips": 97,
+    "avg_exposure": 0.9474885844748858,
+    "trades_per_year": 57.534246575342465
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.28080599628677505,
+    "cagr": 0.22049531696608837,
+    "max_drawdown": -0.24859184989270233,
+    "sharpe": 0.9481825457623377,
+    "win_rate": 0.3787878787878788,
+    "round_trips": 66,
+    "avg_exposure": 1.0,
+    "trades_per_year": 53.13738019169329
+   },
+   "rank_val_sharpe": 84
+  },
+  {
+   "id": "mom_n10_k5_rel_c21",
+   "family": "xs-momentum",
+   "params": {
+    "n": 10,
+    "k": 5,
+    "abs_filter": false,
+    "cadence": 21
+   },
+   "description": "XS momentum: top-5 by 10d return, no filter, rebalance every 21d",
+   "train": {
+    "days": 438,
+    "total_return": 0.6116180204717858,
+    "cagr": 0.31597214346042213,
+    "max_drawdown": -0.3270477136931407,
+    "sharpe": 1.085288101469024,
+    "win_rate": 0.5161290322580645,
+    "round_trips": 62,
+    "avg_exposure": 0.9726027397260274,
+    "trades_per_year": 38.54794520547945
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.27575261511377436,
+    "cagr": 0.21661686669575886,
+    "max_drawdown": -0.19726866849151148,
+    "sharpe": 0.9302963496218203,
+    "win_rate": 0.47619047619047616,
+    "round_trips": 42,
+    "avg_exposure": 1.0,
+    "trades_per_year": 33.814696485623
+   },
+   "rank_val_sharpe": 85
+  },
+  {
+   "id": "mom_n10_k5_rel_c5",
+   "family": "xs-momentum",
+   "params": {
+    "n": 10,
+    "k": 5,
+    "abs_filter": false,
+    "cadence": 5
+   },
+   "description": "XS momentum: top-5 by 10d return, no filter, rebalance every 5d",
+   "train": {
+    "days": 438,
+    "total_return": 0.7671420111858893,
+    "cagr": 0.3876047145474959,
+    "max_drawdown": -0.3210306706931082,
+    "sharpe": 1.332346125247001,
+    "win_rate": 0.4913294797687861,
+    "round_trips": 173,
+    "avg_exposure": 0.9726027397260274,
+    "trades_per_year": 102.41095890410959
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.2679043609128071,
+    "cagr": 0.21058741895680355,
+    "max_drawdown": -0.21397649208099057,
+    "sharpe": 0.9298945636649958,
+    "win_rate": 0.40714285714285714,
+    "round_trips": 140,
+    "avg_exposure": 1.0,
+    "trades_per_year": 112.71565495207668
+   },
+   "rank_val_sharpe": 86
+  },
+  {
+   "id": "mom_n126_k1_rel_c1",
+   "family": "xs-momentum",
+   "params": {
+    "n": 126,
+    "k": 1,
+    "abs_filter": false,
+    "cadence": 1
+   },
+   "description": "XS momentum: top-1 by 126d return, no filter, rebalance every 1d",
+   "train": {
+    "days": 438,
+    "total_return": 0.5512792904604966,
+    "cagr": 0.28739569268505427,
+    "max_drawdown": -0.5961020907783576,
+    "sharpe": 0.767605523411514,
+    "win_rate": 0.6,
+    "round_trips": 20,
+    "avg_exposure": 0.7077625570776256,
+    "trades_per_year": 12.082191780821917
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.5573847090691328,
+    "cagr": 0.4285657001777543,
+    "max_drawdown": -0.30939684172148874,
+    "sharpe": 0.9227978953036529,
+    "win_rate": 0.5172413793103449,
+    "round_trips": 29,
+    "avg_exposure": 1.0,
+    "trades_per_year": 23.348242811501596
+   },
+   "rank_val_sharpe": 87
+  },
+  {
+   "id": "mom_n126_k1_abs_c1",
+   "family": "xs-momentum",
+   "params": {
+    "n": 126,
+    "k": 1,
+    "abs_filter": true,
+    "cadence": 1
+   },
+   "description": "XS momentum: top-1 by 126d return, abs filter (cash if ret<=0), rebalance every 1d",
+   "train": {
+    "days": 438,
+    "total_return": 0.5512792904604966,
+    "cagr": 0.28739569268505427,
+    "max_drawdown": -0.5961020907783576,
+    "sharpe": 0.767605523411514,
+    "win_rate": 0.6,
+    "round_trips": 20,
+    "avg_exposure": 0.7077625570776256,
+    "trades_per_year": 12.082191780821917
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.5573847090691328,
+    "cagr": 0.4285657001777543,
+    "max_drawdown": -0.30939684172148874,
+    "sharpe": 0.9227978953036529,
+    "win_rate": 0.5172413793103449,
+    "round_trips": 29,
+    "avg_exposure": 1.0,
+    "trades_per_year": 23.348242811501596
+   },
+   "rank_val_sharpe": 88
+  },
+  {
+   "id": "mom_n21_k3_rel_c5",
+   "family": "xs-momentum",
+   "params": {
+    "n": 21,
+    "k": 3,
+    "abs_filter": false,
+    "cadence": 5
+   },
+   "description": "XS momentum: top-3 by 21d return, no filter, rebalance every 5d",
+   "train": {
+    "days": 438,
+    "total_return": 0.8899860996215141,
+    "cagr": 0.442309215441987,
+    "max_drawdown": -0.25399633687517864,
+    "sharpe": 1.3644033533015123,
+    "win_rate": 0.5670103092783505,
+    "round_trips": 97,
+    "avg_exposure": 0.9474885844748858,
+    "trades_per_year": 57.534246575342465
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.31105445190802516,
+    "cagr": 0.24364904237486273,
+    "max_drawdown": -0.29951560941049216,
+    "sharpe": 0.9199716925508259,
+    "win_rate": 0.3787878787878788,
+    "round_trips": 66,
+    "avg_exposure": 1.0,
+    "trades_per_year": 53.13738019169329
+   },
+   "rank_val_sharpe": 89
+  },
+  {
+   "id": "mom_n21_k3_abs_c5",
+   "family": "xs-momentum",
+   "params": {
+    "n": 21,
+    "k": 3,
+    "abs_filter": true,
+    "cadence": 5
+   },
+   "description": "XS momentum: top-3 by 21d return, abs filter (cash if ret<=0), rebalance every 5d",
+   "train": {
+    "days": 438,
+    "total_return": 0.8707521012884838,
+    "cagr": 0.43384595416356553,
+    "max_drawdown": -0.25781344461649347,
+    "sharpe": 1.421248888123367,
+    "win_rate": 0.5483870967741935,
+    "round_trips": 93,
+    "avg_exposure": 0.8786915491455317,
+    "trades_per_year": 55.23287671232877
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.2835052264304654,
+    "cagr": 0.22256574320743372,
+    "max_drawdown": -0.28991414040494445,
+    "sharpe": 0.8611725335636302,
+    "win_rate": 0.36923076923076925,
+    "round_trips": 65,
+    "avg_exposure": 0.9894557294253429,
+    "trades_per_year": 52.332268370607025
+   },
+   "rank_val_sharpe": 90
+  },
+  {
+   "id": "mom_n21_k1_rel_c5",
+   "family": "xs-momentum",
+   "params": {
+    "n": 21,
+    "k": 1,
+    "abs_filter": false,
+    "cadence": 5
+   },
+   "description": "XS momentum: top-1 by 21d return, no filter, rebalance every 5d",
+   "train": {
+    "days": 438,
+    "total_return": 1.4411006759562022,
+    "cagr": 0.6710694788459548,
+    "max_drawdown": -0.3926578908315157,
+    "sharpe": 1.4300932146038638,
+    "win_rate": 0.5853658536585366,
+    "round_trips": 41,
+    "avg_exposure": 0.9474885844748858,
+    "trades_per_year": 24.164383561643834
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.45497605614030956,
+    "cagr": 0.35243738420422144,
+    "max_drawdown": -0.4070571918368856,
+    "sharpe": 0.8245846330643084,
+    "win_rate": 0.4444444444444444,
+    "round_trips": 27,
+    "avg_exposure": 1.0,
+    "trades_per_year": 21.738019169329075
+   },
+   "rank_val_sharpe": 91
+  },
+  {
+   "id": "mom_n21_k1_abs_c5",
+   "family": "xs-momentum",
+   "params": {
+    "n": 21,
+    "k": 1,
+    "abs_filter": true,
+    "cadence": 5
+   },
+   "description": "XS momentum: top-1 by 21d return, abs filter (cash if ret<=0), rebalance every 5d",
+   "train": {
+    "days": 438,
+    "total_return": 1.7285095694322576,
+    "cagr": 0.7815845642261849,
+    "max_drawdown": -0.3155927604158626,
+    "sharpe": 1.5985041375359301,
+    "win_rate": 0.6,
+    "round_trips": 40,
+    "avg_exposure": 0.9246575342465754,
+    "trades_per_year": 23.589041095890412
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.45497605614030956,
+    "cagr": 0.35243738420422144,
+    "max_drawdown": -0.4070571918368856,
+    "sharpe": 0.8245846330643084,
+    "win_rate": 0.4444444444444444,
+    "round_trips": 27,
+    "avg_exposure": 1.0,
+    "trades_per_year": 21.738019169329075
+   },
+   "rank_val_sharpe": 92
+  },
+  {
+   "id": "mom_n5_k3_abs_c5",
+   "family": "xs-momentum",
+   "params": {
+    "n": 5,
+    "k": 3,
+    "abs_filter": true,
+    "cadence": 5
+   },
+   "description": "XS momentum: top-3 by 5d return, abs filter (cash if ret<=0), rebalance every 5d",
+   "train": {
+    "days": 438,
+    "total_return": 1.1116790458724926,
+    "cagr": 0.5373481248047443,
+    "max_drawdown": -0.27120402420807266,
+    "sharpe": 1.6124959297116568,
+    "win_rate": 0.5290697674418605,
+    "round_trips": 172,
+    "avg_exposure": 0.9001113723185502,
+    "trades_per_year": 100.68493150684931
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.2654973467803683,
+    "cagr": 0.20873676637507121,
+    "max_drawdown": -0.21703188715813593,
+    "sharpe": 0.813955362143011,
+    "win_rate": 0.42748091603053434,
+    "round_trips": 131,
+    "avg_exposure": 0.962479509568025,
+    "trades_per_year": 105.46964856230032
+   },
+   "rank_val_sharpe": 93
+  },
+  {
+   "id": "mrev_n1_x10_y5_z5",
+   "family": "mean-reversion",
+   "params": {
+    "n": 1,
+    "x": 10.0,
+    "y": 5.0,
+    "z": 5.0
+   },
+   "description": "Mean reversion: buy worst 1d performer if ret<=-10.0%, exit +5.0%/-5.0%",
+   "train": {
+    "days": 438,
+    "total_return": 0.31628196422225163,
+    "cagr": 0.17129558966821445,
+    "max_drawdown": -0.1135764864648785,
+    "sharpe": 0.9803716376087324,
+    "win_rate": 0.7,
+    "round_trips": 10,
+    "avg_exposure": 0.11187214611872145,
+    "trades_per_year": 5.7534246575342465
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.18593248831004816,
+    "cagr": 0.1471667602169091,
+    "max_drawdown": -0.11534877736765992,
+    "sharpe": 0.8108960647785531,
+    "win_rate": 0.6666666666666666,
+    "round_trips": 6,
+    "avg_exposure": 0.20447284345047922,
+    "trades_per_year": 4.830670926517572
+   },
+   "rank_val_sharpe": 94
+  },
+  {
+   "id": "rand_k3_seed46",
+   "family": "random-control",
+   "params": {
+    "k": 3,
+    "cadence": 5,
+    "seed": 46
+   },
+   "description": "Random control: 3 random names weekly (seed 46)",
+   "train": {
+    "days": 438,
+    "total_return": 0.32056309634748215,
+    "cagr": 0.17348588702891932,
+    "max_drawdown": -0.30665502967750724,
+    "sharpe": 0.7309184670493435,
+    "win_rate": 0.551219512195122,
+    "round_trips": 205,
+    "avg_exposure": 0.9954337899543378,
+    "trades_per_year": 119.67123287671232
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.2278416443473006,
+    "cagr": 0.1796945338309086,
+    "max_drawdown": -0.1397647575413562,
+    "sharpe": 0.805949813670653,
+    "win_rate": 0.5303030303030303,
+    "round_trips": 132,
+    "avg_exposure": 0.9999999999999999,
+    "trades_per_year": 106.27476038338658
+   },
+   "rank_val_sharpe": 95
+  },
+  {
+   "id": "mom_n5_k3_rel_c5",
+   "family": "xs-momentum",
+   "params": {
+    "n": 5,
+    "k": 3,
+    "abs_filter": false,
+    "cadence": 5
+   },
+   "description": "XS momentum: top-3 by 5d return, no filter, rebalance every 5d",
+   "train": {
+    "days": 438,
+    "total_return": 1.0075664677957383,
+    "cagr": 0.4932718067461008,
+    "max_drawdown": -0.2796258998454847,
+    "sharpe": 1.4090120337585879,
+    "win_rate": 0.5271739130434783,
+    "round_trips": 184,
+    "avg_exposure": 0.9840182648401826,
+    "trades_per_year": 107.58904109589041
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.25142325506423124,
+    "cagr": 0.1979019996597302,
+    "max_drawdown": -0.21494051953620807,
+    "sharpe": 0.7819403563757696,
+    "win_rate": 0.42962962962962964,
+    "round_trips": 135,
+    "avg_exposure": 1.0,
+    "trades_per_year": 108.69009584664536
+   },
+   "rank_val_sharpe": 96
+  },
+  {
+   "id": "mrevvol_n1_k2_y5_z5",
+   "family": "mean-reversion-vol",
+   "params": {
+    "n": 1,
+    "k": 2.0,
+    "y": 5.0,
+    "z": 5.0
+   },
+   "description": "Vol-scaled reversion: buy worst 1d performer if ret<=-k*sigma20*sqrt(n), k=2.0, exit +5.0%/-5.0%",
+   "train": {
+    "days": 438,
+    "total_return": 0.35574757222676134,
+    "cagr": 0.19137394255669582,
+    "max_drawdown": -0.3213316058698187,
+    "sharpe": 0.7223997470635488,
+    "win_rate": 0.5909090909090909,
+    "round_trips": 22,
+    "avg_exposure": 0.5776255707762558,
+    "trades_per_year": 12.657534246575342
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.23245214104985124,
+    "cagr": 0.18325963966873804,
+    "max_drawdown": -0.21014685945818645,
+    "sharpe": 0.739511305904841,
+    "win_rate": 0.6923076923076923,
+    "round_trips": 13,
+    "avg_exposure": 0.6677316293929713,
+    "trades_per_year": 11.271565495207668
+   },
+   "rank_val_sharpe": 97
+  },
+  {
+   "id": "mrev_n1_x10_y10_z5",
+   "family": "mean-reversion",
+   "params": {
+    "n": 1,
+    "x": 10.0,
+    "y": 10.0,
+    "z": 5.0
+   },
+   "description": "Mean reversion: buy worst 1d performer if ret<=-10.0%, exit +10.0%/-5.0%",
+   "train": {
+    "days": 438,
+    "total_return": 1.063101557444858,
+    "cagr": 0.5169003848265348,
+    "max_drawdown": -0.12507819898441075,
+    "sharpe": 1.6415934440013127,
+    "win_rate": 0.7,
+    "round_trips": 10,
+    "avg_exposure": 0.17123287671232876,
+    "trades_per_year": 5.7534246575342465
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.17795375067997954,
+    "cagr": 0.1409488798091989,
+    "max_drawdown": -0.13797769734689058,
+    "sharpe": 0.7394782882288305,
+    "win_rate": 0.5,
+    "round_trips": 6,
+    "avg_exposure": 0.2523961661341853,
+    "trades_per_year": 4.830670926517572
+   },
+   "rank_val_sharpe": 98
+  },
+  {
+   "id": "mom_n10_k5_rel_c1",
+   "family": "xs-momentum",
+   "params": {
+    "n": 10,
+    "k": 5,
+    "abs_filter": false,
+    "cadence": 1
+   },
+   "description": "XS momentum: top-5 by 10d return, no filter, rebalance every 1d",
+   "train": {
+    "days": 438,
+    "total_return": 0.5361781779100647,
+    "cagr": 0.2801703519662926,
+    "max_drawdown": -0.3519977566773358,
+    "sharpe": 1.0396504732460783,
+    "win_rate": 0.5286458333333334,
+    "round_trips": 384,
+    "avg_exposure": 0.9726027397260274,
+    "trades_per_year": 223.8082191780822
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.19104775881221814,
+    "cagr": 0.1511488324581609,
+    "max_drawdown": -0.18691408411131893,
+    "sharpe": 0.732378736760401,
+    "win_rate": 0.46864686468646866,
+    "round_trips": 303,
+    "avg_exposure": 1.0,
+    "trades_per_year": 243.94888178913737
+   },
+   "rank_val_sharpe": 99
+  },
+  {
+   "id": "mrevvol_n5_k1p5_y5_z5",
+   "family": "mean-reversion-vol",
+   "params": {
+    "n": 5,
+    "k": 1.5,
+    "y": 5.0,
+    "z": 5.0
+   },
+   "description": "Vol-scaled reversion: buy worst 5d performer if ret<=-k*sigma20*sqrt(n), k=1.5, exit +5.0%/-5.0%",
+   "train": {
+    "days": 438,
+    "total_return": 0.4887494513336652,
+    "cagr": 0.2572788612630381,
+    "max_drawdown": -0.24040534721632745,
+    "sharpe": 0.8082864421982667,
+    "win_rate": 0.5714285714285714,
+    "round_trips": 28,
+    "avg_exposure": 0.4748858447488584,
+    "trades_per_year": 16.684931506849313
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.24331383524895123,
+    "cagr": 0.19164828710048964,
+    "max_drawdown": -0.2133068900230094,
+    "sharpe": 0.7227530840779117,
+    "win_rate": 0.631578947368421,
+    "round_trips": 19,
+    "avg_exposure": 0.7635782747603834,
+    "trades_per_year": 15.297124600638977
+   },
+   "rank_val_sharpe": 100
+  },
+  {
+   "id": "mom_n10_k5_abs_c21",
+   "family": "xs-momentum",
+   "params": {
+    "n": 10,
+    "k": 5,
+    "abs_filter": true,
+    "cadence": 21
+   },
+   "description": "XS momentum: top-5 by 10d return, abs filter (cash if ret<=0), rebalance every 21d",
+   "train": {
+    "days": 438,
+    "total_return": 0.4723805663937053,
+    "cagr": 0.24930674634408545,
+    "max_drawdown": -0.3254745352552083,
+    "sharpe": 0.9461987810189072,
+    "win_rate": 0.49206349206349204,
+    "round_trips": 63,
+    "avg_exposure": 0.924291479801734,
+    "trades_per_year": 39.12328767123287
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.18915701816977903,
+    "cagr": 0.14967734121570708,
+    "max_drawdown": -0.187165127475994,
+    "sharpe": 0.711400552453109,
+    "win_rate": 0.4358974358974359,
+    "round_trips": 39,
+    "avg_exposure": 0.8797247007016717,
+    "trades_per_year": 31.399361022364218
+   },
+   "rank_val_sharpe": 101
+  },
+  {
+   "id": "mrevvol_n5_k2_y10_z5",
+   "family": "mean-reversion-vol",
+   "params": {
+    "n": 5,
+    "k": 2.0,
+    "y": 10.0,
+    "z": 5.0
+   },
+   "description": "Vol-scaled reversion: buy worst 5d performer if ret<=-k*sigma20*sqrt(n), k=2.0, exit +10.0%/-5.0%",
+   "train": {
+    "days": 438,
+    "total_return": 0.5866114034162075,
+    "cagr": 0.30418509593084453,
+    "max_drawdown": -0.2860694286984302,
+    "sharpe": 1.0045148462925737,
+    "win_rate": 0.5833333333333334,
+    "round_trips": 12,
+    "avg_exposure": 0.3150684931506849,
+    "trades_per_year": 6.904109589041096
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.19038984031550865,
+    "cagr": 0.1506368512959726,
+    "max_drawdown": -0.1791643985211463,
+    "sharpe": 0.6991884793982012,
+    "win_rate": 0.5,
+    "round_trips": 8,
+    "avg_exposure": 0.3258785942492013,
+    "trades_per_year": 6.440894568690096
+   },
+   "rank_val_sharpe": 102
+  },
+  {
+   "id": "mrevvol_n5_k2p5_y10_z5",
+   "family": "mean-reversion-vol",
+   "params": {
+    "n": 5,
+    "k": 2.5,
+    "y": 10.0,
+    "z": 5.0
+   },
+   "description": "Vol-scaled reversion: buy worst 5d performer if ret<=-k*sigma20*sqrt(n), k=2.5, exit +10.0%/-5.0%",
+   "train": {
+    "days": 438,
+    "total_return": -0.18503217642716985,
+    "cagr": -0.11105409330267146,
+    "max_drawdown": -0.2343238960010614,
+    "sharpe": -0.9702830091299282,
+    "win_rate": 0.0,
+    "round_trips": 3,
+    "avg_exposure": 0.04794520547945205,
+    "trades_per_year": 1.726027397260274
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.10711585531703705,
+    "cagr": 0.08537637307100576,
+    "max_drawdown": -0.11322447348670417,
+    "sharpe": 0.6949411779048289,
+    "win_rate": 1.0,
+    "round_trips": 1,
+    "avg_exposure": 0.25878594249201275,
+    "trades_per_year": 0.805111821086262
+   },
+   "rank_val_sharpe": 103
+  },
+  {
+   "id": "mrevvol_n1_k1p5_y5_z5",
+   "family": "mean-reversion-vol",
+   "params": {
+    "n": 1,
+    "k": 1.5,
+    "y": 5.0,
+    "z": 5.0
+   },
+   "description": "Vol-scaled reversion: buy worst 1d performer if ret<=-k*sigma20*sqrt(n), k=1.5, exit +5.0%/-5.0%",
+   "train": {
+    "days": 438,
+    "total_return": 0.5228841416801697,
+    "cagr": 0.27378462963292227,
+    "max_drawdown": -0.3036184891713518,
+    "sharpe": 0.854444601728747,
+    "win_rate": 0.5862068965517241,
+    "round_trips": 29,
+    "avg_exposure": 0.682648401826484,
+    "trades_per_year": 17.26027397260274
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.20912112332774413,
+    "cagr": 0.1651917945128245,
+    "max_drawdown": -0.15932122728579412,
+    "sharpe": 0.6885094415368737,
+    "win_rate": 0.5714285714285714,
+    "round_trips": 21,
+    "avg_exposure": 0.8370607028753994,
+    "trades_per_year": 16.9073482428115
+   },
+   "rank_val_sharpe": 104
+  },
+  {
+   "id": "mrevvol_n5_k2_y5_z5",
+   "family": "mean-reversion-vol",
+   "params": {
+    "n": 5,
+    "k": 2.0,
+    "y": 5.0,
+    "z": 5.0
+   },
+   "description": "Vol-scaled reversion: buy worst 5d performer if ret<=-k*sigma20*sqrt(n), k=2.0, exit +5.0%/-5.0%",
+   "train": {
+    "days": 438,
+    "total_return": 0.44010605404556347,
+    "cagr": 0.23347703581841528,
+    "max_drawdown": -0.12035848262472892,
+    "sharpe": 0.9233426651684737,
+    "win_rate": 0.7142857142857143,
+    "round_trips": 14,
+    "avg_exposure": 0.21689497716894976,
+    "trades_per_year": 8.054794520547945
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.17819359734792917,
+    "cagr": 0.141135913232751,
+    "max_drawdown": -0.19155543369844452,
+    "sharpe": 0.6566464316274251,
+    "win_rate": 0.5454545454545454,
+    "round_trips": 11,
+    "avg_exposure": 0.3610223642172524,
+    "trades_per_year": 8.856230031948881
+   },
+   "rank_val_sharpe": 105
+  },
+  {
+   "id": "mom_n10_k5_abs_c1",
+   "family": "xs-momentum",
+   "params": {
+    "n": 10,
+    "k": 5,
+    "abs_filter": true,
+    "cadence": 1
+   },
+   "description": "XS momentum: top-5 by 10d return, abs filter (cash if ret<=0), rebalance every 1d",
+   "train": {
+    "days": 438,
+    "total_return": 0.48767164125515894,
+    "cagr": 0.25675508544068437,
+    "max_drawdown": -0.33762841394354315,
+    "sharpe": 1.0678770931375634,
+    "win_rate": 0.49722222222222223,
+    "round_trips": 360,
+    "avg_exposure": 0.8493908004966005,
+    "trades_per_year": 210.0
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.15926156550102166,
+    "cagr": 0.12634966424962446,
+    "max_drawdown": -0.18388628345108782,
+    "sharpe": 0.6534048495714184,
+    "win_rate": 0.4623287671232877,
+    "round_trips": 292,
+    "avg_exposure": 0.9174960070665014,
+    "trades_per_year": 235.0926517571885
+   },
+   "rank_val_sharpe": 106
+  },
+  {
+   "id": "mrev_n1_x5_y5_z5",
+   "family": "mean-reversion",
+   "params": {
+    "n": 1,
+    "x": 5.0,
+    "y": 5.0,
+    "z": 5.0
+   },
+   "description": "Mean reversion: buy worst 1d performer if ret<=-5.0%, exit +5.0%/-5.0%",
+   "train": {
+    "days": 438,
+    "total_return": -0.012442350304798677,
+    "cagr": -0.007177637215867394,
+    "max_drawdown": -0.39460155113676654,
+    "sharpe": 0.17359817931406143,
+    "win_rate": 0.4482758620689655,
+    "round_trips": 29,
+    "avg_exposure": 0.4178082191780822,
+    "trades_per_year": 16.684931506849313
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.21394971940159535,
+    "cagr": 0.16893665741680253,
+    "max_drawdown": -0.18823880404621052,
+    "sharpe": 0.6409312850244976,
+    "win_rate": 0.5555555555555556,
+    "round_trips": 18,
+    "avg_exposure": 0.6198083067092651,
+    "trades_per_year": 15.297124600638977
+   },
+   "rank_val_sharpe": 107
+  },
+  {
+   "id": "mom_n10_k5_abs_c5",
+   "family": "xs-momentum",
+   "params": {
+    "n": 10,
+    "k": 5,
+    "abs_filter": true,
+    "cadence": 5
+   },
+   "description": "XS momentum: top-5 by 10d return, abs filter (cash if ret<=0), rebalance every 5d",
+   "train": {
+    "days": 438,
+    "total_return": 0.6061901894953576,
+    "cagr": 0.31342033377374157,
+    "max_drawdown": -0.32008719129172736,
+    "sharpe": 1.232955757819751,
+    "win_rate": 0.4573170731707317,
+    "round_trips": 164,
+    "avg_exposure": 0.8610148391796784,
+    "trades_per_year": 97.23287671232876
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.1529100945949191,
+    "cagr": 0.12137853995725467,
+    "max_drawdown": -0.20065081131790463,
+    "sharpe": 0.6185416553318914,
+    "win_rate": 0.39097744360902253,
+    "round_trips": 133,
+    "avg_exposure": 0.9168804520497318,
+    "trades_per_year": 107.07987220447284
+   },
+   "rank_val_sharpe": 108
+  },
+  {
+   "id": "mom_n63_k1_rel_c1",
+   "family": "xs-momentum",
+   "params": {
+    "n": 63,
+    "k": 1,
+    "abs_filter": false,
+    "cadence": 1
+   },
+   "description": "XS momentum: top-1 by 63d return, no filter, rebalance every 1d",
+   "train": {
+    "days": 438,
+    "total_return": 0.807343199054148,
+    "cagr": 0.4056797529373839,
+    "max_drawdown": -0.49853986479997203,
+    "sharpe": 0.9353908275528862,
+    "win_rate": 0.5306122448979592,
+    "round_trips": 49,
+    "avg_exposure": 0.8515981735159818,
+    "trades_per_year": 28.767123287671232
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.24982857238865352,
+    "cagr": 0.1966728592425775,
+    "max_drawdown": -0.3742910609954935,
+    "sharpe": 0.6000656128309882,
+    "win_rate": 0.4888888888888889,
+    "round_trips": 45,
+    "avg_exposure": 1.0,
+    "trades_per_year": 36.23003194888179
+   },
+   "rank_val_sharpe": 109
+  },
+  {
+   "id": "mom_n63_k1_abs_c1",
+   "family": "xs-momentum",
+   "params": {
+    "n": 63,
+    "k": 1,
+    "abs_filter": true,
+    "cadence": 1
+   },
+   "description": "XS momentum: top-1 by 63d return, abs filter (cash if ret<=0), rebalance every 1d",
+   "train": {
+    "days": 438,
+    "total_return": 0.8987202249519666,
+    "cagr": 0.44614028644309656,
+    "max_drawdown": -0.486433744513725,
+    "sharpe": 0.9966006495793716,
+    "win_rate": 0.5531914893617021,
+    "round_trips": 47,
+    "avg_exposure": 0.8333333333333334,
+    "trades_per_year": 27.616438356164384
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.24982857238865352,
+    "cagr": 0.1966728592425775,
+    "max_drawdown": -0.3742910609954935,
+    "sharpe": 0.6000656128309882,
+    "win_rate": 0.4888888888888889,
+    "round_trips": 45,
+    "avg_exposure": 1.0,
+    "trades_per_year": 36.23003194888179
+   },
+   "rank_val_sharpe": 110
+  },
+  {
+   "id": "mom_n126_k1_rel_c21",
+   "family": "xs-momentum",
+   "params": {
+    "n": 126,
+    "k": 1,
+    "abs_filter": false,
+    "cadence": 21
+   },
+   "description": "XS momentum: top-1 by 126d return, no filter, rebalance every 21d",
+   "train": {
+    "days": 438,
+    "total_return": 0.5240560996281247,
+    "cagr": 0.27434852256989073,
+    "max_drawdown": -0.5370524716704603,
+    "sharpe": 0.7257329129678756,
+    "win_rate": 0.8,
+    "round_trips": 5,
+    "avg_exposure": 0.7077625570776256,
+    "trades_per_year": 3.452054794520548
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.23957446255031556,
+    "cagr": 0.18876193242515638,
+    "max_drawdown": -0.26572211829044934,
+    "sharpe": 0.5893670056604642,
+    "win_rate": 0.42857142857142855,
+    "round_trips": 7,
+    "avg_exposure": 1.0,
+    "trades_per_year": 5.635782747603834
+   },
+   "rank_val_sharpe": 111
+  },
+  {
+   "id": "mom_n126_k1_abs_c21",
+   "family": "xs-momentum",
+   "params": {
+    "n": 126,
+    "k": 1,
+    "abs_filter": true,
+    "cadence": 21
+   },
+   "description": "XS momentum: top-1 by 126d return, abs filter (cash if ret<=0), rebalance every 21d",
+   "train": {
+    "days": 438,
+    "total_return": 0.5240560996281247,
+    "cagr": 0.27434852256989073,
+    "max_drawdown": -0.5370524716704603,
+    "sharpe": 0.7257329129678756,
+    "win_rate": 0.8,
+    "round_trips": 5,
+    "avg_exposure": 0.7077625570776256,
+    "trades_per_year": 3.452054794520548
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.23957446255031556,
+    "cagr": 0.18876193242515638,
+    "max_drawdown": -0.26572211829044934,
+    "sharpe": 0.5893670056604642,
+    "win_rate": 0.42857142857142855,
+    "round_trips": 7,
+    "avg_exposure": 1.0,
+    "trades_per_year": 5.635782747603834
+   },
+   "rank_val_sharpe": 112
+  },
+  {
+   "id": "mrev_n5_x2p5_y10_z5",
+   "family": "mean-reversion",
+   "params": {
+    "n": 5,
+    "x": 2.5,
+    "y": 10.0,
+    "z": 5.0
+   },
+   "description": "Mean reversion: buy worst 5d performer if ret<=-2.5%, exit +10.0%/-5.0%",
+   "train": {
+    "days": 438,
+    "total_return": -0.29746663007013263,
+    "cagr": -0.18382931955315973,
+    "max_drawdown": -0.546487240000912,
+    "sharpe": -0.2946245164274702,
+    "win_rate": 0.3076923076923077,
+    "round_trips": 26,
+    "avg_exposure": 0.9178082191780822,
+    "trades_per_year": 15.534246575342465
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.2257214334410227,
+    "cagr": 0.17805418733275014,
+    "max_drawdown": -0.25959161293909017,
+    "sharpe": 0.585825116986751,
+    "win_rate": 0.47058823529411764,
+    "round_trips": 17,
+    "avg_exposure": 0.939297124600639,
+    "trades_per_year": 13.686900958466452
+   },
+   "rank_val_sharpe": 113
+  },
+  {
+   "id": "mom_n5_k1_rel_c1",
+   "family": "xs-momentum",
+   "params": {
+    "n": 5,
+    "k": 1,
+    "abs_filter": false,
+    "cadence": 1
+   },
+   "description": "XS momentum: top-1 by 5d return, no filter, rebalance every 1d",
+   "train": {
+    "days": 438,
+    "total_return": 1.2268650363519074,
+    "cagr": 0.585050355054098,
+    "max_drawdown": -0.4461101967440272,
+    "sharpe": 1.2277907592010717,
+    "win_rate": 0.5428571428571428,
+    "round_trips": 175,
+    "avg_exposure": 0.9840182648401826,
+    "trades_per_year": 101.26027397260273
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.2266821834606776,
+    "cagr": 0.17879756058466012,
+    "max_drawdown": -0.4495003458121982,
+    "sharpe": 0.5773967493226861,
+    "win_rate": 0.5547945205479452,
+    "round_trips": 146,
+    "avg_exposure": 1.0,
+    "trades_per_year": 117.54632587859425
+   },
+   "rank_val_sharpe": 114
+  },
+  {
+   "id": "mom_n5_k1_abs_c1",
+   "family": "xs-momentum",
+   "params": {
+    "n": 5,
+    "k": 1,
+    "abs_filter": true,
+    "cadence": 1
+   },
+   "description": "XS momentum: top-1 by 5d return, abs filter (cash if ret<=0), rebalance every 1d",
+   "train": {
+    "days": 438,
+    "total_return": 1.1725218233051748,
+    "cagr": 0.5626790275737505,
+    "max_drawdown": -0.42624124605747504,
+    "sharpe": 1.2117436608899421,
+    "win_rate": 0.5411764705882353,
+    "round_trips": 170,
+    "avg_exposure": 0.95662100456621,
+    "trades_per_year": 98.38356164383562
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.21354393635405167,
+    "cagr": 0.16862206045114814,
+    "max_drawdown": -0.4495003458121982,
+    "sharpe": 0.559893339966609,
+    "win_rate": 0.5486111111111112,
+    "round_trips": 144,
+    "avg_exposure": 0.9936102236421726,
+    "trades_per_year": 115.93610223642172
+   },
+   "rank_val_sharpe": 115
+  },
+  {
+   "id": "mom_n5_k5_rel_c1",
+   "family": "xs-momentum",
+   "params": {
+    "n": 5,
+    "k": 5,
+    "abs_filter": false,
+    "cadence": 1
+   },
+   "description": "XS momentum: top-5 by 5d return, no filter, rebalance every 1d",
+   "train": {
+    "days": 438,
+    "total_return": 0.36179455866491916,
+    "cagr": 0.19442832958348188,
+    "max_drawdown": -0.346132774263186,
+    "sharpe": 0.7615802193035313,
+    "win_rate": 0.5146520146520146,
+    "round_trips": 546,
+    "avg_exposure": 0.9840182648401826,
+    "trades_per_year": 317.01369863013696
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.1235960143265391,
+    "cagr": 0.09836544715001927,
+    "max_drawdown": -0.22502936566466092,
+    "sharpe": 0.5224462279278631,
+    "win_rate": 0.4538653366583541,
+    "round_trips": 401,
+    "avg_exposure": 1.0,
+    "trades_per_year": 322.84984025559106
+   },
+   "rank_val_sharpe": 116
+  },
+  {
+   "id": "mom_n63_k1_rel_c21",
+   "family": "xs-momentum",
+   "params": {
+    "n": 63,
+    "k": 1,
+    "abs_filter": false,
+    "cadence": 21
+   },
+   "description": "XS momentum: top-1 by 63d return, no filter, rebalance every 21d",
+   "train": {
+    "days": 438,
+    "total_return": 0.4937210490224002,
+    "cagr": 0.25969279222150443,
+    "max_drawdown": -0.572209733914475,
+    "sharpe": 0.7148699810762742,
+    "win_rate": 0.6363636363636364,
+    "round_trips": 11,
+    "avg_exposure": 0.8515981735159818,
+    "trades_per_year": 6.904109589041096
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.17375399115162216,
+    "cagr": 0.13767268555593026,
+    "max_drawdown": -0.2605394674468775,
+    "sharpe": 0.5090135428092502,
+    "win_rate": 0.6666666666666666,
+    "round_trips": 9,
+    "avg_exposure": 1.0,
+    "trades_per_year": 7.246006389776357
+   },
+   "rank_val_sharpe": 117
+  },
+  {
+   "id": "mom_n63_k1_abs_c21",
+   "family": "xs-momentum",
+   "params": {
+    "n": 63,
+    "k": 1,
+    "abs_filter": true,
+    "cadence": 21
+   },
+   "description": "XS momentum: top-1 by 63d return, abs filter (cash if ret<=0), rebalance every 21d",
+   "train": {
+    "days": 438,
+    "total_return": 0.4937210490224002,
+    "cagr": 0.25969279222150443,
+    "max_drawdown": -0.572209733914475,
+    "sharpe": 0.7148699810762742,
+    "win_rate": 0.6363636363636364,
+    "round_trips": 11,
+    "avg_exposure": 0.8515981735159818,
+    "trades_per_year": 6.904109589041096
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.17375399115162216,
+    "cagr": 0.13767268555593026,
+    "max_drawdown": -0.2605394674468775,
+    "sharpe": 0.5090135428092502,
+    "win_rate": 0.6666666666666666,
+    "round_trips": 9,
+    "avg_exposure": 1.0,
+    "trades_per_year": 7.246006389776357
+   },
+   "rank_val_sharpe": 118
+  },
+  {
+   "id": "dual_k1_c21",
+   "family": "dual-momentum",
+   "params": {
+    "n": 63,
+    "k": 1,
+    "cadence": 21
+   },
+   "description": "Dual momentum: top-1 by 63d return among positive, else cash, 21d cadence",
+   "train": {
+    "days": 438,
+    "total_return": 0.4937210490224002,
+    "cagr": 0.25969279222150443,
+    "max_drawdown": -0.572209733914475,
+    "sharpe": 0.7148699810762742,
+    "win_rate": 0.6363636363636364,
+    "round_trips": 11,
+    "avg_exposure": 0.8515981735159818,
+    "trades_per_year": 6.904109589041096
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.17375399115162216,
+    "cagr": 0.13767268555593026,
+    "max_drawdown": -0.2605394674468775,
+    "sharpe": 0.5090135428092502,
+    "win_rate": 0.6666666666666666,
+    "round_trips": 9,
+    "avg_exposure": 1.0,
+    "trades_per_year": 7.246006389776357
+   },
+   "rank_val_sharpe": 119
+  },
+  {
+   "id": "mom_n10_k1_rel_c21",
+   "family": "xs-momentum",
+   "params": {
+    "n": 10,
+    "k": 1,
+    "abs_filter": false,
+    "cadence": 21
+   },
+   "description": "XS momentum: top-1 by 10d return, no filter, rebalance every 21d",
+   "train": {
+    "days": 438,
+    "total_return": 1.0973976548303672,
+    "cagr": 0.5313575781250861,
+    "max_drawdown": -0.37206079735766984,
+    "sharpe": 1.1522990462454628,
+    "win_rate": 0.47368421052631576,
+    "round_trips": 19,
+    "avg_exposure": 0.9726027397260274,
+    "trades_per_year": 11.506849315068493
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.1458352386064048,
+    "cagr": 0.11583495306653924,
+    "max_drawdown": -0.4395120563475181,
+    "sharpe": 0.4682900462381344,
+    "win_rate": 0.5333333333333333,
+    "round_trips": 15,
+    "avg_exposure": 1.0,
+    "trades_per_year": 12.07667731629393
+   },
+   "rank_val_sharpe": 120
+  },
+  {
+   "id": "mom_n10_k1_abs_c21",
+   "family": "xs-momentum",
+   "params": {
+    "n": 10,
+    "k": 1,
+    "abs_filter": true,
+    "cadence": 21
+   },
+   "description": "XS momentum: top-1 by 10d return, abs filter (cash if ret<=0), rebalance every 21d",
+   "train": {
+    "days": 438,
+    "total_return": 1.0973976548303672,
+    "cagr": 0.5313575781250861,
+    "max_drawdown": -0.37206079735766984,
+    "sharpe": 1.1522990462454628,
+    "win_rate": 0.47368421052631576,
+    "round_trips": 19,
+    "avg_exposure": 0.9726027397260274,
+    "trades_per_year": 11.506849315068493
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.1458352386064048,
+    "cagr": 0.11583495306653924,
+    "max_drawdown": -0.4395120563475181,
+    "sharpe": 0.4682900462381344,
+    "win_rate": 0.5333333333333333,
+    "round_trips": 15,
+    "avg_exposure": 1.0,
+    "trades_per_year": 12.07667731629393
+   },
+   "rank_val_sharpe": 121
+  },
+  {
+   "id": "mom_n5_k5_abs_c1",
+   "family": "xs-momentum",
+   "params": {
+    "n": 5,
+    "k": 5,
+    "abs_filter": true,
+    "cadence": 1
+   },
+   "description": "XS momentum: top-5 by 5d return, abs filter (cash if ret<=0), rebalance every 1d",
+   "train": {
+    "days": 438,
+    "total_return": 0.34850489646280947,
+    "cagr": 0.1877079774239394,
+    "max_drawdown": -0.3123816530326442,
+    "sharpe": 0.8494799187274394,
+    "win_rate": 0.5230460921843687,
+    "round_trips": 499,
+    "avg_exposure": 0.84478322607748,
+    "trades_per_year": 289.972602739726
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.07665795812761522,
+    "cagr": 0.06127071319705224,
+    "max_drawdown": -0.22433770337800607,
+    "sharpe": 0.3781007647810545,
+    "win_rate": 0.4489795918367347,
+    "round_trips": 392,
+    "avg_exposure": 0.9138072884996724,
+    "trades_per_year": 315.6038338658147
+   },
+   "rank_val_sharpe": 122
+  },
+  {
+   "id": "mrev_n5_x10_y10_z5",
+   "family": "mean-reversion",
+   "params": {
+    "n": 5,
+    "x": 10.0,
+    "y": 10.0,
+    "z": 5.0
+   },
+   "description": "Mean reversion: buy worst 5d performer if ret<=-10.0%, exit +10.0%/-5.0%",
+   "train": {
+    "days": 438,
+    "total_return": 0.2657293531076532,
+    "cagr": 0.14519920541860887,
+    "max_drawdown": -0.35333041248567576,
+    "sharpe": 0.5230776277153703,
+    "win_rate": 0.4583333333333333,
+    "round_trips": 24,
+    "avg_exposure": 0.6689497716894978,
+    "trades_per_year": 13.808219178082192
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.08551157033578427,
+    "cagr": 0.06829137604096691,
+    "max_drawdown": -0.1808346545900481,
+    "sharpe": 0.3763273909914803,
+    "win_rate": 0.4,
+    "round_trips": 10,
+    "avg_exposure": 0.549520766773163,
+    "trades_per_year": 8.05111821086262
+   },
+   "rank_val_sharpe": 123
+  },
+  {
+   "id": "mrev_n5_x10_y5_z5",
+   "family": "mean-reversion",
+   "params": {
+    "n": 5,
+    "x": 10.0,
+    "y": 5.0,
+    "z": 5.0
+   },
+   "description": "Mean reversion: buy worst 5d performer if ret<=-10.0%, exit +5.0%/-5.0%",
+   "train": {
+    "days": 438,
+    "total_return": 0.8254493615546334,
+    "cagr": 0.41376471890220046,
+    "max_drawdown": -0.30351802601576816,
+    "sharpe": 1.0724511515226773,
+    "win_rate": 0.5714285714285714,
+    "round_trips": 28,
+    "avg_exposure": 0.3835616438356164,
+    "trades_per_year": 16.10958904109589
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.07613618271245781,
+    "cagr": 0.06085660983848418,
+    "max_drawdown": -0.24943088106317934,
+    "sharpe": 0.35186810987355077,
+    "win_rate": 0.5333333333333333,
+    "round_trips": 15,
+    "avg_exposure": 0.48562300319488816,
+    "trades_per_year": 12.07667731629393
+   },
+   "rank_val_sharpe": 124
+  },
+  {
+   "id": "mom_n126_k1_rel_c5",
+   "family": "xs-momentum",
+   "params": {
+    "n": 126,
+    "k": 1,
+    "abs_filter": false,
+    "cadence": 5
+   },
+   "description": "XS momentum: top-1 by 126d return, no filter, rebalance every 5d",
+   "train": {
+    "days": 438,
+    "total_return": 0.7065513443750489,
+    "cagr": 0.3600288607933566,
+    "max_drawdown": -0.5370524716704608,
+    "sharpe": 0.8806705538906346,
+    "win_rate": 0.75,
+    "round_trips": 12,
+    "avg_exposure": 0.7077625570776256,
+    "trades_per_year": 7.47945205479452
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.010592805914909409,
+    "cagr": 0.008519627125409324,
+    "max_drawdown": -0.4018872754845769,
+    "sharpe": 0.2754270929122501,
+    "win_rate": 0.2857142857142857,
+    "round_trips": 14,
+    "avg_exposure": 1.0,
+    "trades_per_year": 11.271565495207668
+   },
+   "rank_val_sharpe": 125
+  },
+  {
+   "id": "mom_n126_k1_abs_c5",
+   "family": "xs-momentum",
+   "params": {
+    "n": 126,
+    "k": 1,
+    "abs_filter": true,
+    "cadence": 5
+   },
+   "description": "XS momentum: top-1 by 126d return, abs filter (cash if ret<=0), rebalance every 5d",
+   "train": {
+    "days": 438,
+    "total_return": 0.7065513443750489,
+    "cagr": 0.3600288607933566,
+    "max_drawdown": -0.5370524716704608,
+    "sharpe": 0.8806705538906346,
+    "win_rate": 0.75,
+    "round_trips": 12,
+    "avg_exposure": 0.7077625570776256,
+    "trades_per_year": 7.47945205479452
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.010592805914909409,
+    "cagr": 0.008519627125409324,
+    "max_drawdown": -0.4018872754845769,
+    "sharpe": 0.2754270929122501,
+    "win_rate": 0.2857142857142857,
+    "round_trips": 14,
+    "avg_exposure": 1.0,
+    "trades_per_year": 11.271565495207668
+   },
+   "rank_val_sharpe": 126
+  },
+  {
+   "id": "mrev_n1_x5_y10_z5",
+   "family": "mean-reversion",
+   "params": {
+    "n": 1,
+    "x": 5.0,
+    "y": 10.0,
+    "z": 5.0
+   },
+   "description": "Mean reversion: buy worst 1d performer if ret<=-5.0%, exit +10.0%/-5.0%",
+   "train": {
+    "days": 438,
+    "total_return": 0.42300957429345165,
+    "cagr": 0.22503068203845467,
+    "max_drawdown": -0.31055834989463926,
+    "sharpe": 0.6904117396468744,
+    "win_rate": 0.41379310344827586,
+    "round_trips": 29,
+    "avg_exposure": 0.5273972602739726,
+    "trades_per_year": 16.684931506849313
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.023564775005840977,
+    "cagr": 0.01892911754229365,
+    "max_drawdown": -0.2761833685314762,
+    "sharpe": 0.23658468232377589,
+    "win_rate": 0.46153846153846156,
+    "round_trips": 13,
+    "avg_exposure": 0.7380191693290735,
+    "trades_per_year": 11.271565495207668
+   },
+   "rank_val_sharpe": 127
+  },
+  {
+   "id": "mrevvol_n1_k2p5_y10_z5",
+   "family": "mean-reversion-vol",
+   "params": {
+    "n": 1,
+    "k": 2.5,
+    "y": 10.0,
+    "z": 5.0
+   },
+   "description": "Vol-scaled reversion: buy worst 1d performer if ret<=-k*sigma20*sqrt(n), k=2.5, exit +10.0%/-5.0%",
+   "train": {
+    "days": 438,
+    "total_return": 0.8400570017842899,
+    "cagr": 0.4202626948813337,
+    "max_drawdown": -0.25649962379646196,
+    "sharpe": 1.6579094608275666,
+    "win_rate": 0.6923076923076923,
+    "round_trips": 13,
+    "avg_exposure": 0.6210045662100456,
+    "trades_per_year": 7.47945205479452
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.031550623954592405,
+    "cagr": 0.025324649255447973,
+    "max_drawdown": -0.23875176077788463,
+    "sharpe": 0.22356076485917406,
+    "win_rate": 0.42857142857142855,
+    "round_trips": 7,
+    "avg_exposure": 0.6421725239616614,
+    "trades_per_year": 6.440894568690096
+   },
+   "rank_val_sharpe": 128
+  },
+  {
+   "id": "mom_n5_k3_abs_c1",
+   "family": "xs-momentum",
+   "params": {
+    "n": 5,
+    "k": 3,
+    "abs_filter": true,
+    "cadence": 1
+   },
+   "description": "XS momentum: top-3 by 5d return, abs filter (cash if ret<=0), rebalance every 1d",
+   "train": {
+    "days": 438,
+    "total_return": 0.4635090986292527,
+    "cagr": 0.24497036203611833,
+    "max_drawdown": -0.3650615582658824,
+    "sharpe": 0.8982745144650712,
+    "win_rate": 0.5049261083743842,
+    "round_trips": 406,
+    "avg_exposure": 0.9064365123514924,
+    "trades_per_year": 235.31506849315068
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.009266513506286378,
+    "cagr": 0.007453867645313306,
+    "max_drawdown": -0.3115513763852099,
+    "sharpe": 0.17183070619311663,
+    "win_rate": 0.4869281045751634,
+    "round_trips": 306,
+    "avg_exposure": 0.9701706085850844,
+    "trades_per_year": 246.36421725239617
+   },
+   "rank_val_sharpe": 129
+  },
+  {
+   "id": "mrevvol_n5_k1p5_y10_z5",
+   "family": "mean-reversion-vol",
+   "params": {
+    "n": 5,
+    "k": 1.5,
+    "y": 10.0,
+    "z": 5.0
+   },
+   "description": "Vol-scaled reversion: buy worst 5d performer if ret<=-k*sigma20*sqrt(n), k=1.5, exit +10.0%/-5.0%",
+   "train": {
+    "days": 438,
+    "total_return": 0.710915996880173,
+    "cagr": 0.3620290415611551,
+    "max_drawdown": -0.238304895436529,
+    "sharpe": 1.0021580781870243,
+    "win_rate": 0.5,
+    "round_trips": 18,
+    "avg_exposure": 0.726027397260274,
+    "trades_per_year": 10.931506849315069
+   },
+   "validation": {
+    "days": 313,
+    "total_return": -0.05296970937370482,
+    "cagr": -0.04287144673415788,
+    "max_drawdown": -0.23362603742263455,
+    "sharpe": 0.03487830951212626,
+    "win_rate": 0.42857142857142855,
+    "round_trips": 14,
+    "avg_exposure": 0.8913738019169329,
+    "trades_per_year": 11.271565495207668
+   },
+   "rank_val_sharpe": 130
+  },
+  {
+   "id": "base_cash",
+   "family": "baseline",
+   "params": {
+    "asset": "CASH"
+   },
+   "description": "100% cash",
+   "train": {
+    "days": 438,
+    "total_return": 0.0,
+    "cagr": 0.0,
+    "max_drawdown": 0.0,
+    "sharpe": 0.0,
+    "win_rate": null,
+    "round_trips": 0,
+    "avg_exposure": 0.0,
+    "trades_per_year": 0.0
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.0,
+    "cagr": 0.0,
+    "max_drawdown": 0.0,
+    "sharpe": 0.0,
+    "win_rate": null,
+    "round_trips": 0,
+    "avg_exposure": 0,
+    "trades_per_year": 0.0
+   },
+   "rank_val_sharpe": 131
+  },
+  {
+   "id": "mrevvol_n1_k2_y10_z5",
+   "family": "mean-reversion-vol",
+   "params": {
+    "n": 1,
+    "k": 2.0,
+    "y": 10.0,
+    "z": 5.0
+   },
+   "description": "Vol-scaled reversion: buy worst 1d performer if ret<=-k*sigma20*sqrt(n), k=2.0, exit +10.0%/-5.0%",
+   "train": {
+    "days": 438,
+    "total_return": 0.8177626567915146,
+    "cagr": 0.4103365447092848,
+    "max_drawdown": -0.3156296323861866,
+    "sharpe": 1.2793959887271396,
+    "win_rate": 0.5882352941176471,
+    "round_trips": 17,
+    "avg_exposure": 0.7328767123287672,
+    "trades_per_year": 10.356164383561644
+   },
+   "validation": {
+    "days": 313,
+    "total_return": -0.05435450220165139,
+    "cagr": -0.04399840886899942,
+    "max_drawdown": -0.3376348630582733,
+    "sharpe": -0.02428619401390633,
+    "win_rate": 0.5,
+    "round_trips": 8,
+    "avg_exposure": 0.8434504792332268,
+    "trades_per_year": 6.440894568690096
+   },
+   "rank_val_sharpe": 132
+  },
+  {
+   "id": "mom_n5_k3_rel_c1",
+   "family": "xs-momentum",
+   "params": {
+    "n": 5,
+    "k": 3,
+    "abs_filter": false,
+    "cadence": 1
+   },
+   "description": "XS momentum: top-3 by 5d return, no filter, rebalance every 1d",
+   "train": {
+    "days": 438,
+    "total_return": 0.43279252553258507,
+    "cagr": 0.22986909701600444,
+    "max_drawdown": -0.37350068284558313,
+    "sharpe": 0.8071124452839918,
+    "win_rate": 0.5034642032332564,
+    "round_trips": 433,
+    "avg_exposure": 0.9840182648401826,
+    "trades_per_year": 250.84931506849315
+   },
+   "validation": {
+    "days": 313,
+    "total_return": -0.06397587236595559,
+    "cagr": -0.05183731559636395,
+    "max_drawdown": -0.33417081074426835,
+    "sharpe": -0.03277344922084603,
+    "win_rate": 0.48417721518987344,
+    "round_trips": 316,
+    "avg_exposure": 1.0,
+    "trades_per_year": 254.41533546325877
+   },
+   "rank_val_sharpe": 133
+  },
+  {
+   "id": "mom_n5_k1_rel_c21",
+   "family": "xs-momentum",
+   "params": {
+    "n": 5,
+    "k": 1,
+    "abs_filter": false,
+    "cadence": 21
+   },
+   "description": "XS momentum: top-1 by 5d return, no filter, rebalance every 21d",
+   "train": {
+    "days": 438,
+    "total_return": 1.6656534887894203,
+    "cagr": 0.7578545904308136,
+    "max_drawdown": -0.39525712094085574,
+    "sharpe": 1.3318483918020567,
+    "win_rate": 0.7058823529411765,
+    "round_trips": 17,
+    "avg_exposure": 0.9840182648401826,
+    "trades_per_year": 10.356164383561644
+   },
+   "validation": {
+    "days": 313,
+    "total_return": -0.180158974028087,
+    "cagr": -0.14779766627583313,
+    "max_drawdown": -0.5540228273688946,
+    "sharpe": -0.12814877216798548,
+    "win_rate": 0.4666666666666667,
+    "round_trips": 15,
+    "avg_exposure": 1.0,
+    "trades_per_year": 12.07667731629393
+   },
+   "rank_val_sharpe": 134
+  },
+  {
+   "id": "mom_n5_k1_abs_c21",
+   "family": "xs-momentum",
+   "params": {
+    "n": 5,
+    "k": 1,
+    "abs_filter": true,
+    "cadence": 21
+   },
+   "description": "XS momentum: top-1 by 5d return, abs filter (cash if ret<=0), rebalance every 21d",
+   "train": {
+    "days": 438,
+    "total_return": 1.6656534887894203,
+    "cagr": 0.7578545904308136,
+    "max_drawdown": -0.39525712094085574,
+    "sharpe": 1.3318483918020567,
+    "win_rate": 0.7058823529411765,
+    "round_trips": 17,
+    "avg_exposure": 0.9840182648401826,
+    "trades_per_year": 10.356164383561644
+   },
+   "validation": {
+    "days": 313,
+    "total_return": -0.180158974028087,
+    "cagr": -0.14779766627583313,
+    "max_drawdown": -0.5540228273688946,
+    "sharpe": -0.12814877216798548,
+    "win_rate": 0.4666666666666667,
+    "round_trips": 15,
+    "avg_exposure": 1.0,
+    "trades_per_year": 12.07667731629393
+   },
+   "rank_val_sharpe": 135
+  },
+  {
+   "id": "mrev_n1_x2p5_y5_z5",
+   "family": "mean-reversion",
+   "params": {
+    "n": 1,
+    "x": 2.5,
+    "y": 5.0,
+    "z": 5.0
+   },
+   "description": "Mean reversion: buy worst 1d performer if ret<=-2.5%, exit +5.0%/-5.0%",
+   "train": {
+    "days": 438,
+    "total_return": 1.3479318514340046,
+    "cagr": 0.6340716762676843,
+    "max_drawdown": -0.26299108928703185,
+    "sharpe": 1.339242287436507,
+    "win_rate": 0.6511627906976745,
+    "round_trips": 43,
+    "avg_exposure": 0.8082191780821918,
+    "trades_per_year": 24.73972602739726
+   },
+   "validation": {
+    "days": 313,
+    "total_return": -0.2633788829586583,
+    "cagr": -0.21816212068337204,
+    "max_drawdown": -0.37286669891523105,
+    "sharpe": -0.38510917445297543,
+    "win_rate": 0.4375,
+    "round_trips": 32,
+    "avg_exposure": 0.8115015974440895,
+    "trades_per_year": 26.568690095846645
+   },
+   "rank_val_sharpe": 136
+  },
+  {
+   "id": "mrevvol_n1_k2p5_y5_z5",
+   "family": "mean-reversion-vol",
+   "params": {
+    "n": 1,
+    "k": 2.5,
+    "y": 5.0,
+    "z": 5.0
+   },
+   "description": "Vol-scaled reversion: buy worst 1d performer if ret<=-k*sigma20*sqrt(n), k=2.5, exit +5.0%/-5.0%",
+   "train": {
+    "days": 438,
+    "total_return": 0.5128470307798965,
+    "cagr": 0.26894765801336407,
+    "max_drawdown": -0.25743514618151253,
+    "sharpe": 1.0005940548173993,
+    "win_rate": 0.6666666666666666,
+    "round_trips": 18,
+    "avg_exposure": 0.4360730593607306,
+    "trades_per_year": 10.356164383561644
+   },
+   "validation": {
+    "days": 313,
+    "total_return": -0.16137499920546716,
+    "cagr": -0.1321122938254622,
+    "max_drawdown": -0.3288711579403498,
+    "sharpe": -0.4862804795978185,
+    "win_rate": 0.4444444444444444,
+    "round_trips": 9,
+    "avg_exposure": 0.48242811501597443,
+    "trades_per_year": 8.05111821086262
+   },
+   "rank_val_sharpe": 137
+  }
+ ]
+}

@@ -1,0 +1,6 @@
+2026-09-30T00:04:03Z gitops: containers repo scanned (webhook/watersmart-scraper patterns), scripts verified stdlib-only, mode mapping decided (daily=control, ddgate=trade, scoreboard=forward, heartbeat=poll, panel=marketdata)
+2026-09-30T00:05:45Z gitops: containers PR opened — apps/ai4trade (Dockerfile 3.12-slim, bake, entrypoint 5 modes, structure tests, .env.example, README; 15 files, stdlib-only, no secrets)
+2026-09-30T00:05:45Z gitops: talos-ops-prod PR opened — kubernetes/apps/ai4trade (ns + ks + 5 CronJobs + configmap + 5Gi longhorn PVC + sops secret TEMPLATE; 12 files; parent chain untouched, categories auto-discovered)
+2026-09-30T00:05:45Z gitops: PRs https://github.com/lenaxia/containers/pull/304 + https://github.com/lenaxia/talos-ops-prod/pull/2603 — DONE (owner: sops-encrypt secret, merge containers first then release 1.0.0)
+2026-09-30T00:15:08Z gitops: CI fix — py_compile wrote __pycache__ into read-only /opt as nobody (arm64 fail); tests.yaml switched to import smoke test, re-push green
+2026-09-30T00:15:08Z gitops: CI green: containers build+structure-tests PASS (amd64+arm64); talos Flux Diff + e2e PASS. Complete.

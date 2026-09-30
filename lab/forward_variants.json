@@ -1,0 +1,145 @@
+{
+ "generated_utc": "2026-09-29T04:43:30Z",
+ "selection_rule": "validation Sharpe in top quartile AND train Sharpe >= 0.7x validation Sharpe AND validation maxDD <= 25%; top 5 by validation Sharpe; random-control family excluded (noise yardstick, not a candidate)",
+ "picks": [
+  {
+   "id": "don_p10_s8",
+   "family": "donchian",
+   "params": {
+    "p": 10,
+    "stop": 8,
+    "window": 63
+   },
+   "description": "Donchian: buy within 10% of 63d high, -8% stop",
+   "train": {
+    "days": 438,
+    "total_return": 0.6478092249664693,
+    "cagr": 0.3328944752891889,
+    "max_drawdown": -0.22021281997327657,
+    "sharpe": 1.3947761713430415,
+    "win_rate": 0.0,
+    "round_trips": 5,
+    "avg_exposure": 0.8152991413009233,
+    "trades_per_year": 9.780821917808218
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.621670530915237,
+    "cagr": 0.47585398125899814,
+    "max_drawdown": -0.12920942127077562,
+    "sharpe": 1.9398568617936018,
+    "win_rate": null,
+    "round_trips": 0,
+    "avg_exposure": 0.9999999999999999,
+    "trades_per_year": 0.0
+   },
+   "rank_val_sharpe": 6,
+   "val_bench_spread": {
+    "SPY": 0.28741830726161655,
+    "QQQ": 0.21382459331505932,
+    "avg_exposure": 0.9999999999999999,
+    "variant_cagr": 0.47585398125899814
+   },
+   "val_dsr": 0.6791713485723558
+  },
+  {
+   "id": "mom_n5_k5_abs_c21",
+   "family": "xs-momentum",
+   "params": {
+    "n": 5,
+    "k": 5,
+    "abs_filter": true,
+    "cadence": 21
+   },
+   "description": "XS momentum: top-5 by 5d return, abs filter (cash if ret<=0), rebalance every 21d",
+   "train": {
+    "days": 438,
+    "total_return": 0.75588724018422,
+    "cagr": 0.38251321053881804,
+    "max_drawdown": -0.27564801876165534,
+    "sharpe": 1.3223882175786432,
+    "win_rate": 0.6842105263157895,
+    "round_trips": 57,
+    "avg_exposure": 0.8793786462721787,
+    "trades_per_year": 35.67123287671233
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.6226034970265664,
+    "cagr": 0.4765375441794486,
+    "max_drawdown": -0.1626083531487088,
+    "sharpe": 1.8030567300439788,
+    "win_rate": 0.627906976744186,
+    "round_trips": 43,
+    "avg_exposure": 0.9345079781486754,
+    "trades_per_year": 34.61980830670927
+   },
+   "rank_val_sharpe": 14
+  },
+  {
+   "id": "base_ew12",
+   "family": "baseline",
+   "params": {
+    "assets": "EW-12"
+   },
+   "description": "Equal-weight buy & hold of the 12 non-benchmark names",
+   "train": {
+    "days": 438,
+    "total_return": 0.8326854966799468,
+    "cagr": 0.41698634730212225,
+    "max_drawdown": -0.26916940841910597,
+    "sharpe": 1.4246572769423738,
+    "win_rate": null,
+    "round_trips": 0,
+    "avg_exposure": 0.9954337899543385,
+    "trades_per_year": 6.904109589041096
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.4938828677005309,
+    "cagr": 0.3814790788497293,
+    "max_drawdown": -0.15482951215274143,
+    "sharpe": 1.5909789097164453,
+    "win_rate": null,
+    "round_trips": 0,
+    "avg_exposure": 1.0000000000000009,
+    "trades_per_year": 0.0
+   },
+   "rank_val_sharpe": 24
+  },
+  {
+   "id": "mom_n21_k5_abs_c1",
+   "family": "xs-momentum",
+   "params": {
+    "n": 21,
+    "k": 5,
+    "abs_filter": true,
+    "cadence": 1
+   },
+   "description": "XS momentum: top-5 by 21d return, abs filter (cash if ret<=0), rebalance every 1d",
+   "train": {
+    "days": 438,
+    "total_return": 0.6166172307721545,
+    "cagr": 0.31831921701985855,
+    "max_drawdown": -0.24803125890437383,
+    "sharpe": 1.303783605084545,
+    "win_rate": 0.5256410256410257,
+    "round_trips": 234,
+    "avg_exposure": 0.8469234021736003,
+    "trades_per_year": 137.50684931506848
+   },
+   "validation": {
+    "days": 313,
+    "total_return": 0.48604471483690226,
+    "cagr": 0.37564032523328517,
+    "max_drawdown": -0.1389788647234237,
+    "sharpe": 1.5447799810436058,
+    "win_rate": 0.49748743718592964,
+    "round_trips": 199,
+    "avg_exposure": 0.9291534877284637,
+    "trades_per_year": 160.21725239616612
+   },
+   "rank_val_sharpe": 31
+  }
+ ]
+}

@@ -1,0 +1,36 @@
+---
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+name: Daily Run
+
+on:
+  schedule:
+    - cron: '0 14 * * 1-5' # 14:00 UTC weekdays, 30 min after the US open (EDT)
+  workflow_dispatch:
+
+permissions:
+  contents: write # GITHUB_TOKEN pushes the state commit
+
+jobs:
+  daily:
+    name: Daily trading run
+    runs-on: gokore-runner
+    container: python:3.12-slim
+    timeout-minutes: 20
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      # marketdata snapshot -> trade.py decision -> exits then gated entries
+      # through broker.py (DD veto + headline screen, max 2 trades/day) ->
+      # state/log.txt. No platform, no LLM.
+      - name: Run daily_run.py
+        run: python3 daily_run.py
+
+      - name: Commit state
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          git config user.name ai-trading-bot
+          git config user.email ai-trading-bot@users.noreply.github.com
+          git add state/
+          git diff --cached --quiet || git commit -m "[bot] daily run"
+          git push
