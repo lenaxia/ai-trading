@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "origin": "ai4trade paper account, off-boarded 2026-09-30",
+    "entries": "entry prices from the platform positions snapshot in last_trade_decision.json (2026-09-29T18:12Z) — not approximated",
+    "cash": "owner-provided at offboard (platform cash differed; residual reconciled by owner decision)",
+    "cost_model": "5 bps per side, charged to cash (broker.py)"
+  },
+  "cash": 25666.20,
+  "positions": {
+    "AMZN": {"qty": 0, "entry": 0.0, "note": "excluded (unvested RSUs, owner decision)"},
+    "VOO": {"qty": 25, "entry": 701.08311},
+    "VTI": {"qty": 39, "entry": 374.529305},
+    "VXUS": {"qty": 99, "entry": 85.074997},
+    "BND": {"qty": 106, "entry": 70.059152},
+    "SPYG": {"qty": 45, "entry": 122.94},
+    "XLK": {"qty": 26, "entry": 194.196159},
+    "VEA": {"qty": 70, "entry": 70.822379},
+    "NVDA": {"qty": 18, "entry": 228.360007},
+    "QQQ": {"qty": 4, "entry": 736.44397},
+    "AAPL": {"qty": 8, "entry": 331.369995},
+    "FIW": {"qty": 7, "entry": 104.054001},
+    "DAL": {"qty": 2, "entry": 84.004997},
+    "CRWD": {"qty": 38, "entry": 259.565002},
+    "PANW": {"qty": 25, "entry": 384.244995}
+  },
+  "fills": []
+}
