@@ -1,0 +1,5 @@
+2026-09-29T04:36:21Z lab: steering received — adding two_sleeve combo, vol-scaled reversal entries (k*sigma20), DSR/MinTRL honesty block, SPY+QQQ exposure-matched spreads
+2026-09-29T04:36:21Z lab: data verified (14 syms, 751 rows, identical calendars, 2023-09-29..2026-09-28); strategies.py core families written (124 variants)
+2026-09-29T04:43:43Z lab: full grid run 137 variants (incl. two_sleeve + vol-scaled reversal); no-lookahead corruption probe PASS (11 families), determinism double-run PASS
+2026-09-29T04:43:43Z lab: top-3 val Sharpe: mom_n10_k1 2.61 (DSR 0.91 fail), twin abs 2.61, two_sleeve 2.29 (train 0.20). No variant passes DSR>=0.95 @ N=137; random control hits 1.90
+2026-09-29T04:43:43Z lab: outputs written — results.json (137 variants), results.md (top-20 + DSR lines + exposure-matched SPY/QQQ spreads + sensitivity), forward_variants.json (4/5 slots: don_p10_s8, mom_n5_k5_abs_c21, base_ew12, mom_n21_k5_abs_c1), METHODOLOGY.md. DONE

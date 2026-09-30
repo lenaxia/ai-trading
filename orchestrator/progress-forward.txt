@@ -1,0 +1,5 @@
+2026-09-29T05:05:02Z forward: born — building OOS forward tracker (6 variants: don_p10_s8, mom_n5_k5_abs_c21, mom_n21_k5_abs_c1, base_ew12, V228 meanrev_vol, V306 killswitch)
+2026-09-29T05:14:28Z forward: forward.py written (stdlib; fetch+append-mostly merge, v1 engine copied, v2 meanrev_vol+killswitch ported, atomic state overwrite)
+2026-09-29T05:14:28Z forward: cross-validated — v1 engine bit-exact vs lab/backtest.py (4 variants, 0.0 daily diff); V228 W-rows 0/751 mismatch vs lab2 pandas; V306 mults bit-exact, fires match
+2026-09-29T05:14:28Z forward: sim day2/day3 e2e test PASS (equity rows, trades, SPY series, idempotent rerun, clean append); fetch URL bug fixed (format(sym=sym))
+2026-09-29T05:14:57Z forward: NOTES.md written (conventions, exact 6-variant rules, limitations); final run clean — anchor day recorded, all 6 variants at 100000 virtual, positions carried from 2026-09-28 warm-up; idempotency verified. DONE

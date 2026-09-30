@@ -1,0 +1,8 @@
+2026-09-29T04:31:50Z ddg mean-reversion scan (10 results)
+2026-09-29T04:31:55Z ddg momentum/factor regime scan (10 results: JPM Factor Views, LSEG, AQR)
+2026-09-29T04:32:02Z ddg LLM-agent trading scan (FinMem + critiques)
+2026-09-29T04:32:14Z arxiv 2504.10789 Lopez-Lira LLM trading sim; ddg DSR/overfitting scan
+2026-09-29T04:32:33Z arxiv API persistent 429 — dropped; ddg regime/ensemble + RL critique scans done
+2026-09-29T04:34:11Z ddg LLM failure-modes scan (Profit Mirage, Look-Ahead-Bench, NBER LAP)
+2026-09-29T04:34:11Z ddg alphaarchitect momentum pieces (2)
+2026-09-29T04:34:11Z WROTE /workspace/ai4trade/research/notes.md — 26 findings + top-10

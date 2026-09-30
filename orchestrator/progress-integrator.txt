@@ -1,0 +1,10 @@
+2026-09-29T23:29:39Z
+start: exploring env, cloning frameworks
+2026-09-29T23:31:52Z cloned TradingAgents + ai-hedge-fund (shallow) into integration/vendor
+2026-09-29T23:31:52Z relay probe: INFERENCE_RELAY_BASEURL is OpenAI-shaped (/models ok; POST /chat/completions,/messages) but 401 with every env credential -> not directly usable; workspace OpenAI-compatible gateway ai.thekao.cloud/v1 verified working (200, tiny completion) using key from agent config (never printed)
+2026-09-29T23:35:44Z venvs+installs OK (TA 0.5.2 langchain>=1.6/pandas3; aihf 2.4.1 langchain 0.3/pandas2 -> incompatible, separate venvs required)
+2026-09-29T23:35:44Z key inventory done: TA core data keyless (yfinance+SEC EDGAR), optional FRED/AlphaVantage/TypeSafe; aihf needs FINANCIAL_DATASETS_API_KEY for data, LLM via OPENAI_API_BASE
+2026-09-29T23:35:44Z both frameworks verified via own LLM clients against ai.thekao.cloud/v1 gateway (glm-5.3/glm-5.1: ok)
+2026-09-29T23:58:45Z TA smoke PASSED: AAPL 2026-09-25 full pipeline exit 0 (~12min), PM verdict Underweight, report in ta_data/results
+2026-09-29T23:58:45Z aihf smoke PASSED: pytest 571/38-skip; real-data quant backtest via new yf_data_client adapter (13 cycles, +1.12%, sharpe 1.93)
+2026-09-29T23:58:45Z assessment.md written: architecture, key matrix, commands, dd_screen wrapper design, blinded-panel experiment, cost/latency

@@ -1,0 +1,7 @@
+2026-09-29T04:34:57Z UTC framework: starting lab2 v2 sweep framework build
+2026-09-29T04:36:08Z UTC framework: steer acknowledged (trial registry for DSR, two_sleeve combo family, vol-scaled reversal k in 1.5/2/2.5, DSR column + benchmark block, optional kill-switch); continuing
+2026-09-29T04:38:40Z UTC framework: venv + numpy/pandas/vectorbt/yfinance/quantstats installed (1 attempt); requirements.txt frozen
+2026-09-29T04:46:05Z UTC framework: engine+families+DSR modules written; smoke tests passing
+2026-09-29T04:48:04Z UTC framework: all family generators + engine verified; running full sweep (307 trials)
+2026-09-29T04:54:54Z UTC framework: crosscheck vs v1 done (133 matched; daily-momentum parity <1%; diffs explained by cadence/re-entry conventions)
+2026-09-29T04:56:53Z UTC framework: DONE — lab2 complete: 307 trials (305 kept), results.json/md, DSR (0 survivors @95%, SR0=1.92, PBO 44%), crosscheck vs v1 (133 matched, daily-parity <1%), vbt_check (<=0.07%), NOTES.md; two_sleeve turnover 2371%/yr vs 200% target (structural, documented)
