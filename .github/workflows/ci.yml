@@ -11,11 +11,14 @@ jobs:
   checks:
     name: Python checks
     runs-on: gokore-runner
-    container: python:3.12-slim
     timeout-minutes: 10
     steps:
       - name: Checkout code
         uses: actions/checkout@v7
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
 
       # Everything here is offline: compile-check every *.py in the repo,
       # then import the entry modules (all top-level logic sits behind
