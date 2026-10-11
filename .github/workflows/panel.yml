@@ -17,11 +17,14 @@ jobs:
   panel:
     name: AIHF panel (stub)
     runs-on: gokore-runner
-    container: python:3.12-slim
     timeout-minutes: 15
     steps:
       - name: Checkout code
         uses: actions/checkout@v7
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
 
       - name: Panel stub
         run: |
