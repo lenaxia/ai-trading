@@ -1,0 +1,155 @@
+{
+  "ok": true,
+  "now_utc": "2026-10-14T22:26:07.620939+00:00",
+  "today": "2026-10-14",
+  "market_open": false,
+  "policy": {
+    "style": "conservative momentum, growth tilt",
+    "entry": "1d RS vs SPY >= +3%, 1d change > 0, within 5% of 52w high",
+    "position_size_pct_of_equity": 10,
+    "max_positions": 15,
+    "stop_loss_pct": -5.0,
+    "take_profit_pct": 15.0,
+    "max_trades_per_day": 2
+  },
+  "account": {
+    "cash": 363.99,
+    "positions_value": 98780.26,
+    "equity": 99144.25,
+    "positions_held": 15
+  },
+  "sleeve_excluded": [
+    "AAPL",
+    "BND",
+    "CRWD",
+    "DAL",
+    "FIW",
+    "MSFT",
+    "NVDA",
+    "PANW",
+    "QQQ",
+    "SPYG",
+    "VEA",
+    "VOO",
+    "VTI",
+    "VXUS",
+    "XLK"
+  ],
+  "held": [
+    {
+      "symbol": "MSFT",
+      "quantity": 11.0,
+      "entry_price": 527.9400024414062,
+      "current_price": 533.69,
+      "pnl_pct": 1.09
+    },
+    {
+      "symbol": "PANW",
+      "quantity": 25.0,
+      "entry_price": 384.2449951171875,
+      "current_price": 375.04,
+      "pnl_pct": -2.4
+    },
+    {
+      "symbol": "CRWD",
+      "quantity": 38.0,
+      "entry_price": 259.56500244140625,
+      "current_price": 249.29,
+      "pnl_pct": -3.96
+    },
+    {
+      "symbol": "NVDA",
+      "quantity": 18.0,
+      "entry_price": 228.36000654432507,
+      "current_price": 221.3,
+      "pnl_pct": -3.09
+    },
+    {
+      "symbol": "XLK",
+      "quantity": 26.0,
+      "entry_price": 194.19615877591647,
+      "current_price": 194.19615877591647,
+      "pnl_pct": 0.0
+    },
+    {
+      "symbol": "BND",
+      "quantity": 106.0,
+      "entry_price": 70.05915213530918,
+      "current_price": 70.05915213530918,
+      "pnl_pct": 0.0
+    },
+    {
+      "symbol": "VXUS",
+      "quantity": 99.0,
+      "entry_price": 85.07499694824219,
+      "current_price": 85.07499694824219,
+      "pnl_pct": 0.0
+    },
+    {
+      "symbol": "VTI",
+      "quantity": 39.0,
+      "entry_price": 374.52930548252203,
+      "current_price": 374.52930548252203,
+      "pnl_pct": 0.0
+    },
+    {
+      "symbol": "VOO",
+      "quantity": 25.0,
+      "entry_price": 701.0831103515625,
+      "current_price": 701.0831103515625,
+      "pnl_pct": 0.0
+    },
+    {
+      "symbol": "VEA",
+      "quantity": 70.0,
+      "entry_price": 70.82237854003907,
+      "current_price": 70.82237854003907,
+      "pnl_pct": 0.0
+    },
+    {
+      "symbol": "SPYG",
+      "quantity": 45.0,
+      "entry_price": 122.93999989827473,
+      "current_price": 122.93999989827473,
+      "pnl_pct": 0.0
+    },
+    {
+      "symbol": "DAL",
+      "quantity": 2.0,
+      "entry_price": 84.00499725341797,
+      "current_price": 84.00499725341797,
+      "pnl_pct": 0.0
+    },
+    {
+      "symbol": "FIW",
+      "quantity": 7.0,
+      "entry_price": 104.05400085449219,
+      "current_price": 104.05400085449219,
+      "pnl_pct": 0.0
+    },
+    {
+      "symbol": "AAPL",
+      "quantity": 8.0,
+      "entry_price": 331.3699951171875,
+      "current_price": 342.96,
+      "pnl_pct": 3.5
+    },
+    {
+      "symbol": "QQQ",
+      "quantity": 4.0,
+      "entry_price": 736.4439697265625,
+      "current_price": 728.95,
+      "pnl_pct": -1.02
+    }
+  ],
+  "exits": [],
+  "entries": [],
+  "market_headlines": [
+    "Google News",
+    "Trump\u2019s claim that \u2018almost every item\u2019 is getting cheaper comes up against a damning reality - CNN",
+    "WATCH: Fed chair Kevin Warsh testifies on inflation and monetary policy in House hearing - PBS",
+    "Treasury Yields Are Surging. Here's Why. - Investor's Business Daily",
+    "U.S. government debt yields are surging at a bad time. Here's what's behind the move - CNBC"
+  ],
+  "note": "Exits before entries. Max 2 trades/day total. Buys require a headline screen (skip on material political/regulatory/earnings risk) executed by daily_run.py, which also applies the DD veto gate before filling entries through broker.py."
+}

@@ -1,82 +1,84 @@
 {
-  "meta": {
-    "origin": "ai4trade paper account, off-boarded 2026-09-30",
-    "entries": "entry prices from the platform positions snapshot in last_trade_decision.json (2026-09-29T18:12Z) \u2014 not approximated",
-    "cash": "owner-provided at offboard (platform cash differed; residual reconciled by owner decision)",
-    "cost_model": "5 bps per side, charged to cash (broker.py)",
-    "updated": "2026-10-14T22:15:00Z",
-    "note": "synced from live workspace ledger (platform fills through 2026-10-14): adds MSFT x11 (Oct 5), CRWD/PANW entries, cash 363.99"
-  },
   "cash": 363.99,
-  "positions": {
-    "MSFT": {
-      "qty": 11.0,
-      "entry": 527.9400024414062
-    },
-    "PANW": {
-      "qty": 25.0,
-      "entry": 384.2449951171875
-    },
-    "CRWD": {
-      "qty": 38.0,
-      "entry": 259.56500244140625
-    },
-    "NVDA": {
-      "qty": 18.0,
-      "entry": 228.36000654432507
-    },
-    "XLK": {
-      "qty": 26.0,
-      "entry": 194.19615877591647
-    },
-    "BND": {
-      "qty": 106.0,
-      "entry": 70.05915213530918
-    },
-    "VXUS": {
-      "qty": 99.0,
-      "entry": 85.07499694824219
-    },
-    "VTI": {
-      "qty": 39.0,
-      "entry": 374.52930548252203
-    },
-    "VOO": {
-      "qty": 25.0,
-      "entry": 701.0831103515625
-    },
-    "VEA": {
-      "qty": 70.0,
-      "entry": 70.82237854003907
-    },
-    "SPYG": {
-      "qty": 45.0,
-      "entry": 122.93999989827473
-    },
-    "DAL": {
-      "qty": 2.0,
-      "entry": 84.00499725341797
-    },
-    "FIW": {
-      "qty": 7.0,
-      "entry": 104.05400085449219
-    },
-    "AAPL": {
-      "qty": 8.0,
-      "entry": 331.3699951171875
-    },
-    "QQQ": {
-      "qty": 4.0,
-      "entry": 736.4439697265625
-    }
-  },
   "fills": [
     {
-      "date": "2026-10-05",
       "action": "buy",
-      "symbol": "MSFT",
+      "date": "2026-10-05",
+      "note": "momentum entry; DD verdict CLEAN",
       "qty": 11,
-      "note": "momentum entry; DD verdict CLEAN"
+      "symbol": "MSFT"
     }
-  ]
+  ],
+  "last_daily_run": "2026-10-14",
+  "meta": {
+    "cash": "owner-provided at offboard (platform cash differed; residual reconciled by owner decision)",
+    "cost_model": "5 bps per side, charged to cash (broker.py)",
+    "entries": "entry prices from the platform positions snapshot in last_trade_decision.json (2026-09-29T18:12Z) \u2014 not approximated",
+    "note": "synced from live workspace ledger (platform fills through 2026-10-14): adds MSFT x11 (Oct 5), CRWD/PANW entries, cash 363.99",
+    "origin": "ai4trade paper account, off-boarded 2026-09-30",
+    "updated": "2026-10-14T22:15:00Z"
+  },
+  "positions": {
+    "AAPL": {
+      "entry": 331.3699951171875,
+      "qty": 8.0
+    },
+    "BND": {
+      "entry": 70.05915213530918,
+      "qty": 106.0
+    },
+    "CRWD": {
+      "entry": 259.56500244140625,
+      "qty": 38.0
+    },
+    "DAL": {
+      "entry": 84.00499725341797,
+      "qty": 2.0
+    },
+    "FIW": {
+      "entry": 104.05400085449219,
+      "qty": 7.0
+    },
+    "MSFT": {
+      "entry": 527.9400024414062,
+      "qty": 11.0
+    },
+    "NVDA": {
+      "entry": 228.36000654432507,
+      "qty": 18.0
+    },
+    "PANW": {
+      "entry": 384.2449951171875,
+      "qty": 25.0
+    },
+    "QQQ": {
+      "entry": 736.4439697265625,
+      "qty": 4.0
+    },
+    "SPYG": {
+      "entry": 122.93999989827473,
+      "qty": 45.0
+    },
+    "VEA": {
+      "entry": 70.82237854003907,
+      "qty": 70.0
+    },
+    "VOO": {
+      "entry": 701.0831103515625,
+      "qty": 25.0
+    },
+    "VTI": {
+      "entry": 374.52930548252203,
+      "qty": 39.0
+    },
+    "VXUS": {
+      "entry": 85.07499694824219,
+      "qty": 99.0
+    },
+    "XLK": {
+      "entry": 194.19615877591647,
+      "qty": 26.0
+    }
+  },
+  "trades_2026-10-14": 0
 }
