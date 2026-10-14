@@ -10,7 +10,7 @@ on:
 jobs:
   checks:
     name: Python checks
-    runs-on: gokore-runner
+    runs-on: thekaocloud-runner
     timeout-minutes: 10
     steps:
       - name: Checkout code
