@@ -16,7 +16,7 @@ permissions:
 jobs:
   panel:
     name: AIHF panel (stub)
-    runs-on: gokore-runner
+    runs-on: ai-trading-runner
     timeout-minutes: 15
     steps:
       - name: Checkout code
