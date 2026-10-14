@@ -23,7 +23,7 @@ permissions:
 jobs:
   ddgate:
     name: TradingAgents DD screen
-    runs-on: gokore-runner
+    runs-on: ubuntu-latest
     timeout-minutes: 90
     steps:
       - name: Checkout code
