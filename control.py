@@ -8,12 +8,11 @@ the latest completed close; marked to market nightly. Idempotent per UTC day;
 skips weekends. State: control_state.json.
 """
 import json
-import os
 import urllib.request
 from datetime import datetime, timezone
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-STATE_PATH = os.path.join(HERE, "control_state.json")
+WS = "/workspace/ai4trade"
+STATE_PATH = WS + "/control_state.json"
 START_CASH = 100000.0
 UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36"}
 
@@ -23,7 +22,7 @@ def fetch_closes(syms):
     for s in syms:
         try:
             r = urllib.request.Request(
-                "https://query1.finance.yahoo.com/v8/finance/chart/%s?interval=1d&range=5d" % s,
+                "https://query1.finance.yahoo.com/v8/finance/chart/%s?interval=1d&range=1mo" % s,
                 headers=UA)
             with urllib.request.urlopen(r, timeout=15) as resp:
                 d = json.loads(resp.read().decode())
@@ -47,15 +46,8 @@ def main():
         st = json.load(open(STATE_PATH))
     except Exception:
         st = {"shares": {}, "anchor_date": None, "history": []}
-    if st["history"] and st["history"][-1]["date"] == today:
-        last = st["history"][-1]
-        print(json.dumps({"ok": True, "date": today, "already_recorded": True,
-                          "equity": last.get("equity"),
-                          "return_pct": round((last.get("equity", START_CASH) / START_CASH - 1) * 100, 2),
-                          "cash_pct": st.get("cash_pct")}))
-        return
 
-    sleeve = json.load(open(os.path.join(HERE, "personal_sleeve.json")))
+    sleeve = json.load(open(WS + "/personal_sleeve.json"))
     weights = {k: v / 100.0 for k, v in sleeve["weights_pct"].items()}
     cash_keys = [k for k in weights if k in ("CASH", "SPAXX**", "CORE**", "FDRXX**")]
     cash_frac = sum(weights.pop(k) for k in cash_keys)  # held as cash, like the real account
@@ -73,10 +65,9 @@ def main():
         prices = {s: cl[s].get(val_date) for s in syms}
         priced = {s: p for s, p in prices.items() if p}
         # exact-largest-remainder: share counts so day-0 value == START_CASH
-        raw = {s: (START_CASH * (1 - cash_frac)) * weights[s] / p for s, p in priced.items()}
+        raw = {s: START_CASH * (1 - cash_frac) * weights[s] / p for s, p in priced.items()}
         base = {s: int(v) for s, v in raw.items()}
         residual = round(START_CASH * (1 - cash_frac) - sum(q * priced[s] for s, q in base.items()))
-        # spend the residual on the cheapest symbol to minimize error
         cheap = min(priced, key=priced.get)
         if residual > 0:
             base[cheap] += residual // priced[cheap]
@@ -85,8 +76,29 @@ def main():
         st["anchor_date"] = val_date
         st["anchor_note"] = "largest-remainder anchoring; day-0 value == 100000"
 
-    equity = cash_frac * START_CASH + sum(q * cl[s].get(val_date, 0) for s, q in st["shares"].items())
-    st["history"].append({"date": today, "val_date": val_date, "equity": round(equity, 2)})
+    # REGENERATE recent history every run (buy-and-hold: shares are fixed, so
+    # equity on any past session = cash + shares * that session's close), while
+    # PRESERVING older rows beyond the fetch window. Heals holes from missed or
+    # delayed runs automatically; idempotent.
+    earliest_fetched = min(common)
+    old = [h for h in st["history"] if h.get("date") < earliest_fetched]
+    regen = []
+    for d in sorted(common):
+        if d < st["anchor_date"]:
+            continue
+        equity = cash_frac * START_CASH + sum(
+            q * cl[s].get(d, st["anchor_prices"].get(s, 0))
+            for s, q in st["shares"].items())
+        regen.append({"date": d, "val_date": d, "equity": round(equity, 2)})
+    merged = {}
+    for h in old + regen:
+        merged[h["date"]] = h
+    history = [merged[k] for k in sorted(merged)]
+    if not history or history[0].get("date") != st["anchor_date"]:
+        history.insert(0, {"date": st["anchor_date"], "val_date": st["anchor_date"],
+                           "equity": START_CASH})
+    st["history"] = history
+    equity = history[-1]["equity"]
     with open(STATE_PATH, "w") as f:
         json.dump(st, f, indent=2)
     print(json.dumps({"ok": True, "date": today, "val_date": val_date,

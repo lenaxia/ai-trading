@@ -260,6 +260,41 @@ def refresh_data():
                if i["status"].startswith("MISSING")]
     if missing:
         raise RuntimeError("no usable data for: {}".format(", ".join(missing)))
+
+    # Trailing-bar completeness: if any symbol lacks the newest session bar that
+    # the majority already have (Yahoo finalizes end-of-day bars unevenly, and
+    # cookie storms cause partial fetches), wait and refetch just those symbols.
+    # This makes delayed/early runs self-heal instead of leaving stale rows.
+    for attempt in range(2):
+        last_dates = {s: i.get("last_date") for s, i in manifest["symbols"].items()
+                      if i.get("last_date")}
+        if not last_dates:
+            break
+        from collections import Counter
+        mode_date, mode_n = Counter(last_dates.values()).most_common(1)[0]
+        laggards = [s for s, d in last_dates.items() if d < mode_date]
+        stale = [s for s, i in manifest["symbols"].items()
+                 if i["status"].startswith("stale")]
+        retry_syms = sorted(set(laggards) | set(stale))
+        if not retry_syms:
+            break
+        sys.stderr.write("retry {}/2: refetching {} lagging symbols (mode last_date={})\n"
+                         .format(attempt + 1, len(retry_syms), mode_date))
+        time.sleep(180 if attempt == 0 else 300)
+        for sym in retry_syms:
+            try:
+                rows = fetch_symbol(sym)
+                if not rows:
+                    continue
+                mg = merge_symbol(sym, rows)
+                manifest["symbols"][sym].update(mg)
+                final = _read_csv(os.path.join(DATA_DIR, sym + ".csv"))
+                manifest["symbols"][sym].update(
+                    {"status": "ok", "rows": len(final),
+                     "first_date": final[0]["date"], "last_date": final[-1]["date"]})
+            except Exception:
+                pass
+            time.sleep(SYMBOL_PAUSE)
     return manifest
 
 
