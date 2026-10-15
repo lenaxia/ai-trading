@@ -9,9 +9,10 @@ skips weekends. State: control_state.json.
 """
 import json
 import urllib.request
+import os
 from datetime import datetime, timezone
 
-WS = "/workspace/ai4trade"
+WS = os.path.dirname(os.path.abspath(__file__))  # environment-independent (works in workspace and on runners)
 STATE_PATH = WS + "/control_state.json"
 START_CASH = 100000.0
 UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36"}
