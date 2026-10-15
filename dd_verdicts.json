@@ -1,0 +1,8 @@
+{
+  "date": "2026-10-15",
+  "generated_utc": "2026-10-15T13:45:48.112317+00:00",
+  "candidates": [],
+  "contract": "v2: verdict=red_flag_verdict gates (RED_FLAG blocks); price_timing_opinion is measured only, never gates",
+  "verdicts": [],
+  "note": "LLM may only REMOVE candidates via red flags, never add"
+}
