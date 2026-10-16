@@ -1,5 +1,5 @@
 {
-  "cash": 9569.07,
+  "cash": 22011.7,
   "fills": [
     {
       "action": "buy",
@@ -17,9 +17,29 @@
       "qty": 38,
       "symbol": "CRWD",
       "ts": "2026-10-15T17:56:01.156959+00:00"
+    },
+    {
+      "action": "sell",
+      "cash_after": 13454.23,
+      "cost": 1.9436,
+      "note": "stop loss: -5.39% <= -5%",
+      "price": 215.95,
+      "qty": 18,
+      "symbol": "NVDA",
+      "ts": "2026-10-16T17:44:06.734160+00:00"
+    },
+    {
+      "action": "sell",
+      "cash_after": 22011.7,
+      "cost": 4.2809,
+      "note": "stop loss: -10.87% <= -5%",
+      "price": 342.47,
+      "qty": 25,
+      "symbol": "PANW",
+      "ts": "2026-10-16T17:44:06.734512+00:00"
     }
   ],
-  "last_daily_run": "2026-10-15",
+  "last_daily_run": "2026-10-16",
   "meta": {
     "cash": "owner-provided at offboard (platform cash differed; residual reconciled by owner decision)",
     "cost_model": "5 bps per side, charged to cash (broker.py)",
@@ -58,12 +78,12 @@
       "qty": 11.0
     },
     "NVDA": {
-      "entry": 228.36000654432507,
-      "qty": 18.0
+      "entry": 0.0,
+      "qty": 0.0
     },
     "PANW": {
-      "entry": 384.2449951171875,
-      "qty": 25.0
+      "entry": 0.0,
+      "qty": 0.0
     },
     "QQQ": {
       "entry": 736.4439697265625,
@@ -96,5 +116,6 @@
   },
   "trades_2026-10-14": 0,
   "trades_2026-10-15": 1,
-  "updated": "2026-10-15T17:56:01.156959+00:00"
+  "trades_2026-10-16": 2,
+  "updated": "2026-10-16T17:44:06.734512+00:00"
 }

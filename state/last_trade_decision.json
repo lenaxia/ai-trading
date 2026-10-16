@@ -1,7 +1,7 @@
 {
   "ok": true,
-  "now_utc": "2026-10-15T17:55:46.476942+00:00",
-  "today": "2026-10-15",
+  "now_utc": "2026-10-16T17:43:51.363285+00:00",
+  "today": "2026-10-16",
   "market_open": true,
   "policy": {
     "style": "conservative momentum, growth tilt",
@@ -13,15 +13,14 @@
     "max_trades_per_day": 2
   },
   "account": {
-    "cash": 363.99,
-    "positions_value": 98366.23,
-    "equity": 98730.22,
-    "positions_held": 15
+    "cash": 9569.07,
+    "positions_value": 88278.05,
+    "equity": 97847.12,
+    "positions_held": 14
   },
   "sleeve_excluded": [
     "AAPL",
     "BND",
-    "CRWD",
     "DAL",
     "FIW",
     "MSFT",
@@ -40,8 +39,8 @@
       "symbol": "AAPL",
       "quantity": 8.0,
       "entry_price": 331.3699951171875,
-      "current_price": 343.88,
-      "pnl_pct": 3.78
+      "current_price": 342.83,
+      "pnl_pct": 3.46
     },
     {
       "symbol": "BND",
@@ -49,13 +48,6 @@
       "entry_price": 70.05915213530918,
       "current_price": 70.05915213530918,
       "pnl_pct": 0.0
-    },
-    {
-      "symbol": "CRWD",
-      "quantity": 38.0,
-      "entry_price": 259.56500244140625,
-      "current_price": 242.45,
-      "pnl_pct": -6.59
     },
     {
       "symbol": "DAL",
@@ -75,29 +67,29 @@
       "symbol": "MSFT",
       "quantity": 11.0,
       "entry_price": 527.9400024414062,
-      "current_price": 540.2,
-      "pnl_pct": 2.32
+      "current_price": 528.275,
+      "pnl_pct": 0.06
     },
     {
       "symbol": "NVDA",
       "quantity": 18.0,
       "entry_price": 228.36000654432507,
-      "current_price": 217.95,
-      "pnl_pct": -4.56
+      "current_price": 216.05,
+      "pnl_pct": -5.39
     },
     {
       "symbol": "PANW",
       "quantity": 25.0,
       "entry_price": 384.2449951171875,
-      "current_price": 368.59,
-      "pnl_pct": -4.07
+      "current_price": 342.47,
+      "pnl_pct": -10.87
     },
     {
       "symbol": "QQQ",
       "quantity": 4.0,
       "entry_price": 736.4439697265625,
-      "current_price": 726.068,
-      "pnl_pct": -1.41
+      "current_price": 713.99,
+      "pnl_pct": -3.05
     },
     {
       "symbol": "SPYG",
@@ -145,34 +137,69 @@
   "exits": [
     {
       "action": "sell",
-      "symbol": "CRWD",
-      "quantity": 38.0,
-      "reason": "stop loss: -6.59% <= -5%",
-      "pnl_pct": -6.59
+      "symbol": "NVDA",
+      "quantity": 18.0,
+      "reason": "stop loss: -5.39% <= -5%",
+      "pnl_pct": -5.39
+    },
+    {
+      "action": "sell",
+      "symbol": "PANW",
+      "quantity": 25.0,
+      "reason": "stop loss: -10.87% <= -5%",
+      "pnl_pct": -10.87
     }
   ],
   "entries": [
     {
       "action": "buy",
-      "symbol": "GILD",
-      "quantity": 61,
-      "est_cost": 9728.28,
-      "reason": "momentum: RS +8.75 pts vs SPY, 0.65% below 52w high",
+      "symbol": "COP",
+      "quantity": 66,
+      "est_cost": 9645.9,
+      "reason": "momentum: RS +10.68 pts vs SPY, 0.24% below 52w high",
       "headlines": [
         "Google News",
-        "Can Gilead (GILD) Stock Continue Rising in 2027? - Yahoo Finance",
-        "Gilead Sciences (NASDAQ:GILD) Stock Price Up 3.9% - What's Next? - MarketBeat",
-        "Gilead Sciences Inc Stock (GILD) Moved Up by 3.67% on Oct 15: Key Drivers Unveiled - TradingKey",
-        "Gold stock correction finally enters end phase - Kitco"
+        "Will ConocoPhillips (COP) Gain on Rising Earnings Estimates? - Yahoo Finance",
+        "How Higher Oil Prices Will Impact ConocoPhillips (COP) Stock - Simply Wall Street",
+        "Why Did IOVA, AMLX And COP Stocks Surge To 52-Week Highs Today? - Stocktwits",
+        "ConocoPhillips Stock Has Been in a Trading Range - Ideal for Short Put COP Plays - Barchart.com"
+      ]
+    },
+    {
+      "action": "buy",
+      "symbol": "LLY",
+      "quantity": 7,
+      "est_cost": 8831.06,
+      "reason": "momentum: RS +8.67 pts vs SPY, 2.46% below 52w high",
+      "headlines": [
+        "Google News",
+        "Eli Lilly (LLY) Stock Looks Undervalued As Its 404% Run Continues - Yahoo Finance",
+        "EMA Endorses Eli Lilly's Foundayo for Type 2 Diabetes; LLY Stock Shows 20% Undervaluation - GuruFocus",
+        "Eli Lilly (LLY) Shares In Focus After Omvoh Shows Deep Remission In Crohn\u2019s - Simply Wall Street",
+        "Why is Eli Lilly stock rallying today? - Investing.com"
+      ]
+    },
+    {
+      "action": "buy",
+      "symbol": "KO",
+      "quantity": 104,
+      "est_cost": 9693.84,
+      "reason": "momentum: RS +7.55 pts vs SPY, 0.95% below 52w high",
+      "headlines": [
+        "Google News",
+        "Why Are SPCX, ECHO, KO Stocks Moving Premarket Today? - Yahoo Finance",
+        "Coca-Cola Wins KFC Contract, Ending Decades-Long PepsiCo Partnership - TIKR.com",
+        "Why Did AAPL, KO, PM Stocks Jump To 52-Week Highs Today? - Stocktwits",
+        "CocaCola Company (The) $KO Stock Bought by Ninety One UK Ltd - MarketBeat"
       ]
     }
   ],
   "market_headlines": [
     "Google News",
-    "Tech sell-off rolls on as hot inflation data stokes rate worries - Yahoo Finance",
-    "Nasdaq ends sharply lower as hot inflation data stirs rate-hike worries - Reuters",
-    "U.S. Stocks Fall on Hot Inflation Report, AI Sell-Off - WSJ",
-    "US stocks drop to their worst day since July as inflation worsens - AP News"
+    "Market Movers blog: Chip stocks and global indices continue to slide following US inflation jump - Investment Week",
+    "An alarmed bond market gets the Trump administration to act again - PBS",
+    "Why the stock market keeps shrugging as Trump sows more political chaos - CNBC",
+    "Markets' 2026 watch list: Fed succession, political risk and AI of course - Reuters"
   ],
   "note": "Exits before entries. Max 2 trades/day total. Buys require a headline screen (skip on material political/regulatory/earnings risk) executed by daily_run.py, which also applies the DD veto gate before filling entries through broker.py."
 }
