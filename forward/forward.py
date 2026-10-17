@@ -105,6 +105,13 @@ VARIANT_SPECS = [
                      "returns), up to 3 names at 1/3 each; exit +10% TP / -5% "
                      "stop vs entry fill close"),
      "params": {"n": 1, "kvol": 2.0, "y": 10.0, "sel": 3, "z_exit": 5.0}},
+    {"id": "V236_meanrev_vol_n3_k1p5_y10_sel3", "family": "meanrev_vol",
+     "source": "v2 lab2 (V236) — pre-registered 2026-10-17: only variant passing "
+              "White Reality Check p=0.009 + DSR 0.975 in the gauntlet; forward "
+              "clock starts now (first ~3 weeks overlap its selection data — caveat recorded)",
+     "description": ("Vol-scaled mean reversion (V236): worst 3d performers when "
+                     "3d return <= -1.5 * sigma20, up to 3 names; +10% TP / -5% stop"),
+     "params": {"n": 3, "kvol": 1.5, "y": 10.0, "sel": 3, "z_exit": 5.0}},
     {"id": "V306_killswitch_V228", "family": "killswitch_overlay",
      "source": "v2 lab2 (V306)",
      "description": ("V228 with killswitch: portfolio equity <= -10% from its "
