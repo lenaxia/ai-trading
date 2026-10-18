@@ -83,128 +83,160 @@
     "XOM": 0
    },
    "fetch_manifest": {
-    "fetched_at_utc": "2026-10-17T00:40:26Z",
+    "fetched_at_utc": "2026-10-18T02:01:52Z",
     "seeded_from_lab": false,
     "symbols": {
      "AAPL": {
-      "appended": 0,
+      "appended": 2,
       "first_date": "2023-09-29",
       "last_date": "2026-10-16",
-      "revised": 4,
+      "revised": 5,
       "rows": 765,
       "status": "ok"
      },
      "AMD": {
-      "appended": 0,
+      "appended": 2,
       "first_date": "2023-09-29",
       "last_date": "2026-10-16",
-      "revised": 4,
+      "revised": 5,
       "rows": 765,
       "status": "ok"
      },
      "AMZN": {
-      "appended": 0,
+      "appended": 2,
       "first_date": "2023-09-29",
       "last_date": "2026-10-16",
-      "revised": 4,
+      "revised": 5,
       "rows": 765,
       "status": "ok"
      },
      "AVGO": {
-      "appended": 0,
+      "appended": 2,
       "first_date": "2023-09-29",
       "last_date": "2026-10-16",
-      "revised": 4,
+      "revised": 5,
       "rows": 765,
       "status": "ok"
      },
      "GOOGL": {
-      "appended": 0,
+      "appended": 2,
       "first_date": "2023-09-29",
       "last_date": "2026-10-16",
-      "revised": 4,
+      "revised": 5,
       "rows": 765,
       "status": "ok"
      },
-     "JPM": {
+     "HYG": {
       "appended": 0,
+      "first_date": "2007-04-11",
+      "last_date": "2026-10-16",
+      "revised": 5,
+      "rows": 4912,
+      "status": "ok"
+     },
+     "JPM": {
+      "appended": 2,
       "first_date": "2023-09-29",
       "last_date": "2026-10-16",
-      "revised": 4,
+      "revised": 5,
       "rows": 765,
       "status": "ok"
      },
      "LLY": {
-      "appended": 0,
+      "appended": 2,
       "first_date": "2023-09-29",
       "last_date": "2026-10-16",
-      "revised": 4,
+      "revised": 5,
       "rows": 765,
       "status": "ok"
      },
-     "META": {
+     "LQD": {
       "appended": 0,
+      "first_date": "2002-07-30",
+      "last_date": "2026-10-16",
+      "revised": 5,
+      "rows": 6094,
+      "status": "ok"
+     },
+     "META": {
+      "appended": 2,
       "first_date": "2023-09-29",
       "last_date": "2026-10-16",
-      "revised": 4,
+      "revised": 5,
       "rows": 765,
       "status": "ok"
      },
      "MSFT": {
-      "appended": 0,
+      "appended": 2,
       "first_date": "2023-09-29",
       "last_date": "2026-10-16",
-      "revised": 4,
+      "revised": 5,
       "rows": 765,
       "status": "ok"
      },
      "NVDA": {
-      "appended": 0,
+      "appended": 2,
       "first_date": "2023-09-29",
       "last_date": "2026-10-16",
-      "revised": 4,
+      "revised": 5,
       "rows": 765,
       "status": "ok"
      },
      "QQQ": {
-      "appended": 0,
+      "appended": 2,
       "first_date": "2023-09-29",
       "last_date": "2026-10-16",
-      "revised": 4,
+      "revised": 5,
       "rows": 765,
       "status": "ok"
      },
      "SPY": {
-      "appended": 0,
+      "appended": 2,
       "first_date": "2023-09-29",
       "last_date": "2026-10-16",
-      "revised": 4,
+      "revised": 5,
       "rows": 765,
       "status": "ok"
      },
      "TSLA": {
-      "appended": 0,
+      "appended": 2,
       "first_date": "2023-09-29",
       "last_date": "2026-10-16",
-      "revised": 4,
+      "revised": 5,
       "rows": 765,
       "status": "ok"
      },
      "XOM": {
-      "appended": 0,
+      "appended": 2,
       "first_date": "2023-09-29",
       "last_date": "2026-10-16",
-      "revised": 4,
+      "revised": 5,
       "rows": 765,
+      "status": "ok"
+     },
+     "^VIX": {
+      "appended": 0,
+      "first_date": "1990-01-02",
+      "last_date": "2026-10-16",
+      "revised": 5,
+      "rows": 9268,
       "status": "ok"
      }
     }
    }
   },
-  "engine": "no-lookahead: signals from closes <= t-1, execution at t close; v1 variants (1-4) under lab/backtest.py accounting ((1+r)*(1-cost), drift between targets); v2 variants (5-6) under lab2/engine.py killswitch accounting ((1+r-cost))",
+  "engine": "no-lookahead: signals from closes <= t-1, execution at t close; v1 variants (1-4) under lab/backtest.py accounting ((1+r)*(1-cost), drift between targets); v2 variants (5-7) under lab2/engine.py killswitch accounting ((1+r-cost)); V236G (8) = V236 rows + lab3/regime G1G2G3 boolean entry mask (v2 accounting); COMPOSITE_50 (9) = 50/50 V236G+mom5 drifting sub-accounts, weekly 50/50 rebalance at 5 bps/side (r_g - cost on rebalance turnover)",
   "forward_start": "2026-09-29",
   "forward_window_days": 14,
-  "generated_utc": "2026-10-17T00:40:36Z",
+  "gate_inputs": {
+   "note": "^VIX/HYG/LQD deep daily history via period1-near-listing (range=max degrades to monthly), raw closes, as-of aligned; drive the V236G/composite G1G2G3 entry mask (weekly eval on prior close)",
+   "symbols": [
+    "^VIX",
+    "HYG",
+    "LQD"
+   ]
+  },
+  "generated_utc": "2026-10-18T02:02:04Z",
   "idempotency": "state is fully recomputed from forward/data CSVs on every run and written atomically; re-running on the same UTC day overwrites, never appends",
   "last_data_date": "2026-10-16",
   "start_equity": 100000.0,
@@ -229,6 +261,216 @@
   ]
  },
  "variants": {
+  "COMPOSITE_50_V236G_mom5": {
+   "as_of_date": "2026-10-16",
+   "avg_exposure": 0.9164,
+   "current_equity": 102261.42,
+   "current_exposure": 1.0,
+   "current_positions": {
+    "AAPL": {
+     "entry_date": "2026-10-14",
+     "last_price": 343.46,
+     "qty": 29.7597,
+     "value": 10221.28,
+     "weight": 0.099952
+    },
+    "GOOGL": {
+     "entry_date": "2026-10-14",
+     "last_price": 340.59,
+     "qty": 29.3591,
+     "value": 9999.42,
+     "weight": 0.097783
+    },
+    "JPM": {
+     "entry_date": null,
+     "last_price": 339.72,
+     "qty": 50.8134,
+     "value": 17262.34,
+     "weight": 0.168806
+    },
+    "LLY": {
+     "entry_date": "2026-10-05",
+     "last_price": 1257.03,
+     "qty": 13.7326,
+     "value": 17262.34,
+     "weight": 0.168806
+    },
+    "META": {
+     "entry_date": null,
+     "last_price": 709.33,
+     "qty": 13.8384,
+     "value": 9816.02,
+     "weight": 0.095989
+    },
+    "MSFT": {
+     "entry_date": "2026-10-14",
+     "last_price": 529.05,
+     "qty": 19.1242,
+     "value": 10117.67,
+     "weight": 0.098939
+    },
+    "NVDA": {
+     "entry_date": "2026-10-12",
+     "last_price": 214.13,
+     "qty": 80.6162,
+     "value": 17262.34,
+     "weight": 0.168806
+    },
+    "XOM": {
+     "entry_date": "2026-10-14",
+     "last_price": 178.98,
+     "qty": 57.66,
+     "value": 10319.99,
+     "weight": 0.100918
+    }
+   },
+   "description": "Equal-weight composite: 50% V236G (gated V236, v2 accounting) + 50% mom_n5_k5_abs_c21 (v1 accounting) as drifting sub-accounts, rebalanced to 50/50 at the first session close of each ISO week; 5 bps/side charged on the weekly rebalance turnover (sleeve-internal costs already inside each sleeve's multipliers)",
+   "equity_series": [
+    {
+     "date": "2026-09-29",
+     "equity": 100132.47,
+     "exposure": 0.832942
+    },
+    {
+     "date": "2026-09-30",
+     "equity": 99896.88,
+     "exposure": 0.833854
+    },
+    {
+     "date": "2026-10-01",
+     "equity": 99564.93,
+     "exposure": 0.8341
+    },
+    {
+     "date": "2026-10-02",
+     "equity": 100704.99,
+     "exposure": 0.834279
+    },
+    {
+     "date": "2026-10-05",
+     "equity": 101256.85,
+     "exposure": 1.0
+    },
+    {
+     "date": "2026-10-06",
+     "equity": 102403.34,
+     "exposure": 1.0
+    },
+    {
+     "date": "2026-10-07",
+     "equity": 102625.91,
+     "exposure": 0.831746
+    },
+    {
+     "date": "2026-10-08",
+     "equity": 102260.81,
+     "exposure": 0.831737
+    },
+    {
+     "date": "2026-10-09",
+     "equity": 102225.59,
+     "exposure": 0.830949
+    },
+    {
+     "date": "2026-10-12",
+     "equity": 102749.39,
+     "exposure": 1.0
+    },
+    {
+     "date": "2026-10-13",
+     "equity": 103177.56,
+     "exposure": 1.0
+    },
+    {
+     "date": "2026-10-14",
+     "equity": 102469.55,
+     "exposure": 1.0
+    },
+    {
+     "date": "2026-10-15",
+     "equity": 102757.19,
+     "exposure": 1.0
+    },
+    {
+     "date": "2026-10-16",
+     "equity": 102261.42,
+     "exposure": 1.0
+    }
+   ],
+   "family": "composite_5050",
+   "params": {
+    "rebalance": "weekly (first session of ISO week, at close)",
+    "rebalance_cost_bps_per_side": 5,
+    "sleeve_a": "V236G_meanrev_vol_n3_k1p5_y10_sel3_G1G2G3",
+    "sleeve_b": "mom_n5_k5_abs_c21",
+    "w_a": 0.5,
+    "w_b": 0.5
+   },
+   "return_to_date": 0.022614,
+   "sleeve_capital": {
+    "V236G": 0.506418,
+    "mom5": 0.493582
+   },
+   "sleeve_entry_stats": {
+    "blocked_candidates": 144,
+    "blocked_entry_days": 56,
+    "entries": 86,
+    "exits": 83
+   },
+   "sleeve_gate_diag": {
+    "credit_inoperative_weeks": 12,
+    "evals": 159,
+    "g1_close_events": 9,
+    "g1_open_events": 9,
+    "g2_stress_weeks": 9,
+    "g3_below_weeks": 12,
+    "suppressed_sessions": 168
+   },
+   "source": "lab3/adaptive (blend family) \u2014 pre-registered 2026-10-18 (forward9): static equal-weight blend of the two sleeves the 25y evidence ranks highest (adaptive_report.json table1)",
+   "trade_count": 4,
+   "trades": [
+    {
+     "action": "sell",
+     "cost": 0.11,
+     "date": "2026-10-05",
+     "notional": 223.85,
+     "price": 1.0,
+     "qty": 0.002211,
+     "reason": "composite_weekly_rebalance",
+     "symbol": "SLEEVE:MOM5"
+    },
+    {
+     "action": "buy",
+     "cost": 0.11,
+     "date": "2026-10-05",
+     "notional": 223.85,
+     "price": 1.0,
+     "qty": 0.002211,
+     "reason": "composite_weekly_rebalance",
+     "symbol": "SLEEVE:V236G"
+    },
+    {
+     "action": "sell",
+     "cost": 0.29,
+     "date": "2026-10-12",
+     "notional": 577.5,
+     "price": 1.0,
+     "qty": 0.00562,
+     "reason": "composite_weekly_rebalance",
+     "symbol": "SLEEVE:V236G"
+    },
+    {
+     "action": "buy",
+     "cost": 0.29,
+     "date": "2026-10-12",
+     "notional": 577.5,
+     "price": 1.0,
+     "qty": 0.00562,
+     "reason": "composite_weekly_rebalance",
+     "symbol": "SLEEVE:MOM5"
+    }
+   ]
+  },
   "V228_meanrev_vol_n1_k2_y10_sel3": {
    "as_of_date": "2026-10-16",
    "avg_exposure": 0.809524,
@@ -342,6 +584,300 @@
      "qty": 90.4449,
      "reason": "v228_tp_exit",
      "symbol": "AVGO"
+    }
+   ]
+  },
+  "V236G_meanrev_vol_n3_k1p5_y10_sel3_G1G2G3": {
+   "as_of_date": "2026-10-16",
+   "avg_exposure": 0.833334,
+   "current_equity": 104276.06,
+   "current_exposure": 1.0,
+   "current_positions": {
+    "JPM": {
+     "entry_date": null,
+     "last_price": 339.72,
+     "qty": 102.3157,
+     "value": 34758.69,
+     "weight": 0.333333
+    },
+    "LLY": {
+     "entry_date": "2026-10-05",
+     "last_price": 1257.03,
+     "qty": 27.6514,
+     "value": 34758.69,
+     "weight": 0.333333
+    },
+    "NVDA": {
+     "entry_date": "2026-10-12",
+     "last_price": 214.13,
+     "qty": 162.3252,
+     "value": 34758.69,
+     "weight": 0.333333
+    }
+   },
+   "description": "V236 (worst 3d performers when 3d return <= -1.5*sigma20, up to 3 names, +10% TP / -5% stop) with entry-suppression gates G1G2G3 wired as one boolean mask by date: G1 VIX >p80(252d) latched until <p70; G2 HYG/LQD price ratio < mean60-2*sd60; G3 SPY < 200d SMA \u2014 all evaluated weekly on the PRIOR session's closes; suppressed days block NEW entries only (exits/TP/stops always run)",
+   "entry_stats": {
+    "blocked_candidates": 144,
+    "blocked_entry_days": 56,
+    "entries": 86,
+    "exits": 83
+   },
+   "equity_series": [
+    {
+     "date": "2026-09-29",
+     "equity": 100367.87,
+     "exposure": 0.666667
+    },
+    {
+     "date": "2026-09-30",
+     "equity": 99585.01,
+     "exposure": 0.666667
+    },
+    {
+     "date": "2026-10-01",
+     "equity": 99107.17,
+     "exposure": 0.666667
+    },
+    {
+     "date": "2026-10-02",
+     "equity": 100133.4,
+     "exposure": 0.666667
+    },
+    {
+     "date": "2026-10-05",
+     "equity": 100809.38,
+     "exposure": 1.0
+    },
+    {
+     "date": "2026-10-06",
+     "equity": 102353.44,
+     "exposure": 1.0
+    },
+    {
+     "date": "2026-10-07",
+     "equity": 103145.38,
+     "exposure": 0.666667
+    },
+    {
+     "date": "2026-10-08",
+     "equity": 102784.31,
+     "exposure": 0.666667
+    },
+    {
+     "date": "2026-10-09",
+     "equity": 103229.88,
+     "exposure": 0.666667
+    },
+    {
+     "date": "2026-10-12",
+     "equity": 103445.79,
+     "exposure": 1.0
+    },
+    {
+     "date": "2026-10-13",
+     "equity": 103015.23,
+     "exposure": 1.0
+    },
+    {
+     "date": "2026-10-14",
+     "equity": 103572.33,
+     "exposure": 1.0
+    },
+    {
+     "date": "2026-10-15",
+     "equity": 104187.58,
+     "exposure": 1.0
+    },
+    {
+     "date": "2026-10-16",
+     "equity": 104276.06,
+     "exposure": 1.0
+    }
+   ],
+   "family": "meanrev_vol_gated",
+   "gate_diag": {
+    "credit_inoperative_weeks": 12,
+    "evals": 159,
+    "g1_close_events": 9,
+    "g1_open_events": 9,
+    "g2_stress_weeks": 9,
+    "g3_below_weeks": 12,
+    "suppressed_sessions": 168
+   },
+   "params": {
+    "gates": "G1G2G3 (lab3/regime study.py; boolean entry mask)",
+    "kvol": 1.5,
+    "n": 3,
+    "sel": 3,
+    "y": 10.0,
+    "z_exit": 5.0
+   },
+   "return_to_date": 0.042761,
+   "source": "lab3/regime (V236 + G1G2G3 stack) \u2014 pre-registered 2026-10-18 (forward9): V236 is the gauntlet's only multiple-testing survivor; the regime lab's G1G2G3 stack is its agreed risk overlay",
+   "trade_count": 3,
+   "trades": [
+    {
+     "action": "buy",
+     "date": "2026-10-05",
+     "price": 1143.12,
+     "qty": 29.4008,
+     "reason": "v228_entry",
+     "symbol": "LLY"
+    },
+    {
+     "action": "sell",
+     "date": "2026-10-07",
+     "price": 376.51,
+     "qty": 91.3322,
+     "reason": "v228_tp_exit",
+     "symbol": "AVGO"
+    },
+    {
+     "action": "buy",
+     "date": "2026-10-12",
+     "price": 226.32,
+     "qty": 152.3845,
+     "reason": "v228_entry",
+     "symbol": "NVDA"
+    }
+   ]
+  },
+  "V236_meanrev_vol_n3_k1p5_y10_sel3": {
+   "as_of_date": "2026-10-16",
+   "avg_exposure": 0.833334,
+   "current_equity": 104276.06,
+   "current_exposure": 1.0,
+   "current_positions": {
+    "JPM": {
+     "entry_date": null,
+     "last_price": 339.72,
+     "qty": 102.3157,
+     "value": 34758.69,
+     "weight": 0.333333
+    },
+    "LLY": {
+     "entry_date": "2026-10-05",
+     "last_price": 1257.03,
+     "qty": 27.6514,
+     "value": 34758.69,
+     "weight": 0.333333
+    },
+    "NVDA": {
+     "entry_date": "2026-10-12",
+     "last_price": 214.13,
+     "qty": 162.3252,
+     "value": 34758.69,
+     "weight": 0.333333
+    }
+   },
+   "description": "Vol-scaled mean reversion (V236): worst 3d performers when 3d return <= -1.5 * sigma20, up to 3 names; +10% TP / -5% stop",
+   "equity_series": [
+    {
+     "date": "2026-09-29",
+     "equity": 100367.87,
+     "exposure": 0.666667
+    },
+    {
+     "date": "2026-09-30",
+     "equity": 99585.01,
+     "exposure": 0.666667
+    },
+    {
+     "date": "2026-10-01",
+     "equity": 99107.17,
+     "exposure": 0.666667
+    },
+    {
+     "date": "2026-10-02",
+     "equity": 100133.4,
+     "exposure": 0.666667
+    },
+    {
+     "date": "2026-10-05",
+     "equity": 100809.38,
+     "exposure": 1.0
+    },
+    {
+     "date": "2026-10-06",
+     "equity": 102353.44,
+     "exposure": 1.0
+    },
+    {
+     "date": "2026-10-07",
+     "equity": 103145.38,
+     "exposure": 0.666667
+    },
+    {
+     "date": "2026-10-08",
+     "equity": 102784.31,
+     "exposure": 0.666667
+    },
+    {
+     "date": "2026-10-09",
+     "equity": 103229.88,
+     "exposure": 0.666667
+    },
+    {
+     "date": "2026-10-12",
+     "equity": 103445.79,
+     "exposure": 1.0
+    },
+    {
+     "date": "2026-10-13",
+     "equity": 103015.23,
+     "exposure": 1.0
+    },
+    {
+     "date": "2026-10-14",
+     "equity": 103572.33,
+     "exposure": 1.0
+    },
+    {
+     "date": "2026-10-15",
+     "equity": 104187.58,
+     "exposure": 1.0
+    },
+    {
+     "date": "2026-10-16",
+     "equity": 104276.06,
+     "exposure": 1.0
+    }
+   ],
+   "family": "meanrev_vol",
+   "params": {
+    "kvol": 1.5,
+    "n": 3,
+    "sel": 3,
+    "y": 10.0,
+    "z_exit": 5.0
+   },
+   "return_to_date": 0.042761,
+   "source": "v2 lab2 (V236) \u2014 pre-registered 2026-10-17: only variant passing White Reality Check p=0.009 + DSR 0.975 in the gauntlet; forward clock starts now (first ~3 weeks overlap its selection data \u2014 caveat recorded)",
+   "trade_count": 3,
+   "trades": [
+    {
+     "action": "buy",
+     "date": "2026-10-05",
+     "price": 1143.12,
+     "qty": 29.4008,
+     "reason": "v228_entry",
+     "symbol": "LLY"
+    },
+    {
+     "action": "sell",
+     "date": "2026-10-07",
+     "price": 376.51,
+     "qty": 91.3322,
+     "reason": "v228_tp_exit",
+     "symbol": "AVGO"
+    },
+    {
+     "action": "buy",
+     "date": "2026-10-12",
+     "price": 226.32,
+     "qty": 152.3845,
+     "reason": "v228_entry",
+     "symbol": "NVDA"
     }
    ]
   },
@@ -466,7 +1002,7 @@
   "base_ew12": {
    "as_of_date": "2026-10-16",
    "avg_exposure": 1.0,
-   "current_equity": 97039.66,
+   "current_equity": 97039.71,
    "current_exposure": 1.0,
    "current_positions": {
     "AAPL": {
@@ -474,7 +1010,7 @@
      "last_price": 343.46,
      "qty": 17.5094,
      "value": 6013.79,
-     "weight": 0.061973
+     "weight": 0.061972
     },
     "AMD": {
      "entry_date": null,
@@ -520,9 +1056,9 @@
     },
     "META": {
      "entry_date": null,
-     "last_price": 709.325,
+     "last_price": 709.33,
      "qty": 9.9155,
-     "value": 7033.29,
+     "value": 7033.34,
      "weight": 0.072479
     },
     "MSFT": {
@@ -623,7 +1159,7 @@
     },
     {
      "date": "2026-10-16",
-     "equity": 97039.66,
+     "equity": 97039.71,
      "exposure": 1.0
     }
    ],
@@ -639,7 +1175,7 @@
   "don_p10_s8": {
    "as_of_date": "2026-10-16",
    "avg_exposure": 1.0,
-   "current_equity": 97207.61,
+   "current_equity": 97207.65,
    "current_exposure": 1.0,
    "current_positions": {
     "AAPL": {
@@ -693,10 +1229,10 @@
     },
     "META": {
      "entry_date": null,
-     "last_price": 709.325,
+     "last_price": 709.33,
      "qty": 7.1834,
-     "value": 5095.35,
-     "weight": 0.052417
+     "value": 5095.39,
+     "weight": 0.052418
     },
     "MSFT": {
      "entry_date": null,
@@ -796,7 +1332,7 @@
     },
     {
      "date": "2026-10-16",
-     "equity": 97207.61,
+     "equity": 97207.65,
      "exposure": 1.0
     }
    ],
@@ -814,42 +1350,42 @@
   "mom_n21_k5_abs_c1": {
    "as_of_date": "2026-10-16",
    "avg_exposure": 1.0,
-   "current_equity": 97752.88,
+   "current_equity": 97753.01,
    "current_exposure": 1.0,
    "current_positions": {
     "AMD": {
      "entry_date": "2026-10-16",
      "last_price": 528.75,
      "qty": 36.9751,
-     "value": 19550.58,
+     "value": 19550.6,
      "weight": 0.2
     },
     "LLY": {
      "entry_date": "2026-10-15",
      "last_price": 1257.03,
      "qty": 15.553,
-     "value": 19550.58,
+     "value": 19550.6,
      "weight": 0.2
     },
     "META": {
      "entry_date": "2026-10-16",
-     "last_price": 709.325,
-     "qty": 27.5622,
-     "value": 19550.58,
+     "last_price": 709.33,
+     "qty": 27.5621,
+     "value": 19550.6,
      "weight": 0.2
     },
     "MSFT": {
      "entry_date": "2026-10-16",
      "last_price": 529.05,
-     "qty": 36.9541,
-     "value": 19550.58,
+     "qty": 36.9542,
+     "value": 19550.6,
      "weight": 0.2
     },
     "XOM": {
      "entry_date": "2026-10-15",
      "last_price": 178.98,
-     "qty": 109.2333,
-     "value": 19550.58,
+     "qty": 109.2335,
+     "value": 19550.6,
      "weight": 0.2
     }
    },
@@ -922,7 +1458,7 @@
     },
     {
      "date": "2026-10-16",
-     "equity": 97752.88,
+     "equity": 97753.01,
      "exposure": 1.0
     }
    ],
@@ -933,10 +1469,50 @@
     "k": 5,
     "n": 21
    },
-   "return_to_date": -0.022471,
+   "return_to_date": -0.02247,
    "source": "v1 lab",
    "trade_count": 86,
    "trades": [
+    {
+     "action": "buy",
+     "date": "2026-09-29",
+     "price": 329.4,
+     "qty": 1.4349,
+     "reason": "momo_rebalance",
+     "symbol": "AAPL"
+    },
+    {
+     "action": "sell",
+     "date": "2026-09-29",
+     "price": 607.57,
+     "qty": 0.0813,
+     "reason": "momo_rebalance",
+     "symbol": "AMD"
+    },
+    {
+     "action": "sell",
+     "date": "2026-09-29",
+     "price": 738.79,
+     "qty": 0.9567,
+     "reason": "momo_rebalance",
+     "symbol": "META"
+    },
+    {
+     "action": "buy",
+     "date": "2026-09-29",
+     "price": 508.96,
+     "qty": 39.1794,
+     "reason": "momo_buy",
+     "symbol": "MSFT"
+    },
+    {
+     "action": "sell",
+     "date": "2026-09-29",
+     "price": 227.21,
+     "qty": 87.3897,
+     "reason": "momo_sell",
+     "symbol": "NVDA"
+    },
     {
      "action": "sell",
      "date": "2026-09-29",
@@ -955,51 +1531,11 @@
     },
     {
      "action": "sell",
-     "date": "2026-09-29",
-     "price": 607.57,
-     "qty": 0.0813,
-     "reason": "momo_rebalance",
-     "symbol": "AMD"
-    },
-    {
-     "action": "sell",
-     "date": "2026-09-29",
-     "price": 227.21,
-     "qty": 87.3897,
-     "reason": "momo_sell",
-     "symbol": "NVDA"
-    },
-    {
-     "action": "buy",
-     "date": "2026-09-29",
-     "price": 508.96,
-     "qty": 39.1794,
-     "reason": "momo_buy",
-     "symbol": "MSFT"
-    },
-    {
-     "action": "buy",
-     "date": "2026-09-29",
-     "price": 329.4,
-     "qty": 1.4349,
+     "date": "2026-09-30",
+     "price": 333.02,
+     "qty": 0.4677,
      "reason": "momo_rebalance",
      "symbol": "AAPL"
-    },
-    {
-     "action": "sell",
-     "date": "2026-09-29",
-     "price": 738.79,
-     "qty": 0.9567,
-     "reason": "momo_rebalance",
-     "symbol": "META"
-    },
-    {
-     "action": "sell",
-     "date": "2026-09-30",
-     "price": 162.75,
-     "qty": 0.6736,
-     "reason": "momo_rebalance",
-     "symbol": "XOM"
     },
     {
      "action": "sell",
@@ -1012,10 +1548,10 @@
     {
      "action": "buy",
      "date": "2026-09-30",
-     "price": 228.38,
-     "qty": 87.5557,
-     "reason": "momo_buy",
-     "symbol": "NVDA"
+     "price": 725.18,
+     "qty": 0.5937,
+     "reason": "momo_rebalance",
+     "symbol": "META"
     },
     {
      "action": "sell",
@@ -1026,28 +1562,28 @@
      "symbol": "MSFT"
     },
     {
+     "action": "buy",
+     "date": "2026-09-30",
+     "price": 228.38,
+     "qty": 87.5557,
+     "reason": "momo_buy",
+     "symbol": "NVDA"
+    },
+    {
      "action": "sell",
      "date": "2026-09-30",
-     "price": 333.02,
-     "qty": 0.4677,
+     "price": 162.75,
+     "qty": 0.6736,
      "reason": "momo_rebalance",
-     "symbol": "AAPL"
+     "symbol": "XOM"
     },
     {
      "action": "buy",
-     "date": "2026-09-30",
-     "price": 725.18,
-     "qty": 0.5937,
-     "reason": "momo_rebalance",
-     "symbol": "META"
-    },
-    {
-     "action": "sell",
      "date": "2026-10-01",
-     "price": 163.82,
-     "qty": 122.838,
-     "reason": "momo_sell",
-     "symbol": "XOM"
+     "price": 330.32,
+     "qty": 0.6947,
+     "reason": "momo_rebalance",
+     "symbol": "AAPL"
     },
     {
      "action": "sell",
@@ -1066,6 +1602,14 @@
      "symbol": "GOOGL"
     },
     {
+     "action": "buy",
+     "date": "2026-10-01",
+     "price": 725.93,
+     "qty": 0.0643,
+     "reason": "momo_rebalance",
+     "symbol": "META"
+    },
+    {
      "action": "sell",
      "date": "2026-10-01",
      "price": 230.86,
@@ -1074,20 +1618,20 @@
      "symbol": "NVDA"
     },
     {
-     "action": "buy",
+     "action": "sell",
      "date": "2026-10-01",
-     "price": 330.32,
-     "qty": 0.6947,
-     "reason": "momo_rebalance",
-     "symbol": "AAPL"
+     "price": 163.82,
+     "qty": 122.838,
+     "reason": "momo_sell",
+     "symbol": "XOM"
     },
     {
      "action": "buy",
-     "date": "2026-10-01",
-     "price": 725.93,
-     "qty": 0.0643,
+     "date": "2026-10-02",
+     "price": 333.69,
+     "qty": 0.2478,
      "reason": "momo_rebalance",
-     "symbol": "META"
+     "symbol": "AAPL"
     },
     {
      "action": "sell",
@@ -1108,10 +1652,10 @@
     {
      "action": "buy",
      "date": "2026-10-02",
-     "price": 233.95,
-     "qty": 0.0806,
+     "price": 728.08,
+     "qty": 0.313,
      "reason": "momo_rebalance",
-     "symbol": "NVDA"
+     "symbol": "META"
     },
     {
      "action": "buy",
@@ -1124,26 +1668,18 @@
     {
      "action": "buy",
      "date": "2026-10-02",
-     "price": 333.69,
-     "qty": 0.2478,
+     "price": 233.95,
+     "qty": 0.0806,
      "reason": "momo_rebalance",
-     "symbol": "AAPL"
+     "symbol": "NVDA"
     },
     {
-     "action": "buy",
-     "date": "2026-10-02",
-     "price": 728.08,
-     "qty": 0.313,
-     "reason": "momo_rebalance",
-     "symbol": "META"
-    },
-    {
-     "action": "buy",
+     "action": "sell",
      "date": "2026-10-05",
-     "price": 378.73,
-     "qty": 54.229,
-     "reason": "momo_buy",
-     "symbol": "TSLA"
+     "price": 332.89,
+     "qty": 60.9498,
+     "reason": "momo_sell",
+     "symbol": "AAPL"
     },
     {
      "action": "buy",
@@ -1156,10 +1692,10 @@
     {
      "action": "sell",
      "date": "2026-10-05",
-     "price": 238.9,
-     "qty": 0.965,
+     "price": 741.9,
+     "qty": 0.2511,
      "reason": "momo_rebalance",
-     "symbol": "NVDA"
+     "symbol": "META"
     },
     {
      "action": "sell",
@@ -1172,34 +1708,18 @@
     {
      "action": "sell",
      "date": "2026-10-05",
-     "price": 332.89,
-     "qty": 60.9498,
-     "reason": "momo_sell",
-     "symbol": "AAPL"
-    },
-    {
-     "action": "sell",
-     "date": "2026-10-05",
-     "price": 741.9,
-     "qty": 0.2511,
+     "price": 238.9,
+     "qty": 0.965,
      "reason": "momo_rebalance",
-     "symbol": "META"
-    },
-    {
-     "action": "sell",
-     "date": "2026-10-06",
-     "price": 380.68,
-     "qty": 54.218,
-     "reason": "momo_sell",
-     "symbol": "TSLA"
+     "symbol": "NVDA"
     },
     {
      "action": "buy",
-     "date": "2026-10-06",
-     "price": 375.81,
-     "qty": 55.058,
+     "date": "2026-10-05",
+     "price": 378.73,
+     "qty": 54.229,
      "reason": "momo_buy",
-     "symbol": "AVGO"
+     "symbol": "TSLA"
     },
     {
      "action": "sell",
@@ -1212,10 +1732,18 @@
     {
      "action": "buy",
      "date": "2026-10-06",
-     "price": 239.24,
-     "qty": 0.5356,
+     "price": 375.81,
+     "qty": 55.058,
+     "reason": "momo_buy",
+     "symbol": "AVGO"
+    },
+    {
+     "action": "buy",
+     "date": "2026-10-06",
+     "price": 738.88,
+     "qty": 0.3261,
      "reason": "momo_rebalance",
-     "symbol": "NVDA"
+     "symbol": "META"
     },
     {
      "action": "sell",
@@ -1228,26 +1756,18 @@
     {
      "action": "buy",
      "date": "2026-10-06",
-     "price": 738.88,
-     "qty": 0.3261,
+     "price": 239.24,
+     "qty": 0.5356,
      "reason": "momo_rebalance",
-     "symbol": "META"
-    },
-    {
-     "action": "buy",
-     "date": "2026-10-07",
-     "price": 377.81,
-     "qty": 54.3838,
-     "reason": "momo_buy",
-     "symbol": "TSLA"
+     "symbol": "NVDA"
     },
     {
      "action": "sell",
-     "date": "2026-10-07",
-     "price": 376.51,
-     "qty": 0.4752,
-     "reason": "momo_rebalance",
-     "symbol": "AVGO"
+     "date": "2026-10-06",
+     "price": 380.68,
+     "qty": 54.218,
+     "reason": "momo_sell",
+     "symbol": "TSLA"
     },
     {
      "action": "sell",
@@ -1260,18 +1780,10 @@
     {
      "action": "sell",
      "date": "2026-10-07",
-     "price": 237.47,
-     "qty": 86.4702,
-     "reason": "momo_sell",
-     "symbol": "NVDA"
-    },
-    {
-     "action": "sell",
-     "date": "2026-10-07",
-     "price": 529.76,
-     "qty": 0.2989,
+     "price": 376.51,
+     "qty": 0.4752,
      "reason": "momo_rebalance",
-     "symbol": "MSFT"
+     "symbol": "AVGO"
     },
     {
      "action": "buy",
@@ -1283,11 +1795,35 @@
     },
     {
      "action": "sell",
-     "date": "2026-10-08",
-     "price": 375.0,
-     "qty": 54.3728,
+     "date": "2026-10-07",
+     "price": 529.76,
+     "qty": 0.2989,
+     "reason": "momo_rebalance",
+     "symbol": "MSFT"
+    },
+    {
+     "action": "sell",
+     "date": "2026-10-07",
+     "price": 237.47,
+     "qty": 86.4702,
      "reason": "momo_sell",
+     "symbol": "NVDA"
+    },
+    {
+     "action": "buy",
+     "date": "2026-10-07",
+     "price": 377.81,
+     "qty": 54.3838,
+     "reason": "momo_buy",
      "symbol": "TSLA"
+    },
+    {
+     "action": "buy",
+     "date": "2026-10-08",
+     "price": 340.42,
+     "qty": 59.0898,
+     "reason": "momo_buy",
+     "symbol": "AAPL"
     },
     {
      "action": "buy",
@@ -1316,26 +1852,34 @@
     {
      "action": "sell",
      "date": "2026-10-08",
+     "price": 720.89,
+     "qty": 0.576,
+     "reason": "momo_rebalance",
+     "symbol": "META"
+    },
+    {
+     "action": "sell",
+     "date": "2026-10-08",
      "price": 522.61,
      "qty": 0.2869,
      "reason": "momo_rebalance",
      "symbol": "MSFT"
     },
     {
-     "action": "buy",
-     "date": "2026-10-08",
-     "price": 340.42,
-     "qty": 59.0898,
-     "reason": "momo_buy",
-     "symbol": "AAPL"
-    },
-    {
      "action": "sell",
      "date": "2026-10-08",
-     "price": 720.89,
-     "qty": 0.576,
+     "price": 375.0,
+     "qty": 54.3728,
+     "reason": "momo_sell",
+     "symbol": "TSLA"
+    },
+    {
+     "action": "buy",
+     "date": "2026-10-09",
+     "price": 336.64,
+     "qty": 0.6353,
      "reason": "momo_rebalance",
-     "symbol": "META"
+     "symbol": "AAPL"
     },
     {
      "action": "buy",
@@ -1362,22 +1906,6 @@
      "symbol": "LLY"
     },
     {
-     "action": "sell",
-     "date": "2026-10-09",
-     "price": 535.07,
-     "qty": 0.9135,
-     "reason": "momo_rebalance",
-     "symbol": "MSFT"
-    },
-    {
-     "action": "buy",
-     "date": "2026-10-09",
-     "price": 336.64,
-     "qty": 0.6353,
-     "reason": "momo_rebalance",
-     "symbol": "AAPL"
-    },
-    {
      "action": "buy",
      "date": "2026-10-09",
      "price": 718.67,
@@ -1386,12 +1914,20 @@
      "symbol": "META"
     },
     {
-     "action": "buy",
+     "action": "sell",
+     "date": "2026-10-09",
+     "price": 535.07,
+     "qty": 0.9135,
+     "reason": "momo_rebalance",
+     "symbol": "MSFT"
+    },
+    {
+     "action": "sell",
      "date": "2026-10-12",
-     "price": 378.03,
-     "qty": 53.5602,
-     "reason": "momo_buy",
-     "symbol": "TSLA"
+     "price": 340.97,
+     "qty": 59.6889,
+     "reason": "momo_sell",
+     "symbol": "AAPL"
     },
     {
      "action": "buy",
@@ -1412,22 +1948,6 @@
     {
      "action": "sell",
      "date": "2026-10-12",
-     "price": 541.15,
-     "qty": 0.1379,
-     "reason": "momo_rebalance",
-     "symbol": "MSFT"
-    },
-    {
-     "action": "sell",
-     "date": "2026-10-12",
-     "price": 340.97,
-     "qty": 59.6889,
-     "reason": "momo_sell",
-     "symbol": "AAPL"
-    },
-    {
-     "action": "sell",
-     "date": "2026-10-12",
      "price": 742.96,
      "qty": 0.7072,
      "reason": "momo_rebalance",
@@ -1435,10 +1955,18 @@
     },
     {
      "action": "sell",
-     "date": "2026-10-13",
-     "price": 375.23,
-     "qty": 53.5491,
-     "reason": "momo_sell",
+     "date": "2026-10-12",
+     "price": 541.15,
+     "qty": 0.1379,
+     "reason": "momo_rebalance",
+     "symbol": "MSFT"
+    },
+    {
+     "action": "buy",
+     "date": "2026-10-12",
+     "price": 378.03,
+     "qty": 53.5602,
+     "reason": "momo_buy",
      "symbol": "TSLA"
     },
     {
@@ -1466,6 +1994,14 @@
      "symbol": "LLY"
     },
     {
+     "action": "sell",
+     "date": "2026-10-13",
+     "price": 762.5,
+     "qty": 0.4585,
+     "reason": "momo_rebalance",
+     "symbol": "META"
+    },
+    {
      "action": "buy",
      "date": "2026-10-13",
      "price": 543.45,
@@ -1476,18 +2012,10 @@
     {
      "action": "sell",
      "date": "2026-10-13",
-     "price": 762.5,
-     "qty": 0.4585,
-     "reason": "momo_rebalance",
-     "symbol": "META"
-    },
-    {
-     "action": "buy",
-     "date": "2026-10-14",
-     "price": 177.01,
-     "qty": 113.3136,
-     "reason": "momo_buy",
-     "symbol": "XOM"
+     "price": 375.23,
+     "qty": 53.5491,
+     "reason": "momo_sell",
+     "symbol": "TSLA"
     },
     {
      "action": "buy",
@@ -1506,20 +2034,20 @@
      "symbol": "GOOGL"
     },
     {
-     "action": "buy",
-     "date": "2026-10-14",
-     "price": 221.3,
-     "qty": 90.6355,
-     "reason": "momo_buy",
-     "symbol": "NVDA"
-    },
-    {
      "action": "sell",
      "date": "2026-10-14",
      "price": 1208.74,
      "qty": 17.5068,
      "reason": "momo_sell",
      "symbol": "LLY"
+    },
+    {
+     "action": "buy",
+     "date": "2026-10-14",
+     "price": 737.54,
+     "qty": 0.4126,
+     "reason": "momo_rebalance",
+     "symbol": "META"
     },
     {
      "action": "buy",
@@ -1532,17 +2060,17 @@
     {
      "action": "buy",
      "date": "2026-10-14",
-     "price": 737.54,
-     "qty": 0.4126,
-     "reason": "momo_rebalance",
-     "symbol": "META"
+     "price": 221.3,
+     "qty": 90.6355,
+     "reason": "momo_buy",
+     "symbol": "NVDA"
     },
     {
      "action": "buy",
-     "date": "2026-10-15",
-     "price": 174.68,
-     "qty": 0.6628,
-     "reason": "momo_rebalance",
+     "date": "2026-10-14",
+     "price": 177.01,
+     "qty": 113.3136,
+     "reason": "momo_buy",
      "symbol": "XOM"
     },
     {
@@ -1552,14 +2080,6 @@
      "qty": 0.2732,
      "reason": "momo_rebalance",
      "symbol": "AMD"
-    },
-    {
-     "action": "sell",
-     "date": "2026-10-15",
-     "price": 217.23,
-     "qty": 90.5982,
-     "reason": "momo_sell",
-     "symbol": "NVDA"
     },
     {
      "action": "buy",
@@ -1572,6 +2092,14 @@
     {
      "action": "sell",
      "date": "2026-10-15",
+     "price": 736.72,
+     "qty": 0.1708,
+     "reason": "momo_rebalance",
+     "symbol": "META"
+    },
+    {
+     "action": "sell",
+     "date": "2026-10-15",
      "price": 539.44,
      "qty": 0.675,
      "reason": "momo_rebalance",
@@ -1580,16 +2108,16 @@
     {
      "action": "sell",
      "date": "2026-10-15",
-     "price": 736.72,
-     "qty": 0.1708,
-     "reason": "momo_rebalance",
-     "symbol": "META"
+     "price": 217.23,
+     "qty": 90.5982,
+     "reason": "momo_sell",
+     "symbol": "NVDA"
     },
     {
-     "action": "sell",
-     "date": "2026-10-16",
-     "price": 178.98,
-     "qty": 4.672,
+     "action": "buy",
+     "date": "2026-10-15",
+     "price": 174.68,
+     "qty": 0.6628,
      "reason": "momo_rebalance",
      "symbol": "XOM"
     },
@@ -1597,7 +2125,7 @@
      "action": "buy",
      "date": "2026-10-16",
      "price": 528.75,
-     "qty": 1.5857,
+     "qty": 1.5858,
      "reason": "momo_rebalance",
      "symbol": "AMD"
     },
@@ -1612,25 +2140,33 @@
     {
      "action": "buy",
      "date": "2026-10-16",
-     "price": 529.05,
-     "qty": 0.0696,
+     "price": 709.33,
+     "qty": 0.5546,
      "reason": "momo_rebalance",
-     "symbol": "MSFT"
+     "symbol": "META"
     },
     {
      "action": "buy",
      "date": "2026-10-16",
-     "price": 709.325,
-     "qty": 0.5547,
+     "price": 529.05,
+     "qty": 0.0697,
      "reason": "momo_rebalance",
-     "symbol": "META"
+     "symbol": "MSFT"
+    },
+    {
+     "action": "sell",
+     "date": "2026-10-16",
+     "price": 178.98,
+     "qty": 4.6719,
+     "reason": "momo_rebalance",
+     "symbol": "XOM"
     }
    ]
   },
   "mom_n5_k5_abs_c21": {
    "as_of_date": "2026-10-16",
    "avg_exposure": 1.0,
-   "current_equity": 100255.98,
+   "current_equity": 100256.11,
    "current_exposure": 1.0,
    "current_positions": {
     "AAPL": {
@@ -1638,7 +2174,7 @@
      "last_price": 343.46,
      "qty": 59.1111,
      "value": 20302.3,
-     "weight": 0.202505
+     "weight": 0.202504
     },
     "GOOGL": {
      "entry_date": "2026-10-14",
@@ -1649,10 +2185,10 @@
     },
     "META": {
      "entry_date": null,
-     "last_price": 709.325,
+     "last_price": 709.33,
      "qty": 27.487,
-     "value": 19497.2,
-     "weight": 0.194474
+     "value": 19497.34,
+     "weight": 0.194475
     },
     "MSFT": {
      "entry_date": "2026-10-14",
@@ -1738,7 +2274,7 @@
     },
     {
      "date": "2026-10-16",
-     "equity": 100255.98,
+     "equity": 100256.11,
      "exposure": 1.0
     }
    ],
@@ -1749,17 +2285,17 @@
     "k": 5,
     "n": 5
    },
-   "return_to_date": 0.00256,
+   "return_to_date": 0.002561,
    "source": "v1 lab",
    "trade_count": 6,
    "trades": [
     {
      "action": "buy",
      "date": "2026-10-14",
-     "price": 177.01,
-     "qty": 2.0164,
+     "price": 342.96,
+     "qty": 1.6156,
      "reason": "momo_rebalance",
-     "symbol": "XOM"
+     "symbol": "AAPL"
     },
     {
      "action": "sell",
@@ -1778,6 +2314,14 @@
      "symbol": "GOOGL"
     },
     {
+     "action": "sell",
+     "date": "2026-10-14",
+     "price": 737.54,
+     "qty": 0.9369,
+     "reason": "momo_rebalance",
+     "symbol": "META"
+    },
+    {
      "action": "buy",
      "date": "2026-10-14",
      "price": 533.69,
@@ -1788,18 +2332,10 @@
     {
      "action": "buy",
      "date": "2026-10-14",
-     "price": 342.96,
-     "qty": 1.6156,
+     "price": 177.01,
+     "qty": 2.0164,
      "reason": "momo_rebalance",
-     "symbol": "AAPL"
-    },
-    {
-     "action": "sell",
-     "date": "2026-10-14",
-     "price": 737.54,
-     "qty": 0.9369,
-     "reason": "momo_rebalance",
-     "symbol": "META"
+     "symbol": "XOM"
     }
    ]
   }

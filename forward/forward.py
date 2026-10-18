@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """OUT-OF-SAMPLE FORWARD TRACKER (local simulation; virtual money only).
 
-Tracks 6 variants live-out-of-sample from FORWARD_START (2026-09-29), each
+Tracks 9 variants live-out-of-sample from FORWARD_START (2026-09-29), each
 starting with 100,000 virtual. Both backtest labs (137 + 307 variants) found
 nothing passing multiple-testing correction on 3y history, so promotion
 decisions require forward evidence. This machine collects it.
@@ -33,6 +33,16 @@ Conventions (see NOTES.md for the full statement):
     and [FORWARD_START ..] with killswitch equity/peak reset at the forward
     boundary, mirroring lab2's per-split reset (state carries across the
     boundary only through the effective weight row).
+  - V236G (variants 8) replays V236's meanrev_vol rows under the same v2
+    accounting with the lab3/regime G1G2G3 entry-suppression gate wired as
+    a boolean mask by date (exits/TP/stops always run); gate inputs
+    (^VIX, HYG, LQD raw closes) are fetched range=max as extra symbols and
+    evaluated weekly on the prior session's closes.
+  - COMPOSITE_50 (variant 9) blends 50% V236G + 50% mom_n5_k5_abs_c21 as
+    sub-accounts: sleeve-internal costs live inside each sleeve's engine
+    multipliers; capital fractions drift daily and are rebalanced back to
+    50/50 at the first session close of each ISO week, charging 5 bps/side
+    on that rebalance turnover (blend_sim convention: r_net = r_g - cost).
   - Costs 5 bps per side, long-only, no leverage, close marks only.
   - Deterministic: state is a pure function of the CSVs in forward/data/.
 
@@ -49,6 +59,7 @@ import shutil
 import sys
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
 
@@ -61,6 +72,18 @@ UNIVERSE = ["NVDA", "AAPL", "MSFT", "TSLA", "AMZN", "META",
             "GOOGL", "AMD", "JPM", "XOM", "LLY", "AVGO"]
 BENCH = "SPY"
 ALL_SYMS = sorted(UNIVERSE + [BENCH, "QQQ"])
+
+# macro/gate inputs (forward9): not traded, not part of the alignment
+# calendar; fetched once with deep history so the G1G2G3 gate state
+# (lab3/regime conventions) is operative over the whole warm-up.
+# NOTE: Yahoo's range=max silently degrades ^VIX/HYG/LQD to MONTHLY bars
+# (same quirk lab3/regime/fetch_macro.py works around), so deep history is
+# fetched with period1 near each symbol's listing instead — daily bars from
+# the first possible session (the max-range daily equivalent).
+GATE_SYMS = ["^VIX", "HYG", "LQD"]
+FETCH_SYMS = sorted(ALL_SYMS + GATE_SYMS)
+GATE_FETCH_START = {"^VIX": "1990-01-01", "HYG": "2007-01-01",
+                    "LQD": "2002-05-01"}
 
 FORWARD_START = "2026-09-29"
 START_EQUITY = 100000.0
@@ -118,6 +141,34 @@ VARIANT_SPECS = [
                      "running peak (forward-window peak) -> flatten to cash for "
                      "20 sessions, then resume base weights and reset the peak"),
      "params": {"base": "V228", "trigger_pct": -10.0, "cash_sessions": 20}},
+    {"id": "V236G_meanrev_vol_n3_k1p5_y10_sel3_G1G2G3", "family": "meanrev_vol_gated",
+     "source": "lab3/regime (V236 + G1G2G3 stack) — pre-registered 2026-10-18 "
+               "(forward9): V236 is the gauntlet's only multiple-testing survivor; "
+               "the regime lab's G1G2G3 stack is its agreed risk overlay",
+     "description": ("V236 (worst 3d performers when 3d return <= -1.5*sigma20, "
+                     "up to 3 names, +10% TP / -5% stop) with entry-suppression "
+                     "gates G1G2G3 wired as one boolean mask by date: G1 VIX "
+                     ">p80(252d) latched until <p70; G2 HYG/LQD price ratio "
+                     "< mean60-2*sd60; G3 SPY < 200d SMA — all evaluated weekly "
+                     "on the PRIOR session's closes; suppressed days block NEW "
+                     "entries only (exits/TP/stops always run)"),
+     "params": {"n": 3, "kvol": 1.5, "y": 10.0, "sel": 3, "z_exit": 5.0,
+                "gates": "G1G2G3 (lab3/regime study.py; boolean entry mask)"}},
+    {"id": "COMPOSITE_50_V236G_mom5", "family": "composite_5050",
+     "source": "lab3/adaptive (blend family) — pre-registered 2026-10-18 "
+               "(forward9): static equal-weight blend of the two sleeves the "
+               "25y evidence ranks highest (adaptive_report.json table1)",
+     "description": ("Equal-weight composite: 50% V236G (gated V236, v2 "
+                     "accounting) + 50% mom_n5_k5_abs_c21 (v1 accounting) as "
+                     "drifting sub-accounts, rebalanced to 50/50 at the first "
+                     "session close of each ISO week; 5 bps/side charged on "
+                     "the weekly rebalance turnover (sleeve-internal costs "
+                     "already inside each sleeve's multipliers)"),
+     "params": {"sleeve_a": "V236G_meanrev_vol_n3_k1p5_y10_sel3_G1G2G3",
+                "sleeve_b": "mom_n5_k5_abs_c21",
+                "w_a": 0.5, "w_b": 0.5,
+                "rebalance": "weekly (first session of ISO week, at close)",
+                "rebalance_cost_bps_per_side": 5}},
 ]
 
 
@@ -140,7 +191,17 @@ def seed_data():
 
 def fetch_symbol(sym):
     """List of row dicts from Yahoo's public chart endpoint, or raise."""
-    url = BASE_URL.format(sym=sym) + "?interval={}&range={}".format(INTERVAL, RANGE)
+    q = urllib.parse.quote(sym)
+    start = GATE_FETCH_START.get(sym)
+    if start is not None:                 # deep-history daily fetch (gate inputs)
+        p1 = int(datetime.strptime(start, "%Y-%m-%d")
+                 .replace(tzinfo=timezone.utc).timestamp())
+        p2 = int(time.time()) + 86400
+        url = (BASE_URL.format(sym=q)
+               + "?interval={}&period1={}&period2={}".format(INTERVAL, p1, p2))
+    else:
+        url = BASE_URL.format(sym=q) + \
+            "?interval={}&range={}".format(INTERVAL, RANGE)
     last_err = None
     for attempt in range(1, ATTEMPTS + 1):
         try:
@@ -239,7 +300,7 @@ def refresh_data():
     seeded = seed_data()
     manifest = {"fetched_at_utc": datetime.now(timezone.utc).strftime(
         "%Y-%m-%dT%H:%M:%SZ"), "seeded_from_lab": seeded, "symbols": {}}
-    for sym in ALL_SYMS:
+    for sym in FETCH_SYMS:
         info = {"status": "ok", "rows": 0, "first_date": None, "last_date": None,
                 "appended": 0, "revised": 0}
         try:
@@ -463,8 +524,8 @@ def run_v1(strat, px, dates, fi, label):
         cost = 0.0
         tgt = strat.target(i - 1) if i >= first_exec else None
         if tgt is not None:
-            syms = set(tgt) | set(drifted)
-            turn = 0.0
+            syms = sorted(set(tgt) | set(drifted))   # canonical order: state
+            turn = 0.0               # must be a pure function of the CSVs
             for s in syms:
                 tw, dw = tgt.get(s, 0.0), drifted.get(s, 0.0)
                 turn += abs(tw - dw)
@@ -565,6 +626,193 @@ def meanrev_vol_rows(px, n, kk, y, sel, z_exit):
 
 
 # --------------------------------------------------------------------------
+# G1G2G3 entry-suppression gate — stdlib port of lab3/regime/study.py
+# build_gate_tracks (weekly eval, prior-close info, VIX 80/70 hysteresis,
+# credit 60d z-score, SPY 200d SMA), wired as ONE boolean entry mask.
+# State-reconstruction conventions follow lab3/adaptive.build_state (the
+# same indicators feed its STRESS latch); here all three gates suppress
+# NEW entries (per the forward9 pre-registration) instead of halving.
+# --------------------------------------------------------------------------
+
+def _isoweek(dstr):
+    y, m, d = map(int, dstr.split("-"))
+    return datetime(y, m, d).date().isocalendar()[:2]
+
+
+def _pctl(vals, q):
+    """Linear-interpolation percentile (numpy percentile default)."""
+    s = sorted(vals)
+    n = len(s)
+    if n == 1:
+        return s[0]
+    rank = (q / 100.0) * (n - 1)
+    lo = int(math.floor(rank))
+    hi = min(lo + 1, n - 1)
+    frac = rank - lo
+    return s[lo] + frac * (s[hi] - s[lo])
+
+
+def _asof_series(dates, m):
+    """dict date->float -> list aligned to dates (last obs <= d, else None)."""
+    out = []
+    last = None
+    cur = None
+    it = iter(sorted(m.items()))
+    cur = next(it, None)
+    for d in dates:
+        while cur is not None and cur[0] <= d:
+            last = cur[1]
+            cur = next(it, None)
+        out.append(last)
+    return out
+
+
+def build_gate_mask(dates, px):
+    """Boolean per-session entry-suppression mask (G1 OR G2 OR G3).
+
+    Gate state is evaluated at the FIRST session of each ISO week from
+    indicator values through the PRIOR session close (no lookahead, same
+    convention as the entry signals), then held through the week:
+      G1: VIX close > p80 of the trailing 252 sessions (>=126 valid) closes
+          entries; reopens when VIX < p70 (Schmitt hysteresis, lab3/regime).
+      G2: HYG/LQD raw-price ratio < mean60 - 2*sd60 (sample sd, needs 60
+          valid pairs; inoperative before enough credit history).
+      G3: SPY close < its 200-session SMA.
+    Inputs: ^VIX/HYG/LQD CSVs in forward/data (raw closes, like every
+    tracker series) as-of aligned onto the trading calendar; SPY from px.
+    """
+    T = len(dates)
+
+    def _closes(sym):
+        path = os.path.join(DATA_DIR, sym + ".csv")
+        rows = _read_csv(path) if os.path.isfile(path) else []
+        return {r["date"]: r["close"] for r in rows}
+
+    vix = _asof_series(dates, _closes("^VIX"))
+    hyg = _asof_series(dates, _closes("HYG"))
+    lqd = _asof_series(dates, _closes("LQD"))
+    spy = px[BENCH]
+    sma200 = [None] * T
+    run = 0.0
+    for i in range(T):
+        run += spy[i]
+        if i >= 200:
+            run -= spy[i - 200]
+        if i >= 199:
+            sma200[i] = run / 200.0
+
+    mask = [False] * T
+    diag = {"evals": 0, "g1_close_events": 0, "g1_open_events": 0,
+            "g2_stress_weeks": 0, "g3_below_weeks": 0,
+            "credit_inoperative_weeks": 0, "suppressed_sessions": 0}
+    state_open = True
+    evals = [i for i in range(1, T)
+             if _isoweek(dates[i]) != _isoweek(dates[i - 1])]
+    bounds = evals + [T]
+    for k in range(len(evals)):
+        i_e, i_end = evals[k], bounds[k + 1]
+        j = i_e - 1                        # decision info through prior close
+        # G1: VIX vs trailing-252d percentile, hysteresis 80/70
+        if j - 251 >= 0 and vix[j] is not None:
+            win = [v for v in vix[j - 251: j + 1] if v is not None]
+            if len(win) >= 126:            # half-window minimum (lab3/regime)
+                p80 = _pctl(win, 80.0)
+                p70 = _pctl(win, 70.0)
+                if state_open and vix[j] > p80:
+                    state_open = False
+                    diag["g1_close_events"] += 1
+                elif not state_open and vix[j] < p70:
+                    state_open = True
+                    diag["g1_open_events"] += 1
+        # G2: HYG/LQD price ratio < mean60 - 2*sd60
+        stress = False
+        if hyg[j] is not None and lqd[j] is not None and lqd[j] > 0:
+            rj = hyg[j] / lqd[j]
+            w60 = []
+            for i in range(max(0, j - 59), j + 1):
+                if hyg[i] is not None and lqd[i] is not None and lqd[i] > 0:
+                    w60.append(hyg[i] / lqd[i])
+            if len(w60) >= 60:
+                m60 = sum(w60) / len(w60)
+                sd60 = (sum((x - m60) ** 2 for x in w60)
+                        / (len(w60) - 1)) ** 0.5
+                stress = rj < m60 - 2.0 * sd60
+            else:
+                diag["credit_inoperative_weeks"] += 1
+        else:
+            diag["credit_inoperative_weeks"] += 1
+        # G3: SPY below its 200d SMA
+        below = sma200[j] is not None and spy[j] < sma200[j]
+        diag["evals"] += 1
+        if stress:
+            diag["g2_stress_weeks"] += 1
+        if below:
+            diag["g3_below_weeks"] += 1
+        blocked = (not state_open) or stress or below
+        for t in range(i_e, i_end):
+            mask[t] = blocked
+    diag["suppressed_sessions"] = sum(mask)
+    return mask, diag
+
+
+def meanrev_vol_rows_gated(px, n, kk, y, sel, z_exit, mask):
+    """meanrev_vol_rows + boolean entry mask: on mask[t] days the entry scan
+    is skipped entirely (exits/TP/stops still processed first). Held weights
+    stay 1/sel; the mask blocks NEW entries only."""
+    T = len(px[UNIVERSE[0]])
+    rows = []
+    reasons = {}
+    held = {}
+    min_j = max(n, 20)
+    blocked_days = blocked_candidates = 0
+    entries = exits = 0
+    for t in range(T):
+        if t >= 1:
+            for s in list(held):
+                p = px[s][t - 1]
+                if (p >= held[s] * (1.0 + y / 100.0)
+                        or p <= held[s] * (1.0 - z_exit / 100.0)):
+                    reasons[(t, s)] = ("v228_tp_exit" if p >= held[s] * (1.0 + y / 100.0)
+                                       else "v228_stop_exit")
+                    del held[s]
+                    exits += 1
+        j = t - 1
+        if j >= min_j:
+            cands = []
+            if mask[t]:
+                for s in UNIVERSE:
+                    if s in held:
+                        continue
+                    rr = px[s][j] / px[s][j - n] - 1.0
+                    thr = -kk * _sd20(px, s, j) * math.sqrt(n)
+                    if rr <= thr:
+                        cands.append((rr, UNIVERSE.index(s), s))
+                if cands:
+                    blocked_days += 1
+                    blocked_candidates += len(cands)
+            else:
+                for s in UNIVERSE:
+                    if s in held:
+                        continue
+                    rr = px[s][j] / px[s][j - n] - 1.0
+                    thr = -kk * _sd20(px, s, j) * math.sqrt(n)
+                    if rr <= thr:
+                        cands.append((rr, UNIVERSE.index(s), s))
+                cands.sort()
+                for _rr, _idx, s in cands:
+                    if len(held) >= sel:
+                        break
+                    held[s] = px[s][t]
+                    reasons[(t, s)] = "v228_entry"
+                    entries += 1
+        rows.append({s: 1.0 / sel for s in held})
+    stats = {"entries": entries, "exits": exits,
+             "blocked_entry_days": blocked_days,
+             "blocked_candidates": blocked_candidates}
+    return rows, reasons, stats
+
+
+# --------------------------------------------------------------------------
 # v2 engine + killswitch - stdlib port of lab2/engine.py backtest() and
 # apply_killswitch() (same-day cost accounting, as inside apply_killswitch)
 # --------------------------------------------------------------------------
@@ -635,7 +883,7 @@ def run_v2(rows, reasons, px, dates, fi, killswitch):
             to = sum(abs(cur.get(s, 0.0) - prev.get(s, 0.0))
                      for s in set(cur) | set(prev))
         eq_pre = eq_abs * (1.0 + r)
-        for s in set(cur) | set(prev):
+        for s in sorted(set(cur) | set(prev)):   # canonical order (see run_v1)
             delta = cur.get(s, 0.0) - prev.get(s, 0.0)
             if abs(delta) <= EPS:
                 continue
@@ -659,6 +907,61 @@ def run_v2(rows, reasons, px, dates, fi, killswitch):
                        "exposure": round(sum(cur.values()), 6)})
     last_w = dict(W2[-1]) if W2 else {}
     return series, trades, last_w, (eq_abs if eq_abs is not None else START_EQUITY), fires, mults, fwd_eq
+
+
+# --------------------------------------------------------------------------
+# COMPOSITE blend (forward9): two drifting sub-accounts rebalanced to a
+# fixed mix weekly. Sleeve-internal costs are already inside each sleeve's
+# engine multipliers; the blend charges 5 bps/side only on its own weekly
+# rebalance turnover (r_net = r_g - COST*turn, lab3/adaptive blend_sim
+# convention). Rebalance = first session close of each ISO week.
+# --------------------------------------------------------------------------
+
+def run_composite(mults_a, mults_b, exp_a, exp_b, dates, fi, w_a=0.5):
+    """Blend two sleeve daily-multiplier tracks from the forward boundary.
+
+    mults_a/mults_b: per-session net daily multipliers (1.0 where idle);
+    exp_a/exp_b: per-session sleeve gross exposures (sum of effective
+    weights). Returns (series, trades, last_state) where last_state is
+    (cA, cB, eq) at the final session; trades are the weekly rebalance
+    rows (symbol = sleeve tag, qty = capital fraction moved on that side,
+    price = 1.0 unit, notional/cost explicit).
+    """
+    T = len(dates)
+    series, trades = [], []
+    eq = None
+    cA = cB = None
+    for t in range(fi, T):
+        if eq is None:                     # forward boundary: fresh 50k/50k
+            eq = START_EQUITY
+            cA = cB = w_a
+        ra, rb = mults_a[t] - 1.0, mults_b[t] - 1.0
+        r_g = cA * ra + cB * rb
+        eq_pre = eq * (1.0 + r_g)
+        den = 1.0 + r_g
+        cA_d = cA * (1.0 + ra) / den if den > 0 else 0.0
+        cB_d = (1.0 - cA_d) if den > 0 else 0.0
+        turn = 0.0
+        if t > fi and _isoweek(dates[t]) != _isoweek(dates[t - 1]):
+            turn = abs(cA_d - w_a) + abs(cB_d - (1.0 - w_a))
+            if turn > EPS:
+                f = abs(cA_d - w_a)
+                sell, buy = (("SLEEVE:V236G", "SLEEVE:MOM5") if cA_d > w_a
+                             else ("SLEEVE:MOM5", "SLEEVE:V236G"))
+                for sym, action in ((sell, "sell"), (buy, "buy")):
+                    trades.append({"date": dates[t], "action": action,
+                                   "symbol": sym, "qty": round(f, 6),
+                                   "reason": "composite_weekly_rebalance",
+                                   "price": 1.0,
+                                   "notional": round(f * eq_pre, 2),
+                                   "cost": round(COST * f * eq_pre, 2)})
+            cA, cB = w_a, 1.0 - w_a
+        else:
+            cA, cB = cA_d, cB_d
+        eq = eq_pre - COST * turn * eq_pre
+        series.append({"date": dates[t], "equity": round(eq, 2),
+                       "exposure": round(cA * exp_a[t] + cB * exp_b[t], 6)})
+    return series, trades, (cA, cB, eq)
 
 
 # --------------------------------------------------------------------------
@@ -710,8 +1013,10 @@ def build_state(dates, px, fetch_manifest, dropped):
         spy_ret = 0.0
 
     variants_state = {}
+    gate_ctx = None
     for spec in VARIANT_SPECS:
         vid, fam = spec["id"], spec["family"]
+        gate_info = None
         if fam == "donchian":
             strat = Donchian(px, spec["params"]["p"], spec["params"]["stop"])
             series, trades, last_w, eq, _m, _e = run_v1(strat, px, dates, fi, "donchian")
@@ -722,8 +1027,75 @@ def build_state(dates, px, fetch_manifest, dropped):
         elif fam == "baseline":
             strat = Fixed(px, {s: SLEEVE for s in UNIVERSE})
             series, trades, last_w, eq, _m, _e = run_v1(strat, px, dates, fi, "baseline")
+        elif fam == "meanrev_vol_gated":
+            if gate_ctx is None:
+                gate_ctx = build_gate_mask(dates, px)
+            mask, gdiag = gate_ctx
+            p = spec["params"]
+            rows, reasons, gstats = meanrev_vol_rows_gated(
+                px, p["n"], p["kvol"], p["y"], p["sel"], p["z_exit"], mask)
+            series, trades, last_w, eq, _f, _m, _e = run_v2(
+                rows, reasons, px, dates, fi, killswitch=False)
+            gate_info = {"gate_diag": gdiag, "entry_stats": gstats}
+        elif fam == "composite_5050":
+            p = spec["params"]
+            spec_a = next(s for s in VARIANT_SPECS if s["id"] == p["sleeve_a"])
+            spec_b = next(s for s in VARIANT_SPECS if s["id"] == p["sleeve_b"])
+            if gate_ctx is None:
+                gate_ctx = build_gate_mask(dates, px)
+            mask, gdiag = gate_ctx
+            pa = spec_a["params"]
+            rows_a, reasons_a, gstats_a = meanrev_vol_rows_gated(
+                px, pa["n"], pa["kvol"], pa["y"], pa["sel"], pa["z_exit"], mask)
+            _s, trades_a, _w, _e, _f, mults_a, _fe = run_v2(
+                rows_a, reasons_a, px, dates, fi, killswitch=False)
+            pb = spec_b["params"]
+            strat_b = XSMomentum(px, pb["n"], pb["k"], pb["abs_filter"], pb["cadence"])
+            _s, trades_b, last_w_b, _e, mults_b, _fe = run_v1(
+                strat_b, px, dates, fi, "xs-momentum")
+            # per-session sleeve exposures over the forward window
+            T = len(dates)
+            exp_a = [sum(rows_a[t].values()) for t in range(T)]
+            exp_b = [None] * T
+            wdrift = {}
+            for t in range(1, T):
+                r_day = 0.0
+                dayr = {}
+                for s, w in wdrift.items():
+                    rs = px[s][t] / px[s][t - 1] - 1.0
+                    r_day += w * rs
+                    dayr[s] = rs
+                denom = 1.0 + r_day
+                if denom > 0:
+                    wdrift = {s: w * (1.0 + dayr[s]) / denom
+                              for s, w in wdrift.items()}
+                else:
+                    wdrift = {}
+                tgt = strat_b.target(t - 1) if t >= strat_b.warmup + 1 else None
+                if tgt is not None:
+                    wdrift = {s: w for s, w in tgt.items() if w > EPS}
+                exp_b[t] = sum(wdrift.values())
+            exp_b[0] = 0.0
+            series, trades, (cA, cB, eq) = run_composite(
+                mults_a, mults_b, exp_a, exp_b, dates,
+                fi if fi is not None else 0, p["w_a"])
+            # symbol-level combined positions from the two sleeves
+            last_w = {}
+            for s in UNIVERSE:
+                w = cA * rows_a[-1].get(s, 0.0) + cB * last_w_b.get(s, 0.0)
+                if w > EPS:
+                    last_w[s] = w
+            gate_info = {"sleeve_gate_diag": gdiag,
+                         "sleeve_entry_stats": gstats_a,
+                         "sleeve_capital": {"V236G": round(cA, 6),
+                                            "mom5": round(cB, 6)}}
         else:
-            p = VARIANT_SPECS[4]["params"]
+            # v2 lab2 families: each meanrev spec uses its OWN params;
+            # V306's base is V228 (its own params carry only the overlay).
+            if fam == "killswitch_overlay":
+                p = VARIANT_SPECS[4]["params"]
+            else:
+                p = spec["params"]
             rows, reasons = meanrev_vol_rows(px, p["n"], p["kvol"], p["y"],
                                              p["sel"], p["z_exit"])
             series, trades, last_w, eq, fires, _m, _e = run_v2(
@@ -732,6 +1104,7 @@ def build_state(dates, px, fetch_manifest, dropped):
             series = [anchor(sum(last_w.values()))]
             trades = []
             eq = START_EQUITY
+        pos_trades = trades if fam != "composite_5050" else trades_a + trades_b
         exposures = [row["exposure"] for row in series
                      if "note" not in row] or [sum(last_w.values())]
         variants_state[vid] = {
@@ -742,7 +1115,7 @@ def build_state(dates, px, fetch_manifest, dropped):
             "as_of_date": last_date,
             "equity_series": series,
             "current_positions": positions_from_weights(
-                last_w, eq, px, dates, trades),
+                last_w, eq, px, dates, pos_trades),
             "trades": trades,
             "trade_count": len(trades),
             "return_to_date": round(eq / START_EQUITY - 1.0, 6),
@@ -752,6 +1125,8 @@ def build_state(dates, px, fetch_manifest, dropped):
         }
         if fam == "killswitch_overlay":
             variants_state[vid]["killswitch_fires"] = fires
+        if gate_info is not None:
+            variants_state[vid].update(gate_info)
 
     state = {
         "meta": {
@@ -761,8 +1136,12 @@ def build_state(dates, px, fetch_manifest, dropped):
             "engine": ("no-lookahead: signals from closes <= t-1, execution at "
                        "t close; v1 variants (1-4) under lab/backtest.py "
                        "accounting ((1+r)*(1-cost), drift between targets); "
-                       "v2 variants (5-6) under lab2/engine.py killswitch "
-                       "accounting ((1+r-cost))"),
+                       "v2 variants (5-7) under lab2/engine.py killswitch "
+                       "accounting ((1+r-cost)); V236G (8) = V236 rows + "
+                       "lab3/regime G1G2G3 boolean entry mask (v2 accounting); "
+                       "COMPOSITE_50 (9) = 50/50 V236G+mom5 drifting "
+                       "sub-accounts, weekly 50/50 rebalance at 5 bps/side "
+                       "(r_g - cost on rebalance turnover)"),
             "cost_bps_per_side": 5,
             "forward_start": FORWARD_START,
             "start_equity": START_EQUITY,
@@ -771,6 +1150,13 @@ def build_state(dates, px, fetch_manifest, dropped):
             "last_data_date": last_date,
             "universe_traded": UNIVERSE,
             "benchmark": BENCH,
+            "gate_inputs": {"symbols": GATE_SYMS,
+                            "note": ("^VIX/HYG/LQD deep daily history via "
+                                     "period1-near-listing (range=max "
+                                     "degrades to monthly), raw closes, "
+                                     "as-of aligned; drive the V236G/"
+                                     "composite G1G2G3 entry mask (weekly "
+                                     "eval on prior close)")},
             "idempotency": ("state is fully recomputed from forward/data CSVs "
                             "on every run and written atomically; re-running "
                             "on the same UTC day overwrites, never appends"),
