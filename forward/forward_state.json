@@ -83,11 +83,11 @@
     "XOM": 0
    },
    "fetch_manifest": {
-    "fetched_at_utc": "2026-10-18T02:01:52Z",
+    "fetched_at_utc": "2026-10-18T02:07:08Z",
     "seeded_from_lab": false,
     "symbols": {
      "AAPL": {
-      "appended": 2,
+      "appended": 0,
       "first_date": "2023-09-29",
       "last_date": "2026-10-16",
       "revised": 5,
@@ -95,7 +95,7 @@
       "status": "ok"
      },
      "AMD": {
-      "appended": 2,
+      "appended": 0,
       "first_date": "2023-09-29",
       "last_date": "2026-10-16",
       "revised": 5,
@@ -103,7 +103,7 @@
       "status": "ok"
      },
      "AMZN": {
-      "appended": 2,
+      "appended": 0,
       "first_date": "2023-09-29",
       "last_date": "2026-10-16",
       "revised": 5,
@@ -111,7 +111,7 @@
       "status": "ok"
      },
      "AVGO": {
-      "appended": 2,
+      "appended": 0,
       "first_date": "2023-09-29",
       "last_date": "2026-10-16",
       "revised": 5,
@@ -119,7 +119,7 @@
       "status": "ok"
      },
      "GOOGL": {
-      "appended": 2,
+      "appended": 0,
       "first_date": "2023-09-29",
       "last_date": "2026-10-16",
       "revised": 5,
@@ -135,7 +135,7 @@
       "status": "ok"
      },
      "JPM": {
-      "appended": 2,
+      "appended": 0,
       "first_date": "2023-09-29",
       "last_date": "2026-10-16",
       "revised": 5,
@@ -143,7 +143,7 @@
       "status": "ok"
      },
      "LLY": {
-      "appended": 2,
+      "appended": 0,
       "first_date": "2023-09-29",
       "last_date": "2026-10-16",
       "revised": 5,
@@ -159,7 +159,7 @@
       "status": "ok"
      },
      "META": {
-      "appended": 2,
+      "appended": 0,
       "first_date": "2023-09-29",
       "last_date": "2026-10-16",
       "revised": 5,
@@ -167,7 +167,7 @@
       "status": "ok"
      },
      "MSFT": {
-      "appended": 2,
+      "appended": 0,
       "first_date": "2023-09-29",
       "last_date": "2026-10-16",
       "revised": 5,
@@ -175,7 +175,7 @@
       "status": "ok"
      },
      "NVDA": {
-      "appended": 2,
+      "appended": 0,
       "first_date": "2023-09-29",
       "last_date": "2026-10-16",
       "revised": 5,
@@ -183,7 +183,7 @@
       "status": "ok"
      },
      "QQQ": {
-      "appended": 2,
+      "appended": 0,
       "first_date": "2023-09-29",
       "last_date": "2026-10-16",
       "revised": 5,
@@ -191,7 +191,7 @@
       "status": "ok"
      },
      "SPY": {
-      "appended": 2,
+      "appended": 0,
       "first_date": "2023-09-29",
       "last_date": "2026-10-16",
       "revised": 5,
@@ -199,7 +199,7 @@
       "status": "ok"
      },
      "TSLA": {
-      "appended": 2,
+      "appended": 0,
       "first_date": "2023-09-29",
       "last_date": "2026-10-16",
       "revised": 5,
@@ -207,7 +207,7 @@
       "status": "ok"
      },
      "XOM": {
-      "appended": 2,
+      "appended": 0,
       "first_date": "2023-09-29",
       "last_date": "2026-10-16",
       "revised": 5,
@@ -236,7 +236,7 @@
     "LQD"
    ]
   },
-  "generated_utc": "2026-10-18T02:02:04Z",
+  "generated_utc": "2026-10-18T02:07:21Z",
   "idempotency": "state is fully recomputed from forward/data CSVs on every run and written atomically; re-running on the same UTC day overwrites, never appends",
   "last_data_date": "2026-10-16",
   "start_equity": 100000.0,
