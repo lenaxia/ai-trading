@@ -72,8 +72,10 @@ window (see data conventions). Cron example (21:30 UTC Mon-Fri):
 ### Data conventions
 
 - `forward/data/` is owned by the tracker, seeded once from the read-only
-  `lab/data/` CSVs, then refetched every run (same Yahoo v8 chart endpoint,
+  `lab/data` CSVs, then refetched every run (same Yahoo v8 chart endpoint,
   UA header and 2-attempt retry as `lab/data/fetch.py`; range=3y, interval=1d).
+  Gate inputs (^VIX/HYG/LQD) are extra symbols fetched with
+  period1-near-listing deep daily history instead of range=3y (see variant 8).
 - **Append-mostly merge**: new dates append; only the trailing
   `REVISION_TAIL = 5` existing bars may be revised by a fetch (handles late
   corrections and same-session partial bars); deeper history is frozen so the
@@ -83,7 +85,7 @@ window (see data conventions). Cron example (21:30 UTC Mon-Fri):
   misaligned rows are dropped and counted in `meta.data.dropped_misaligned_rows`).
 - Prices are raw (unadjusted) closes, as in both labs.
 
-## The 6 tracked variants (exact rules)
+## The 9 tracked variants (exact rules)
 
 1. **don_p10_s8** — v1 Donchian sleeve breakout. Each of the 12 names has a
    fixed 1/12 sleeve. Enter a sleeve when its close is within 10% of its
@@ -120,6 +122,57 @@ window (see data conventions). Cron example (21:30 UTC Mon-Fri):
    Note the orchestrator brief described V228 as "buy worst 1d performer"
    (singular); lab2's V228 params say sel=3 — the lab2 params are
    authoritative per the "use lab2 conventions exactly" instruction.
+7. **V236_meanrev_vol_n3_k1p5_y10_sel3** — lab2 V236 (pre-registered
+   2026-10-17): same family as V228 with n=3, kvol=1.5 (3-session return
+   <= -1.5 x sigma20 x sqrt(3)), worst-first, up to 3 names at 1/3, +10%/-5%
+   TP/stop. *Engine note (fixed 2026-10-18, forward9): the v2 branch had
+   replayed every meanrev spec with V228's params, so V236 would have run
+   V228's rules; each meanrev spec now uses its own params (V306 still
+   bases on V228). V236 had no recorded history before the fix, so no
+   recorded numbers changed.*
+8. **V236G_meanrev_vol_n3_k1p5_y10_sel3_G1G2G3** — V236 with the
+   lab3/regime G1G2G3 entry-suppression gate, pre-registered 2026-10-18
+   (forward9). Gate state is reconstructed exactly as in
+   `lab3/regime/study.py build_gate_tracks`: evaluated at the FIRST
+   session of each ISO week from indicator values through the PRIOR
+   session close, then held through the week. **G1**: VIX close > p80 of
+   the trailing 252 sessions (>=126 valid) closes entries; reopens when
+   VIX < p70 (Schmitt hysteresis). **G2**: HYG/LQD raw-price ratio <
+   mean60 - 2*sd60 (sample sd, needs 60 valid pairs; inoperative before
+   enough credit history). **G3**: SPY close < its 200-session SMA. The
+   three are wired as ONE boolean entry mask (blocked = G1 or G2 or G3 —
+   the forward9 brief asked for entry suppression, where lab3/regime's
+   stack halved weight on G3 instead): on a blocked day the entry scan is
+   skipped entirely; exits/TP/stops always run; held weights stay 1/3.
+   Gate inputs ^VIX/HYG/LQD are fetched with deep daily history
+   (period1-near-listing — Yahoo's range=max degrades these symbols to
+   monthly bars, the lab3/regime/fetch_macro.py quirk), stored as extra
+   symbols in `forward/data/`, raw closes like every tracker series,
+   as-of aligned onto the trading calendar (they are NOT part of the
+   intersection calendar). Gate state starts fresh at the start of the
+   tracker's 3y window (not carried from lab3's 25y latch history), so
+   suppression episodes match the regime lab directionally, not
+   episode-for-episode. First ~3 weeks of the forward window sit in a
+   gate-open (RISKON-equivalent) stretch, so V236G == V236 until the
+   first suppressed week — same overlap caveat as V236's pre-registration.
+9. **COMPOSITE_50_V236G_mom5** — equal-weight composite (pre-registered
+   2026-10-18, forward9): 50% V236G (variant 8, v2 accounting) + 50%
+   mom_n5_k5_abs_c21 (variant 2's rules, v1 accounting) run as two
+   drifting sub-accounts. Each sleeve's *internal* trades and costs live
+   inside that sleeve's engine multipliers (5 bps/side there). The blend's
+   capital fractions drift with relative sleeve performance daily and are
+   rebalanced back to 50/50 at the first session close of each ISO week;
+   that rebalance charges 5 bps/side on its turnover
+   (`r_net = r_g - COST*turn`, the lab3/adaptive `blend_sim` convention).
+   The blend debuts 50/50 at the window start (no trade at the boundary);
+   a Monday that opens a week trades back to the mix, skipping the
+   partial first week. `trades` for this variant are the weekly rebalance
+   rows only (symbol = `SLEEVE:V236G`/`SLEEVE:MOM5`, qty = capital
+   fraction moved on that side, price = 1.0 unit; `notional` and per-side
+   `cost` are explicit fields); sleeve-internal fills are visible in the
+   sleeve variants' own state entries. `current_positions` aggregates
+   both sleeves symbol-level (weight = cA*wA + cB*wB), and
+   `sleeve_capital` records the end-of-window split.
 
 ## State & output
 
