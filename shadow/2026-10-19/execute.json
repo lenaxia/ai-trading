@@ -1,0 +1,39 @@
+{
+  "payload": {
+    "alpaca_positions": 12,
+    "caps": {
+      "equity_kill_line": 114750.0,
+      "max_book_notional": 140400.0,
+      "max_notional_per_order": 40500.0,
+      "pilot_notional": 135000.0
+    },
+    "cash": 24395.39,
+    "date": "2026-10-19",
+    "equity": 100040.37,
+    "halt": {
+      "halted": false
+    },
+    "held_book_value": 75645.04,
+    "mode": "shadow",
+    "note": "KILL-LINE tripped \u2014 halted; auto-resume when panic gates re-open (market-dictated)",
+    "now": "2026-10-19T19:19:35Z",
+    "ok": true,
+    "open": true,
+    "pending_diff": [
+      {
+        "action": "buy",
+        "qty": 67.0,
+        "symbol": "COP"
+      },
+      {
+        "action": "buy",
+        "qty": 7.0,
+        "symbol": "LLY"
+      }
+    ],
+    "target_positions": 14
+  },
+  "run_date": "2026-10-19",
+  "step": "execute",
+  "written_utc": "2026-10-19T19:19:35Z"
+}
