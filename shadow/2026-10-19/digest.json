@@ -1,0 +1,11 @@
+{
+  "payload": {
+    "missing_steps": [
+      "score"
+    ],
+    "text": "WATCHDOG: missing steps today: score.\nDD gate: COP=pass, LLY=pass, CVX=pass.\nENTRY COP x67 (~$9747.83, momentum: RS +7.04 pts vs SPY, 0.82% below 52w high).\nENTRY LLY x7 (~$8746.85, momentum: RS +6.94 pts vs SPY, 3.45% below 52w high).\nSKIP_BUY: CVX max 2 trades/day reached.\nBook: equity $97931.1 (cash $22011.7, 12 positions).\nExecute (shadow): KILL-LINE tripped \u2014 halted; auto-resume when panic gates re-open (market-dictated)."
+  },
+  "run_date": "2026-10-19",
+  "step": "digest",
+  "written_utc": "2026-10-19T22:30:20Z"
+}
