@@ -1,7 +1,7 @@
 {
   "ok": true,
-  "now_utc": "2026-10-16T17:43:51.363285+00:00",
-  "today": "2026-10-16",
+  "now_utc": "2026-10-19T19:32:28.603911+00:00",
+  "today": "2026-10-19",
   "market_open": true,
   "policy": {
     "style": "conservative momentum, growth tilt",
@@ -13,10 +13,10 @@
     "max_trades_per_day": 2
   },
   "account": {
-    "cash": 9569.07,
-    "positions_value": 88278.05,
-    "equity": 97847.12,
-    "positions_held": 14
+    "cash": 22011.7,
+    "positions_value": 75920.25,
+    "equity": 97931.95,
+    "positions_held": 12
   },
   "sleeve_excluded": [
     "AAPL",
@@ -24,8 +24,6 @@
     "DAL",
     "FIW",
     "MSFT",
-    "NVDA",
-    "PANW",
     "QQQ",
     "SPYG",
     "VEA",
@@ -39,7 +37,7 @@
       "symbol": "AAPL",
       "quantity": 8.0,
       "entry_price": 331.3699951171875,
-      "current_price": 342.83,
+      "current_price": 342.82,
       "pnl_pct": 3.46
     },
     {
@@ -67,29 +65,15 @@
       "symbol": "MSFT",
       "quantity": 11.0,
       "entry_price": 527.9400024414062,
-      "current_price": 528.275,
-      "pnl_pct": 0.06
-    },
-    {
-      "symbol": "NVDA",
-      "quantity": 18.0,
-      "entry_price": 228.36000654432507,
-      "current_price": 216.05,
-      "pnl_pct": -5.39
-    },
-    {
-      "symbol": "PANW",
-      "quantity": 25.0,
-      "entry_price": 384.2449951171875,
-      "current_price": 342.47,
-      "pnl_pct": -10.87
+      "current_price": 534.32,
+      "pnl_pct": 1.21
     },
     {
       "symbol": "QQQ",
       "quantity": 4.0,
       "entry_price": 736.4439697265625,
-      "current_price": 713.99,
-      "pnl_pct": -3.05
+      "current_price": 720.6,
+      "pnl_pct": -2.15
     },
     {
       "symbol": "SPYG",
@@ -134,71 +118,56 @@
       "pnl_pct": 0.0
     }
   ],
-  "exits": [
-    {
-      "action": "sell",
-      "symbol": "NVDA",
-      "quantity": 18.0,
-      "reason": "stop loss: -5.39% <= -5%",
-      "pnl_pct": -5.39
-    },
-    {
-      "action": "sell",
-      "symbol": "PANW",
-      "quantity": 25.0,
-      "reason": "stop loss: -10.87% <= -5%",
-      "pnl_pct": -10.87
-    }
-  ],
+  "exits": [],
   "entries": [
-    {
-      "action": "buy",
-      "symbol": "COP",
-      "quantity": 66,
-      "est_cost": 9645.9,
-      "reason": "momentum: RS +10.68 pts vs SPY, 0.24% below 52w high",
-      "headlines": [
-        "Google News",
-        "Will ConocoPhillips (COP) Gain on Rising Earnings Estimates? - Yahoo Finance",
-        "How Higher Oil Prices Will Impact ConocoPhillips (COP) Stock - Simply Wall Street",
-        "Why Did IOVA, AMLX And COP Stocks Surge To 52-Week Highs Today? - Stocktwits",
-        "ConocoPhillips Stock Has Been in a Trading Range - Ideal for Short Put COP Plays - Barchart.com"
-      ]
-    },
     {
       "action": "buy",
       "symbol": "LLY",
       "quantity": 7,
-      "est_cost": 8831.06,
-      "reason": "momentum: RS +8.67 pts vs SPY, 2.46% below 52w high",
+      "est_cost": 8746.85,
+      "reason": "momentum: RS +6.93 pts vs SPY, 3.45% below 52w high",
       "headlines": [
         "Google News",
         "Eli Lilly (LLY) Stock Looks Undervalued As Its 404% Run Continues - Yahoo Finance",
-        "EMA Endorses Eli Lilly's Foundayo for Type 2 Diabetes; LLY Stock Shows 20% Undervaluation - GuruFocus",
-        "Eli Lilly (LLY) Shares In Focus After Omvoh Shows Deep Remission In Crohn\u2019s - Simply Wall Street",
-        "Why is Eli Lilly stock rallying today? - Investing.com"
+        "Prediction: Eli Lilly Stock Could Be a Long-Term Winner for Investors - 24/7 Wall St.",
+        "One holder reports sole voting power over 90.1M Eli Lilly (LLY) shares. - Stock Titan",
+        "Eli Lilly & Co (NYSE:LLY) Offers Dividend Quality for Growth-Focused Income Investors - ChartMill"
       ]
     },
     {
       "action": "buy",
-      "symbol": "KO",
-      "quantity": 104,
-      "est_cost": 9693.84,
-      "reason": "momentum: RS +7.55 pts vs SPY, 0.95% below 52w high",
+      "symbol": "COP",
+      "quantity": 67,
+      "est_cost": 9719.82,
+      "reason": "momentum: RS +6.73 pts vs SPY, 1.12% below 52w high",
       "headlines": [
         "Google News",
-        "Why Are SPCX, ECHO, KO Stocks Moving Premarket Today? - Yahoo Finance",
-        "Coca-Cola Wins KFC Contract, Ending Decades-Long PepsiCo Partnership - TIKR.com",
-        "Why Did AAPL, KO, PM Stocks Jump To 52-Week Highs Today? - Stocktwits",
-        "CocaCola Company (The) $KO Stock Bought by Ninety One UK Ltd - MarketBeat"
+        "ConocoPhillips\u2019 2.3% Yield Is Just the Start of the Story - Yahoo Finance",
+        "ConocoPhillips (COP) Stock Forecast and Price Target 2026 $COP - MarketBeat",
+        "ConocoPhillips (COP) Stock Looks About Right On Tight Oil Market News - Simply Wall Street",
+        "Buy 5 Giant Oil Explorers to Tap the Northward Journey of Crude Prices - The Globe and Mail"
+      ]
+    },
+    {
+      "action": "buy",
+      "symbol": "CVX",
+      "quantity": 43,
+      "est_cost": 9653.5,
+      "reason": "momentum: RS +5.69 pts vs SPY, 0.52% below 52w high",
+      "headlines": [
+        "Google News",
+        "Is Higher Oil Prices Altering The Investment Case For Chevron Stock (CVX)? - Yahoo Finance",
+        "Is Chevron Stock Worth More Than Its Competitors? - Trefis",
+        "Better Oil Stock: Chevron (CVX) vs. ExxonMobil (XOM) - The Motley Fool",
+        "Chevron Stock Price Targets Are Up and Put Credit Spreads Are Attractive to Value Players - Barchart.com"
       ]
     }
   ],
   "market_headlines": [
     "Google News",
-    "Market Movers blog: Chip stocks and global indices continue to slide following US inflation jump - Investment Week",
     "An alarmed bond market gets the Trump administration to act again - PBS",
     "Why the stock market keeps shrugging as Trump sows more political chaos - CNBC",
+    "Trump\u2019s claim that \u2018almost every item\u2019 is getting cheaper comes up against a damning reality - CNN",
     "Markets' 2026 watch list: Fed succession, political risk and AI of course - Reuters"
   ],
   "note": "Exits before entries. Max 2 trades/day total. Buys require a headline screen (skip on material political/regulatory/earnings risk) executed by daily_run.py, which also applies the DD veto gate before filling entries through broker.py."
