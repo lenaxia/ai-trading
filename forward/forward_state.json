@@ -83,7 +83,7 @@
     "XOM": 0
    },
    "fetch_manifest": {
-    "fetched_at_utc": "2026-10-18T02:07:08Z",
+    "fetched_at_utc": "2026-10-20T01:09:10Z",
     "seeded_from_lab": false,
     "symbols": {
      "AAPL": {
@@ -215,11 +215,11 @@
       "status": "ok"
      },
      "^VIX": {
-      "appended": 0,
+      "appended": 1,
       "first_date": "1990-01-02",
-      "last_date": "2026-10-16",
+      "last_date": "2026-10-19",
       "revised": 5,
-      "rows": 9268,
+      "rows": 9269,
       "status": "ok"
      }
     }
@@ -236,7 +236,7 @@
     "LQD"
    ]
   },
-  "generated_utc": "2026-10-18T02:07:21Z",
+  "generated_utc": "2026-10-20T01:09:23Z",
   "idempotency": "state is fully recomputed from forward/data CSVs on every run and written atomically; re-running on the same UTC day overwrites, never appends",
   "last_data_date": "2026-10-16",
   "start_equity": 100000.0,
