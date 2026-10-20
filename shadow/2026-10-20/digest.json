@@ -1,0 +1,13 @@
+{
+  "payload": {
+    "missing_steps": [
+      "debate",
+      "decide",
+      "execute"
+    ],
+    "text": "WATCHDOG: missing steps today: debate, decide, execute.\nForward OOS: SPY -0.31%; V228_meanrev_vol_n1_k2_y10_sel3 +6.24%; V306_killswitch_V228 +6.24%; base_ew12 -3.02%; don_p10_s8 -0.53%; mom_n21_k5_abs_c1 -2.25%; mom_n5_k5_abs_c21 -9.06%.\nControl clone: $376034.65 (+276.03% since anchor)."
+  },
+  "run_date": "2026-10-20",
+  "step": "digest",
+  "written_utc": "2026-10-20T22:30:08Z"
+}
