@@ -1,6 +1,6 @@
 {
-  "date": "2026-10-19",
-  "generated_utc": "2026-10-19T13:45:16.461342+00:00",
+  "date": "2026-10-20",
+  "generated_utc": "2026-10-20T13:45:41.515147+00:00",
   "candidates": [],
   "contract": "v2: verdict=red_flag_verdict gates (RED_FLAG blocks); price_timing_opinion is measured only, never gates",
   "verdicts": [],
