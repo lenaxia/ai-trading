@@ -59,7 +59,7 @@
       "ts": "2026-10-19T19:32:42.913620+00:00"
     }
   ],
-  "last_daily_run": "2026-10-19",
+  "last_daily_run": "2026-10-20",
   "meta": {
     "cash": "owner-provided at offboard (platform cash differed; residual reconciled by owner decision)",
     "cost_model": "5 bps per side, charged to cash (broker.py)",
@@ -113,6 +113,10 @@
       "entry": 0.0,
       "qty": 0.0
     },
+    "PFE": {
+      "entry": 0.0,
+      "qty": 0
+    },
     "QQQ": {
       "entry": 736.4439697265625,
       "qty": 4.0
@@ -146,5 +150,6 @@
   "trades_2026-10-15": 1,
   "trades_2026-10-16": 2,
   "trades_2026-10-19": 2,
+  "trades_2026-10-20": 0,
   "updated": "2026-10-19T19:32:42.913620+00:00"
 }

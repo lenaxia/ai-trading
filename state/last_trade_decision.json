@@ -1,7 +1,7 @@
 {
   "ok": true,
-  "now_utc": "2026-10-19T19:32:28.603911+00:00",
-  "today": "2026-10-19",
+  "now_utc": "2026-10-20T18:09:58.277877+00:00",
+  "today": "2026-10-20",
   "market_open": true,
   "policy": {
     "style": "conservative momentum, growth tilt",
@@ -13,16 +13,18 @@
     "max_trades_per_day": 2
   },
   "account": {
-    "cash": 22011.7,
-    "positions_value": 75920.25,
-    "equity": 97931.95,
-    "positions_held": 12
+    "cash": 3538.26,
+    "positions_value": 94688.17,
+    "equity": 98226.43,
+    "positions_held": 14
   },
   "sleeve_excluded": [
     "AAPL",
     "BND",
+    "COP",
     "DAL",
     "FIW",
+    "LLY",
     "MSFT",
     "QQQ",
     "SPYG",
@@ -37,8 +39,8 @@
       "symbol": "AAPL",
       "quantity": 8.0,
       "entry_price": 331.3699951171875,
-      "current_price": 342.82,
-      "pnl_pct": 3.46
+      "current_price": 340.16,
+      "pnl_pct": 2.65
     },
     {
       "symbol": "BND",
@@ -46,6 +48,13 @@
       "entry_price": 70.05915213530918,
       "current_price": 70.05915213530918,
       "pnl_pct": 0.0
+    },
+    {
+      "symbol": "COP",
+      "quantity": 67,
+      "entry_price": 145.1,
+      "current_price": 145.73,
+      "pnl_pct": 0.43
     },
     {
       "symbol": "DAL",
@@ -62,18 +71,25 @@
       "pnl_pct": 0.0
     },
     {
+      "symbol": "LLY",
+      "quantity": 7,
+      "entry_price": 1248.93,
+      "current_price": 1292.58,
+      "pnl_pct": 3.49
+    },
+    {
       "symbol": "MSFT",
       "quantity": 11.0,
       "entry_price": 527.9400024414062,
-      "current_price": 534.32,
-      "pnl_pct": 1.21
+      "current_price": 532.65,
+      "pnl_pct": 0.89
     },
     {
       "symbol": "QQQ",
       "quantity": 4.0,
       "entry_price": 736.4439697265625,
-      "current_price": 720.6,
-      "pnl_pct": -2.15
+      "current_price": 719.5,
+      "pnl_pct": -2.3
     },
     {
       "symbol": "SPYG",
@@ -122,52 +138,24 @@
   "entries": [
     {
       "action": "buy",
-      "symbol": "LLY",
-      "quantity": 7,
-      "est_cost": 8746.85,
-      "reason": "momentum: RS +6.93 pts vs SPY, 3.45% below 52w high",
+      "symbol": "PFE",
+      "quantity": 325,
+      "est_cost": 9818.25,
+      "reason": "momentum: RS +7.58 pts vs SPY, 0.12% below 52w high",
       "headlines": [
         "Google News",
-        "Eli Lilly (LLY) Stock Looks Undervalued As Its 404% Run Continues - Yahoo Finance",
-        "Prediction: Eli Lilly Stock Could Be a Long-Term Winner for Investors - 24/7 Wall St.",
-        "One holder reports sole voting power over 90.1M Eli Lilly (LLY) shares. - Stock Titan",
-        "Eli Lilly & Co (NYSE:LLY) Offers Dividend Quality for Growth-Focused Income Investors - ChartMill"
-      ]
-    },
-    {
-      "action": "buy",
-      "symbol": "COP",
-      "quantity": 67,
-      "est_cost": 9719.82,
-      "reason": "momentum: RS +6.73 pts vs SPY, 1.12% below 52w high",
-      "headlines": [
-        "Google News",
-        "ConocoPhillips\u2019 2.3% Yield Is Just the Start of the Story - Yahoo Finance",
-        "ConocoPhillips (COP) Stock Forecast and Price Target 2026 $COP - MarketBeat",
-        "ConocoPhillips (COP) Stock Looks About Right On Tight Oil Market News - Simply Wall Street",
-        "Buy 5 Giant Oil Explorers to Tap the Northward Journey of Crude Prices - The Globe and Mail"
-      ]
-    },
-    {
-      "action": "buy",
-      "symbol": "CVX",
-      "quantity": 43,
-      "est_cost": 9653.5,
-      "reason": "momentum: RS +5.69 pts vs SPY, 0.52% below 52w high",
-      "headlines": [
-        "Google News",
-        "Is Higher Oil Prices Altering The Investment Case For Chevron Stock (CVX)? - Yahoo Finance",
-        "Is Chevron Stock Worth More Than Its Competitors? - Trefis",
-        "Better Oil Stock: Chevron (CVX) vs. ExxonMobil (XOM) - The Motley Fool",
-        "Chevron Stock Price Targets Are Up and Put Credit Spreads Are Attractive to Value Players - Barchart.com"
+        "Pfizer Inc. (PFE) Is a Trending Stock: Facts to Know Before Betting on It - Yahoo Finance",
+        "Moderna Jumps 7% While Melanoma Vaccine Data Looms; Bristol Myers Squibb Rises 5%, Pfizer Advances 2% - 24/7 Wall St.",
+        "Pfizer (PFE) Stock Looks Richly Priced On Current Earnings - Simply Wall Street",
+        "Pfizer's Stock Is Finally Showing Signs of Life. Could This Be the Start of a Much Bigger Rally? - The Motley Fool"
       ]
     }
   ],
   "market_headlines": [
     "Google News",
-    "An alarmed bond market gets the Trump administration to act again - PBS",
     "Why the stock market keeps shrugging as Trump sows more political chaos - CNBC",
     "Trump\u2019s claim that \u2018almost every item\u2019 is getting cheaper comes up against a damning reality - CNN",
+    "WATCH: Fed chair Kevin Warsh testifies on inflation and monetary policy in House hearing - PBS",
     "Markets' 2026 watch list: Fed succession, political risk and AI of course - Reuters"
   ],
   "note": "Exits before entries. Max 2 trades/day total. Buys require a headline screen (skip on material political/regulatory/earnings risk) executed by daily_run.py, which also applies the DD veto gate before filling entries through broker.py."
