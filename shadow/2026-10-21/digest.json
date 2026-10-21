@@ -1,0 +1,11 @@
+{
+  "payload": {
+    "missing_steps": [
+      "execute"
+    ],
+    "text": "WATCHDOG: missing steps today: execute.\nDD gate: BLK=pass, LLY=pass_with_caution, V=pass_with_caution.\nENTRY BLK x8 (~$9072.88, momentum: RS +5.44 pts vs SPY, 4.68% below 52w high).\nBook: equity $97985.07 (cash $3538.26, 14 positions).\nForward OOS: SPY +0.98%; V228_meanrev_vol_n1_k2_y10_sel3 +5.60%; V306_killswitch_V228 +5.60%; base_ew12 -0.93%; don_p10_s8 +1.23%; mom_n21_k5_abs_c1 -2.23%; mom_n5_k5_abs_c21 -2.41%.\nControl clone: $377242.64 (+277.24% since anchor)."
+  },
+  "run_date": "2026-10-21",
+  "step": "digest",
+  "written_utc": "2026-10-21T22:30:25Z"
+}
