@@ -1,7 +1,7 @@
 {
   "ok": true,
-  "now_utc": "2026-10-20T18:09:58.277877+00:00",
-  "today": "2026-10-20",
+  "now_utc": "2026-10-21T18:17:58.377216+00:00",
+  "today": "2026-10-21",
   "market_open": true,
   "policy": {
     "style": "conservative momentum, growth tilt",
@@ -14,8 +14,8 @@
   },
   "account": {
     "cash": 3538.26,
-    "positions_value": 94688.17,
-    "equity": 98226.43,
+    "positions_value": 94609.97,
+    "equity": 98148.23,
     "positions_held": 14
   },
   "sleeve_excluded": [
@@ -39,8 +39,8 @@
       "symbol": "AAPL",
       "quantity": 8.0,
       "entry_price": 331.3699951171875,
-      "current_price": 340.16,
-      "pnl_pct": 2.65
+      "current_price": 344.855,
+      "pnl_pct": 4.07
     },
     {
       "symbol": "BND",
@@ -53,8 +53,8 @@
       "symbol": "COP",
       "quantity": 67,
       "entry_price": 145.1,
-      "current_price": 145.73,
-      "pnl_pct": 0.43
+      "current_price": 145.81,
+      "pnl_pct": 0.49
     },
     {
       "symbol": "DAL",
@@ -74,22 +74,22 @@
       "symbol": "LLY",
       "quantity": 7,
       "entry_price": 1248.93,
-      "current_price": 1292.58,
-      "pnl_pct": 3.49
+      "current_price": 1270.7,
+      "pnl_pct": 1.74
     },
     {
       "symbol": "MSFT",
       "quantity": 11.0,
       "entry_price": 527.9400024414062,
-      "current_price": 532.65,
-      "pnl_pct": 0.89
+      "current_price": 532.77,
+      "pnl_pct": 0.91
     },
     {
       "symbol": "QQQ",
       "quantity": 4.0,
       "entry_price": 736.4439697265625,
-      "current_price": 719.5,
-      "pnl_pct": -2.3
+      "current_price": 727.18,
+      "pnl_pct": -1.26
     },
     {
       "symbol": "SPYG",
@@ -138,25 +138,25 @@
   "entries": [
     {
       "action": "buy",
-      "symbol": "PFE",
-      "quantity": 325,
-      "est_cost": 9818.25,
-      "reason": "momentum: RS +7.58 pts vs SPY, 0.12% below 52w high",
+      "symbol": "BLK",
+      "quantity": 8,
+      "est_cost": 9140.84,
+      "reason": "momentum: RS +5.80 pts vs SPY, 3.90% below 52w high",
       "headlines": [
         "Google News",
-        "Pfizer Inc. (PFE) Is a Trending Stock: Facts to Know Before Betting on It - Yahoo Finance",
-        "Moderna Jumps 7% While Melanoma Vaccine Data Looms; Bristol Myers Squibb Rises 5%, Pfizer Advances 2% - 24/7 Wall St.",
-        "Pfizer (PFE) Stock Looks Richly Priced On Current Earnings - Simply Wall Street",
-        "Pfizer's Stock Is Finally Showing Signs of Life. Could This Be the Start of a Much Bigger Rally? - The Motley Fool"
+        "BlackRock's new fund targets the companies behind robots doing physical work. - Stock Titan",
+        "BlackRock (BLK) Stock Jumps As Q3 Earnings Power Margin Recovery - Yahoo Finance",
+        "BLK Stock Gains After-Hours \u2014 US Treasury To Offer Two BlackRock ETFs As Options In Trump Accounts - Stocktwits",
+        "BlackRock $BLK Stock Acquired by SteelPeak Wealth LLC - MarketBeat"
       ]
     }
   ],
   "market_headlines": [
     "Google News",
-    "Why the stock market keeps shrugging as Trump sows more political chaos - CNBC",
-    "Trump\u2019s claim that \u2018almost every item\u2019 is getting cheaper comes up against a damning reality - CNN",
-    "WATCH: Fed chair Kevin Warsh testifies on inflation and monetary policy in House hearing - PBS",
-    "Markets' 2026 watch list: Fed succession, political risk and AI of course - Reuters"
+    "Market Movers blog: European indices down as French protests continue - Investment Week",
+    "An alarmed bond market gets the Trump administration to act again - PBS",
+    "Stocks Fall as Jobs Fuel Bets Fed Will Raise Rates: Markets Wrap - Bloomberg.com",
+    "Alan Greenspan, Fed Chairman Through Prosperity and Crisis, Dies at 100 - The New York Times"
   ],
   "note": "Exits before entries. Max 2 trades/day total. Buys require a headline screen (skip on material political/regulatory/earnings risk) executed by daily_run.py, which also applies the DD veto gate before filling entries through broker.py."
 }

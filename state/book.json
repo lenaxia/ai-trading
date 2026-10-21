@@ -59,7 +59,7 @@
       "ts": "2026-10-19T19:32:42.913620+00:00"
     }
   ],
-  "last_daily_run": "2026-10-20",
+  "last_daily_run": "2026-10-21",
   "meta": {
     "cash": "owner-provided at offboard (platform cash differed; residual reconciled by owner decision)",
     "cost_model": "5 bps per side, charged to cash (broker.py)",
@@ -72,6 +72,10 @@
     "AAPL": {
       "entry": 331.3699951171875,
       "qty": 8.0
+    },
+    "BLK": {
+      "entry": 0.0,
+      "qty": 0
     },
     "BND": {
       "entry": 70.05915213530918,
@@ -151,5 +155,6 @@
   "trades_2026-10-16": 2,
   "trades_2026-10-19": 2,
   "trades_2026-10-20": 0,
+  "trades_2026-10-21": 0,
   "updated": "2026-10-19T19:32:42.913620+00:00"
 }
