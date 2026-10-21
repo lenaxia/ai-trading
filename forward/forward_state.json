@@ -91,139 +91,139 @@
     "XOM": 0
    },
    "fetch_manifest": {
-    "fetched_at_utc": "2026-10-20T22:35:49Z",
+    "fetched_at_utc": "2026-10-21T00:44:02Z",
     "seeded_from_lab": false,
     "symbols": {
      "AAPL": {
-      "appended": 2,
+      "appended": 0,
       "first_date": "2023-09-29",
       "last_date": "2026-10-20",
-      "revised": 5,
+      "revised": 4,
       "rows": 767,
       "status": "ok"
      },
      "AMD": {
-      "appended": 2,
+      "appended": 0,
       "first_date": "2023-09-29",
       "last_date": "2026-10-20",
-      "revised": 5,
+      "revised": 4,
       "rows": 767,
       "status": "ok"
      },
      "AMZN": {
-      "appended": 2,
+      "appended": 0,
       "first_date": "2023-09-29",
       "last_date": "2026-10-20",
-      "revised": 5,
+      "revised": 4,
       "rows": 767,
       "status": "ok"
      },
      "AVGO": {
-      "appended": 2,
+      "appended": 0,
       "first_date": "2023-09-29",
       "last_date": "2026-10-20",
-      "revised": 5,
+      "revised": 4,
       "rows": 767,
       "status": "ok"
      },
      "GOOGL": {
-      "appended": 2,
+      "appended": 0,
       "first_date": "2023-09-29",
       "last_date": "2026-10-20",
-      "revised": 5,
+      "revised": 4,
       "rows": 767,
       "status": "ok"
      },
      "HYG": {
-      "appended": 2,
+      "appended": 0,
       "first_date": "2007-04-11",
       "last_date": "2026-10-20",
-      "revised": 5,
+      "revised": 4,
       "rows": 4914,
       "status": "ok"
      },
      "JPM": {
-      "appended": 2,
+      "appended": 0,
       "first_date": "2023-09-29",
       "last_date": "2026-10-20",
-      "revised": 5,
+      "revised": 4,
       "rows": 767,
       "status": "ok"
      },
      "LLY": {
-      "appended": 2,
+      "appended": 0,
       "first_date": "2023-09-29",
       "last_date": "2026-10-20",
-      "revised": 5,
+      "revised": 4,
       "rows": 767,
       "status": "ok"
      },
      "LQD": {
-      "appended": 2,
+      "appended": 0,
       "first_date": "2002-07-30",
       "last_date": "2026-10-20",
-      "revised": 5,
+      "revised": 4,
       "rows": 6096,
       "status": "ok"
      },
      "META": {
-      "appended": 2,
+      "appended": 0,
       "first_date": "2023-09-29",
       "last_date": "2026-10-20",
-      "revised": 5,
+      "revised": 4,
       "rows": 767,
       "status": "ok"
      },
      "MSFT": {
-      "appended": 2,
+      "appended": 0,
       "first_date": "2023-09-29",
       "last_date": "2026-10-20",
-      "revised": 5,
+      "revised": 4,
       "rows": 767,
       "status": "ok"
      },
      "NVDA": {
-      "appended": 2,
+      "appended": 0,
       "first_date": "2023-09-29",
       "last_date": "2026-10-20",
-      "revised": 5,
+      "revised": 4,
       "rows": 767,
       "status": "ok"
      },
      "QQQ": {
-      "appended": 2,
+      "appended": 0,
       "first_date": "2023-09-29",
       "last_date": "2026-10-20",
-      "revised": 5,
+      "revised": 4,
       "rows": 767,
       "status": "ok"
      },
      "SPY": {
-      "appended": 2,
+      "appended": 0,
       "first_date": "2023-09-29",
       "last_date": "2026-10-20",
-      "revised": 5,
+      "revised": 4,
       "rows": 767,
       "status": "ok"
      },
      "TSLA": {
-      "appended": 2,
+      "appended": 0,
       "first_date": "2023-09-29",
       "last_date": "2026-10-20",
-      "revised": 5,
+      "revised": 4,
       "rows": 767,
       "status": "ok"
      },
      "XOM": {
-      "appended": 2,
+      "appended": 0,
       "first_date": "2023-09-29",
       "last_date": "2026-10-20",
-      "revised": 5,
+      "revised": 4,
       "rows": 767,
       "status": "ok"
      },
      "^VIX": {
-      "appended": 1,
+      "appended": 0,
       "first_date": "1990-01-02",
       "last_date": "2026-10-20",
       "revised": 5,
@@ -244,7 +244,7 @@
     "LQD"
    ]
   },
-  "generated_utc": "2026-10-20T22:36:02Z",
+  "generated_utc": "2026-10-21T00:44:14Z",
   "idempotency": "state is fully recomputed from forward/data CSVs on every run and written atomically; re-running on the same UTC day overwrites, never appends",
   "last_data_date": "2026-10-20",
   "start_equity": 100000.0,
