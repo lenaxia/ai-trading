@@ -1,0 +1,60 @@
+{
+  "payload": {
+    "account": {
+      "cash": 3538.26,
+      "equity": 98195.9,
+      "positions_held": 14,
+      "positions_value": 94657.64
+    },
+    "date": "2026-10-22",
+    "debate_fallback": false,
+    "entries": [
+      {
+        "action": "buy",
+        "est_cost": 9809.63,
+        "headlines": [
+          "Google News",
+          "Procter & Gamble earnings beat as sales rise 4%, boosted by laundry and home products - CNBC",
+          "Procter & Gamble (PG) Expects 1% to 3% Organic Growth, Is That Enough? - Yahoo Finance",
+          "Ahead of Procter & Gamble Earnings, Here's What Barchart Data Says Comes Next for PG Stock - Barchart.com",
+          "Procter & Gamble gains as sales hold up amid 'geopolitical and economic' challenges (PG:NYSE) - Seeking Alpha"
+        ],
+        "quantity": 59,
+        "reason": "momentum: RS +6.61 pts vs SPY, 0.59% below 52w high",
+        "symbol": "PG"
+      }
+    ],
+    "exits": [],
+    "gate_log": [
+      {
+        "line": "buy PG x59 momentum: RS +6.61 pts vs SPY, 0.59% below 52w high",
+        "tag": "TRADED"
+      }
+    ],
+    "market_open": true,
+    "now_utc": "2026-10-22T13:45:54.772555+00:00",
+    "ok": true,
+    "prices": {
+      "AAPL": 345.193,
+      "BND": null,
+      "COP": 146.04,
+      "DAL": null,
+      "FIW": null,
+      "LLY": 1290.905,
+      "MSFT": 527.965,
+      "PG": 166.265,
+      "QQQ": 712.425,
+      "SPYG": null,
+      "VEA": null,
+      "VOO": null,
+      "VTI": null,
+      "VXUS": null,
+      "XLK": null
+    },
+    "trades_today_before": 0,
+    "vetoes": []
+  },
+  "run_date": "2026-10-22",
+  "step": "decide",
+  "written_utc": "2026-10-22T13:46:08Z"
+}
