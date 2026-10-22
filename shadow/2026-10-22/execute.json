@@ -1,0 +1,35 @@
+{
+  "payload": {
+    "alpaca_positions": 14,
+    "caps": {
+      "equity_kill_line": 114750.0,
+      "max_book_notional": 140400.0,
+      "max_notional_per_order": 40500.0,
+      "pilot_notional": 135000.0
+    },
+    "cash": 5609.41,
+    "date": "2026-10-22",
+    "equity": 99847.51,
+    "halt": {
+      "gates_open": false,
+      "halted": true
+    },
+    "held_book_value": 94233.72,
+    "mode": "shadow",
+    "note": "halted \u2014 no orders (market-dictated resume)",
+    "now": "2026-10-22T13:46:14Z",
+    "ok": true,
+    "open": true,
+    "pending_diff": [
+      {
+        "action": "buy",
+        "qty": 59.0,
+        "symbol": "PG"
+      }
+    ],
+    "target_positions": 15
+  },
+  "run_date": "2026-10-22",
+  "step": "execute",
+  "written_utc": "2026-10-22T13:46:14Z"
+}
