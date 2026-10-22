@@ -1,7 +1,7 @@
 {
   "ok": true,
-  "now_utc": "2026-10-21T18:17:58.377216+00:00",
-  "today": "2026-10-21",
+  "now_utc": "2026-10-22T18:12:17.229034+00:00",
+  "today": "2026-10-22",
   "market_open": true,
   "policy": {
     "style": "conservative momentum, growth tilt",
@@ -14,8 +14,8 @@
   },
   "account": {
     "cash": 3538.26,
-    "positions_value": 94609.97,
-    "equity": 98148.23,
+    "positions_value": 94750.41,
+    "equity": 98288.67,
     "positions_held": 14
   },
   "sleeve_excluded": [
@@ -39,8 +39,8 @@
       "symbol": "AAPL",
       "quantity": 8.0,
       "entry_price": 331.3699951171875,
-      "current_price": 344.855,
-      "pnl_pct": 4.07
+      "current_price": 346.56,
+      "pnl_pct": 4.58
     },
     {
       "symbol": "BND",
@@ -53,8 +53,8 @@
       "symbol": "COP",
       "quantity": 67,
       "entry_price": 145.1,
-      "current_price": 145.81,
-      "pnl_pct": 0.49
+      "current_price": 146.17,
+      "pnl_pct": 0.74
     },
     {
       "symbol": "DAL",
@@ -74,22 +74,22 @@
       "symbol": "LLY",
       "quantity": 7,
       "entry_price": 1248.93,
-      "current_price": 1270.7,
-      "pnl_pct": 1.74
+      "current_price": 1311.47,
+      "pnl_pct": 5.01
     },
     {
       "symbol": "MSFT",
       "quantity": 11.0,
       "entry_price": 527.9400024414062,
-      "current_price": 532.77,
-      "pnl_pct": 0.91
+      "current_price": 524.2,
+      "pnl_pct": -0.71
     },
     {
       "symbol": "QQQ",
       "quantity": 4.0,
       "entry_price": 736.4439697265625,
-      "current_price": 727.18,
-      "pnl_pct": -1.26
+      "current_price": 705.07,
+      "pnl_pct": -4.26
     },
     {
       "symbol": "SPYG",
@@ -138,25 +138,25 @@
   "entries": [
     {
       "action": "buy",
-      "symbol": "BLK",
-      "quantity": 8,
-      "est_cost": 9140.84,
-      "reason": "momentum: RS +5.80 pts vs SPY, 3.90% below 52w high",
+      "symbol": "PGR",
+      "quantity": 43,
+      "est_cost": 9826.14,
+      "reason": "momentum: RS +8.05 pts vs SPY, 4.75% below 52w high",
       "headlines": [
         "Google News",
-        "BlackRock's new fund targets the companies behind robots doing physical work. - Stock Titan",
-        "BlackRock (BLK) Stock Jumps As Q3 Earnings Power Margin Recovery - Yahoo Finance",
-        "BLK Stock Gains After-Hours \u2014 US Treasury To Offer Two BlackRock ETFs As Options In Trump Accounts - Stocktwits",
-        "BlackRock $BLK Stock Acquired by SteelPeak Wealth LLC - MarketBeat"
+        "Progressive (PGR) Upgraded to Buy: Here's Why - Yahoo Finance",
+        "PGR Stock On Track For Biggest One-Day Drop In 6 Months After Q2 Earnings \u2013 Analyst Sees Limited Upside For The Shares - Stocktwits",
+        "Here's How Much $1000 Invested In Progressive 20 Years Ago Would Be Worth Today - Benzinga",
+        "78,143 The Progressive Corporation $PGR Shares Sold by Cooke & Bieler LP - MarketBeat"
       ]
     }
   ],
   "market_headlines": [
     "Google News",
-    "Market Movers blog: European indices down as French protests continue - Investment Week",
     "An alarmed bond market gets the Trump administration to act again - PBS",
-    "Stocks Fall as Jobs Fuel Bets Fed Will Raise Rates: Markets Wrap - Bloomberg.com",
-    "Alan Greenspan, Fed Chairman Through Prosperity and Crisis, Dies at 100 - The New York Times"
+    "Stocks Climb as Calm Prevails Before Payrolls: Markets Wrap - Bloomberg.com",
+    "Why the stock market keeps shrugging as Trump sows more political chaos - CNBC",
+    "Stocks and Treasuries calm after Fed indictment jitters, dollar weakens - Reuters"
   ],
   "note": "Exits before entries. Max 2 trades/day total. Buys require a headline screen (skip on material political/regulatory/earnings risk) executed by daily_run.py, which also applies the DD veto gate before filling entries through broker.py."
 }
