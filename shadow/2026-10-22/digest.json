@@ -1,0 +1,9 @@
+{
+  "payload": {
+    "missing_steps": [],
+    "text": "All expected steps completed today (debate, decide, execute, score).\nDD gate: PG=pass_with_caution.\nENTRY PG x59 (~$9809.63, momentum: RS +6.61 pts vs SPY, 0.59% below 52w high).\nBook: equity $98195.9 (cash $3538.26, 14 positions).\nExecute (shadow): halted \u2014 no orders (market-dictated resume).\nForward OOS: SPY -0.22%; V228_meanrev_vol_n1_k2_y10_sel3 +5.77%; V306_killswitch_V228 +5.77%; base_ew12 -4.43%; don_p10_s8 -1.54%; mom_n21_k5_abs_c1 -2.77%; mom_n5_k5_abs_c21 -6.61%.\nControl clone: $375981.37 (+275.98% since anchor)."
+  },
+  "run_date": "2026-10-22",
+  "step": "digest",
+  "written_utc": "2026-10-22T22:30:26Z"
+}
