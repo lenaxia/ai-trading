@@ -1,0 +1,22 @@
+{
+  "payload": {
+    "candidates": [
+      "PG"
+    ],
+    "date": "2026-10-22",
+    "generated_utc": "2026-10-22T13:45:07.976607+00:00",
+    "note": "veto-only: LLM may remove candidates, never add",
+    "verdicts": [
+      {
+        "error": null,
+        "rating": "hold",
+        "symbol": "PG",
+        "thesis_excerpt": "**Bull:** PG just validated its momentum with an earnings beat \u2014 sales up 4%, driven by volume gains in laundry and home care, which suggests the rally is fundamentally supported, not just a defensive bid. The +6.35pt relative-strength edge vs. SPY with the stock sitting 0.78% below its 52-week high is textbook trend confirmation. Just as important is the portfolio context: this book is heavily ti",
+        "verdict": "pass_with_caution"
+      }
+    ]
+  },
+  "run_date": "2026-10-22",
+  "step": "debate",
+  "written_utc": "2026-10-22T13:45:50Z"
+}
