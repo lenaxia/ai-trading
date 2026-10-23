@@ -1,0 +1,60 @@
+{
+  "payload": {
+    "account": {
+      "cash": 3538.26,
+      "equity": 98224.35,
+      "positions_held": 14,
+      "positions_value": 94686.09
+    },
+    "date": "2026-10-23",
+    "debate_fallback": false,
+    "entries": [
+      {
+        "action": "buy",
+        "est_cost": 9671.5,
+        "headlines": [
+          "Google News",
+          "American Tower Corporation (AMT) Stock Price, News, Quote & History - Yahoo! Finance Canada",
+          "American Tower (AMT) Stock Sinks As Market Gains: Here's Why - Yahoo Finance",
+          "American Tower Corporation: A Quality Tower REIT, But The Discount Is Gone (NYSE:AMT) - Seeking Alpha",
+          "Dividend reinvestment accounts for 338 shares bought by American Tower (AMT) director Clarke. - Stock Titan"
+        ],
+        "quantity": 50,
+        "reason": "momentum: RS +4.75 pts vs SPY, 4.50% below 52w high",
+        "symbol": "AMT"
+      }
+    ],
+    "exits": [],
+    "gate_log": [
+      {
+        "line": "buy AMT x50 momentum: RS +4.75 pts vs SPY, 4.50% below 52w high",
+        "tag": "TRADED"
+      }
+    ],
+    "market_open": true,
+    "now_utc": "2026-10-23T13:45:51.170856+00:00",
+    "ok": true,
+    "prices": {
+      "AAPL": 349.385,
+      "AMT": 193.43,
+      "BND": null,
+      "COP": 149.12,
+      "DAL": null,
+      "FIW": null,
+      "LLY": 1282.22,
+      "MSFT": 517.18,
+      "QQQ": 704.42,
+      "SPYG": null,
+      "VEA": null,
+      "VOO": null,
+      "VTI": null,
+      "VXUS": null,
+      "XLK": null
+    },
+    "trades_today_before": 0,
+    "vetoes": []
+  },
+  "run_date": "2026-10-23",
+  "step": "decide",
+  "written_utc": "2026-10-23T13:46:06Z"
+}
