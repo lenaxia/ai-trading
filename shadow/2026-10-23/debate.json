@@ -1,0 +1,22 @@
+{
+  "payload": {
+    "candidates": [
+      "AMT"
+    ],
+    "date": "2026-10-23",
+    "generated_utc": "2026-10-23T13:45:09.536246+00:00",
+    "note": "veto-only: LLM may remove candidates, never add",
+    "verdicts": [
+      {
+        "error": null,
+        "rating": null,
+        "symbol": "AMT",
+        "thesis_excerpt": "**Bull (affirm):** AMT is the premier global tower REIT, a toll-road on mobile data growth with long-term, escalator-linked leases and a durable dividend growth record. The technicals back the thesis: +4.94 pts relative strength vs. SPY and only 4.34% off the 52-week high indicate institutional accumulation and a confirmed uptrend. A potential rate-cut cycle would be a tailwind for capital-intensi",
+        "verdict": "abstain"
+      }
+    ]
+  },
+  "run_date": "2026-10-23",
+  "step": "debate",
+  "written_utc": "2026-10-23T13:45:45Z"
+}
