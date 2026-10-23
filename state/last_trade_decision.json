@@ -1,7 +1,7 @@
 {
   "ok": true,
-  "now_utc": "2026-10-22T18:12:17.229034+00:00",
-  "today": "2026-10-22",
+  "now_utc": "2026-10-23T17:59:38.780987+00:00",
+  "today": "2026-10-23",
   "market_open": true,
   "policy": {
     "style": "conservative momentum, growth tilt",
@@ -14,8 +14,8 @@
   },
   "account": {
     "cash": 3538.26,
-    "positions_value": 94750.41,
-    "equity": 98288.67,
+    "positions_value": 94806.11,
+    "equity": 98344.37,
     "positions_held": 14
   },
   "sleeve_excluded": [
@@ -39,8 +39,8 @@
       "symbol": "AAPL",
       "quantity": 8.0,
       "entry_price": 331.3699951171875,
-      "current_price": 346.56,
-      "pnl_pct": 4.58
+      "current_price": 346.59,
+      "pnl_pct": 4.59
     },
     {
       "symbol": "BND",
@@ -53,8 +53,8 @@
       "symbol": "COP",
       "quantity": 67,
       "entry_price": 145.1,
-      "current_price": 146.17,
-      "pnl_pct": 0.74
+      "current_price": 151.21,
+      "pnl_pct": 4.21
     },
     {
       "symbol": "DAL",
@@ -74,22 +74,22 @@
       "symbol": "LLY",
       "quantity": 7,
       "entry_price": 1248.93,
-      "current_price": 1311.47,
-      "pnl_pct": 5.01
+      "current_price": 1269.45,
+      "pnl_pct": 1.64
     },
     {
       "symbol": "MSFT",
       "quantity": 11.0,
       "entry_price": 527.9400024414062,
-      "current_price": 524.2,
-      "pnl_pct": -0.71
+      "current_price": 524.72,
+      "pnl_pct": -0.61
     },
     {
       "symbol": "QQQ",
       "quantity": 4.0,
       "entry_price": 736.4439697265625,
-      "current_price": 705.07,
-      "pnl_pct": -4.26
+      "current_price": 706.62,
+      "pnl_pct": -4.05
     },
     {
       "symbol": "SPYG",
@@ -140,23 +140,23 @@
       "action": "buy",
       "symbol": "PGR",
       "quantity": 43,
-      "est_cost": 9826.14,
-      "reason": "momentum: RS +8.05 pts vs SPY, 4.75% below 52w high",
+      "est_cost": 9822.7,
+      "reason": "momentum: RS +4.79 pts vs SPY, 4.79% below 52w high",
       "headlines": [
         "Google News",
-        "Progressive (PGR) Upgraded to Buy: Here's Why - Yahoo Finance",
         "PGR Stock On Track For Biggest One-Day Drop In 6 Months After Q2 Earnings \u2013 Analyst Sees Limited Upside For The Shares - Stocktwits",
-        "Here's How Much $1000 Invested In Progressive 20 Years Ago Would Be Worth Today - Benzinga",
-        "78,143 The Progressive Corporation $PGR Shares Sold by Cooke & Bieler LP - MarketBeat"
+        "Here is What to Know Beyond Why The Progressive Corporation (PGR) is a Trending Stock - Yahoo Finance",
+        "Progressive Corp (PGR) Stock Up 3.7% and Still Undervalued -- GF Score: 87/100 - GuruFocus",
+        "Progressive Corporation (The) Estimates \u2013 NYSE:PGR - TradingView"
       ]
     }
   ],
   "market_headlines": [
     "Google News",
-    "An alarmed bond market gets the Trump administration to act again - PBS",
-    "Stocks Climb as Calm Prevails Before Payrolls: Markets Wrap - Bloomberg.com",
+    "Stocks Fall on Inflation Woes as Chip Rout Deepens: Markets Wrap - Bloomberg.com",
     "Why the stock market keeps shrugging as Trump sows more political chaos - CNBC",
-    "Stocks and Treasuries calm after Fed indictment jitters, dollar weakens - Reuters"
+    "Stocks and Treasuries calm after Fed indictment jitters, dollar weakens - Reuters",
+    "Why is the stock market shrugging off the criminal probe into Fed Chair Powell? - ABC News - Breaking News, Latest News and Videos"
   ],
   "note": "Exits before entries. Max 2 trades/day total. Buys require a headline screen (skip on material political/regulatory/earnings risk) executed by daily_run.py, which also applies the DD veto gate before filling entries through broker.py."
 }
