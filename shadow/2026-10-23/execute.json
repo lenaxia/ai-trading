@@ -1,0 +1,35 @@
+{
+  "payload": {
+    "alpaca_positions": 14,
+    "caps": {
+      "equity_kill_line": 114750.0,
+      "max_book_notional": 140400.0,
+      "max_notional_per_order": 40500.0,
+      "pilot_notional": 135000.0
+    },
+    "cash": 5609.41,
+    "date": "2026-10-23",
+    "equity": 99422.01,
+    "halt": {
+      "gates_open": false,
+      "halted": true
+    },
+    "held_book_value": 93812.7,
+    "mode": "shadow",
+    "note": "halted \u2014 no orders (market-dictated resume)",
+    "now": "2026-10-23T13:46:13Z",
+    "ok": true,
+    "open": true,
+    "pending_diff": [
+      {
+        "action": "buy",
+        "qty": 50.0,
+        "symbol": "AMT"
+      }
+    ],
+    "target_positions": 15
+  },
+  "run_date": "2026-10-23",
+  "step": "execute",
+  "written_utc": "2026-10-23T13:46:13Z"
+}
