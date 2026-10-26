@@ -3,8 +3,10 @@
 name: Daily Run
 
 on:
-  schedule:
-    - cron: '0 14 * * 1-5' # 14:00 UTC weekdays, 30 min after the US open (EDT)
+  # schedule: # disabled 2026-10-26: fission cutover — the fission morning-chain
+  #   (talos-ops-prod, 13:45 UTC weekdays) owns the book now; this GHA book was
+  #   reset to cash-only and would drift as a parallel fiction.
+  #   - cron: '0 14 * * 1-5'
   workflow_dispatch:
 
 permissions:

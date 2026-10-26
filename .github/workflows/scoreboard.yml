@@ -3,8 +3,10 @@
 name: Scoreboard
 
 on:
-  schedule:
-    - cron: '30 22 * * 1-5' # 21:30 UTC weekdays, after the US close (per forward/NOTES.md)
+  # schedule: # disabled 2026-10-26: fission cutover — the fission afternoon-chain
+  #   (talos-ops-prod, 22:30 UTC weekdays) runs score/digest against the same
+  #   forward/ state (self-contained: refetches Yahoo, anchors in tradingpg).
+  #   - cron: '30 22 * * 1-5'
   workflow_dispatch:
 
 permissions:
