@@ -1,0 +1,35 @@
+{
+  "payload": {
+    "alpaca_positions": 14,
+    "caps": {
+      "equity_kill_line": 114750.0,
+      "max_book_notional": 140400.0,
+      "max_notional_per_order": 40500.0,
+      "pilot_notional": 135000.0
+    },
+    "cash": 5609.41,
+    "date": "2026-10-26",
+    "equity": 99881.66,
+    "halt": {
+      "gates_open": false,
+      "halted": true
+    },
+    "held_book_value": 94265.22,
+    "mode": "shadow",
+    "note": "halted \u2014 no orders (market-dictated resume)",
+    "now": "2026-10-26T13:46:35Z",
+    "ok": true,
+    "open": true,
+    "pending_diff": [
+      {
+        "action": "buy",
+        "qty": 36.0,
+        "symbol": "JNJ"
+      }
+    ],
+    "target_positions": 15
+  },
+  "run_date": "2026-10-26",
+  "step": "execute",
+  "written_utc": "2026-10-26T13:46:35Z"
+}
