@@ -1,0 +1,22 @@
+{
+  "payload": {
+    "candidates": [
+      "JNJ"
+    ],
+    "date": "2026-10-26",
+    "generated_utc": "2026-10-26T13:45:20.975889+00:00",
+    "note": "veto-only: LLM may remove candidates, never add",
+    "verdicts": [
+      {
+        "error": null,
+        "rating": "hold",
+        "symbol": "JNJ",
+        "thesis_excerpt": "**Bull:** JNJ's relative strength (+7.10 pts vs SPY) shows genuine outperformance in a defensive sector, and sitting just 3.86% below its 52-week high confirms an intact uptrend rather than a dead-cat bounce. The portfolio is heavily tilted toward tech (AAPL, MSFT, QQQ, XLK) with LLY as the only healthcare holding; JNJ's pharma-plus-medtech diversification, fortress balance sheet, and reliable div",
+        "verdict": "pass_with_caution"
+      }
+    ]
+  },
+  "run_date": "2026-10-26",
+  "step": "debate",
+  "written_utc": "2026-10-26T13:46:09Z"
+}
