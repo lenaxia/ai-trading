@@ -59,7 +59,7 @@
       "ts": "2026-10-19T19:32:42.913620+00:00"
     }
   ],
-  "last_daily_run": "2026-10-23",
+  "last_daily_run": "2026-10-26",
   "meta": {
     "cash": "owner-provided at offboard (platform cash differed; residual reconciled by owner decision)",
     "cost_model": "5 bps per side, charged to cash (broker.py)",
@@ -162,5 +162,6 @@
   "trades_2026-10-21": 0,
   "trades_2026-10-22": 0,
   "trades_2026-10-23": 0,
+  "trades_2026-10-26": 0,
   "updated": "2026-10-19T19:32:42.913620+00:00"
 }
