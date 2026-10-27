@@ -1,0 +1,9 @@
+{
+  "payload": {
+    "missing_steps": [],
+    "text": "All expected steps completed today (debate, decide, execute, score).\nDD gate: DHR=pass_with_caution, XOM=pass_with_caution, COP=pass_with_caution.\nENTRY XOM x54 (~$9925.74, momentum: RS +3.56 pts vs SPY, 0.58% below 52w high).\nENTRY DHR x43 (~$9946.11, momentum: RS +3.36 pts vs SPY, 4.97% below 52w high).\nSKIP_BUY: COP max 2 trades/day reached.\nBook: equity $100000.0 (cash $100000.0, 0 positions).\nWOULD ORDER (live): buy DHR x43 @~231.305.\nWOULD ORDER (live): buy XOM x54 @~183.81.\nForward OOS: SPY +0.53%; V228_meanrev_vol_n1_k2_y10_sel3 +9.86%; V306_killswitch_V228 +9.86%; base_ew12 -1.70%; don_p10_s8 +0.39%; mom_n21_k5_abs_c1 -2.85%; mom_n5_k5_abs_c21 -2.95%.\nControl clone: $376965.51 (+276.97% since anchor)."
+  },
+  "run_date": "2026-10-27",
+  "step": "digest",
+  "written_utc": "2026-10-27T22:30:25Z"
+}
