@@ -1,0 +1,9 @@
+{
+  "payload": {
+    "missing_steps": [],
+    "text": "All expected steps completed today (debate, decide, execute, score).\nDD gate: JNJ=abstain, GILD=pass_with_caution, EMR=pass_with_caution.\nENTRY JNJ x37 (~$9916.74, momentum: RS +4.36 pts vs SPY, 4.87% below 52w high).\nENTRY GILD x62 (~$9851.18, momentum: RS +3.85 pts vs SPY, 1.02% below 52w high).\nSKIP_BUY: EMR max 2 trades/day reached.\nBook: equity $100043.49 (cash $80112.0, 2 positions).\nExecute (live): in sync.\nForward OOS: SPY +0.88%; V228_meanrev_vol_n1_k2_y10_sel3 +11.43%; V306_killswitch_V228 +11.43%; base_ew12 -0.89%; don_p10_s8 +0.86%; mom_n21_k5_abs_c1 -2.90%; mom_n5_k5_abs_c21 -2.88%.\nControl clone: $377197.17 (+277.20% since anchor)."
+  },
+  "run_date": "2026-10-28",
+  "step": "digest",
+  "written_utc": "2026-10-28T22:30:23Z"
+}
