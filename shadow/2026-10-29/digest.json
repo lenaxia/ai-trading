@@ -1,0 +1,9 @@
+{
+  "payload": {
+    "missing_steps": [],
+    "text": "All expected steps completed today (debate, decide, execute, score).\nDD gate: LLY=pass, EMR=pass_with_caution, AMGN=pass_with_caution.\nENTRY LLY x7 (~$9747.01, momentum: RS +5.88 pts vs SPY, 1.15% below 52w high).\nENTRY EMR x59 (~$9972.18, momentum: RS +4.77 pts vs SPY, 0.37% below 52w high).\nSKIP_BUY: AMGN max 2 trades/day reached.\nBook: equity $100600.7 (cash $60339.97, 4 positions).\nExecute (live): in sync.\nForward OOS: SPY +0.49%; V228_meanrev_vol_n1_k2_y10_sel3 +11.11%; V306_killswitch_V228 +11.11%; base_ew12 -2.05%; don_p10_s8 +0.25%; mom_n21_k5_abs_c1 -2.40%; mom_n5_k5_abs_c21 -4.53%.\nControl clone: $376911.3 (+276.91% since anchor)."
+  },
+  "run_date": "2026-10-29",
+  "step": "digest",
+  "written_utc": "2026-10-29T22:30:24Z"
+}
