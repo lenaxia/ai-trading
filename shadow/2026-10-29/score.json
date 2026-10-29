@@ -1,0 +1,239 @@
+{
+  "payload": {
+    "control": {
+      "anchor_date": "2026-09-29",
+      "cash_pct": 280.0,
+      "date": "2026-10-29",
+      "equity": 376911.3,
+      "ok": true,
+      "positions": {
+        "AAPL": 12,
+        "BND": 166.0,
+        "DAL": 3,
+        "FIW": 10,
+        "NVDA": 22,
+        "QQQ": 6,
+        "SPYG": 60,
+        "VEA": 93,
+        "VOO": 31,
+        "VTI": 49,
+        "VXUS": 123,
+        "XLK": 32
+      },
+      "return_pct": 276.91,
+      "val_date": "2026-10-29"
+    },
+    "date": "2026-10-29",
+    "forward": {
+      "benchmark": {
+        "SPY": {
+          "return_to_date": 0.004898,
+          "series": [
+            {
+              "date": "2026-09-29",
+              "equity": 99815.84
+            },
+            {
+              "date": "2026-09-30",
+              "equity": 99610.77
+            },
+            {
+              "date": "2026-10-01",
+              "equity": 99788.4
+            },
+            {
+              "date": "2026-10-02",
+              "equity": 100526.38
+            },
+            {
+              "date": "2026-10-05",
+              "equity": 101204.27
+            },
+            {
+              "date": "2026-10-06",
+              "equity": 101760.69
+            },
+            {
+              "date": "2026-10-07",
+              "equity": 101516.44
+            },
+            {
+              "date": "2026-10-08",
+              "equity": 101086.72
+            },
+            {
+              "date": "2026-10-09",
+              "equity": 101692.77
+            },
+            {
+              "date": "2026-10-12",
+              "equity": 101631.38
+            },
+            {
+              "date": "2026-10-13",
+              "equity": 101619.63
+            },
+            {
+              "date": "2026-10-14",
+              "equity": 100521.15
+            },
+            {
+              "date": "2026-10-15",
+              "equity": 100807.2
+            },
+            {
+              "date": "2026-10-16",
+              "equity": 99691.75
+            },
+            {
+              "date": "2026-10-19",
+              "equity": 100113.63
+            },
+            {
+              "date": "2026-10-20",
+              "equity": 100449.32
+            },
+            {
+              "date": "2026-10-21",
+              "equity": 100977.0
+            },
+            {
+              "date": "2026-10-22",
+              "equity": 99784.49
+            },
+            {
+              "date": "2026-10-23",
+              "equity": 99263.33
+            },
+            {
+              "date": "2026-10-26",
+              "equity": 99968.65
+            },
+            {
+              "date": "2026-10-27",
+              "equity": 100528.99
+            },
+            {
+              "date": "2026-10-28",
+              "equity": 100875.12
+            },
+            {
+              "date": "2026-10-29",
+              "equity": 100489.81
+            }
+          ]
+        }
+      },
+      "forward_start": "2026-09-29",
+      "forward_window_days": 23,
+      "generated_utc": "2026-10-29T22:30:17Z",
+      "last_data_date": "2026-10-29",
+      "variants": {
+        "V228_meanrev_vol_n1_k2_y10_sel3": {
+          "as_of_date": "2026-10-29",
+          "avg_exposure": 0.753623,
+          "current_equity": 111105.61,
+          "current_exposure": 0.333333,
+          "current_positions": {
+            "JPM": 0.333333
+          },
+          "return_to_date": 0.111056,
+          "trade_count": 4
+        },
+        "V306_killswitch_V228": {
+          "as_of_date": "2026-10-29",
+          "avg_exposure": 0.753623,
+          "current_equity": 111105.61,
+          "current_exposure": 0.333333,
+          "current_positions": {
+            "JPM": 0.333333
+          },
+          "killswitch_fires": {
+            "forward": 0,
+            "warmup": 4
+          },
+          "return_to_date": 0.111056,
+          "trade_count": 4
+        },
+        "base_ew12": {
+          "as_of_date": "2026-10-29",
+          "avg_exposure": 1.0,
+          "current_equity": 97947.75,
+          "current_exposure": 1.0,
+          "current_positions": {
+            "AAPL": 0.060838,
+            "AMD": 0.171227,
+            "AMZN": 0.054543,
+            "AVGO": 0.122096,
+            "GOOGL": 0.06811,
+            "JPM": 0.073569,
+            "LLY": 0.073843,
+            "META": 0.061725,
+            "MSFT": 0.046688,
+            "NVDA": 0.156008,
+            "TSLA": 0.059793,
+            "XOM": 0.051561
+          },
+          "return_to_date": -0.020523,
+          "trade_count": 0
+        },
+        "don_p10_s8": {
+          "as_of_date": "2026-10-29",
+          "avg_exposure": 1.0,
+          "current_equity": 100249.1,
+          "current_exposure": 1.0,
+          "current_positions": {
+            "AAPL": 0.087732,
+            "AMD": 0.0924,
+            "AMZN": 0.069726,
+            "AVGO": 0.068839,
+            "GOOGL": 0.061903,
+            "JPM": 0.075861,
+            "LLY": 0.092877,
+            "META": 0.087135,
+            "MSFT": 0.088609,
+            "NVDA": 0.082669,
+            "TSLA": 0.100659,
+            "XOM": 0.091591
+          },
+          "return_to_date": 0.002491,
+          "trade_count": 0
+        },
+        "mom_n21_k5_abs_c1": {
+          "as_of_date": "2026-10-29",
+          "avg_exposure": 0.991304,
+          "current_equity": 97603.44,
+          "current_exposure": 1.0,
+          "current_positions": {
+            "AAPL": 0.2,
+            "LLY": 0.2,
+            "MSFT": 0.2,
+            "TSLA": 0.2,
+            "XOM": 0.2
+          },
+          "return_to_date": -0.023966,
+          "trade_count": 138
+        },
+        "mom_n5_k5_abs_c21": {
+          "as_of_date": "2026-10-29",
+          "avg_exposure": 1.0,
+          "current_equity": 95471.56,
+          "current_exposure": 1.0,
+          "current_positions": {
+            "AAPL": 0.216027,
+            "GOOGL": 0.173361,
+            "META": 0.179804,
+            "MSFT": 0.210931,
+            "XOM": 0.219877
+          },
+          "return_to_date": -0.045284,
+          "trade_count": 6
+        }
+      }
+    },
+    "ok": true
+  },
+  "run_date": "2026-10-29",
+  "step": "score",
+  "written_utc": "2026-10-29T22:30:19Z"
+}
