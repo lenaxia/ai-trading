@@ -1,0 +1,28 @@
+{
+  "payload": {
+    "alpaca_positions": 6,
+    "caps": {
+      "equity_kill_line": 85000.0,
+      "max_book_notional": 104000.0,
+      "max_notional_per_order": 30000.0,
+      "pilot_notional": 100000.0
+    },
+    "cash": 40574.06,
+    "date": "2026-10-29",
+    "equity": 100570.1,
+    "halt": {
+      "halted": false
+    },
+    "held_book_value": 59992.86,
+    "mode": "live",
+    "note": "in sync",
+    "now": "2026-10-29T13:47:47Z",
+    "ok": true,
+    "open": true,
+    "pending_diff": [],
+    "target_positions": 6
+  },
+  "run_date": "2026-10-29",
+  "step": "execute",
+  "written_utc": "2026-10-29T13:47:47Z"
+}
