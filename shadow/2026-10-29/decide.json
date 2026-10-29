@@ -1,0 +1,73 @@
+{
+  "payload": {
+    "account": {
+      "cash": 60339.97,
+      "equity": 100600.7,
+      "positions_held": 4,
+      "positions_value": 40260.72
+    },
+    "date": "2026-10-29",
+    "debate_fallback": false,
+    "entries": [
+      {
+        "action": "buy",
+        "est_cost": 9747.01,
+        "headlines": [
+          "Google News",
+          "Stocks making the biggest moves premarket: Alphabet, Caterpillar, Eli Lilly, DoorDash & more - CNBC",
+          "Ahead of Eli Lilly Earnings, Here's What Barchart Data Says Comes Next for LLY Stock - Yahoo Finance",
+          "Eli Lilly blows past estimates, hikes sales outlook as Zepbound and Mounjaro demand surge again - CNBC",
+          "Buy, Sell or Hold LLY Stock? Key Factors to Watch Ahead of Q3 Earnings - Zacks Investment Research"
+        ],
+        "quantity": 7,
+        "reason": "momentum: RS +5.88 pts vs SPY, 1.15% below 52w high",
+        "symbol": "LLY"
+      },
+      {
+        "action": "buy",
+        "est_cost": 9972.18,
+        "headlines": [
+          "Google News",
+          "Emerson Electric Co. (EMR) Stock Price, News, Quote & History - Yahoo! Finance Canada",
+          "Emerson Electric Co. $EMR Stock Bought by Asset Management One Co. Ltd. - MarketBeat",
+          "Emerson (EMR) Stock May Be Fully Priced As Earnings Face A Premium - Yahoo Finance",
+          "Emerson Electric (EMR) Stock Looks Expensive Given Its Earnings Today - Simply Wall Street"
+        ],
+        "quantity": 59,
+        "reason": "momentum: RS +4.77 pts vs SPY, 0.37% below 52w high",
+        "symbol": "EMR"
+      }
+    ],
+    "exits": [],
+    "gate_log": [
+      {
+        "line": "buy LLY x7 momentum: RS +5.88 pts vs SPY, 1.15% below 52w high",
+        "tag": "TRADED"
+      },
+      {
+        "line": "buy EMR x59 momentum: RS +4.77 pts vs SPY, 0.37% below 52w high",
+        "tag": "TRADED"
+      },
+      {
+        "line": "AMGN max 2 trades/day reached",
+        "tag": "SKIP_BUY"
+      }
+    ],
+    "market_open": true,
+    "now_utc": "2026-10-29T13:46:41.102817+00:00",
+    "ok": true,
+    "prices": {
+      "DHR": 234.47,
+      "EMR": 169.02,
+      "GILD": 163.0,
+      "JNJ": 276.025,
+      "LLY": 1392.43,
+      "XOM": 182.585
+    },
+    "trades_today_before": 0,
+    "vetoes": []
+  },
+  "run_date": "2026-10-29",
+  "step": "decide",
+  "written_utc": "2026-10-29T13:46:55Z"
+}
