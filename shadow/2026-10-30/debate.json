@@ -1,0 +1,38 @@
+{
+  "payload": {
+    "candidates": [
+      "LLY",
+      "GD",
+      "AMGN"
+    ],
+    "date": "2026-10-30",
+    "generated_utc": "2026-10-30T13:45:08.581711+00:00",
+    "note": "veto-only: LLM may remove candidates, never add",
+    "verdicts": [
+      {
+        "error": null,
+        "rating": "hold",
+        "symbol": "LLY",
+        "thesis_excerpt": "**Bull (panelist A):** LLY is the rare momentum name with fundamentals to match. The latest print shows the GLP-1 franchise (Mounjaro/Zepbound) still under-penetrating a massive obesity/diabetes market, management just raised guidance, and the CFO is already pointing to the next growth engine (oral orforglipron). RS of +11.4 vs SPY while sitting only ~2% off the 52-week high signals institutional ",
+        "verdict": "pass_with_caution"
+      },
+      {
+        "error": null,
+        "rating": "buy",
+        "symbol": "GD",
+        "thesis_excerpt": "**Bull (keep):** GD earns its spot on both momentum and fundamentals. Relative strength of +9.67 pts vs SPY with the stock only 4.35% off its 52-week high tells us this is institutional accumulation, not a dead-cat bounce. Critically, the Q3 report *confirms* the tape: revenue up 12.9% to $14.6B, beats on both lines, and a GF Score of 90 signals high-quality fundamentals (profitability, cash flow,",
+        "verdict": "pass"
+      },
+      {
+        "error": null,
+        "rating": "review",
+        "symbol": "AMGN",
+        "thesis_excerpt": "**Bull:** AMGN is displaying genuine leadership \u2014 RS of +7.87 vs SPY and a fresh all-time-high breakout ahead of Q3 is textbook momentum confirmation, and IBD-style breakouts after long bases tend to run. The fundamental tape supports it: Repatha/EVENITY growth, the Horizon rare-disease franchise ramping, biosimilar cash flows, and a looming MariTide (obesity) Phase 3 readout that could re-rate th",
+        "verdict": "abstain"
+      }
+    ]
+  },
+  "run_date": "2026-10-30",
+  "step": "debate",
+  "written_utc": "2026-10-30T13:46:50Z"
+}
