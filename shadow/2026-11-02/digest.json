@@ -1,0 +1,9 @@
+{
+  "payload": {
+    "missing_steps": [],
+    "text": "All expected steps completed today (debate, decide, execute, score).\nDD gate: AMGN=pass_with_caution, MO=pass_with_caution, PM=abstain.\nENTRY MO x128 (~$9987.84, momentum: RS +5.57 pts vs SPY, 2.28% below 52w high).\nENTRY PM x48 (~$10021.92, momentum: RS +5.23 pts vs SPY, 2.66% below 52w high).\nSKIP_BUY: UNP max 2 trades/day reached.\nBook: equity $100580.49 (cash $20664.75, 8 positions).\nExecute (live): market closed \u2014 diff queued for next open run.\nForward OOS: SPY -1.76%; V228_meanrev_vol_n1_k2_y10_sel3 +10.64%; V306_killswitch_V228 +10.64%; base_ew12 -6.97%; don_p10_s8 -3.22%; mom_n21_k5_abs_c1 -2.94%; mom_n5_k5_abs_c21 -1.78%.\nControl clone: $374523.0 (+274.52% since anchor)."
+  },
+  "run_date": "2026-11-02",
+  "step": "digest",
+  "written_utc": "2026-11-02T22:30:27Z"
+}
