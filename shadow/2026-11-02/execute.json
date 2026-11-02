@@ -1,0 +1,39 @@
+{
+  "payload": {
+    "alpaca_positions": 8,
+    "caps": {
+      "equity_kill_line": 85000.0,
+      "max_book_notional": 104000.0,
+      "max_notional_per_order": 30000.0,
+      "pilot_notional": 100000.0
+    },
+    "cash": 20664.75,
+    "date": "2026-11-02",
+    "equity": 100403.35,
+    "halt": {
+      "halted": false
+    },
+    "held_book_value": 79738.6,
+    "mode": "live",
+    "note": "market closed \u2014 diff queued for next open run",
+    "now": "2026-11-02T13:46:47Z",
+    "ok": true,
+    "open": false,
+    "pending_diff": [
+      {
+        "action": "buy",
+        "qty": 128.0,
+        "symbol": "MO"
+      },
+      {
+        "action": "buy",
+        "qty": 48.0,
+        "symbol": "PM"
+      }
+    ],
+    "target_positions": 10
+  },
+  "run_date": "2026-11-02",
+  "step": "execute",
+  "written_utc": "2026-11-02T13:46:47Z"
+}
