@@ -1,0 +1,9 @@
+{
+  "payload": {
+    "missing_steps": [],
+    "text": "All expected steps completed today (debate, decide, execute, score).\nDD gate: MA=pass, MDLZ=pass_with_caution, V=pass.\nENTRY MA x15 (~$9871.5, momentum: RS +9.00 pts vs SPY, 0.49% below 52w high).\nENTRY MDLZ x150 (~$9957.0, momentum: RS +7.15 pts vs SPY, 0.41% below 52w high).\nSKIP_BUY: V max 2 trades/day reached.\nBook: equity $99893.8 (cash $20664.75, 8 positions).\nExecute (live): market closed \u2014 diff queued for next open run.\nForward OOS: SPY -1.47%; V228_meanrev_vol_n1_k2_y10_sel3 +11.84%; V306_killswitch_V228 +11.84%; base_ew12 -5.71%; don_p10_s8 -2.44%; mom_n21_k5_abs_c1 -3.32%; mom_n5_k5_abs_c21 -0.77%.\nControl clone: $374762.61 (+274.76% since anchor)."
+  },
+  "run_date": "2026-11-03",
+  "step": "digest",
+  "written_utc": "2026-11-03T22:30:28Z"
+}
