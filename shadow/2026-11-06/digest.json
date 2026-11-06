@@ -1,0 +1,11 @@
+{
+  "payload": {
+    "missing_steps": [
+      "execute"
+    ],
+    "text": "WATCHDOG: missing steps today: execute.\nDD gate: MDT=pass_with_caution, DIS=abstain, BRK-B=pass_with_caution.\nENTRY MDT x95 (~$9752.7, momentum: RS +8.39 pts vs SPY, 3.57% below 52w high).\nENTRY BRK-B x17 (~$9606.7, momentum: RS +6.22 pts vs SPY, 3.75% below 52w high).\nSKIP_BUY: DIS risk headline: How to Play DIS Stock as Disney Eyes 20% Cost Cuts and Thousands of Layoffs - Barchart.com.\nBook: equity $98023.8 (cash $58333.05, 4 positions).\nForward OOS: SPY -3.96%; V228_meanrev_vol_n1_k2_y10_sel3 +9.77%; V306_killswitch_V228 +9.77%; base_ew12 -10.27%; don_p10_s8 -5.97%; mom_n21_k5_abs_c1 -7.72%; mom_n5_k5_abs_c21 -10.32%.\nControl clone: $95207.56 (-4.79% since anchor)."
+  },
+  "run_date": "2026-11-06",
+  "step": "digest",
+  "written_utc": "2026-11-06T22:30:25Z"
+}
