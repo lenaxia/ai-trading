@@ -1,0 +1,267 @@
+{
+  "payload": {
+    "control": {
+      "anchor_date": "2026-09-29",
+      "cash_pct": 2.8,
+      "date": "2026-11-06",
+      "equity": 95207.56,
+      "ok": true,
+      "positions": {
+        "AAPL": 12,
+        "BND": 166.0,
+        "DAL": 3,
+        "FIW": 10,
+        "NVDA": 22,
+        "QQQ": 6,
+        "SPYG": 60,
+        "VEA": 93,
+        "VOO": 31,
+        "VTI": 49,
+        "VXUS": 123,
+        "XLK": 32
+      },
+      "return_pct": -4.79,
+      "val_date": "2026-11-06"
+    },
+    "date": "2026-11-06",
+    "forward": {
+      "benchmark": {
+        "SPY": {
+          "return_to_date": -0.039602,
+          "series": [
+            {
+              "date": "2026-09-29",
+              "equity": 99815.84
+            },
+            {
+              "date": "2026-09-30",
+              "equity": 99610.77
+            },
+            {
+              "date": "2026-10-01",
+              "equity": 99788.4
+            },
+            {
+              "date": "2026-10-02",
+              "equity": 100526.38
+            },
+            {
+              "date": "2026-10-05",
+              "equity": 101204.27
+            },
+            {
+              "date": "2026-10-06",
+              "equity": 101760.69
+            },
+            {
+              "date": "2026-10-07",
+              "equity": 101516.44
+            },
+            {
+              "date": "2026-10-08",
+              "equity": 101086.72
+            },
+            {
+              "date": "2026-10-09",
+              "equity": 101692.77
+            },
+            {
+              "date": "2026-10-12",
+              "equity": 101631.38
+            },
+            {
+              "date": "2026-10-13",
+              "equity": 101619.63
+            },
+            {
+              "date": "2026-10-14",
+              "equity": 100521.15
+            },
+            {
+              "date": "2026-10-15",
+              "equity": 100807.2
+            },
+            {
+              "date": "2026-10-16",
+              "equity": 99691.75
+            },
+            {
+              "date": "2026-10-19",
+              "equity": 100113.63
+            },
+            {
+              "date": "2026-10-20",
+              "equity": 100449.32
+            },
+            {
+              "date": "2026-10-21",
+              "equity": 100977.0
+            },
+            {
+              "date": "2026-10-22",
+              "equity": 99784.49
+            },
+            {
+              "date": "2026-10-23",
+              "equity": 99263.33
+            },
+            {
+              "date": "2026-10-26",
+              "equity": 99968.65
+            },
+            {
+              "date": "2026-10-27",
+              "equity": 100528.99
+            },
+            {
+              "date": "2026-10-28",
+              "equity": 100875.12
+            },
+            {
+              "date": "2026-10-29",
+              "equity": 100489.81
+            },
+            {
+              "date": "2026-10-30",
+              "equity": 98708.22
+            },
+            {
+              "date": "2026-11-02",
+              "equity": 98235.39
+            },
+            {
+              "date": "2026-11-03",
+              "equity": 98529.28
+            },
+            {
+              "date": "2026-11-04",
+              "equity": 100156.74
+            },
+            {
+              "date": "2026-11-05",
+              "equity": 95740.65
+            },
+            {
+              "date": "2026-11-06",
+              "equity": 96039.76
+            }
+          ]
+        }
+      },
+      "forward_start": "2026-09-29",
+      "forward_window_days": 29,
+      "generated_utc": "2026-11-06T22:30:17Z",
+      "last_data_date": "2026-11-06",
+      "variants": {
+        "V228_meanrev_vol_n1_k2_y10_sel3": {
+          "as_of_date": "2026-11-06",
+          "avg_exposure": 0.793104,
+          "current_equity": 109769.43,
+          "current_exposure": 1.0,
+          "current_positions": {
+            "AMD": 0.333333,
+            "GOOGL": 0.333333,
+            "JPM": 0.333333
+          },
+          "return_to_date": 0.097694,
+          "trade_count": 6
+        },
+        "V306_killswitch_V228": {
+          "as_of_date": "2026-11-06",
+          "avg_exposure": 0.793104,
+          "current_equity": 109769.43,
+          "current_exposure": 1.0,
+          "current_positions": {
+            "AMD": 0.333333,
+            "GOOGL": 0.333333,
+            "JPM": 0.333333
+          },
+          "killswitch_fires": {
+            "forward": 0,
+            "warmup": 4
+          },
+          "return_to_date": 0.097694,
+          "trade_count": 6
+        },
+        "base_ew12": {
+          "as_of_date": "2026-11-06",
+          "avg_exposure": 1.0,
+          "current_equity": 89730.71,
+          "current_exposure": 1.0,
+          "current_positions": {
+            "AAPL": 0.066542,
+            "AMD": 0.14052,
+            "AMZN": 0.064873,
+            "AVGO": 0.114578,
+            "GOOGL": 0.076781,
+            "JPM": 0.082157,
+            "LLY": 0.077737,
+            "META": 0.067823,
+            "MSFT": 0.05193,
+            "NVDA": 0.142447,
+            "TSLA": 0.057329,
+            "XOM": 0.057282
+          },
+          "return_to_date": -0.102693,
+          "trade_count": 0
+        },
+        "don_p10_s8": {
+          "as_of_date": "2026-11-06",
+          "avg_exposure": 1.0,
+          "current_equity": 94027.5,
+          "current_exposure": 1.0,
+          "current_positions": {
+            "AAPL": 0.091784,
+            "AMD": 0.078099,
+            "AMZN": 0.079069,
+            "AVGO": 0.062478,
+            "GOOGL": 0.066222,
+            "JPM": 0.078741,
+            "LLY": 0.097602,
+            "META": 0.090763,
+            "MSFT": 0.094555,
+            "NVDA": 0.076993,
+            "TSLA": 0.095323,
+            "XOM": 0.08837
+          },
+          "return_to_date": -0.059725,
+          "trade_count": 0
+        },
+        "mom_n21_k5_abs_c1": {
+          "as_of_date": "2026-11-06",
+          "avg_exposure": 0.986207,
+          "current_equity": 92279.64,
+          "current_exposure": 1.0,
+          "current_positions": {
+            "AAPL": 0.2,
+            "JPM": 0.2,
+            "LLY": 0.2,
+            "MSFT": 0.2,
+            "XOM": 0.2
+          },
+          "return_to_date": -0.077204,
+          "trade_count": 174
+        },
+        "mom_n5_k5_abs_c21": {
+          "as_of_date": "2026-11-06",
+          "avg_exposure": 1.0,
+          "current_equity": 89682.98,
+          "current_exposure": 1.0,
+          "current_positions": {
+            "AMZN": 0.214047,
+            "LLY": 0.214167,
+            "NVDA": 0.181779,
+            "TSLA": 0.197657,
+            "XOM": 0.19235
+          },
+          "return_to_date": -0.10317,
+          "trade_count": 8
+        }
+      }
+    },
+    "ok": true
+  },
+  "run_date": "2026-11-06",
+  "step": "score",
+  "written_utc": "2026-11-06T22:30:20Z"
+}
