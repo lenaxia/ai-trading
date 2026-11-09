@@ -1,7 +1,7 @@
 {
  "benchmark": {
   "SPY": {
-   "return_to_date": -0.039602,
+   "return_to_date": -0.016875,
    "series": [
     {
      "date": "2026-09-29",
@@ -118,6 +118,10 @@
     {
      "date": "2026-11-06",
      "equity": 96039.76
+    },
+    {
+     "date": "2026-11-09",
+     "equity": 98312.46
     }
    ]
   }
@@ -143,143 +147,143 @@
     "XOM": 0
    },
    "fetch_manifest": {
-    "fetched_at_utc": "2026-11-06T22:37:00Z",
+    "fetched_at_utc": "2026-11-09T22:36:57Z",
     "seeded_from_lab": false,
     "symbols": {
      "AAPL": {
       "appended": 1,
       "first_date": "2023-09-29",
-      "last_date": "2026-11-06",
+      "last_date": "2026-11-09",
       "revised": 5,
-      "rows": 780,
+      "rows": 781,
       "status": "ok"
      },
      "AMD": {
       "appended": 1,
       "first_date": "2023-09-29",
-      "last_date": "2026-11-06",
+      "last_date": "2026-11-09",
       "revised": 5,
-      "rows": 780,
+      "rows": 781,
       "status": "ok"
      },
      "AMZN": {
       "appended": 1,
       "first_date": "2023-09-29",
-      "last_date": "2026-11-06",
+      "last_date": "2026-11-09",
       "revised": 5,
-      "rows": 780,
+      "rows": 781,
       "status": "ok"
      },
      "AVGO": {
       "appended": 1,
       "first_date": "2023-09-29",
-      "last_date": "2026-11-06",
+      "last_date": "2026-11-09",
       "revised": 5,
-      "rows": 780,
+      "rows": 781,
       "status": "ok"
      },
      "GOOGL": {
       "appended": 1,
       "first_date": "2023-09-29",
-      "last_date": "2026-11-06",
+      "last_date": "2026-11-09",
       "revised": 5,
-      "rows": 780,
+      "rows": 781,
       "status": "ok"
      },
      "HYG": {
       "appended": 1,
       "first_date": "2007-04-11",
-      "last_date": "2026-11-06",
+      "last_date": "2026-11-09",
       "revised": 5,
-      "rows": 4927,
+      "rows": 4928,
       "status": "ok"
      },
      "JPM": {
       "appended": 1,
       "first_date": "2023-09-29",
-      "last_date": "2026-11-06",
+      "last_date": "2026-11-09",
       "revised": 5,
-      "rows": 780,
+      "rows": 781,
       "status": "ok"
      },
      "LLY": {
       "appended": 1,
       "first_date": "2023-09-29",
-      "last_date": "2026-11-06",
+      "last_date": "2026-11-09",
       "revised": 5,
-      "rows": 780,
+      "rows": 781,
       "status": "ok"
      },
      "LQD": {
       "appended": 1,
       "first_date": "2002-07-30",
-      "last_date": "2026-11-06",
+      "last_date": "2026-11-09",
       "revised": 5,
-      "rows": 6109,
+      "rows": 6110,
       "status": "ok"
      },
      "META": {
       "appended": 1,
       "first_date": "2023-09-29",
-      "last_date": "2026-11-06",
+      "last_date": "2026-11-09",
       "revised": 5,
-      "rows": 780,
+      "rows": 781,
       "status": "ok"
      },
      "MSFT": {
       "appended": 1,
       "first_date": "2023-09-29",
-      "last_date": "2026-11-06",
+      "last_date": "2026-11-09",
       "revised": 5,
-      "rows": 780,
+      "rows": 781,
       "status": "ok"
      },
      "NVDA": {
       "appended": 1,
       "first_date": "2023-09-29",
-      "last_date": "2026-11-06",
+      "last_date": "2026-11-09",
       "revised": 5,
-      "rows": 780,
+      "rows": 781,
       "status": "ok"
      },
      "QQQ": {
       "appended": 1,
       "first_date": "2023-09-29",
-      "last_date": "2026-11-06",
+      "last_date": "2026-11-09",
       "revised": 5,
-      "rows": 780,
+      "rows": 781,
       "status": "ok"
      },
      "SPY": {
       "appended": 1,
       "first_date": "2023-09-29",
-      "last_date": "2026-11-06",
+      "last_date": "2026-11-09",
       "revised": 5,
-      "rows": 780,
+      "rows": 781,
       "status": "ok"
      },
      "TSLA": {
       "appended": 1,
       "first_date": "2023-09-29",
-      "last_date": "2026-11-06",
+      "last_date": "2026-11-09",
       "revised": 5,
-      "rows": 780,
+      "rows": 781,
       "status": "ok"
      },
      "XOM": {
       "appended": 1,
       "first_date": "2023-09-29",
-      "last_date": "2026-11-06",
+      "last_date": "2026-11-09",
       "revised": 5,
-      "rows": 780,
+      "rows": 781,
       "status": "ok"
      },
      "^VIX": {
       "appended": 1,
       "first_date": "1990-01-02",
-      "last_date": "2026-11-06",
+      "last_date": "2026-11-09",
       "revised": 5,
-      "rows": 9283,
+      "rows": 9284,
       "status": "ok"
      }
     }
@@ -287,7 +291,7 @@
   },
   "engine": "no-lookahead: signals from closes <= t-1, execution at t close; v1 variants (1-4) under lab/backtest.py accounting ((1+r)*(1-cost), drift between targets); v2 variants (5-7) under lab2/engine.py killswitch accounting ((1+r-cost)); V236G (8) = V236 rows + lab3/regime G1G2G3 boolean entry mask (v2 accounting); COMPOSITE_50 (9) = 50/50 V236G+mom5 drifting sub-accounts, weekly 50/50 rebalance at 5 bps/side (r_g - cost on rebalance turnover)",
   "forward_start": "2026-09-29",
-  "forward_window_days": 29,
+  "forward_window_days": 30,
   "gate_inputs": {
    "note": "^VIX/HYG/LQD deep daily history via period1-near-listing (range=max degrades to monthly), raw closes, as-of aligned; drive the V236G/composite G1G2G3 entry mask (weekly eval on prior close)",
    "symbols": [
@@ -296,9 +300,9 @@
     "LQD"
    ]
   },
-  "generated_utc": "2026-11-06T22:37:12Z",
+  "generated_utc": "2026-11-09T22:37:09Z",
   "idempotency": "state is fully recomputed from forward/data CSVs on every run and written atomically; re-running on the same UTC day overwrites, never appends",
-  "last_data_date": "2026-11-06",
+  "last_data_date": "2026-11-09",
   "start_equity": 100000.0,
   "tracker": "forward OOS tracker (local simulation, virtual money)",
   "universe_traded": [
@@ -322,52 +326,52 @@
  },
  "variants": {
   "COMPOSITE_50_V236G_mom5": {
-   "as_of_date": "2026-11-06",
-   "avg_exposure": 0.797875,
-   "current_equity": 98588.01,
-   "current_exposure": 0.667571,
+   "as_of_date": "2026-11-09",
+   "avg_exposure": 0.793501,
+   "current_equity": 100008.67,
+   "current_exposure": 0.666667,
    "current_positions": {
     "AAPL": {
      "entry_date": "2026-10-14",
-     "last_price": 342.37,
-     "qty": 31.4947,
-     "value": 10782.85,
-     "weight": 0.109373
+     "last_price": 350.69,
+     "qty": 31.1998,
+     "value": 10941.46,
+     "weight": 0.109405
     },
     "GOOGL": {
      "entry_date": "2026-10-14",
-     "last_price": 284.78,
-     "qty": 31.0707,
-     "value": 8848.33,
-     "weight": 0.089751
+     "last_price": 288.15,
+     "qty": 30.7798,
+     "value": 8869.2,
+     "weight": 0.088684
     },
     "JPM": {
      "entry_date": null,
-     "last_price": 334.49,
-     "qty": 48.9903,
-     "value": 16386.77,
-     "weight": 0.166215
+     "last_price": 342.08,
+     "qty": 48.7258,
+     "value": 16668.11,
+     "weight": 0.166667
     },
     "META": {
      "entry_date": null,
-     "last_price": 610.15,
-     "qty": 14.6452,
-     "value": 8935.78,
-     "weight": 0.090638
+     "last_price": 641.37,
+     "qty": 14.5081,
+     "value": 9305.05,
+     "weight": 0.093042
     },
     "MSFT": {
      "entry_date": "2026-10-14",
-     "last_price": 530.61,
-     "qty": 20.2392,
-     "value": 10739.1,
-     "weight": 0.108929
+     "last_price": 545.18,
+     "qty": 20.0496,
+     "value": 10930.66,
+     "weight": 0.109297
     },
     "XOM": {
      "entry_date": "2026-10-14",
-     "last_price": 165.87,
-     "qty": 61.0216,
-     "value": 10121.65,
-     "weight": 0.102666
+     "last_price": 164.73,
+     "qty": 60.4502,
+     "value": 9957.96,
+     "weight": 0.099571
     }
    },
    "description": "Equal-weight composite: 50% V236G (gated V236, v2 accounting) + 50% mom_n5_k5_abs_c21 (v1 accounting) as drifting sub-accounts, rebalanced to 50/50 at the first session close of each ISO week; 5 bps/side charged on the weekly rebalance turnover (sleeve-internal costs already inside each sleeve's multipliers)",
@@ -516,6 +520,11 @@
      "date": "2026-11-06",
      "equity": 98588.01,
      "exposure": 0.667571
+    },
+    {
+     "date": "2026-11-09",
+     "equity": 100008.67,
+     "exposure": 0.666667
     }
    ],
    "family": "composite_5050",
@@ -527,28 +536,28 @@
     "w_a": 0.5,
     "w_b": 0.5
    },
-   "return_to_date": -0.01412,
+   "return_to_date": 8.7e-05,
    "sleeve_capital": {
-    "V236G": 0.498644,
-    "mom5": 0.501356
+    "V236G": 0.5,
+    "mom5": 0.5
    },
    "sleeve_entry_stats": {
-    "blocked_candidates": 171,
-    "blocked_entry_days": 66,
+    "blocked_candidates": 175,
+    "blocked_entry_days": 67,
     "entries": 86,
     "exits": 85
    },
    "sleeve_gate_diag": {
     "credit_inoperative_weeks": 12,
-    "evals": 162,
+    "evals": 163,
     "g1_close_events": 10,
     "g1_open_events": 9,
-    "g2_stress_weeks": 11,
+    "g2_stress_weeks": 12,
     "g3_below_weeks": 12,
-    "suppressed_sessions": 183
+    "suppressed_sessions": 184
    },
    "source": "lab3/adaptive (blend family) \u2014 pre-registered 2026-10-18 (forward9): static equal-weight blend of the two sleeves the 25y evidence ranks highest (adaptive_report.json table1)",
-   "trade_count": 10,
+   "trade_count": 12,
    "trades": [
     {
      "action": "sell",
@@ -649,34 +658,54 @@
      "qty": 0.014028,
      "reason": "composite_weekly_rebalance",
      "symbol": "SLEEVE:MOM5"
+    },
+    {
+     "action": "sell",
+     "cost": 0.24,
+     "date": "2026-11-09",
+     "notional": 472.43,
+     "price": 1.0,
+     "qty": 0.004724,
+     "reason": "composite_weekly_rebalance",
+     "symbol": "SLEEVE:MOM5"
+    },
+    {
+     "action": "buy",
+     "cost": 0.24,
+     "date": "2026-11-09",
+     "notional": 472.43,
+     "price": 1.0,
+     "qty": 0.004724,
+     "reason": "composite_weekly_rebalance",
+     "symbol": "SLEEVE:V236G"
     }
    ]
   },
   "V228_meanrev_vol_n1_k2_y10_sel3": {
-   "as_of_date": "2026-11-06",
-   "avg_exposure": 0.793104,
-   "current_equity": 109769.43,
+   "as_of_date": "2026-11-09",
+   "avg_exposure": 0.8,
+   "current_equity": 115884.28,
    "current_exposure": 1.0,
    "current_positions": {
     "AMD": {
      "entry_date": "2026-11-02",
-     "last_price": 449.04,
-     "qty": 81.4845,
-     "value": 36589.81,
+     "last_price": 508.58,
+     "qty": 75.9528,
+     "value": 38628.09,
      "weight": 0.333333
     },
     "GOOGL": {
      "entry_date": "2026-10-30",
-     "last_price": 284.78,
-     "qty": 128.4845,
-     "value": 36589.81,
+     "last_price": 288.15,
+     "qty": 134.0555,
+     "value": 38628.09,
      "weight": 0.333333
     },
     "JPM": {
      "entry_date": null,
-     "last_price": 334.49,
-     "qty": 109.3899,
-     "value": 36589.81,
+     "last_price": 342.08,
+     "qty": 112.9212,
+     "value": 38628.09,
      "weight": 0.333333
     }
    },
@@ -826,6 +855,11 @@
      "date": "2026-11-06",
      "equity": 109769.43,
      "exposure": 1.0
+    },
+    {
+     "date": "2026-11-09",
+     "equity": 115884.28,
+     "exposure": 1.0
     }
    ],
    "family": "meanrev_vol",
@@ -836,7 +870,7 @@
     "y": 10.0,
     "z_exit": 5.0
    },
-   "return_to_date": 0.097694,
+   "return_to_date": 0.158843,
    "source": "v2 lab2 (V228)",
    "trade_count": 6,
    "trades": [
@@ -891,23 +925,23 @@
    ]
   },
   "V236G_meanrev_vol_n3_k1p5_y10_sel3_G1G2G3": {
-   "as_of_date": "2026-11-06",
-   "avg_exposure": 0.597701,
-   "current_equity": 104635.01,
+   "as_of_date": "2026-11-09",
+   "avg_exposure": 0.588889,
+   "current_equity": 105426.44,
    "current_exposure": 0.333333,
    "current_positions": {
     "JPM": {
      "entry_date": null,
-     "last_price": 334.49,
-     "qty": 104.2732,
-     "value": 34878.34,
+     "last_price": 342.08,
+     "qty": 102.7308,
+     "value": 35142.15,
      "weight": 0.333333
     }
    },
    "description": "V236 (worst 3d performers when 3d return <= -1.5*sigma20, up to 3 names, +10% TP / -5% stop) with entry-suppression gates G1G2G3 wired as one boolean mask by date: G1 VIX >p80(252d) latched until <p70; G2 HYG/LQD price ratio < mean60-2*sd60; G3 SPY < 200d SMA \u2014 all evaluated weekly on the PRIOR session's closes; suppressed days block NEW entries only (exits/TP/stops always run)",
    "entry_stats": {
-    "blocked_candidates": 171,
-    "blocked_entry_days": 66,
+    "blocked_candidates": 175,
+    "blocked_entry_days": 67,
     "entries": 86,
     "exits": 85
    },
@@ -1056,17 +1090,22 @@
      "date": "2026-11-06",
      "equity": 104635.01,
      "exposure": 0.333333
+    },
+    {
+     "date": "2026-11-09",
+     "equity": 105426.44,
+     "exposure": 0.333333
     }
    ],
    "family": "meanrev_vol_gated",
    "gate_diag": {
     "credit_inoperative_weeks": 12,
-    "evals": 162,
+    "evals": 163,
     "g1_close_events": 10,
     "g1_open_events": 9,
-    "g2_stress_weeks": 11,
+    "g2_stress_weeks": 12,
     "g3_below_weeks": 12,
-    "suppressed_sessions": 183
+    "suppressed_sessions": 184
    },
    "params": {
     "gates": "G1G2G3 (lab3/regime study.py; boolean entry mask)",
@@ -1076,7 +1115,7 @@
     "y": 10.0,
     "z_exit": 5.0
    },
-   "return_to_date": 0.04635,
+   "return_to_date": 0.054264,
    "source": "lab3/regime (V236 + G1G2G3 stack) \u2014 pre-registered 2026-10-18 (forward9): V236 is the gauntlet's only multiple-testing survivor; the regime lab's G1G2G3 stack is its agreed risk overlay",
    "trade_count": 5,
    "trades": [
@@ -1123,30 +1162,30 @@
    ]
   },
   "V236_meanrev_vol_n3_k1p5_y10_sel3": {
-   "as_of_date": "2026-11-06",
-   "avg_exposure": 0.896552,
-   "current_equity": 96332.14,
+   "as_of_date": "2026-11-09",
+   "avg_exposure": 0.9,
+   "current_equity": 99218.31,
    "current_exposure": 1.0,
    "current_positions": {
     "GOOGL": {
      "entry_date": "2026-10-23",
-     "last_price": 284.78,
-     "qty": 112.7562,
-     "value": 32110.71,
+     "last_price": 288.15,
+     "qty": 114.7762,
+     "value": 33072.77,
      "weight": 0.333333
     },
     "JPM": {
      "entry_date": null,
-     "last_price": 334.49,
-     "qty": 95.999,
-     "value": 32110.71,
+     "last_price": 342.08,
+     "qty": 96.6814,
+     "value": 33072.77,
      "weight": 0.333333
     },
     "TSLA": {
      "entry_date": "2026-11-06",
-     "last_price": 358.22,
-     "qty": 89.6396,
-     "value": 32110.71,
+     "last_price": 378.05,
+     "qty": 87.4825,
+     "value": 33072.77,
      "weight": 0.333333
     }
    },
@@ -1296,6 +1335,11 @@
      "date": "2026-11-06",
      "equity": 96332.14,
      "exposure": 1.0
+    },
+    {
+     "date": "2026-11-09",
+     "equity": 99218.31,
+     "exposure": 1.0
     }
    ],
    "family": "meanrev_vol",
@@ -1306,7 +1350,7 @@
     "y": 10.0,
     "z_exit": 5.0
    },
-   "return_to_date": -0.036679,
+   "return_to_date": -0.007817,
    "source": "v2 lab2 (V236) \u2014 pre-registered 2026-10-17: only variant passing White Reality Check p=0.009 + DSR 0.975 in the gauntlet; forward clock starts now (first ~3 weeks overlap its selection data \u2014 caveat recorded)",
    "trade_count": 13,
    "trades": [
@@ -1417,30 +1461,30 @@
    ]
   },
   "V306_killswitch_V228": {
-   "as_of_date": "2026-11-06",
-   "avg_exposure": 0.793104,
-   "current_equity": 109769.43,
+   "as_of_date": "2026-11-09",
+   "avg_exposure": 0.8,
+   "current_equity": 115884.28,
    "current_exposure": 1.0,
    "current_positions": {
     "AMD": {
      "entry_date": "2026-11-02",
-     "last_price": 449.04,
-     "qty": 81.4845,
-     "value": 36589.81,
+     "last_price": 508.58,
+     "qty": 75.9528,
+     "value": 38628.09,
      "weight": 0.333333
     },
     "GOOGL": {
      "entry_date": "2026-10-30",
-     "last_price": 284.78,
-     "qty": 128.4845,
-     "value": 36589.81,
+     "last_price": 288.15,
+     "qty": 134.0555,
+     "value": 38628.09,
      "weight": 0.333333
     },
     "JPM": {
      "entry_date": null,
-     "last_price": 334.49,
-     "qty": 109.3899,
-     "value": 36589.81,
+     "last_price": 342.08,
+     "qty": 112.9212,
+     "value": 38628.09,
      "weight": 0.333333
     }
    },
@@ -1590,6 +1634,11 @@
      "date": "2026-11-06",
      "equity": 109769.43,
      "exposure": 1.0
+    },
+    {
+     "date": "2026-11-09",
+     "equity": 115884.28,
+     "exposure": 1.0
     }
    ],
    "family": "killswitch_overlay",
@@ -1602,7 +1651,7 @@
     "cash_sessions": 20,
     "trigger_pct": -10.0
    },
-   "return_to_date": 0.097694,
+   "return_to_date": 0.158843,
    "source": "v2 lab2 (V306)",
    "trade_count": 6,
    "trades": [
@@ -1657,94 +1706,94 @@
    ]
   },
   "base_ew12": {
-   "as_of_date": "2026-11-06",
+   "as_of_date": "2026-11-09",
    "avg_exposure": 1.0,
-   "current_equity": 89646.6,
+   "current_equity": 93345.47,
    "current_exposure": 1.0,
    "current_positions": {
     "AAPL": {
      "entry_date": null,
-     "last_price": 342.37,
+     "last_price": 350.69,
      "qty": 17.5094,
-     "value": 5994.71,
-     "weight": 0.06687
+     "value": 6140.39,
+     "weight": 0.065781
     },
     "AMD": {
      "entry_date": null,
-     "last_price": 449.04,
+     "last_price": 508.58,
      "qty": 29.4593,
-     "value": 13228.42,
-     "weight": 0.147562
+     "value": 14982.43,
+     "weight": 0.160505
     },
     "AMZN": {
      "entry_date": null,
-     "last_price": 259.3,
+     "last_price": 266.93,
      "qty": 23.4997,
-     "value": 6093.46,
-     "weight": 0.067972
+     "value": 6272.76,
+     "weight": 0.067199
     },
     "AVGO": {
      "entry_date": null,
-     "last_price": 293.69,
+     "last_price": 319.48,
      "qty": 36.4365,
-     "value": 10701.03,
-     "weight": 0.119369
+     "value": 11640.73,
+     "weight": 0.124706
     },
     "GOOGL": {
      "entry_date": null,
-     "last_price": 284.78,
+     "last_price": 288.15,
      "qty": 22.6747,
-     "value": 6457.3,
-     "weight": 0.072031
+     "value": 6533.72,
+     "weight": 0.069995
     },
     "JPM": {
      "entry_date": null,
-     "last_price": 334.49,
+     "last_price": 342.08,
      "qty": 21.1606,
-     "value": 7078.02,
-     "weight": 0.078955
+     "value": 7238.63,
+     "weight": 0.077547
     },
     "LLY": {
      "entry_date": null,
-     "last_price": 1354.0,
+     "last_price": 1411.95,
      "qty": 5.6517,
-     "value": 7652.43,
-     "weight": 0.085362
+     "value": 7979.95,
+     "weight": 0.085488
     },
     "META": {
      "entry_date": null,
-     "last_price": 610.15,
+     "last_price": 641.37,
      "qty": 9.9155,
-     "value": 6049.93,
-     "weight": 0.067486
+     "value": 6359.49,
+     "weight": 0.068128
     },
     "MSFT": {
      "entry_date": null,
-     "last_price": 530.61,
+     "last_price": 545.18,
      "qty": 9.4539,
-     "value": 5016.33,
-     "weight": 0.055957
+     "value": 5154.08,
+     "weight": 0.055215
     },
     "NVDA": {
      "entry_date": null,
-     "last_price": 186.64,
+     "last_price": 178.67,
      "qty": 67.935,
-     "value": 12679.39,
-     "weight": 0.141437
+     "value": 12137.95,
+     "weight": 0.130033
     },
     "TSLA": {
      "entry_date": null,
-     "last_price": 358.22,
+     "last_price": 378.05,
      "qty": 12.0917,
-     "value": 4331.48,
-     "weight": 0.048317
+     "value": 4571.26,
+     "weight": 0.048971
     },
     "XOM": {
      "entry_date": null,
-     "last_price": 165.87,
+     "last_price": 164.73,
      "qty": 26.3103,
-     "value": 4364.1,
-     "weight": 0.048681
+     "value": 4334.1,
+     "weight": 0.046431
     }
    },
    "description": "Equal-weight buy-and-hold of the 12 non-benchmark names",
@@ -1893,106 +1942,111 @@
      "date": "2026-11-06",
      "equity": 89646.6,
      "exposure": 1.0
+    },
+    {
+     "date": "2026-11-09",
+     "equity": 93345.47,
+     "exposure": 1.0
     }
    ],
    "family": "baseline",
    "params": {
     "assets": "EW-12"
    },
-   "return_to_date": -0.103534,
+   "return_to_date": -0.066545,
    "source": "v1 lab",
    "trade_count": 0,
    "trades": []
   },
   "don_p10_s8": {
-   "as_of_date": "2026-11-06",
+   "as_of_date": "2026-11-09",
    "avg_exposure": 1.0,
-   "current_equity": 90001.84,
+   "current_equity": 94294.26,
    "current_exposure": 1.0,
    "current_positions": {
     "AAPL": {
      "entry_date": null,
-     "last_price": 342.37,
+     "last_price": 350.69,
      "qty": 22.1317,
-     "value": 7577.25,
-     "weight": 0.08419
+     "value": 7761.38,
+     "weight": 0.08231
     },
     "AMD": {
      "entry_date": null,
-     "last_price": 449.04,
+     "last_price": 508.58,
      "qty": 41.9039,
-     "value": 18816.53,
-     "weight": 0.209068
+     "value": 21311.48,
+     "weight": 0.22601
     },
     "AMZN": {
      "entry_date": null,
-     "last_price": 259.3,
+     "last_price": 266.93,
      "qty": 22.2951,
-     "value": 5781.12,
-     "weight": 0.064233
+     "value": 5951.23,
+     "weight": 0.063113
     },
     "AVGO": {
      "entry_date": null,
-     "last_price": 293.69,
+     "last_price": 319.48,
      "qty": 20.2758,
-     "value": 5954.81,
-     "weight": 0.066163
+     "value": 6477.73,
+     "weight": 0.068697
     },
     "GOOGL": {
      "entry_date": null,
-     "last_price": 284.78,
+     "last_price": 288.15,
      "qty": 29.54,
-     "value": 8412.39,
-     "weight": 0.093469
+     "value": 8511.94,
+     "weight": 0.09027
     },
     "JPM": {
      "entry_date": null,
-     "last_price": 334.49,
+     "last_price": 342.08,
      "qty": 17.9176,
-     "value": 5993.26,
-     "weight": 0.06659
+     "value": 6129.26,
+     "weight": 0.065001
     },
     "LLY": {
      "entry_date": null,
-     "last_price": 1354.0,
+     "last_price": 1411.95,
      "qty": 6.3165,
-     "value": 8552.58,
-     "weight": 0.095027
+     "value": 8918.63,
+     "weight": 0.094583
     },
     "META": {
      "entry_date": null,
-     "last_price": 610.15,
+     "last_price": 641.37,
      "qty": 7.1834,
-     "value": 4382.94,
-     "weight": 0.048698
+     "value": 4607.2,
+     "weight": 0.04886
     },
     "MSFT": {
      "entry_date": null,
-     "last_price": 530.61,
+     "last_price": 545.18,
      "qty": 10.4923,
-     "value": 5567.32,
-     "weight": 0.061858
+     "value": 5720.19,
+     "weight": 0.060663
     },
     "NVDA": {
      "entry_date": null,
-     "last_price": 186.64,
+     "last_price": 178.67,
      "qty": 36.2696,
-     "value": 6769.36,
-     "weight": 0.075214
+     "value": 6480.29,
+     "weight": 0.068724
     },
     "TSLA": {
      "entry_date": null,
-     "last_price": 358.22,
+     "last_price": 378.05,
      "qty": 14.1064,
-     "value": 5053.18,
-     "weight": 0.056145
+     "value": 5332.91,
+     "weight": 0.056556
     },
     "XOM": {
      "entry_date": null,
-     "last_price": 165.87,
+     "last_price": 164.73,
      "qty": 43.0524,
-     "value": 7141.1,
-     "weight": 0.079344
+     "value": 7092.02,
+     "weight": 0.075212
     }
    },
    "description": "Donchian: buy within 10% of 63d high, -8% stop (v1 conventions)",
@@ -2141,6 +2195,11 @@
      "date": "2026-11-06",
      "equity": 90001.84,
      "exposure": 1.0
+    },
+    {
+     "date": "2026-11-09",
+     "equity": 94294.26,
+     "exposure": 1.0
     }
    ],
    "family": "donchian",
@@ -2149,50 +2208,50 @@
     "stop": 8,
     "window": 63
    },
-   "return_to_date": -0.099982,
+   "return_to_date": -0.057057,
    "source": "v1 lab",
    "trade_count": 0,
    "trades": []
   },
   "mom_n21_k5_abs_c1": {
-   "as_of_date": "2026-11-06",
-   "avg_exposure": 0.986207,
-   "current_equity": 92279.64,
+   "as_of_date": "2026-11-09",
+   "avg_exposure": 0.986667,
+   "current_equity": 94297.9,
    "current_exposure": 1.0,
    "current_positions": {
     "AAPL": {
      "entry_date": "2026-11-05",
-     "last_price": 342.37,
-     "qty": 53.9064,
-     "value": 18455.93,
+     "last_price": 350.69,
+     "qty": 53.7785,
+     "value": 18859.58,
+     "weight": 0.2
+    },
+    "AMZN": {
+     "entry_date": "2026-11-09",
+     "last_price": 266.93,
+     "qty": 70.6537,
+     "value": 18859.58,
      "weight": 0.2
     },
     "JPM": {
      "entry_date": "2026-11-06",
-     "last_price": 334.49,
-     "qty": 55.1763,
-     "value": 18455.93,
+     "last_price": 342.08,
+     "qty": 55.1321,
+     "value": 18859.58,
      "weight": 0.2
     },
     "LLY": {
      "entry_date": "2026-11-06",
-     "last_price": 1354.0,
-     "qty": 13.6307,
-     "value": 18455.93,
+     "last_price": 1411.95,
+     "qty": 13.3571,
+     "value": 18859.58,
      "weight": 0.2
     },
     "MSFT": {
      "entry_date": "2026-11-06",
-     "last_price": 530.61,
-     "qty": 34.7825,
-     "value": 18455.93,
-     "weight": 0.2
-    },
-    "XOM": {
-     "entry_date": "2026-11-06",
-     "last_price": 165.87,
-     "qty": 111.2674,
-     "value": 18455.93,
+     "last_price": 545.18,
+     "qty": 34.5933,
+     "value": 18859.58,
      "weight": 0.2
     }
    },
@@ -2342,6 +2401,11 @@
      "date": "2026-11-06",
      "equity": 92279.64,
      "exposure": 1.0
+    },
+    {
+     "date": "2026-11-09",
+     "equity": 94297.9,
+     "exposure": 1.0
     }
    ],
    "family": "xs-momentum",
@@ -2351,9 +2415,9 @@
     "k": 5,
     "n": 21
    },
-   "return_to_date": -0.077204,
+   "return_to_date": -0.057021,
    "source": "v1 lab",
-   "trade_count": 174,
+   "trade_count": 180,
    "trades": [
     {
      "action": "buy",
@@ -3746,49 +3810,97 @@
      "qty": 111.2898,
      "reason": "momo_buy",
      "symbol": "XOM"
+    },
+    {
+     "action": "sell",
+     "date": "2026-11-09",
+     "price": 350.69,
+     "qty": 0.1171,
+     "reason": "momo_rebalance",
+     "symbol": "AAPL"
+    },
+    {
+     "action": "buy",
+     "date": "2026-11-09",
+     "price": 266.93,
+     "qty": 70.6678,
+     "reason": "momo_buy",
+     "symbol": "AMZN"
+    },
+    {
+     "action": "sell",
+     "date": "2026-11-09",
+     "price": 342.08,
+     "qty": 0.0332,
+     "reason": "momo_rebalance",
+     "symbol": "JPM"
+    },
+    {
+     "action": "sell",
+     "date": "2026-11-09",
+     "price": 1411.95,
+     "qty": 0.2709,
+     "reason": "momo_rebalance",
+     "symbol": "LLY"
+    },
+    {
+     "action": "sell",
+     "date": "2026-11-09",
+     "price": 545.18,
+     "qty": 0.1822,
+     "reason": "momo_rebalance",
+     "symbol": "MSFT"
+    },
+    {
+     "action": "sell",
+     "date": "2026-11-09",
+     "price": 164.73,
+     "qty": 111.2674,
+     "reason": "momo_sell",
+     "symbol": "XOM"
     }
    ]
   },
   "mom_n5_k5_abs_c21": {
-   "as_of_date": "2026-11-06",
+   "as_of_date": "2026-11-09",
    "avg_exposure": 1.0,
-   "current_equity": 92768.73,
+   "current_equity": 94738.09,
    "current_exposure": 1.0,
    "current_positions": {
     "AAPL": {
      "entry_date": "2026-10-14",
-     "last_price": 342.37,
+     "last_price": 350.69,
      "qty": 59.1111,
-     "value": 20237.87,
-     "weight": 0.218154
+     "value": 20729.67,
+     "weight": 0.21881
     },
     "GOOGL": {
      "entry_date": "2026-10-14",
-     "last_price": 284.78,
+     "last_price": 288.15,
      "qty": 58.3153,
-     "value": 16607.04,
-     "weight": 0.179016
+     "value": 16803.56,
+     "weight": 0.177369
     },
     "META": {
      "entry_date": null,
-     "last_price": 610.15,
+     "last_price": 641.37,
      "qty": 27.487,
-     "value": 16771.18,
-     "weight": 0.180785
+     "value": 17629.32,
+     "weight": 0.186085
     },
     "MSFT": {
      "entry_date": "2026-10-14",
-     "last_price": 530.61,
+     "last_price": 545.18,
      "qty": 37.986,
-     "value": 20155.75,
-     "weight": 0.217269
+     "value": 20709.2,
+     "weight": 0.218594
     },
     "XOM": {
      "entry_date": "2026-10-14",
-     "last_price": 165.87,
+     "last_price": 164.73,
      "qty": 114.5288,
-     "value": 18996.89,
-     "weight": 0.204777
+     "value": 18866.33,
+     "weight": 0.199142
     }
    },
    "description": "XS momentum: top-5 by 5d return, abs filter (cash when n-day return <= 0), rebalance every 21d",
@@ -3937,6 +4049,11 @@
      "date": "2026-11-06",
      "equity": 92768.73,
      "exposure": 1.0
+    },
+    {
+     "date": "2026-11-09",
+     "equity": 94738.09,
+     "exposure": 1.0
     }
    ],
    "family": "xs-momentum",
@@ -3946,7 +4063,7 @@
     "k": 5,
     "n": 5
    },
-   "return_to_date": -0.072313,
+   "return_to_date": -0.052619,
    "source": "v1 lab",
    "trade_count": 6,
    "trades": [
