@@ -1,0 +1,9 @@
+{
+  "payload": {
+    "missing_steps": [],
+    "text": "All expected steps completed today (debate, decide, execute, score).\nDD gate: AMZN=pass, MSFT=pass, DIS=pass_with_caution.\nENTRY MSFT x18 (~$9767.43, momentum: RS +7.76 pts vs SPY, 3.04% below 52w high).\nENTRY SPG x42 (~$9629.76, momentum: RS +4.17 pts vs SPY, 4.02% below 52w high).\nSKIP_BUY: DIS risk headline: How to Play DIS Stock as Disney Eyes 20% Cost Cuts and Thousands of Layoffs - Barchart.com.\nBook: equity $98374.8 (cash $48573.49, 5 positions).\nExecute (live): in sync.\nForward OOS: SPY -1.69%; V228_meanrev_vol_n1_k2_y10_sel3 +15.88%; V306_killswitch_V228 +15.88%; base_ew12 -6.54%; don_p10_s8 -2.61%; mom_n21_k5_abs_c1 -5.70%; mom_n5_k5_abs_c21 +0.49%.\nControl clone: $97103.8 (-2.90% since anchor)."
+  },
+  "run_date": "2026-11-09",
+  "step": "digest",
+  "written_utc": "2026-11-09T22:30:25Z"
+}
