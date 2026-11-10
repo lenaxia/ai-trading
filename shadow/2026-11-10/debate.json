@@ -1,0 +1,38 @@
+{
+  "payload": {
+    "candidates": [
+      "MMM",
+      "AAPL",
+      "BLK"
+    ],
+    "date": "2026-11-10",
+    "generated_utc": "2026-11-10T14:45:07.710418+00:00",
+    "note": "veto-only: LLM may remove candidates, never add",
+    "verdicts": [
+      {
+        "error": null,
+        "rating": "hold",
+        "symbol": "MMM",
+        "thesis_excerpt": "**Bull (affirm):** MMM's tape is genuinely strong \u2014 RS +7.15 pts over SPY and only 4.5% off the 52-week high indicates the market is looking past the litigation discount and repricing the post-Solventum industrial core. The Amazon distribution deal headline, if substantiated, gives 3M's consumer segment a modern channel catalyst it has lacked. Portfolio fit is also favorable: the book is heavily c",
+        "verdict": "pass_with_caution"
+      },
+      {
+        "error": null,
+        "rating": "review",
+        "symbol": "AAPL",
+        "thesis_excerpt": "**Bull:** AAPL is demonstrating textbook momentum leadership \u2014 +6.39 points of relative strength vs. SPY while sitting just 1.34% off its 52-week high after a historic close above $350 and a $5T market cap. Regaining the world's-most-valuable-company crown from Nvidia signals broad institutional conviction, not niche AI enthusiasm. The services flywheel, fortress balance sheet, and relentless buyb",
+        "verdict": "abstain"
+      },
+      {
+        "error": null,
+        "rating": "overweight",
+        "symbol": "BLK",
+        "thesis_excerpt": "**Bull:** BLK's +5.44-point RS spread vs. SPY with only 2.15% to its 52-week high is textbook momentum confirmation, and the drivers look durable: structural ETF inflows, the GIP/private-markets expansion, and the AI data-center financing push (the Microsoft/MGX infrastructure vehicle) give it a credible growth leg beyond fee-based AUM. The portfolio currently holds zero financials, so BLK adds ge",
+        "verdict": "pass"
+      }
+    ]
+  },
+  "run_date": "2026-11-10",
+  "step": "debate",
+  "written_utc": "2026-11-10T14:46:35Z"
+}
