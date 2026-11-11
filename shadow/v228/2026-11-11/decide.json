@@ -10,8 +10,8 @@
     "entries": [],
     "exits": [],
     "gate_log": [],
-    "market_open": true,
-    "now_utc": "2026-11-11T19:19:38.386578+00:00",
+    "market_open": false,
+    "now_utc": "2026-11-11T22:04:05.340508+00:00",
     "ok": true,
     "prices": {},
     "strategy": "v228",
@@ -20,5 +20,5 @@
   },
   "run_date": "2026-11-11",
   "step": "decide",
-  "written_utc": "2026-11-11T19:19:48Z"
+  "written_utc": "2026-11-11T22:04:09Z"
 }
