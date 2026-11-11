@@ -1,0 +1,11 @@
+{
+  "payload": {
+    "missing_steps": [
+      "execute"
+    ],
+    "text": "WATCHDOG: missing steps today: execute.\nDD gate: COST=pass_with_caution, TMO=pass_with_caution.\nENTRY COST x9 (~$9727.88, momentum: RS +4.77 pts vs SPY, 1.45% below 52w high).\nENTRY TMO x13 (~$9362.78, momentum: RS +3.47 pts vs SPY, 1.02% below 52w high).\nSKIP_BUY: DE max 2 trades/day reached.\nBook: equity $99203.06 (cash $9553.97, 9 positions).\nForward OOS: SPY -0.76%; V228_meanrev_vol_n1_k2_y10_sel3 +17.23%; V306_killswitch_V228 +17.23%; base_ew12 -4.45%; don_p10_s8 -1.30%; mom_n21_k5_abs_c1 -5.93%; mom_n5_k5_abs_c21 +1.63%.\nControl clone: $97589.06 (-2.41% since anchor)."
+  },
+  "run_date": "2026-11-11",
+  "step": "digest",
+  "written_utc": "2026-11-11T22:30:32Z"
+}
