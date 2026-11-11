@@ -1,0 +1,30 @@
+{
+  "payload": {
+    "candidates": [
+      "COST",
+      "TMO"
+    ],
+    "date": "2026-11-11",
+    "generated_utc": "2026-11-11T14:45:07.741918+00:00",
+    "note": "veto-only: LLM may remove candidates, never add",
+    "verdicts": [
+      {
+        "error": null,
+        "rating": "hold",
+        "symbol": "COST",
+        "thesis_excerpt": "**Bull case:** COST's tape is confirming the fundamentals \u2014 relative strength of +4.91 pts vs SPY and sitting just 1.24% off the 52-week high shows institutional accumulation, not a blow-off. The $30/share special dividend (~$13B) is a statement of balance-sheet strength, not a distress signal: management is returning excess cash without touching growth capex. Underneath the headline noise is one ",
+        "verdict": "pass_with_caution"
+      },
+      {
+        "error": null,
+        "rating": "hold",
+        "symbol": "TMO",
+        "thesis_excerpt": "**Bull case:** TMO is a best-in-class life-science tools compounder with recurring consumables revenue, and the tape confirms it \u2014 relative strength of +3.41 pts vs SPY and a close just 1.02% off the 52-week high after a +3.9% session signals institutional accumulation, not distribution. Breakouts from long consolidations in high-quality names tend to extend, and TMO adds a tools/diagnostics angle",
+        "verdict": "pass_with_caution"
+      }
+    ]
+  },
+  "run_date": "2026-11-11",
+  "step": "debate",
+  "written_utc": "2026-11-11T14:46:15Z"
+}
