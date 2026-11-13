@@ -1,0 +1,24 @@
+{
+  "payload": {
+    "account": {
+      "cash": 100000.0,
+      "equity": 100000.0,
+      "positions_held": 0
+    },
+    "date": "2026-11-13",
+    "debate_fallback": true,
+    "entries": [],
+    "exits": [],
+    "gate_log": [],
+    "market_open": true,
+    "now_utc": "2026-11-13T13:46:09.574835+00:00",
+    "ok": true,
+    "prices": {},
+    "strategy": "v228",
+    "trades_today_before": 0,
+    "vetoes": []
+  },
+  "run_date": "2026-11-13",
+  "step": "decide",
+  "written_utc": "2026-11-13T13:46:14Z"
+}
