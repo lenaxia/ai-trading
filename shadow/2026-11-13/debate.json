@@ -1,0 +1,12 @@
+{
+  "payload": {
+    "candidates": [],
+    "date": "2026-11-13",
+    "generated_utc": "2026-11-13T14:45:08.518312+00:00",
+    "note": "veto-only: LLM may remove candidates, never add",
+    "verdicts": []
+  },
+  "run_date": "2026-11-13",
+  "step": "debate",
+  "written_utc": "2026-11-13T14:45:24Z"
+}
