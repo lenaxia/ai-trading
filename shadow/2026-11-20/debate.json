@@ -1,0 +1,38 @@
+{
+  "payload": {
+    "candidates": [
+      "TGT",
+      "DIS",
+      "DUK"
+    ],
+    "date": "2026-11-20",
+    "generated_utc": "2026-11-20T14:45:09.526528+00:00",
+    "note": "veto-only: LLM may remove candidates, never add",
+    "verdicts": [
+      {
+        "error": null,
+        "rating": "hold",
+        "symbol": "TGT",
+        "thesis_excerpt": "**Bull (entry advocate):** TGT is a textbook momentum leader \u2014 +10.99 points of relative strength vs. SPY and sitting just 0.93% off its 52-week high, meaning it's outperforming without an extended, blown-off chart. The move is fundamentally confirmed, not just narrative: Q3 sales up 7.1%, a clean earnings beat, and raised guidance into the holiday quarter. The company is executing a traffic-throu",
+        "verdict": "pass_with_caution"
+      },
+      {
+        "error": null,
+        "rating": "hold",
+        "symbol": "DIS",
+        "thesis_excerpt": "**Bull (panelist A):** DIS screens well on the momentum factor \u2014 +7.27 pts of relative strength vs SPY and sitting just 1.90% off its 52-week high means the market is confirming the fundamental story rather than fading it. The Q4 earnings beat validates the turnaround thesis: streaming has inflected toward profitability, parks demand remains resilient, and the 33% dividend hike signals management ",
+        "verdict": "pass_with_caution"
+      },
+      {
+        "error": null,
+        "rating": "hold",
+        "symbol": "DUK",
+        "thesis_excerpt": "**Bull case:** DUK offers the portfolio its only utility exposure, diversifying a book that's already heavy in healthcare and consumer names. The technicals confirm the fundamental story: +6.45 points of relative strength vs. SPY and only 3.15% below the 52-week high is a stock in a confirmed uptrend, not a falling knife. Duke's regulated rate base in the Carolinas and Midwest is a direct benefici",
+        "verdict": "pass_with_caution"
+      }
+    ]
+  },
+  "run_date": "2026-11-20",
+  "step": "debate",
+  "written_utc": "2026-11-20T14:46:23Z"
+}
