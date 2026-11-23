@@ -1,0 +1,12 @@
+{
+  "payload": {
+    "missing_steps": [
+      "decide",
+      "execute"
+    ],
+    "text": "WATCHDOG: missing steps today: decide, execute.\nDD gate: TGT=abstain.\nForward OOS: SPY -5.66%; V228_meanrev_vol_n1_k2_y10_sel3 +11.90%; V306_killswitch_V228 +11.90%; base_ew12 -11.44%; don_p10_s8 -7.25%; mom_n21_k5_abs_c1 -12.63%; mom_n5_k5_abs_c21 -7.69%.\nControl clone: $93265.61 (-6.73% since anchor)."
+  },
+  "run_date": "2026-11-23",
+  "step": "digest",
+  "written_utc": "2026-11-23T22:30:31Z"
+}
