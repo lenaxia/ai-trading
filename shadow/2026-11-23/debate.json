@@ -1,0 +1,22 @@
+{
+  "payload": {
+    "candidates": [
+      "TGT"
+    ],
+    "date": "2026-11-23",
+    "generated_utc": "2026-11-23T14:45:09.872202+00:00",
+    "note": "veto-only: LLM may remove candidates, never add",
+    "verdicts": [
+      {
+        "error": "HTTP Error 429: Too Many Requests",
+        "rating": null,
+        "symbol": "TGT",
+        "thesis_excerpt": "",
+        "verdict": "abstain"
+      }
+    ]
+  },
+  "run_date": "2026-11-23",
+  "step": "debate",
+  "written_utc": "2026-11-23T14:45:28Z"
+}
