@@ -1,0 +1,38 @@
+{
+  "payload": {
+    "candidates": [
+      "TGT",
+      "DIS",
+      "WMT"
+    ],
+    "date": "2026-11-24",
+    "generated_utc": "2026-11-24T14:45:10.473246+00:00",
+    "note": "veto-only: LLM may remove candidates, never add",
+    "verdicts": [
+      {
+        "error": "HTTP Error 429: Too Many Requests",
+        "rating": null,
+        "symbol": "TGT",
+        "thesis_excerpt": "",
+        "verdict": "abstain"
+      },
+      {
+        "error": "HTTP Error 429: Too Many Requests",
+        "rating": null,
+        "symbol": "DIS",
+        "thesis_excerpt": "",
+        "verdict": "abstain"
+      },
+      {
+        "error": "HTTP Error 429: Too Many Requests",
+        "rating": null,
+        "symbol": "WMT",
+        "thesis_excerpt": "",
+        "verdict": "abstain"
+      }
+    ]
+  },
+  "run_date": "2026-11-24",
+  "step": "debate",
+  "written_utc": "2026-11-24T14:45:33Z"
+}
