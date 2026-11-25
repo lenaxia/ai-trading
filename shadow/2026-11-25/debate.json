@@ -1,0 +1,38 @@
+{
+  "payload": {
+    "candidates": [
+      "AMGN",
+      "ABBV",
+      "PGR"
+    ],
+    "date": "2026-11-25",
+    "generated_utc": "2026-11-25T14:45:10.305056+00:00",
+    "note": "veto-only: LLM may remove candidates, never add",
+    "verdicts": [
+      {
+        "error": null,
+        "rating": "hold",
+        "symbol": "AMGN",
+        "thesis_excerpt": "**Bull (opening statement):** AMGN has genuine momentum \u2014 up ~46% year-to-date, RS +9.49 vs SPY, and sitting only ~4% off its 52-week high, which signals institutional accumulation rather than a dead-cat bounce. The Bristol/Opdivo patent settlement secures a 2028 biosimilar launch, extending revenue durability. Its obesity asset MariTide offers a credible third-player option in the GLP-1 market at",
+        "verdict": "pass_with_caution"
+      },
+      {
+        "error": null,
+        "rating": "overweight",
+        "symbol": "ABBV",
+        "thesis_excerpt": "**Bull round:** ABBV is showing genuine leadership, not a dead-cat bounce \u2014 +9.01 pts of relative strength vs. SPY while sitting just 1.60% off its 52-week high. The RINVOQ LQ approval extends the Skyrizi/Rinvoq immunology ramp that is replacing Humira revenue faster than guided, and the 5.2% dividend hike marks the latest in an unbroken streak of increases since the 2013 spinoff (~3.3\u20133.5% yield)",
+        "verdict": "pass"
+      },
+      {
+        "error": null,
+        "rating": "hold",
+        "symbol": "PGR",
+        "thesis_excerpt": "**Bull:** Progressive is arguably the best operator in personal-lines insurance, with a decades-long record of underpricing risk better than peers, best-in-class combined ratios, and disciplined advertising spend that keeps taking share in a fragmented market. The technical picture confirms the fundamentals: relative strength of nearly +9 points vs. SPY, sitting 1.35% off its 52-week high, with a ",
+        "verdict": "pass_with_caution"
+      }
+    ]
+  },
+  "run_date": "2026-11-25",
+  "step": "debate",
+  "written_utc": "2026-11-25T14:46:43Z"
+}
