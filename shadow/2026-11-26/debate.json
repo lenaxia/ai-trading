@@ -1,0 +1,38 @@
+{
+  "payload": {
+    "candidates": [
+      "AMGN",
+      "MMM",
+      "PGR"
+    ],
+    "date": "2026-11-26",
+    "generated_utc": "2026-11-26T14:45:10.524157+00:00",
+    "note": "veto-only: LLM may remove candidates, never add",
+    "verdicts": [
+      {
+        "error": null,
+        "rating": "hold",
+        "symbol": "AMGN",
+        "thesis_excerpt": "**Bull case:** AMGN enters with genuine tailwinds \u2014 Q3 beat with raised guidance, relative strength of +7.56 pts vs SPY, and headlines flagging a discount to fair value, which is unusual for a name this close to its 52-week high. The valuation anchor exists even if the screen is momentum-based: AMGN historically trades at a mid-teens forward multiple with a ~3% yield, and MariTide (obesity) offers",
+        "verdict": "pass_with_caution"
+      },
+      {
+        "error": null,
+        "rating": "hold",
+        "symbol": "MMM",
+        "thesis_excerpt": "**Bull (panelist 1):** MMM has genuine momentum \u2014 RS +6.70 vs SPY and only 3.72% below the 52-week high signal institutional accumulation, not a dead-cat bounce. The worst fears are being priced out: the $5.8B PFAS water settlement converts an unbounded liability into a scheduled cash outflow, and the Solventum spinoff has left a leaner, more focused industrial. New CEO Bill Brown is executing rea",
+        "verdict": "pass_with_caution"
+      },
+      {
+        "error": null,
+        "rating": "buy",
+        "symbol": "PGR",
+        "thesis_excerpt": "**Bull case:** Progressive is arguably the best personal-lines underwriter in the U.S., with a decades-long record of data-driven segmentation, telematics leadership (Snapshot/Snapshot Pro), and industry-leading policy-in-force growth. The recent rate cycle expanded margins while Progressive still grew share \u2014 a rare combination. Technically it sits ~1% below its 52-week high with an RS advantage ",
+        "verdict": "pass"
+      }
+    ]
+  },
+  "run_date": "2026-11-26",
+  "step": "debate",
+  "written_utc": "2026-11-26T14:46:38Z"
+}
