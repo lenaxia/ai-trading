@@ -1,0 +1,38 @@
+{
+  "payload": {
+    "candidates": [
+      "AMGN",
+      "MMM",
+      "V"
+    ],
+    "date": "2026-11-27",
+    "generated_utc": "2026-11-27T14:45:26.729162+00:00",
+    "note": "veto-only: LLM may remove candidates, never add",
+    "verdicts": [
+      {
+        "error": null,
+        "rating": "hold",
+        "symbol": "AMGN",
+        "thesis_excerpt": "**Bull case:** The momentum signal is legitimate \u2014 +6.81 points of relative strength vs. SPY and only 2.33% below the 52-week high reflects sustained institutional buying, not a one-day pop. Headlines point to a genuine valuation case: forward P/E in the low-to-mid teens versus high-teens for pharma peers, a ~3% growing dividend, and a catalyst-rich pipeline (MariTide obesity program in phase 3, I",
+        "verdict": "pass_with_caution"
+      },
+      {
+        "error": null,
+        "rating": "hold",
+        "symbol": "MMM",
+        "thesis_excerpt": "**Bull case:** MMM's momentum is the real deal \u2014 RS +6.54 vs. SPY and an 8.5-year high on the $7.35B PFAS water-systems settlement suggests the market is finally pricing out the litigation discount. With Solventum spun off, a leaner industrial core, new product cycles (cooling film), a reliable dividend, and constructive analyst sentiment, this could be the early innings of a multi-year re-rating.",
+        "verdict": "pass_with_caution"
+      },
+      {
+        "error": null,
+        "rating": "overweight",
+        "symbol": "V",
+        "thesis_excerpt": "**Bull (keep V):** Visa is the archetypal wide-moat compounder: ~65% operating margins, unmatched network effects, and consistent capital return via buybacks. The screen signal is clean \u2014 RS +5.02 pts vs SPY while consolidating just 3.7% off the 52-week high is a textbook base-on-base setup, not a parabolic chase. The catalyst is real: the swipe-fee cap delay removes the most acute regulatory over",
+        "verdict": "pass"
+      }
+    ]
+  },
+  "run_date": "2026-11-27",
+  "step": "debate",
+  "written_utc": "2026-11-27T14:47:31Z"
+}
